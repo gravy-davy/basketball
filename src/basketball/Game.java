@@ -3,7 +3,7 @@ package basketball;
 
 import java.util.Random;
 
-// TO ADD: catch and shoot, drive pass, modifiers :)
+// TO ADD: catch and shoot, drive pass, modifiers and we're done :)
 public class Game {
     
     private Team team1;
@@ -57,36 +57,19 @@ public class Game {
             }while(playIniter.equals(prevPasser));
              
             
-            if(null != prevPasser && offTeam.getSquad().contains(prevPasser)){
+            if(null != prevPasser && offTeam.getSquad().contains(prevPasser) && isCatchingAndShooting(playIniter)){
                 // pickTheStartingPlayFtCatchAndShoot BUT this one uses catch and shoot
                 // or use isCatchingAndShooting()
-                // if so, then they will take a shot right here
+                // if so, then they will take a shot right here. need a great pass modifier.
                 // if it goes in, great
                 // if not, rebound scenario. but basically might have to put the code below into an else block.
-            }
-            
-            String startingPlay = pickTheStartingPlay(playIniter);
-            
-            if(startingPlay.equalsIgnoreCase("Pass")){
-                prevPasser = playIniter;
-                continue;
-            }
-            
-            String drivingPlay = pickTheDrivingPlay(playIniter);
-            int indexOfPlayIniter = getIndexOfPlayIniter(offTeam, playIniter);
-            Player defender = defTeam.getSquad().get(indexOfPlayIniter);
-            
-            // added to the shot result
-            int driveResult = getDriveResult(playIniter, defender, drivingPlay);
-            
-            // drive shoot or drive pass
-            String driveFinish = pickTheDriveFinish(playIniter);
-            
-            
-            int shotResult = 0;
-            
-            if(driveFinish.equalsIgnoreCase("Drive shoot")){
+                
+                int indexOfPlayIniter = getIndexOfPlayIniter(offTeam, playIniter);
+                Player defender = defTeam.getSquad().get(indexOfPlayIniter);
+                
                 String shotType = pickTheTypeOfShot(playIniter);
+                int shotResult = 0;
+                
                 if(shotType.equalsIgnoreCase("Close range")){
                     // interior defender now
                     defender = getInteriorDefender(defTeam);
@@ -94,8 +77,11 @@ public class Game {
                 }else{
                     shotResult = getShotResult(playIniter, defender, shotType);
                 }
-                
-                shotResult+= driveResult;
+
+                shotResult+= playIniter.getCatchAndShootModifier();
+                if(wasGoodPass){
+                    shotResult+= 10;
+                }
                 
                 if(shotType.equalsIgnoreCase("Three point range")){
                     if(shotResult>30){
@@ -124,11 +110,89 @@ public class Game {
                         isReboundScenario = true;
                     }
                 }
-                
             }else{
-                // pass to someone else and make it a good pass if it passes a threshold
-                // this will use a continue
+                String startingPlay = pickTheStartingPlay(playIniter);
+            
+                if(startingPlay.equalsIgnoreCase("Pass")){
+                    prevPasser = playIniter;
+                    // standing hockey pass, doesn't use drive modifier
+                    if(r.nextInt(playIniter.getPassingSkill())>=20){
+                        wasGoodPass = true; // only if this is true does prevpasser get an assist
+                    }
+                    continue;
+                }
+
+                String drivingPlay = pickTheDrivingPlay(playIniter);
+                int indexOfPlayIniter = getIndexOfPlayIniter(offTeam, playIniter);
+                Player defender = defTeam.getSquad().get(indexOfPlayIniter);
+
+                // added to the shot result
+                int driveResult = getDriveResult(playIniter, defender, drivingPlay);
+
+                // drive shoot or drive pass
+                String driveFinish = pickTheDriveFinish(playIniter);
+
+
+                int shotResult = 0;
+
+                if(driveFinish.equalsIgnoreCase("Drive shoot")){
+                    String shotType = pickTheTypeOfShot(playIniter);
+                    if(shotType.equalsIgnoreCase("Close range")){
+                        // interior defender now
+                        defender = getInteriorDefender(defTeam);
+                        shotResult = getShotResult(playIniter, defender, shotType);
+                    }else{
+                        shotResult = getShotResult(playIniter, defender, shotType);
+                    }
+
+                    shotResult+= driveResult;
+                    shotResult+= playIniter.getDriveShootModifier();
+
+                    if(shotType.equalsIgnoreCase("Three point range")){
+                        if(shotResult>30){
+                            offTeam.setGameScore(offTeam.getGameScore()+3);
+                            playIniter.setThreePointersMade(playIniter.getThreePointersMade()+1);
+                            playIniter.setThreePointersAttempted(playIniter.getThreePointersAttempted()+1);
+                            playIniter.setFgMade(playIniter.getFgMade()+1);
+                            playIniter.setFgAttempted(playIniter.getFgAttempted()+1);
+                            isReboundScenario = false;
+                        }else{
+                            playIniter.setThreePointersAttempted(playIniter.getThreePointersAttempted()+1);
+                            playIniter.setFgAttempted(playIniter.getFgAttempted()+1);
+                            // REBOUND ************
+                            isReboundScenario = true;
+                        }
+                    }else{
+                        if(shotResult>20){
+                            offTeam.setGameScore(offTeam.getGameScore()+2);
+                            playIniter.setFgMade(playIniter.getFgMade()+1);
+                            playIniter.setFgAttempted(playIniter.getFgAttempted()+1);
+                            // switch pos
+                            isReboundScenario = false;
+                        }else{
+                            playIniter.setFgAttempted(playIniter.getFgAttempted()+1);
+                            // REBOUND ************
+                            isReboundScenario = true;
+                        }
+                    }
+
+                }else{
+                    // pass to someone else and make it a good pass if it passes a threshold
+                    // this will use a continue
+                    prevPasser = playIniter;
+                    int passScore = r.nextInt(playIniter.getPassingSkill());
+                    passScore += driveResult;
+                    
+                    if(passScore>=20){
+                        wasGoodPass = true;
+                    }else{
+                        wasGoodPass = false;
+                    }
+                    continue;
+                }
             }
+            
+            
             
             
             if(isReboundScenario){
@@ -148,6 +212,7 @@ public class Game {
                     defReber.setRebounds(defReber.getRebounds()+1);
                     defReber.setDefRebounds(defReber.getDefRebounds()+1);
                     prevPasser = null;
+                    wasGoodPass = false;
                 }else{
                     offReber.setRebounds(offReber.getRebounds()+1);
                     offReber.setOffRebounds(offReber.getOffRebounds()+1);
@@ -159,6 +224,7 @@ public class Game {
                     pos = 1;
                 }
                 prevPasser = null;
+                wasGoodPass = false;
             }
             secondsPassed += r.nextInt(24 - 12 + 1) + 12;
             
@@ -170,8 +236,12 @@ public class Game {
             // do the drive finale. the chance of success is impacted by the drive result value. just have a method that calculates driveResult.
             
             
+            if(secondsPassed >= 720){
+                quarter++;
+                secondsPassed = 0;
+            }
             
-        }while(secondsPassed<720);
+        }while(quarter<5);
         
         
     }

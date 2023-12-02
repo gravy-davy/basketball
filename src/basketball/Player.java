@@ -53,8 +53,8 @@ public class Player {
     private int passingSkill;   // adds shot bonus potentially + prevent steals
     private int driveSkill;     // uses dribbling or speed or power too
     
-    private int catchAndShootModifier; // reduction/addition to shot after catching the ball
-    private int driveShootModifier; // reduction/addition to shot after driving the ball
+    private int catchAndShootModifier; // reduction/addition to shot after catching the ball. -10 to +10
+    private int driveShootModifier; // reduction/addition to shot after driving the ball. -10 to +10
     
     private int drivePassModifier;
     
