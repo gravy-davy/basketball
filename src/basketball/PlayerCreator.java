@@ -65,17 +65,17 @@ public class PlayerCreator {
         
         // forwards
         forwardWeight+= p.getCloseSkill();
-        forwardWeight+= p.getMidShotSkill() / 2;
-        forwardWeight+= p.getThreeShotSkill();
+        forwardWeight+= p.getMidShotSkill();
+        forwardWeight+= p.getThreeShotSkill() / 2;
         forwardWeight+= p.getPassingSkill() / 2;
         forwardWeight+= p.getDriveSkill();
         
-        forwardWeight+= p.getStrengthSkill() / 2;
+        forwardWeight+= p.getStrengthSkill();
         forwardWeight+= p.getSpeedSkill() / 2;
         forwardWeight+= p.getDribblingSkill() / 2;
         
-        forwardWeight+= p.getPerimeterDefSkill() / 2;
-        forwardWeight+= p.getInteriorDefSkill() / 2;
+        forwardWeight+= p.getPerimeterDefSkill();
+        forwardWeight+= p.getInteriorDefSkill();
         forwardWeight+= p.getDefRebounding() / 2;
         forwardWeight+= p.getOffRebounding() / 2;
         
@@ -249,6 +249,17 @@ public class PlayerCreator {
             default:
                 return r.nextInt(99 - 70 + 1) + 70;
         }
+    }
+    
+    // FOR TESTING
+    public Player generatePlayerByPosition(String position) {
+        Player player;
+        do {
+            player = createRandomPlayer();
+            System.out.println("desired pos = " + position + " - this guy's pos = " + player.getPosition());
+        } while (!player.getPosition().equalsIgnoreCase(position));
+
+        return player;
     }
     
 }

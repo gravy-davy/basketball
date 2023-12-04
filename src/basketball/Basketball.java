@@ -14,16 +14,30 @@ public class Basketball {
         PlayerCreator pc = new PlayerCreator();
         
         Team t1 = new Team();
-        for(int k=0;k<5;k++){
-            Player p = pc.createRandomPlayer();
-            t1.getSquad().add(p);
-        }
+        Player t1PG = pc.generatePlayerByPosition("PG");
+        Player t1SG = pc.generatePlayerByPosition("SG");
+        Player t1SF = pc.generatePlayerByPosition("SF");
+        Player t1PF = pc.generatePlayerByPosition("PF");
+        Player t1C = pc.generatePlayerByPosition("C");
+        
+        t1.getSquad().add(t1PG);
+        t1.getSquad().add(t1SG);
+        t1.getSquad().add(t1SF);
+        t1.getSquad().add(t1PF);
+        t1.getSquad().add(t1C);
         
         Team t2 = new Team();
-        for(int k=0;k<5;k++){
-            Player p = pc.createRandomPlayer();
-            t2.getSquad().add(p);
-        }
+        Player t2PG = pc.generatePlayerByPosition("PG");
+        Player t2SG = pc.generatePlayerByPosition("SG");
+        Player t2SF = pc.generatePlayerByPosition("SF");
+        Player t2PF = pc.generatePlayerByPosition("PF");
+        Player t2C = pc.generatePlayerByPosition("C");
+        
+        t2.getSquad().add(t2PG);
+        t2.getSquad().add(t2SG);
+        t2.getSquad().add(t2SF);
+        t2.getSquad().add(t2PF);
+        t2.getSquad().add(t2C);
         
         Game game = new Game(t1,t2);
         game.simGame();
@@ -35,6 +49,8 @@ public class Basketball {
         for(Player p : t1.getSquad()){
             p.printPlayerStats();
         }
+        
+        System.out.println("\n\n\n");
         
         for(Player p : t2.getSquad()){
             p.printPlayerStats();

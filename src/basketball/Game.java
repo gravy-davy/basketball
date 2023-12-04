@@ -90,6 +90,8 @@ public class Game {
                         playIniter.setThreePointersAttempted(playIniter.getThreePointersAttempted()+1);
                         playIniter.setFgMade(playIniter.getFgMade()+1);
                         playIniter.setFgAttempted(playIniter.getFgAttempted()+1);
+                        playIniter.setPoints(playIniter.getPoints()+3);
+                        prevPasser.setAssists(prevPasser.getAssists()+1);
                         isReboundScenario = false;
                     }else{
                         playIniter.setThreePointersAttempted(playIniter.getThreePointersAttempted()+1);
@@ -102,6 +104,8 @@ public class Game {
                         offTeam.setGameScore(offTeam.getGameScore()+2);
                         playIniter.setFgMade(playIniter.getFgMade()+1);
                         playIniter.setFgAttempted(playIniter.getFgAttempted()+1);
+                        playIniter.setPoints(playIniter.getPoints()+2);
+                        prevPasser.setAssists(prevPasser.getAssists()+1);
                         // switch pos
                         isReboundScenario = false;
                     }else{
@@ -145,8 +149,11 @@ public class Game {
                         shotResult = getShotResult(playIniter, defender, shotType);
                     }
 
+                    System.out.println("shot result BEFORE drive: " + shotResult);
                     shotResult+= driveResult;
+                    System.out.println("shot result AFTER drive: " + shotResult);
                     shotResult+= playIniter.getDriveShootModifier();
+                    System.out.println("shot result AFTER drive MODIFIER: " + shotResult);
 
                     if(shotType.equalsIgnoreCase("Three point range")){
                         if(shotResult>30){
@@ -155,6 +162,7 @@ public class Game {
                             playIniter.setThreePointersAttempted(playIniter.getThreePointersAttempted()+1);
                             playIniter.setFgMade(playIniter.getFgMade()+1);
                             playIniter.setFgAttempted(playIniter.getFgAttempted()+1);
+                            playIniter.setPoints(playIniter.getPoints()+3);
                             isReboundScenario = false;
                         }else{
                             playIniter.setThreePointersAttempted(playIniter.getThreePointersAttempted()+1);
@@ -167,6 +175,7 @@ public class Game {
                             offTeam.setGameScore(offTeam.getGameScore()+2);
                             playIniter.setFgMade(playIniter.getFgMade()+1);
                             playIniter.setFgAttempted(playIniter.getFgAttempted()+1);
+                            playIniter.setPoints(playIniter.getPoints()+2);
                             // switch pos
                             isReboundScenario = false;
                         }else{
@@ -316,7 +325,6 @@ public class Game {
         
         int shotScore = 0;
         int defScore = 0;
-        int diff = 0;
         
         if(typeOfShot.equalsIgnoreCase("Close range")){
             shotScore += r.nextInt(shooter.getCloseSkill());
@@ -332,6 +340,7 @@ public class Game {
             defScore += r.nextInt(defender.getPerimeterDefSkill());
         }
         
+        int diff = shotScore - defScore;
         return diff;
     }
     
