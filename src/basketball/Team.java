@@ -11,6 +11,12 @@ public class Team {
     
     private int gameScore;
 
+    public Team() {
+        roster = new ArrayList<>();
+        squad = new ArrayList<>();
+        gameScore = 0;
+    }
+
     public ArrayList<Player> getRoster() {
         return roster;
     }

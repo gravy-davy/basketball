@@ -53,11 +53,6 @@ public class Player {
     private int passingSkill;   // adds shot bonus potentially + prevent steals
     private int driveSkill;     // uses dribbling or speed or power too
     
-    private int catchAndShootModifier; // reduction/addition to shot after catching the ball. -10 to +10
-    private int driveShootModifier; // reduction/addition to shot after driving the ball. -10 to +10
-    
-    private int drivePassModifier;
-    
     private int strengthSkill; // used in conjunction with drive skill for power drives
     private int speedSkill; // used in conjunction with drive skill for speed drives
     private int dribblingSkill; // prevent ball from being stolen + used in conjunction with drive skill for dribble drives
@@ -69,6 +64,10 @@ public class Player {
     private int blockingSkill; // cool way to keep track of how well a player is doing on def. nullifies having to use interiorDefSkill
     private int defRebounding;
     private int offRebounding;
+    
+    private int catchAndShootModifier; // reduction/addition to shot after catching the ball. -10 to +10
+    private int driveShootModifier; // reduction/addition to shot after driving the ball. -10 to +10
+    private int drivePassModifier;
     
     // these are for in-game stats. need to reset them after every game.
     private int fgMade;
@@ -96,6 +95,18 @@ public class Player {
     private int totalBlocks;
     private int totalAssists;
     private int totalGamesPlayed;
+
+    public void printPlayerStats() {
+        System.out.print("Field Goals Made: " + fgMade + " - ");
+        System.out.print("Field Goals Attempted: " + fgAttempted + " - ");
+        System.out.print("Three-Pointers Made: " + threePointersMade + " - ");
+        System.out.print("Three-Pointers Attempted: " + threePointersAttempted + " - ");
+        System.out.print("Defensive Rebounds: " + defRebounds + " - ");
+        System.out.print("Offensive Rebounds: " + offRebounds + " - ");
+        System.out.print("Total Rebounds: " + rebounds + " - ");
+        System.out.print("Points: " + points + " - ");
+        System.out.println("Assists: " + assists);
+    }
 
     public String getName() {
         return name;
