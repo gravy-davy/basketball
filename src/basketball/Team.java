@@ -6,14 +6,15 @@ import java.util.ArrayList;
 
 public class Team {
     
-    private ArrayList<Player> roster;
-    private ArrayList<Player> squad; // dudes in the game right now.
+    private ArrayList<Player> roster; // everyone not in the bench or game squad
+    private Player[] squad; // dudes in the game right now.
+    private ArrayList<Player> bench;
     
     private int gameScore;
 
     public Team() {
         roster = new ArrayList<>();
-        squad = new ArrayList<>();
+        squad = new Player[5];
         gameScore = 0;
     }
 
@@ -25,11 +26,11 @@ public class Team {
         this.roster = roster;
     }
 
-    public ArrayList<Player> getSquad() {
+    public Player[] getSquad() {
         return squad;
     }
 
-    public void setSquad(ArrayList<Player> squad) {
+    public void setSquad(Player[] squad) {
         this.squad = squad;
     }
 
@@ -40,7 +41,13 @@ public class Team {
     public void setGameScore(int gameScore) {
         this.gameScore = gameScore;
     }
-    
-    
+
+    public ArrayList<Player> getBench() {
+        return bench;
+    }
+
+    public void setBench(ArrayList<Player> bench) {
+        this.bench = bench;
+    }
     
 }

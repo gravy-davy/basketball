@@ -57,7 +57,8 @@ public class Game {
             }while(playIniter.equals(prevPasser));
              
             
-            if(null != prevPasser && offTeam.getSquad().contains(prevPasser) && isCatchingAndShooting(playIniter)){
+            boolean exists = containsObject(offTeam.getSquad(), prevPasser);
+            if(null != prevPasser && exists && isCatchingAndShooting(playIniter)){
                 // pickTheStartingPlayFtCatchAndShoot BUT this one uses catch and shoot
                 // or use isCatchingAndShooting()
                 // if so, then they will take a shot right here. need a great pass modifier.
@@ -65,7 +66,7 @@ public class Game {
                 // if not, rebound scenario. but basically might have to put the code below into an else block.
                 
                 int indexOfPlayIniter = getIndexOfPlayIniter(offTeam, playIniter);
-                Player defender = defTeam.getSquad().get(indexOfPlayIniter);
+                Player defender = defTeam.getSquad()[indexOfPlayIniter];
                 
                 String shotType = pickTheTypeOfShot(playIniter);
                 int shotResult = 0;
@@ -128,7 +129,7 @@ public class Game {
 
                 String drivingPlay = pickTheDrivingPlay(playIniter);
                 int indexOfPlayIniter = getIndexOfPlayIniter(offTeam, playIniter);
-                Player defender = defTeam.getSquad().get(indexOfPlayIniter);
+                Player defender = defTeam.getSquad()[indexOfPlayIniter];
 
                 // added to the shot result
                 int driveResult = getDriveResult(playIniter, defender, drivingPlay);
@@ -270,7 +271,7 @@ public class Game {
             currIndex++;
         }
         
-        return team.getSquad().get(maxIndex);
+        return team.getSquad()[maxIndex];
     }
     
     private Player getDefRebounder(Team team){
@@ -288,22 +289,22 @@ public class Game {
             currIndex++;
         }
         
-        return team.getSquad().get(maxIndex);
+        return team.getSquad()[maxIndex];
     }
     
     private Player getInteriorDefender(Team t){
         Random r = new Random();
         int seed = r.nextInt(100);
         if(seed>=70){
-            return t.getSquad().get(4);
+            return t.getSquad()[4];
         }else if(seed>=40){
-            return t.getSquad().get(3);
+            return t.getSquad()[3];
         }else if(seed>=25){
-            return t.getSquad().get(2);
+            return t.getSquad()[2];
         }else if(seed>10){
-            return t.getSquad().get(1);
+            return t.getSquad()[1];
         }else{
-            return t.getSquad().get(0);
+            return t.getSquad()[0];
         }
     }
     
@@ -393,7 +394,7 @@ public class Game {
             currIndex++;
         }
         
-        return team.getSquad().get(maxIndex);
+        return team.getSquad()[maxIndex];
     }
     
     // gen up to their tendies to see what they're doing.
@@ -464,5 +465,14 @@ public class Game {
         return false;
     }
     
+    private <T> boolean containsObject(T[] array, T target) {
+        for (T element : array) {
+            // Use equals for object comparison
+            if (element != null && element.equals(target)) {
+                return true;
+            }
+        }
+        return false;
+    }
     
 }

@@ -20,11 +20,11 @@ public class Basketball {
         Player t1PF = pc.generatePlayerByPosition("PF");
         Player t1C = pc.generatePlayerByPosition("C");
         
-        t1.getSquad().add(t1PG);
-        t1.getSquad().add(t1SG);
-        t1.getSquad().add(t1SF);
-        t1.getSquad().add(t1PF);
-        t1.getSquad().add(t1C);
+        t1.getSquad()[0] = t1PG;
+        t1.getSquad()[1] = t1SG;
+        t1.getSquad()[2] = t1SF;
+        t1.getSquad()[3] = t1PF;
+        t1.getSquad()[4] = t1C;
         
         Team t2 = new Team();
         Player t2PG = pc.generatePlayerByPosition("PG");
@@ -33,11 +33,11 @@ public class Basketball {
         Player t2PF = pc.generatePlayerByPosition("PF");
         Player t2C = pc.generatePlayerByPosition("C");
         
-        t2.getSquad().add(t2PG);
-        t2.getSquad().add(t2SG);
-        t2.getSquad().add(t2SF);
-        t2.getSquad().add(t2PF);
-        t2.getSquad().add(t2C);
+        t2.getSquad()[0] = t2PG;
+        t2.getSquad()[1] = t2SG;
+        t2.getSquad()[2] = t2SF;
+        t2.getSquad()[3] = t2PF;
+        t2.getSquad()[4] = t2C;
         
         Game game = new Game(t1,t2);
         game.simGame();
