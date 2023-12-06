@@ -37,6 +37,7 @@ public class PlayerCreator {
         p.setAge(r.nextInt(35 - 18 + 1) + 18);
     }
     
+    // actually just calculate an overall for each position ***************************************************************
     private void genPositionBasedOnStats(Player p){
         // given a player's stats, give them a relevant position
         // PG/SG either OR PF/C random 0 or 1. Else sf.

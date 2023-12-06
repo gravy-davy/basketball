@@ -8,13 +8,14 @@ public class Team {
     
     private ArrayList<Player> roster; // everyone not in the bench or game squad
     private Player[] squad; // dudes in the game right now.
-    private ArrayList<Player> bench;
+    private Player[] bench;
     
     private int gameScore;
 
     public Team() {
         roster = new ArrayList<>();
         squad = new Player[5];
+        bench = new Player[5];
         gameScore = 0;
     }
 
@@ -42,12 +43,14 @@ public class Team {
         this.gameScore = gameScore;
     }
 
-    public ArrayList<Player> getBench() {
+    public Player[] getBench() {
         return bench;
     }
 
-    public void setBench(ArrayList<Player> bench) {
+    public void setBench(Player[] bench) {
         this.bench = bench;
     }
+
+    
     
 }
