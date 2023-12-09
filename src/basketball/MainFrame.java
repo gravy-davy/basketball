@@ -29,6 +29,12 @@ public class MainFrame extends javax.swing.JFrame {
         playerTeam.getRoster().add(pc.generatePlayerByPosition("PG"));
         playerTeam.getRoster().add(pc.generatePlayerByPosition("SF"));
         playerTeam.getRoster().add(pc.generatePlayerByPosition("PG"));
+        playerTeam.getRoster().add(pc.generatePlayerByPosition("PG"));
+        playerTeam.getRoster().add(pc.generatePlayerByPosition("SG"));
+        playerTeam.getRoster().add(pc.generatePlayerByPosition("C"));
+        playerTeam.getRoster().add(pc.generatePlayerByPosition("PF"));
+        playerTeam.getRoster().add(pc.generatePlayerByPosition("C"));
+        playerTeam.getRoster().add(pc.generatePlayerByPosition("SF"));
         viewRosterPageNumber = 0;
     }
 
@@ -77,9 +83,34 @@ public class MainFrame extends javax.swing.JFrame {
         jButton16 = new javax.swing.JButton();
         jButton17 = new javax.swing.JButton();
         jButton18 = new javax.swing.JButton();
+        jButton20 = new javax.swing.JButton();
+        jButton21 = new javax.swing.JButton();
+        jButton22 = new javax.swing.JButton();
+        jButton23 = new javax.swing.JButton();
+        jButton24 = new javax.swing.JButton();
+        jButton25 = new javax.swing.JButton();
+        jButton26 = new javax.swing.JButton();
+        jButton27 = new javax.swing.JButton();
+        jButton28 = new javax.swing.JButton();
+        jButton29 = new javax.swing.JButton();
+        jButton30 = new javax.swing.JButton();
+        jButton31 = new javax.swing.JButton();
+        jButton32 = new javax.swing.JButton();
+        jButton33 = new javax.swing.JButton();
+        jButton34 = new javax.swing.JButton();
+        jButton35 = new javax.swing.JButton();
+        jButton36 = new javax.swing.JButton();
+        jButton37 = new javax.swing.JButton();
+        jButton38 = new javax.swing.JButton();
+        jButton39 = new javax.swing.JButton();
+        playerDetailsPanel = new javax.swing.JPanel();
+        jButton40 = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
+
+        mainPanel.setPreferredSize(new java.awt.Dimension(955, 581));
 
         jButton19.setText("View roster");
         jButton19.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +126,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addGap(353, 353, 353)
                 .addComponent(jButton19)
-                .addContainerGap(510, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,6 +171,11 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel15.setText("jLabel1");
 
         jButton1.setText("Add to subs");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Add to starters");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -158,6 +194,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jButton5.setText("Add to subs");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Details");
 
@@ -169,6 +210,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jButton8.setText("Add to subs");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jButton9.setText("Details");
 
@@ -180,6 +226,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jButton11.setText("Add to subs");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
 
         jButton12.setText("Details");
 
@@ -191,19 +242,187 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jButton14.setText("Add to subs");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
 
         jButton15.setText("Details");
 
         jButton16.setText("Next page");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
 
         jButton17.setText("Prev page");
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
 
         jButton18.setText("Main menu");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
+
+        jButton20.setText("X");
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
+
+        jButton21.setText("Details");
+        jButton21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton21ActionPerformed(evt);
+            }
+        });
+
+        jButton22.setText("X");
+        jButton22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton22ActionPerformed(evt);
+            }
+        });
+
+        jButton23.setText("Details");
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
+
+        jButton24.setText("X");
+        jButton24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton24ActionPerformed(evt);
+            }
+        });
+
+        jButton25.setText("Details");
+        jButton25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton25ActionPerformed(evt);
+            }
+        });
+
+        jButton26.setText("X");
+        jButton26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton26ActionPerformed(evt);
+            }
+        });
+
+        jButton27.setText("Details");
+        jButton27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton27ActionPerformed(evt);
+            }
+        });
+
+        jButton28.setText("X");
+        jButton28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton28ActionPerformed(evt);
+            }
+        });
+
+        jButton29.setText("Details");
+        jButton29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton29ActionPerformed(evt);
+            }
+        });
+
+        jButton30.setText("X");
+        jButton30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton30ActionPerformed(evt);
+            }
+        });
+
+        jButton31.setText("Details");
+        jButton31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton31ActionPerformed(evt);
+            }
+        });
+
+        jButton32.setText("X");
+        jButton32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton32ActionPerformed(evt);
+            }
+        });
+
+        jButton33.setText("Details");
+        jButton33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton33ActionPerformed(evt);
+            }
+        });
+
+        jButton34.setText("X");
+        jButton34.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton34ActionPerformed(evt);
+            }
+        });
+
+        jButton35.setText("Details");
+        jButton35.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton35ActionPerformed(evt);
+            }
+        });
+
+        jButton36.setText("X");
+        jButton36.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton36ActionPerformed(evt);
+            }
+        });
+
+        jButton37.setText("Details");
+        jButton37.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton37ActionPerformed(evt);
+            }
+        });
+
+        jButton38.setText("X");
+        jButton38.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton38ActionPerformed(evt);
+            }
+        });
+
+        jButton39.setText("Details");
+        jButton39.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton39ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout viewPlayersPanelLayout = new javax.swing.GroupLayout(viewPlayersPanel);
         viewPlayersPanel.setLayout(viewPlayersPanelLayout);
         viewPlayersPanelLayout.setHorizontalGroup(
             viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewPlayersPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton17)
+                .addGap(10, 10, 10)
+                .addComponent(jButton18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton16)
+                .addGap(65, 65, 65))
             .addGroup(viewPlayersPanelLayout.createSequentialGroup()
                 .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(viewPlayersPanelLayout.createSequentialGroup()
@@ -242,27 +461,72 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGap(46, 46, 46)
                         .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(viewPlayersPanelLayout.createSequentialGroup()
-                                .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(viewPlayersPanelLayout.createSequentialGroup()
+                                        .addComponent(jButton38)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jButton39)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(viewPlayersPanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(viewPlayersPanelLayout.createSequentialGroup()
+                                                .addComponent(jButton22)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jButton23)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(viewPlayersPanelLayout.createSequentialGroup()
+                                                .addComponent(jButton24)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jButton25)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(viewPlayersPanelLayout.createSequentialGroup()
+                                                .addComponent(jButton26)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jButton27)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(viewPlayersPanelLayout.createSequentialGroup()
+                                                .addComponent(jButton28)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jButton29))
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(viewPlayersPanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(viewPlayersPanelLayout.createSequentialGroup()
+                                                .addComponent(jButton36)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jButton37)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(viewPlayersPanelLayout.createSequentialGroup()
+                                                .addComponent(jButton34)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jButton35)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(viewPlayersPanelLayout.createSequentialGroup()
+                                                .addComponent(jButton32)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jButton33)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(viewPlayersPanelLayout.createSequentialGroup()
+                                                .addComponent(jButton30)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jButton31))
+                                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(viewPlayersPanelLayout.createSequentialGroup()
                                 .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(viewPlayersPanelLayout.createSequentialGroup()
@@ -284,35 +548,61 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addGap(62, 62, 62)
                                 .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton13))))))
-                .addContainerGap(81, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewPlayersPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton17)
-                .addGap(10, 10, 10)
-                .addComponent(jButton18)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton16)
-                .addGap(65, 65, 65))
+                                    .addComponent(jButton13)))))
+                    .addGroup(viewPlayersPanelLayout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jButton20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton21)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         viewPlayersPanelLayout.setVerticalGroup(
             viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(viewPlayersPanelLayout.createSequentialGroup()
-                .addGap(108, 108, 108)
+                .addGap(65, 65, 65)
+                .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton20)
+                    .addComponent(jButton21)
+                    .addComponent(jButton22)
+                    .addComponent(jButton23)
+                    .addComponent(jButton24)
+                    .addComponent(jButton25)
+                    .addComponent(jButton26)
+                    .addComponent(jButton27)
+                    .addComponent(jButton28)
+                    .addComponent(jButton29))
+                .addGap(18, 18, 18)
                 .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(83, 83, 83)
+                .addGap(40, 40, 40)
+                .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton38)
+                        .addComponent(jButton39))
+                    .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton36)
+                        .addComponent(jButton37))
+                    .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton34)
+                        .addComponent(jButton35))
+                    .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton32)
+                        .addComponent(jButton33))
+                    .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton30)
+                        .addComponent(jButton31)))
+                .addGap(18, 18, 18)
                 .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, viewPlayersPanelLayout.createSequentialGroup()
                         .addGroup(viewPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -357,6 +647,43 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(viewPlayersPanel, "card3");
+
+        playerDetailsPanel.setPreferredSize(new java.awt.Dimension(955, 581));
+
+        jButton40.setText("Return");
+        jButton40.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton40ActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setText("jLabel16");
+
+        javax.swing.GroupLayout playerDetailsPanelLayout = new javax.swing.GroupLayout(playerDetailsPanel);
+        playerDetailsPanel.setLayout(playerDetailsPanelLayout);
+        playerDetailsPanelLayout.setHorizontalGroup(
+            playerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, playerDetailsPanelLayout.createSequentialGroup()
+                .addGap(147, 147, 147)
+                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton40)
+                .addGap(265, 265, 265))
+        );
+        playerDetailsPanelLayout.setVerticalGroup(
+            playerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(playerDetailsPanelLayout.createSequentialGroup()
+                .addGroup(playerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(playerDetailsPanelLayout.createSequentialGroup()
+                        .addGap(273, 273, 273)
+                        .addComponent(jButton40))
+                    .addGroup(playerDetailsPanelLayout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(playerDetailsPanel, "card4");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -416,6 +743,238 @@ public class MainFrame extends javax.swing.JFrame {
         switchToAnotherPanel(viewPlayersPanel, viewPlayersPanel);
     }//GEN-LAST:event_jButton13ActionPerformed
 
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        Player p = playerTeam.getSquad()[0];
+        addPlayerToRoster(p);
+        playerTeam.getSquad()[0] = null;
+        
+        setupViewRosterPanel();
+        switchToAnotherPanel(viewPlayersPanel, viewPlayersPanel);
+    }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+        Player p = playerTeam.getSquad()[1];
+        addPlayerToRoster(p);
+        playerTeam.getSquad()[1] = null;
+        
+        setupViewRosterPanel();
+        switchToAnotherPanel(viewPlayersPanel, viewPlayersPanel);
+    }//GEN-LAST:event_jButton22ActionPerformed
+
+    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+        Player p = playerTeam.getSquad()[2];
+        addPlayerToRoster(p);
+        playerTeam.getSquad()[2] = null;
+        
+        setupViewRosterPanel();
+        switchToAnotherPanel(viewPlayersPanel, viewPlayersPanel);
+    }//GEN-LAST:event_jButton24ActionPerformed
+
+    private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
+        Player p = playerTeam.getSquad()[3];
+        addPlayerToRoster(p);
+        playerTeam.getSquad()[3] = null;
+        
+        setupViewRosterPanel();
+        switchToAnotherPanel(viewPlayersPanel, viewPlayersPanel);
+    }//GEN-LAST:event_jButton26ActionPerformed
+
+    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
+        Player p = playerTeam.getSquad()[4];
+        addPlayerToRoster(p);
+        playerTeam.getSquad()[4] = null;
+        
+        setupViewRosterPanel();
+        switchToAnotherPanel(viewPlayersPanel, viewPlayersPanel);
+    }//GEN-LAST:event_jButton28ActionPerformed
+
+    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+        Player p = playerTeam.getSquad()[0];
+        setupPlayerDetailsPanel(p);
+        switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton21ActionPerformed
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        Player p = playerTeam.getSquad()[1];
+        setupPlayerDetailsPanel(p);
+        switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton23ActionPerformed
+
+    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+        Player p = playerTeam.getSquad()[2];
+        setupPlayerDetailsPanel(p);
+        switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton25ActionPerformed
+
+    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+        Player p = playerTeam.getSquad()[3];
+        setupPlayerDetailsPanel(p);
+        switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton27ActionPerformed
+
+    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
+        Player p = playerTeam.getSquad()[4];
+        setupPlayerDetailsPanel(p);
+        switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton29ActionPerformed
+
+    private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed
+        switchToAnotherPanel(playerDetailsPanel, viewPlayersPanel);
+    }//GEN-LAST:event_jButton40ActionPerformed
+
+    private void jButton39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton39ActionPerformed
+        Player p = playerTeam.getBench()[0];
+        setupPlayerDetailsPanel(p);
+        switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton39ActionPerformed
+
+    private void jButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton37ActionPerformed
+        Player p = playerTeam.getBench()[1];
+        setupPlayerDetailsPanel(p);
+        switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton37ActionPerformed
+
+    private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
+        Player p = playerTeam.getBench()[2];
+        setupPlayerDetailsPanel(p);
+        switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton35ActionPerformed
+
+    private void jButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33ActionPerformed
+        Player p = playerTeam.getBench()[3];
+        setupPlayerDetailsPanel(p);
+        switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton33ActionPerformed
+
+    private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
+        Player p = playerTeam.getBench()[4];
+        setupPlayerDetailsPanel(p);
+        switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton31ActionPerformed
+
+    private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
+        Player p = playerTeam.getBench()[4];
+        addPlayerToRoster(p);
+        playerTeam.getBench()[4] = null;
+        
+        setupViewRosterPanel();
+        switchToAnotherPanel(viewPlayersPanel, viewPlayersPanel);
+    }//GEN-LAST:event_jButton30ActionPerformed
+
+    private void jButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton38ActionPerformed
+        Player p = playerTeam.getBench()[0];
+        addPlayerToRoster(p);
+        playerTeam.getBench()[0] = null;
+        
+        setupViewRosterPanel();
+        switchToAnotherPanel(viewPlayersPanel, viewPlayersPanel);
+    }//GEN-LAST:event_jButton38ActionPerformed
+
+    private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36ActionPerformed
+        Player p = playerTeam.getBench()[1];
+        addPlayerToRoster(p);
+        playerTeam.getBench()[1] = null;
+        
+        setupViewRosterPanel();
+        switchToAnotherPanel(viewPlayersPanel, viewPlayersPanel);
+    }//GEN-LAST:event_jButton36ActionPerformed
+
+    private void jButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton34ActionPerformed
+        Player p = playerTeam.getBench()[2];
+        addPlayerToRoster(p);
+        playerTeam.getBench()[2] = null;
+        
+        setupViewRosterPanel();
+        switchToAnotherPanel(viewPlayersPanel, viewPlayersPanel);
+    }//GEN-LAST:event_jButton34ActionPerformed
+
+    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
+        Player p = playerTeam.getBench()[3];
+        addPlayerToRoster(p);
+        playerTeam.getBench()[3] = null;
+        
+        setupViewRosterPanel();
+        switchToAnotherPanel(viewPlayersPanel, viewPlayersPanel);
+    }//GEN-LAST:event_jButton32ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int index = viewRosterPageNumber * 5 + 0;
+        Player p = playerTeam.getRoster().get(index);
+        
+        addPlayerToBench(p);
+        
+        setupViewRosterPanel();
+        switchToAnotherPanel(viewPlayersPanel, viewPlayersPanel);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        int index = viewRosterPageNumber * 5 + 1;
+        Player p = playerTeam.getRoster().get(index);
+        
+        addPlayerToBench(p);
+        
+        setupViewRosterPanel();
+        switchToAnotherPanel(viewPlayersPanel, viewPlayersPanel);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        int index = viewRosterPageNumber * 5 + 2;
+        Player p = playerTeam.getRoster().get(index);
+        
+        addPlayerToBench(p);
+        
+        setupViewRosterPanel();
+        switchToAnotherPanel(viewPlayersPanel, viewPlayersPanel);
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        int index = viewRosterPageNumber * 5 + 3;
+        Player p = playerTeam.getRoster().get(index);
+        
+        addPlayerToBench(p);
+        
+        setupViewRosterPanel();
+        switchToAnotherPanel(viewPlayersPanel, viewPlayersPanel);
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        int index = viewRosterPageNumber * 5 + 4;
+        Player p = playerTeam.getRoster().get(index);
+        
+        addPlayerToBench(p);
+        
+        setupViewRosterPanel();
+        switchToAnotherPanel(viewPlayersPanel, viewPlayersPanel);
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        int minForNextPage = (viewRosterPageNumber+1) * 5;
+        if(playerTeam.getRoster().size()>=minForNextPage){
+            viewRosterPageNumber++;
+            setupViewRosterPanel();
+            getContentPane().revalidate();
+            getContentPane().repaint();
+        }else{
+            JOptionPane.showMessageDialog(null, "Not enough players on your roster to see another page.");
+        }
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        if(viewRosterPageNumber!=0){
+            viewRosterPageNumber--;
+            setupViewRosterPanel();
+            getContentPane().revalidate();
+            getContentPane().repaint();
+        }else{
+            JOptionPane.showMessageDialog(null, "You are already on page 0.");
+        }
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        viewRosterPageNumber = 0;
+        switchToAnotherPanel(viewPlayersPanel, mainPanel);
+    }//GEN-LAST:event_jButton18ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -451,6 +1010,10 @@ public class MainFrame extends javax.swing.JFrame {
         });
     }
     
+    private void addPlayerToRoster(Player p){
+        playerTeam.getRoster().add(p);
+    }
+    
     private void addPlayerToStarters(Player p){
         Player starterThere;
         
@@ -484,6 +1047,44 @@ public class MainFrame extends javax.swing.JFrame {
                 playerTeam.getRoster().add(starterThere);
             }
             playerTeam.getSquad()[4] = p;
+        }
+        
+        playerTeam.getRoster().remove(p);
+    }
+    
+    private void addPlayerToBench(Player p){
+        Player playerThere;
+        
+        if(p.getPosition().equalsIgnoreCase("PG")){
+            if(playerTeam.getBench()[0] != null){
+                playerThere = playerTeam.getBench()[0];
+                playerTeam.getRoster().add(playerThere);
+            }
+            playerTeam.getBench()[0] = p;
+        }else if(p.getPosition().equalsIgnoreCase("SG")){
+            if(playerTeam.getBench()[1] != null){
+                playerThere = playerTeam.getBench()[1];
+                playerTeam.getRoster().add(playerThere);
+            }
+            playerTeam.getBench()[1] = p;
+        }else if(p.getPosition().equalsIgnoreCase("SF")){
+            if(playerTeam.getBench()[2] != null){
+                playerThere = playerTeam.getBench()[2];
+                playerTeam.getRoster().add(playerThere);
+            }
+            playerTeam.getBench()[2] = p;
+        }else if(p.getPosition().equalsIgnoreCase("PF")){
+            if(playerTeam.getBench()[3] != null){
+                playerThere = playerTeam.getBench()[3];
+                playerTeam.getRoster().add(playerThere);
+            }
+            playerTeam.getBench()[3] = p;
+        }else{
+            if(playerTeam.getBench()[4] != null){
+                playerThere = playerTeam.getBench()[4];
+                playerTeam.getRoster().add(playerThere);
+            }
+            playerTeam.getBench()[4] = p;
         }
         
         playerTeam.getRoster().remove(p);
@@ -580,36 +1181,56 @@ public class MainFrame extends javax.swing.JFrame {
         try{
             Player p = playerTeam.getSquad()[0];
             jLabel1.setText(p.getName() + " - " + p.getPosition());
+            jButton20.show();
+            jButton21.show();
         }catch(Exception e){
             jLabel1.setText("Empty");
+            jButton20.hide();
+            jButton21.hide();
         }
         
         try{
             Player p = playerTeam.getSquad()[1];
             jLabel2.setText(p.getName() + " - " + p.getPosition());
+            jButton22.show();
+            jButton23.show();
         }catch(Exception e){
             jLabel2.setText("Empty");
+            jButton22.hide();
+            jButton23.hide();
         }
         
         try{
             Player p = playerTeam.getSquad()[2];
             jLabel3.setText(p.getName() + " - " + p.getPosition());
+            jButton24.show();
+            jButton25.show();
         }catch(Exception e){
             jLabel3.setText("Empty");
+            jButton24.hide();
+            jButton25.hide();
         }
         
         try{
             Player p = playerTeam.getSquad()[3];
             jLabel4.setText(p.getName() + " - " + p.getPosition());
+            jButton26.show();
+            jButton27.show();
         }catch(Exception e){
             jLabel4.setText("Empty");
+            jButton26.hide();
+            jButton27.hide();
         }
         
         try{
             Player p = playerTeam.getSquad()[4];
             jLabel5.setText(p.getName() + " - " + p.getPosition());
+            jButton28.show();
+            jButton29.show();
         }catch(Exception e){
             jLabel5.setText("Empty");
+            jButton28.hide();
+            jButton29.hide();
         }
         
         
@@ -617,39 +1238,64 @@ public class MainFrame extends javax.swing.JFrame {
         try{
             Player p = playerTeam.getBench()[0];
             jLabel6.setText(p.getName() + " - " + p.getPosition());
+            jButton38.show();
+            jButton39.show();
         }catch(Exception e){
             jLabel6.setText("Empty");
+            jButton38.hide();
+            jButton39.hide();
         }
         
         try{
             Player p = playerTeam.getBench()[1];
             jLabel7.setText(p.getName() + " - " + p.getPosition());
+            jButton36.show();
+            jButton37.show();
         }catch(Exception e){
             jLabel7.setText("Empty");
+            jButton36.hide();
+            jButton37.hide();
         }
         
         try{
             Player p = playerTeam.getBench()[2];
             jLabel8.setText(p.getName() + " - " + p.getPosition());
+            jButton34.show();
+            jButton35.show();
         }catch(Exception e){
             jLabel8.setText("Empty");
+            jButton34.hide();
+            jButton35.hide();
         }
         
         try{
             Player p = playerTeam.getBench()[3];
             jLabel9.setText(p.getName() + " - " + p.getPosition());
+            jButton32.show();
+            jButton33.show();
         }catch(Exception e){
             jLabel9.setText("Empty");
+            jButton32.hide();
+            jButton33.hide();
         }
         
         try{
             Player p = playerTeam.getBench()[4];
             jLabel10.setText(p.getName() + " - " + p.getPosition());
+            jButton30.show();
+            jButton31.show();
         }catch(Exception e){
             jLabel10.setText("Empty");
+            jButton30.hide();
+            jButton31.hide();
         }
     }
 
+    private void setupPlayerDetailsPanel(Player p){
+        String text = "<html>Name - " + p.getName() + "<br></html>";
+        jLabel16.setText(text);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -663,8 +1309,29 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
+    private javax.swing.JButton jButton23;
+    private javax.swing.JButton jButton24;
+    private javax.swing.JButton jButton25;
+    private javax.swing.JButton jButton26;
+    private javax.swing.JButton jButton27;
+    private javax.swing.JButton jButton28;
+    private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton30;
+    private javax.swing.JButton jButton31;
+    private javax.swing.JButton jButton32;
+    private javax.swing.JButton jButton33;
+    private javax.swing.JButton jButton34;
+    private javax.swing.JButton jButton35;
+    private javax.swing.JButton jButton36;
+    private javax.swing.JButton jButton37;
+    private javax.swing.JButton jButton38;
+    private javax.swing.JButton jButton39;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton40;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -677,6 +1344,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -686,6 +1354,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel mainPanel;
+    private javax.swing.JPanel playerDetailsPanel;
     private javax.swing.JPanel viewPlayersPanel;
     // End of variables declaration//GEN-END:variables
 }
