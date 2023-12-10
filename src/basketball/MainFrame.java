@@ -185,6 +185,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jButton3.setText("Details");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Add to starters");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -201,6 +206,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jButton6.setText("Details");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setText("Add to starters");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -217,6 +227,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jButton9.setText("Details");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         jButton10.setText("Add to starters");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -233,6 +248,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jButton12.setText("Details");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
         jButton13.setText("Add to starters");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -249,6 +269,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jButton15.setText("Details");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
 
         jButton16.setText("Next page");
         jButton16.addActionListener(new java.awt.event.ActionListener() {
@@ -974,6 +999,46 @@ public class MainFrame extends javax.swing.JFrame {
         viewRosterPageNumber = 0;
         switchToAnotherPanel(viewPlayersPanel, mainPanel);
     }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        int index = viewRosterPageNumber * 5 + 0;
+        Player p = playerTeam.getRoster().get(index);
+        
+        setupPlayerDetailsPanel(p);
+        switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        int index = viewRosterPageNumber * 5 + 1;
+        Player p = playerTeam.getRoster().get(index);
+        
+        setupPlayerDetailsPanel(p);
+        switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        int index = viewRosterPageNumber * 5 + 2;
+        Player p = playerTeam.getRoster().get(index);
+        
+        setupPlayerDetailsPanel(p);
+        switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        int index = viewRosterPageNumber * 5 + 3;
+        Player p = playerTeam.getRoster().get(index);
+        
+        setupPlayerDetailsPanel(p);
+        switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        int index = viewRosterPageNumber * 5 + 4;
+        Player p = playerTeam.getRoster().get(index);
+        
+        setupPlayerDetailsPanel(p);
+        switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton15ActionPerformed
 
     /**
      * @param args the command line arguments

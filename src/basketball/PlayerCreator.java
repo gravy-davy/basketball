@@ -1,17 +1,53 @@
 
 package basketball;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
 
 public class PlayerCreator {
+
+    private static ArrayList<String> firstNames;
+    private static ArrayList<String> lastNames;
+    
+    public PlayerCreator() {
+        loadNames();
+    }
+    
+    public void loadNames() {
+        firstNames = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("assets/first_names.txt"))){
+            String line;
+            while ((line = reader.readLine()) != null) {
+                firstNames.add(line.trim());
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        
+        lastNames = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("assets/last_names.txt"))){
+            String line;
+            while ((line = reader.readLine()) != null) {
+                lastNames.add(line.trim());
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+    
     
     public Player createRandomPlayer(){
         Random r = new Random();
         Player p = new Player();
         
         // Create and return a player
+        genName(p);
         generateRatings(p);
         generateModifiers(p);
         generateTendencies(p);
@@ -30,6 +66,15 @@ public class PlayerCreator {
         
         return p;
         // Missing: name, salary/contract (rounded to 100k)
+    }
+    
+    private void genName(Player p){
+        Random r = new Random();
+        String name = "";
+        name = name + firstNames.get(r.nextInt(firstNames.size()));
+        name = name + " " + lastNames.get(r.nextInt(lastNames.size()));
+        
+        p.setName(name);
     }
     
     private void genAge(Player p){
