@@ -1,8 +1,33 @@
 
 package basketball;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Random;
+
 
 public class TeamCreator {
+    
+    private static ArrayList<String> teamNames;
+
+    public TeamCreator() {
+        loadNames();
+    }
+
+    public static void loadNames() {
+        teamNames = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("assets/team_names.txt"))){
+            String line;
+            while ((line = reader.readLine()) != null) {
+                teamNames.add(line.trim());
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+    }
     
     public Team generateRandomTeam(){
         Team t = new Team();
@@ -22,6 +47,12 @@ public class TeamCreator {
         
         t.getRoster().add(pc.generatePlayerByPosition("C"));
         t.getRoster().add(pc.generatePlayerByPosition("C"));
+        
+        // name and money now once players have contracts
+        Random r = new Random();
+        t.setName(teamNames.get(r.nextInt(teamNames.size())));
+        
+        
         
         return t;
     }

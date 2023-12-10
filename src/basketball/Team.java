@@ -8,16 +8,25 @@ import java.util.Comparator;
 
 public class Team {
     
+    private String name;
     private ArrayList<Player> roster; // everyone not in the bench or game squad
     private Player[] squad; // dudes in the game right now.
     private Player[] bench;
     private int gameScore;
+    
+    // if team doesnt have enough moneyTotal to sign all their players in the very beginning of league init, increase it till they can afford it.
+    private int moneyTotal; // gonna just be a whole number 75-200 or sumfin. players will get paid like 24 but put an m next to it for 24m
+    private int moneyAvailable; // set to money total after the playoffs, reduced by: resigning, drafted rookies, free agents
 
     public Team() {
         roster = new ArrayList<>();
         squad = new Player[5];
         bench = new Player[5];
         gameScore = 0;
+        
+        name = "";
+        moneyTotal = 0;
+        moneyAvailable = 0;
     }
     
     public void autoSortLineups(){
@@ -142,6 +151,30 @@ public class Team {
         this.bench = bench;
     }
 
+    public int getMoneyTotal() {
+        return moneyTotal;
+    }
+
+    public void setMoneyTotal(int moneyTotal) {
+        this.moneyTotal = moneyTotal;
+    }
+
+    public int getMoneyAvailable() {
+        return moneyAvailable;
+    }
+
+    public void setMoneyAvailable(int moneyAvailable) {
+        this.moneyAvailable = moneyAvailable;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
     
     
 }
