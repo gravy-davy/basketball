@@ -1174,7 +1174,7 @@ public class MainFrame extends javax.swing.JFrame {
         try{
             int index = viewRosterPageNumber * 5 + 0;
             Player p = playerTeam.getRoster().get(index);
-            jLabel11.setText(p.getName() + " - " + p.getPosition());
+            jLabel11.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating());
             jButton1.show();
             jButton2.show();
             jButton3.show();
@@ -1188,7 +1188,7 @@ public class MainFrame extends javax.swing.JFrame {
         try{
             int index = viewRosterPageNumber * 5 + 1;
             Player p = playerTeam.getRoster().get(index);
-            jLabel12.setText(p.getName() + " - " + p.getPosition());
+            jLabel12.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating());
             jButton4.show();
             jButton5.show();
             jButton6.show();
@@ -1202,7 +1202,7 @@ public class MainFrame extends javax.swing.JFrame {
         try{
             int index = viewRosterPageNumber * 5 + 2;
             Player p = playerTeam.getRoster().get(index);
-            jLabel13.setText(p.getName() + " - " + p.getPosition());
+            jLabel13.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating());
             jButton7.show();
             jButton8.show();
             jButton9.show();
@@ -1216,7 +1216,7 @@ public class MainFrame extends javax.swing.JFrame {
         try{
             int index = viewRosterPageNumber * 5 + 3;
             Player p = playerTeam.getRoster().get(index);
-            jLabel14.setText(p.getName() + " - " + p.getPosition());
+            jLabel14.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating());
             jButton10.show();
             jButton11.show();
             jButton12.show();
@@ -1230,7 +1230,7 @@ public class MainFrame extends javax.swing.JFrame {
         try{
             int index = viewRosterPageNumber * 5 + 4;
             Player p = playerTeam.getRoster().get(index);
-            jLabel15.setText(p.getName() + " - " + p.getPosition());
+            jLabel15.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating());
             jButton13.show();
             jButton14.show();
             jButton15.show();
@@ -1245,7 +1245,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         try{
             Player p = playerTeam.getSquad()[0];
-            jLabel1.setText(p.getName() + " - " + p.getPosition());
+            jLabel1.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating());
             jButton20.show();
             jButton21.show();
         }catch(Exception e){
@@ -1256,7 +1256,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         try{
             Player p = playerTeam.getSquad()[1];
-            jLabel2.setText(p.getName() + " - " + p.getPosition());
+            jLabel2.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating());
             jButton22.show();
             jButton23.show();
         }catch(Exception e){
@@ -1267,7 +1267,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         try{
             Player p = playerTeam.getSquad()[2];
-            jLabel3.setText(p.getName() + " - " + p.getPosition());
+            jLabel3.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating());
             jButton24.show();
             jButton25.show();
         }catch(Exception e){
@@ -1278,7 +1278,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         try{
             Player p = playerTeam.getSquad()[3];
-            jLabel4.setText(p.getName() + " - " + p.getPosition());
+            jLabel4.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating());
             jButton26.show();
             jButton27.show();
         }catch(Exception e){
@@ -1289,7 +1289,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         try{
             Player p = playerTeam.getSquad()[4];
-            jLabel5.setText(p.getName() + " - " + p.getPosition());
+            jLabel5.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating());
             jButton28.show();
             jButton29.show();
         }catch(Exception e){
@@ -1302,7 +1302,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         try{
             Player p = playerTeam.getBench()[0];
-            jLabel6.setText(p.getName() + " - " + p.getPosition());
+            jLabel6.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating());
             jButton38.show();
             jButton39.show();
         }catch(Exception e){
@@ -1313,7 +1313,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         try{
             Player p = playerTeam.getBench()[1];
-            jLabel7.setText(p.getName() + " - " + p.getPosition());
+            jLabel7.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating());
             jButton36.show();
             jButton37.show();
         }catch(Exception e){
@@ -1324,7 +1324,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         try{
             Player p = playerTeam.getBench()[2];
-            jLabel8.setText(p.getName() + " - " + p.getPosition());
+            jLabel8.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating());
             jButton34.show();
             jButton35.show();
         }catch(Exception e){
@@ -1335,7 +1335,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         try{
             Player p = playerTeam.getBench()[3];
-            jLabel9.setText(p.getName() + " - " + p.getPosition());
+            jLabel9.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating());
             jButton32.show();
             jButton33.show();
         }catch(Exception e){
@@ -1346,7 +1346,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         try{
             Player p = playerTeam.getBench()[4];
-            jLabel10.setText(p.getName() + " - " + p.getPosition());
+            jLabel10.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating());
             jButton30.show();
             jButton31.show();
         }catch(Exception e){
@@ -1357,7 +1357,12 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     private void setupPlayerDetailsPanel(Player p){
-        String text = "<html>Name - " + p.getName() + "<br></html>";
+        String text = "<html>Name - " + p.getName() + "<br>Age - " + p.getAge() + "<br>Position - " + p.getPosition()+ "<br>Overall - " + p.getOverallRating()+ "<br>"
+                + "Development - " + p.getDevelopment()+ "<br>Close shooting - " + p.getCloseSkill()+ "<br>Mid shooting - " + p.getMidShotSkill()+ "<br>Three shooting - " 
+                + p.getThreeShotSkill()+ "<br>Passing - " + p.getPassingSkill()+ "<br>Driving - " + p.getDriveSkill()+ "<br>Strength - " + p.getStrengthSkill()+ "<br>"
+                + "Speed - " + p.getSpeedSkill()+ "<br>Dribbling - " + p.getDribblingSkill()+ "<br>Perimeter defense - " + p.getPerimeterDefSkill()+ "<br>"
+                + "Interior defense - " + p.getInteriorDefSkill()+ "<br>Defensive rebounding - " + p.getDefRebounding()+ "<br>Offensive rebounding - " 
+                + p.getOffRebounding()+ "<br></html>";
         jLabel16.setText(text);
     }
     

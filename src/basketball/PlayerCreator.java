@@ -68,6 +68,66 @@ public class PlayerCreator {
         // Missing: name, salary/contract (rounded to 100k)
     }
     
+    public int generateGuardOverall(Player p){
+        int overall = 0;
+        
+        overall+= p.getCloseSkill();
+        overall+= p.getMidShotSkill();
+        overall+= p.getThreeShotSkill();
+        overall+= p.getPassingSkill();
+        overall+= p.getDriveSkill();
+        
+        overall+= p.getSpeedSkill();
+        overall+= p.getDribblingSkill();
+        
+        overall+= p.getPerimeterDefSkill();
+        
+        overall = overall / 8;
+        
+        return overall;
+    }
+    
+    public int generateCenterOverall(Player p){
+        int overall = 0;
+        
+        overall+= p.getCloseSkill();
+        overall+= p.getMidShotSkill();
+        overall+= p.getDriveSkill();
+        
+        overall+= p.getStrengthSkill();
+        
+        overall+= p.getInteriorDefSkill();
+        overall+= p.getDefRebounding();
+        overall+= p.getOffRebounding();
+        
+        overall = overall / 7;
+        
+        return overall;
+    }
+    
+    public int generateForwardOverall(Player p){
+        int overall = 0;
+        
+        overall+= p.getCloseSkill();
+        overall+= p.getMidShotSkill();
+        overall+= p.getThreeShotSkill();
+        overall+= p.getPassingSkill();
+        overall+= p.getDriveSkill();
+        
+        overall+= p.getStrengthSkill();
+        overall+= p.getSpeedSkill();
+        overall+= p.getDribblingSkill();
+        
+        overall+= p.getPerimeterDefSkill();
+        overall+= p.getInteriorDefSkill();
+        overall+= p.getDefRebounding();
+        overall+= p.getOffRebounding();
+        
+        overall = overall / 12;
+        
+        return overall;
+    }
+    
     private void genName(Player p){
         Random r = new Random();
         String name = "";
@@ -87,71 +147,25 @@ public class PlayerCreator {
         // given a player's stats, give them a relevant position
         // PG/SG either OR PF/C random 0 or 1. Else sf.
         
-        int guardWeight = 0;
-        int forwardWeight = 0;
-        int centerWeight = 0;
+        int guardOverall = generateGuardOverall(p);
+        int forwardOverall = generateForwardOverall(p);
+        int centerOverall = generateCenterOverall(p);
         
         
-        // guards
-        guardWeight+= p.getCloseSkill();
-        guardWeight+= p.getMidShotSkill();
-        guardWeight+= p.getThreeShotSkill();
-        guardWeight+= p.getPassingSkill();
-        guardWeight+= p.getDriveSkill();
-        
-        guardWeight+= p.getStrengthSkill() / 3;
-        guardWeight+= p.getSpeedSkill();
-        guardWeight+= p.getDribblingSkill();
-        
-        guardWeight+= p.getPerimeterDefSkill();
-        guardWeight+= p.getInteriorDefSkill() / 3;
-        guardWeight+= p.getDefRebounding() / 3;
-        guardWeight+= p.getOffRebounding() / 3;
-        
-        
-        // forwards
-        forwardWeight+= p.getCloseSkill();
-        forwardWeight+= p.getMidShotSkill();
-        forwardWeight+= p.getThreeShotSkill() / 2;
-        forwardWeight+= p.getPassingSkill() / 2;
-        forwardWeight+= p.getDriveSkill();
-        
-        forwardWeight+= p.getStrengthSkill();
-        forwardWeight+= p.getSpeedSkill() / 2;
-        forwardWeight+= p.getDribblingSkill() / 2;
-        
-        forwardWeight+= p.getPerimeterDefSkill();
-        forwardWeight+= p.getInteriorDefSkill();
-        forwardWeight+= p.getDefRebounding() / 2;
-        forwardWeight+= p.getOffRebounding() / 2;
-        
-        
-        // centers
-        centerWeight+= p.getCloseSkill();
-        centerWeight+= p.getMidShotSkill() / 3;
-        centerWeight+= p.getThreeShotSkill();
-        centerWeight+= p.getPassingSkill();
-        centerWeight+= p.getDriveSkill();
-        
-        centerWeight+= p.getStrengthSkill();
-        centerWeight+= p.getSpeedSkill() / 3;
-        centerWeight+= p.getDribblingSkill() / 3;
-        
-        centerWeight+= p.getPerimeterDefSkill() / 3;
-        centerWeight+= p.getInteriorDefSkill();
-        centerWeight+= p.getDefRebounding();
-        centerWeight+= p.getOffRebounding();
         
         String[] guards = {"PG", "SG"};
         String[] forwards = {"SF", "PF"};
         
         Random r = new Random();
-        if(guardWeight>=forwardWeight && guardWeight>=centerWeight){
+        if(guardOverall>=forwardOverall && guardOverall>=centerOverall){
             p.setPosition(guards[r.nextInt(2)]);
-        }else if(forwardWeight>guardWeight && forwardWeight>centerWeight){
+            p.setOverallRating(guardOverall);
+        }else if(forwardOverall>guardOverall && forwardOverall>centerOverall){
             p.setPosition(forwards[r.nextInt(2)]);
+            p.setOverallRating(forwardOverall);
         }else{
             p.setPosition("C");
+            p.setOverallRating(centerOverall);
         }
     }
 

@@ -65,6 +65,8 @@ public class Player {
     private int defRebounding;
     private int offRebounding;
     
+    private int overallRating;
+    
     private int catchAndShootModifier; // reduction/addition to shot after catching the ball. -10 to +10
     private int driveShootModifier; // reduction/addition to shot after driving the ball. -10 to +10
     private int drivePassModifier;
@@ -109,6 +111,18 @@ public class Player {
         System.out.println("Assists: " + assists);
     }
 
+    // based on their position. this is called yearly before the offseason.
+    public void regenOverallRating(){
+        PlayerCreator pc = new PlayerCreator();
+        if(position.equalsIgnoreCase("PG") || position.equalsIgnoreCase("SG")){
+            this.setOverallRating(pc.generateGuardOverall(this));
+        }else if(position.equalsIgnoreCase("SF") || position.equalsIgnoreCase("PF")){
+            this.setOverallRating(pc.generateForwardOverall(this));
+        }else{
+            this.setOverallRating(pc.generateCenterOverall(this));
+        }
+    }
+    
     public String getName() {
         return name;
     }
@@ -635,6 +649,14 @@ public class Player {
 
     public void setTotalOffRebounds(int totalOffRebounds) {
         this.totalOffRebounds = totalOffRebounds;
+    }
+
+    public int getOverallRating() {
+        return overallRating;
+    }
+
+    public void setOverallRating(int overallRating) {
+        this.overallRating = overallRating;
     }
     
     
