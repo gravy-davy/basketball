@@ -23,19 +23,14 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
+        viewRosterPageNumber = 0;
         playerTeam = new Team();
         
+        TeamCreator tc = new TeamCreator();
+        playerTeam = tc.generateRandomTeam();
+        playerTeam.getRoster().add(pc.createRandomPlayer());
+        playerTeam.autoSortLineups();
         
-        playerTeam.getRoster().add(pc.generatePlayerByPosition("PG"));
-        playerTeam.getRoster().add(pc.generatePlayerByPosition("SF"));
-        playerTeam.getRoster().add(pc.generatePlayerByPosition("PG"));
-        playerTeam.getRoster().add(pc.generatePlayerByPosition("PG"));
-        playerTeam.getRoster().add(pc.generatePlayerByPosition("SG"));
-        playerTeam.getRoster().add(pc.generatePlayerByPosition("C"));
-        playerTeam.getRoster().add(pc.generatePlayerByPosition("PF"));
-        playerTeam.getRoster().add(pc.generatePlayerByPosition("C"));
-        playerTeam.getRoster().add(pc.generatePlayerByPosition("SF"));
-        viewRosterPageNumber = 0;
     }
 
     /**

@@ -97,7 +97,7 @@ public class Player {
     private int totalBlocks;
     private int totalAssists;
     private int totalGamesPlayed;
-
+    
     public void printPlayerStats() {
         System.out.print("POSITION: " + position + " - ");
         System.out.print("Field Goals Made: " + fgMade + " - ");
