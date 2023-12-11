@@ -2,6 +2,7 @@
 package basketball;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class League {
@@ -21,12 +22,52 @@ public class League {
     private void fillUpLeague(){
         TeamCreator tc = new TeamCreator();
         for(int k=0;k<29;k++){
-            Team t = tc.generateRandomTeam();
-            t.autoSortLineups();
+            Team t;
+            do{
+                t = tc.generateRandomTeam();
+                t.autoSortLineups();
+            }while(doesTeamNameExistInTheLeague(t));
             teams.add(t);
         }
     }
     
+    private boolean doesTeamNameExistInTheLeague(Team t){
+        for(Team teamInLeague : teams){
+            if(teamInLeague.getName().equalsIgnoreCase(t.getName())){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public void generateSchedule() {
+        int numTeams = teams.size();
+        int numRounds = numTeams - 1;
+
+        for (int round = 0; round < numRounds; round++) {
+            for (int teamIndex = 0; teamIndex < numTeams / 2; teamIndex++) {
+                Team team1 = teams.get(teamIndex);
+                Team team2 = teams.get(numTeams - 1 - teamIndex);
+
+                // Update the schedule for both teams
+                team1.getSchedule().add(team2);
+                team2.getSchedule().add(team1);
+            }
+
+            // Rotate the teams in the list for the next round
+            teams.add(1, teams.remove(teams.size() - 1));
+        }
+
+        // Display the schedule
+        for (Team team : teams) {
+            System.out.println("Schedule for " + team.getName() + ":");
+            List<Team> teamSchedule = team.getSchedule();
+            for (Team opponent : teamSchedule) {
+                System.out.println(opponent.getName());
+            }
+            System.out.println();
+        }
+    }
     
     public int getYear() {
         return year;

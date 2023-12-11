@@ -30,8 +30,11 @@ public class MainFrame extends javax.swing.JFrame {
         TeamCreator tc = new TeamCreator();
         playerTeam = tc.generateRandomTeam();
         playerTeam.autoSortLineups();
+        playerTeam.setName("The Commandos");
         
         league = new League();
+        league.getTeams().add(playerTeam);
+        league.generateSchedule();
         
     }
 

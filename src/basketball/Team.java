@@ -18,6 +18,8 @@ public class Team {
     private int moneyTotal; // gonna just be a whole number 75-200 or sumfin. players will get paid like 24 but put an m next to it for 24m
     private int moneyAvailable; // set to money total after the playoffs, reduced by: resigning, drafted rookies, free agents
 
+    private ArrayList<Team> schedule;
+    
     public Team() {
         roster = new ArrayList<>();
         squad = new Player[5];
@@ -27,6 +29,7 @@ public class Team {
         name = "";
         moneyTotal = 0;
         moneyAvailable = 0;
+        schedule = new ArrayList<>();
     }
     
     public void autoSortLineups(){
@@ -174,7 +177,13 @@ public class Team {
     public void setName(String name) {
         this.name = name;
     }
-    
-    
+
+    public ArrayList<Team> getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(ArrayList<Team> schedule) {
+        this.schedule = schedule;
+    }
     
 }
