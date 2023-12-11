@@ -414,7 +414,7 @@ public class Game {
         int dribbleDrive = r.nextInt(p.getDribbleDriveTendy());
         int speedDrive = r.nextInt(p.getSpeedDriveTendy());
         int powerDrive = r.nextInt(p.getPowerDriveTendy());
-        
+
         if (dribbleDrive >= speedDrive && dribbleDrive >= powerDrive){
             return "Dribble Drive";
         }else if(speedDrive > dribbleDrive && speedDrive > powerDrive){

@@ -299,25 +299,25 @@ public class PlayerCreator {
     
     public void generateTendencies(Player p){
         Random rando = new Random();
-        p.setDriveTendy(rando.nextInt(p.getDriveSkill()) + rando.nextInt(50));
-        p.setDribbleDriveTendy(rando.nextInt(p.getDribblingSkill()) + rando.nextInt(50));
-        p.setSpeedDriveTendy(rando.nextInt(p.getSpeedSkill()) + rando.nextInt(50));
-        p.setPowerDriveTendy(rando.nextInt(p.getStrengthSkill()) + rando.nextInt(50));
+        p.setDriveTendy(rando.nextInt(p.getDriveSkill()) + rando.nextInt(50) + 1);
+        p.setDribbleDriveTendy(rando.nextInt(p.getDribblingSkill()) + rando.nextInt(50) + 1);
+        p.setSpeedDriveTendy(rando.nextInt(p.getSpeedSkill()) + rando.nextInt(50) + 1);
+        p.setPowerDriveTendy(rando.nextInt(p.getStrengthSkill()) + rando.nextInt(50) + 1);
         
-        p.setDrivePassTendy(rando.nextInt(p.getPassingSkill()) + rando.nextInt(75));
-        p.setPassTendy(rando.nextInt(p.getPassingSkill()) + rando.nextInt(75));
+        p.setDrivePassTendy(rando.nextInt(p.getPassingSkill()) + rando.nextInt(75) + 1);
+        p.setPassTendy(rando.nextInt(p.getPassingSkill()) + rando.nextInt(75) + 1);
         
         // these 2 will use avg of shooting
-        p.setDriveShootTendy(rando.nextInt(findShootingAvg(p)) + rando.nextInt(65));
-        p.setCatchAndShootTendy(rando.nextInt(findShootingAvg(p)) + rando.nextInt(55));
+        p.setDriveShootTendy(rando.nextInt(findShootingAvg(p)) + rando.nextInt(65) + 1);
+        p.setCatchAndShootTendy(rando.nextInt(findShootingAvg(p)) + rando.nextInt(55) + 1);
         
-        p.setShootCloseTendy(rando.nextInt(p.getCloseSkill()) + rando.nextInt(50));
-        p.setShootMidTendy(rando.nextInt(p.getMidShotSkill()) + rando.nextInt(50));
-        p.setShootThreeTendy(rando.nextInt(p.getThreeShotSkill()) + rando.nextInt(50));
+        p.setShootCloseTendy(rando.nextInt(p.getCloseSkill()) + rando.nextInt(50) + 1);
+        p.setShootMidTendy(rando.nextInt(p.getMidShotSkill()) + rando.nextInt(50) + 1);
+        p.setShootThreeTendy(rando.nextInt(p.getThreeShotSkill()) + rando.nextInt(50) + 1);
         
-        p.setInitTendy(rando.nextInt(p.getDriveSkill()) + rando.nextInt(50));
-        p.setOffReboundTendy(rando.nextInt(p.getOffRebounding()) + rando.nextInt(50));
-        p.setDefReboundTendy(rando.nextInt(p.getDefRebounding()) + rando.nextInt(50));
+        p.setInitTendy(rando.nextInt(p.getDriveSkill()) + rando.nextInt(50) + 1);
+        p.setOffReboundTendy(rando.nextInt(p.getOffRebounding()) + rando.nextInt(50) + 1);
+        p.setDefReboundTendy(rando.nextInt(p.getDefRebounding()) + rando.nextInt(50) + 1);
         
     }
     
