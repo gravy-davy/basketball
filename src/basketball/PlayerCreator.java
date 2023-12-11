@@ -55,6 +55,8 @@ public class PlayerCreator {
         p.setDevelopment(getRandomRarity());
         genPositionBasedOnStats(p);
         
+        inflateRatings(p);
+        
         generateMaxQuartersPlayable(p);
         p.setQuarters(new ArrayList<>());
         
@@ -63,6 +65,8 @@ public class PlayerCreator {
         p.setLastYearRecordImportance(r.nextInt(100));
         
         genAge(p); // should make it more common for 20-29 year olds
+        
+        p.regenOverallRating();
         
         return p;
         // Missing: name, salary/contract (rounded to 100k)
@@ -311,15 +315,75 @@ public class PlayerCreator {
         }
     }
     
-    // FOR TESTING
     public Player generatePlayerByPosition(String position) {
         Player player;
         do {
             player = createRandomPlayer();
-            System.out.println("desired pos = " + position + " - this guy's pos = " + player.getPosition());
         } while (!player.getPosition().equalsIgnoreCase(position));
 
         return player;
+    }
+    
+    public void inflateRatings(Player p){
+        Random r = new Random();
+        int rarity = getRandomRarity();
+        
+        int min; int max;
+        
+        if(rarity==1){
+            min = 1;
+            max = 7;
+        }else if(rarity==2){
+            min = 5;
+            max = 10;
+        }else if(rarity==3){
+            min = 10;
+            max = 15;
+        }else if(rarity==4){
+            min = 15;
+            max = 30;
+        }else{
+            min = 25;
+            max = 40;
+        }
+        
+        if(p.getPosition().equalsIgnoreCase("PG") || p.getPosition().equalsIgnoreCase("SG")){
+            p.setCloseSkill(p.getCloseSkill()+ getValueWithinRange(min, max));
+            p.setMidShotSkill(p.getMidShotSkill()+ getValueWithinRange(min, max));
+            p.setThreeShotSkill(p.getThreeShotSkill()+ getValueWithinRange(min, max));
+            p.setPassingSkill(p.getPassingSkill() + getValueWithinRange(min, max));
+            p.setDriveSkill(p.getDriveSkill()+ getValueWithinRange(min, max));
+            
+            p.setSpeedSkill(p.getSpeedSkill()+ getValueWithinRange(min, max));
+            p.setDribblingSkill(p.getDribblingSkill()+ getValueWithinRange(min, max));
+            
+            p.setPerimeterDefSkill(p.getPerimeterDefSkill()+ getValueWithinRange(min, max));
+        }else if(p.getPosition().equalsIgnoreCase("SF") || p.getPosition().equalsIgnoreCase("PF")){
+            p.setCloseSkill(p.getCloseSkill()+ getValueWithinRange(min, max));
+            p.setMidShotSkill(p.getMidShotSkill()+ getValueWithinRange(min, max));
+            p.setThreeShotSkill(p.getThreeShotSkill()+ getValueWithinRange(min, max));
+            p.setPassingSkill(p.getPassingSkill() + getValueWithinRange(min, max));
+            p.setDriveSkill(p.getDriveSkill()+ getValueWithinRange(min, max));
+            
+            p.setStrengthSkill(p.getStrengthSkill()+ getValueWithinRange(min, max));
+            p.setSpeedSkill(p.getSpeedSkill()+ getValueWithinRange(min, max));
+            p.setDribblingSkill(p.getDribblingSkill()+ getValueWithinRange(min, max));
+            
+            p.setPerimeterDefSkill(p.getPerimeterDefSkill()+ getValueWithinRange(min, max));
+            p.setInteriorDefSkill(p.getInteriorDefSkill()+ getValueWithinRange(min, max));
+            p.setOffRebounding(p.getOffRebounding()+ getValueWithinRange(min, max));
+            p.setDefRebounding(p.getDefRebounding()+ getValueWithinRange(min, max));
+        }else{
+            p.setCloseSkill(p.getCloseSkill()+ getValueWithinRange(min, max));
+            p.setMidShotSkill(p.getMidShotSkill()+ getValueWithinRange(min, max));
+            p.setDriveSkill(p.getDriveSkill()+ getValueWithinRange(min, max));
+            
+            p.setStrengthSkill(p.getStrengthSkill()+ getValueWithinRange(min, max));
+            
+            p.setInteriorDefSkill(p.getInteriorDefSkill()+ getValueWithinRange(min, max));
+            p.setOffRebounding(p.getOffRebounding()+ getValueWithinRange(min, max));
+            p.setDefRebounding(p.getDefRebounding()+ getValueWithinRange(min, max));
+        }
     }
     
 }
