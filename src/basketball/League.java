@@ -12,12 +12,30 @@ public class League {
     private int year;
     private ArrayList<Team> teams; // player team goes in here. if playerTeam = this then show player playoffs screen
     private String stage; // Season, Playoffs, Resigning, Draft, Free agency, Training, Goto new season
+    
+    private ArrayList<Player> allActivePlayers; // includes all players on a team
 
     public League() {
         year = 2020;
         teams = new ArrayList<>();
+        allActivePlayers = new ArrayList<>();
         fillUpLeague();
+        fillActivePlayers();
         stage = "Season";
+    }
+    
+    /**
+     * This method should only be called after all the lineups have been set. Called again after the player makes changes to their own lineup.
+     * Active players is used to sort the stats of players by different categories.
+     */
+    private void fillActivePlayers(){
+        allActivePlayers.clear();
+        for(Team t : teams){
+            for(int k=0;k<5;k++){
+                allActivePlayers.add(t.getSquad()[k]);
+                allActivePlayers.add(t.getBench()[k]);
+            }
+        }
     }
 
     // fill up the league here with the teamcreator class

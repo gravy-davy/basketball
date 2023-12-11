@@ -251,6 +251,26 @@ public class Game {
         }while(quarter<5);
         
         
+        for(Player p : team1.getSquad()){
+            p.updateTotalStats();
+            p.resetGameStats();
+        }
+        
+        for(Player p : team2.getSquad()){
+            p.updateTotalStats();
+            p.resetGameStats();
+        }
+        
+        for(Player p : team1.getBench()){
+            p.updateTotalStats();
+            p.resetGameStats();
+        }
+        
+        for(Player p : team2.getBench()){
+            p.updateTotalStats();
+            p.resetGameStats();
+        }
+        
     }
     
     private Player getOffRebounder(Team team){

@@ -111,6 +111,32 @@ public class Player {
         System.out.println("Assists: " + assists);
     }
 
+    public void updateTotalStats() {
+        // Increment total stats with in-game stats
+        totalDefRebounds += defRebounds;
+        totalOffRebounds += offRebounds;
+        totalRebounds += rebounds;
+        totalFgMade += fgMade;
+        totalFgAttempted += fgAttempted;
+        totalThreePointersMade += threePointersMade;
+        totalThreePointersAttempted += threePointersAttempted;
+        totalPoints += points;
+        totalAssists += assists;
+        totalGamesPlayed++;
+    }
+    
+    public void resetGameStats() {
+        fgMade = 0;
+        fgAttempted = 0;
+        threePointersMade = 0;
+        threePointersAttempted = 0;
+        defRebounds = 0;
+        offRebounds = 0;
+        rebounds = 0;
+        points = 0;
+        assists = 0;
+    }
+    
     // based on their position. this is called yearly before the offseason.
     public void regenOverallRating(){
         PlayerCreator pc = new PlayerCreator();
@@ -123,6 +149,39 @@ public class Player {
         }
     }
     
+    public String generateStatline() {
+        // Calculate derived stats
+        double fieldGoalPercentage = calculatePercentage(totalFgMade, totalFgAttempted);
+        double threePointPercentage = calculatePercentage(totalThreePointersMade, totalThreePointersAttempted);
+        double averagePointsPerGame = calculateAverage(totalPoints, totalGamesPlayed);
+        double averageAssistsPerGame = calculateAverage(totalAssists, totalGamesPlayed);
+        double averageReboundsPerGame = calculateAverage(totalRebounds, totalGamesPlayed);
+        double averageDefReboundsPerGame = calculateAverage(totalDefRebounds, totalGamesPlayed);
+        double averageOffReboundsPerGame = calculateAverage(totalOffRebounds, totalGamesPlayed);
+
+        // Build the statline string
+        String stats = String.format("PPG: %.2f - Assists: %.2f - RPG: %.2f - ORPG: %.2f - DRPG: %.2f - FG%%: %.2f - 3FG%%: %.2f",
+            averagePointsPerGame, averageAssistsPerGame, averageReboundsPerGame,
+            averageOffReboundsPerGame, averageDefReboundsPerGame, fieldGoalPercentage, threePointPercentage);
+        return stats;
+    }
+    
+    // Helper method to calculate percentage
+    private double calculatePercentage(int numerator, int denominator) {
+        if (denominator == 0) {
+            return 0.0; // Prevent division by zero
+        }
+        return ((double) numerator / denominator) * 100;
+    }
+
+    // Helper method to calculate average
+    private double calculateAverage(int total, int count) {
+        if (count == 0) {
+            return 0.0; // Prevent division by zero
+        }
+        return ((double) total / count);
+    }
+
     public String getName() {
         return name;
     }

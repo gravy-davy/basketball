@@ -108,8 +108,11 @@ public class MainFrame extends javax.swing.JFrame {
         playerDetailsPanel = new javax.swing.JPanel();
         jButton40 = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
         seasonStandingsPanel = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
+        jButton42 = new javax.swing.JButton();
+        jButton43 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -708,16 +711,22 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel16.setText("jLabel16");
 
+        jLabel19.setText("jLabel19");
+
         javax.swing.GroupLayout playerDetailsPanelLayout = new javax.swing.GroupLayout(playerDetailsPanel);
         playerDetailsPanel.setLayout(playerDetailsPanelLayout);
         playerDetailsPanelLayout.setHorizontalGroup(
             playerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, playerDetailsPanelLayout.createSequentialGroup()
-                .addGap(147, 147, 147)
+            .addGroup(playerDetailsPanelLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton40)
                 .addGap(265, 265, 265))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, playerDetailsPanelLayout.createSequentialGroup()
+                .addContainerGap(55, Short.MAX_VALUE)
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 782, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(118, 118, 118))
         );
         playerDetailsPanelLayout.setVerticalGroup(
             playerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -727,9 +736,11 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGap(273, 273, 273)
                         .addComponent(jButton40))
                     .addGroup(playerDetailsPanelLayout.createSequentialGroup()
-                        .addGap(86, 86, 86)
+                        .addGap(22, 22, 22)
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69))
         );
 
         getContentPane().add(playerDetailsPanel, "card4");
@@ -738,6 +749,20 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel18.setText("jLabel18");
 
+        jButton42.setText("Go to the playoffs");
+        jButton42.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton42ActionPerformed(evt);
+            }
+        });
+
+        jButton43.setText("View stats");
+        jButton43.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton43ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout seasonStandingsPanelLayout = new javax.swing.GroupLayout(seasonStandingsPanel);
         seasonStandingsPanel.setLayout(seasonStandingsPanelLayout);
         seasonStandingsPanelLayout.setHorizontalGroup(
@@ -745,7 +770,11 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(seasonStandingsPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(501, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
+                .addGroup(seasonStandingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(156, 156, 156))
         );
         seasonStandingsPanelLayout.setVerticalGroup(
             seasonStandingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -753,6 +782,12 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(27, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, seasonStandingsPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton43)
+                .addGap(132, 132, 132)
+                .addComponent(jButton42)
+                .addGap(221, 221, 221))
         );
 
         getContentPane().add(seasonStandingsPanel, "card5");
@@ -1094,6 +1129,15 @@ public class MainFrame extends javax.swing.JFrame {
         switchToAnotherPanel(mainPanel, seasonStandingsPanel);
     }//GEN-LAST:event_jButton41ActionPerformed
 
+    private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton43ActionPerformed
+
+    private void jButton42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton42ActionPerformed
+        // for now it goes to main for stats purposes
+        switchToAnotherPanel(seasonStandingsPanel, mainPanel);
+    }//GEN-LAST:event_jButton42ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1419,6 +1463,9 @@ public class MainFrame extends javax.swing.JFrame {
                 + p.getOffRebounding()+ "<br>Experience: " + p.getYearsInTheLeague() + "<br>Contract - " + p.getContract().getSalary() + "m/" 
                 + p.getContract().getLength() + " years<br></html>";
         jLabel16.setText(text);
+        
+        String statsText = p.generateStatline();
+        jLabel19.setText(statsText);
     }
     
     private void setupStandingsPanel(){
@@ -1468,6 +1515,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton40;
     private javax.swing.JButton jButton41;
+    private javax.swing.JButton jButton42;
+    private javax.swing.JButton jButton43;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -1483,6 +1532,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
