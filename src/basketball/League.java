@@ -2,6 +2,8 @@
 package basketball;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -31,6 +33,10 @@ public class League {
         }
     }
     
+    public void sortTeamsByWins(){
+        Collections.sort(teams, Comparator.comparingInt(Team::getWins).reversed());
+    }
+    
     private boolean doesTeamNameExistInTheLeague(Team t){
         for(Team teamInLeague : teams){
             if(teamInLeague.getName().equalsIgnoreCase(t.getName())){
@@ -57,15 +63,35 @@ public class League {
             // Rotate the teams in the list for the next round
             teams.add(1, teams.remove(teams.size() - 1));
         }
+    }
+    
+    public void simulateSeason() {
+        int numTeams = teams.size();
+        int numRounds = numTeams - 1;
 
-        // Display the schedule
-        for (Team team : teams) {
-            System.out.println("Schedule for " + team.getName() + ":");
-            List<Team> teamSchedule = team.getSchedule();
-            for (Team opponent : teamSchedule) {
-                System.out.println(opponent.getName());
+        for (int round = 0; round < numRounds; round++) {
+            for (int teamIndex = 0; teamIndex < numTeams / 2; teamIndex++) {
+                Team t1 = teams.get(teamIndex);
+                Team t2 = teams.get(numTeams - 1 - teamIndex);
+
+                // Simulate the game between team1 and team2
+                
+                for (int gameNumber = 0; gameNumber < 2; gameNumber++) {
+                    Game game = new Game(t1,t2);
+                    game.simGame();
+                    if(t1.getGameScore()>=t2.getGameScore()){
+                        t1.setWins(t1.getWins()+1);
+                        t2.setLosses(t2.getLosses()+1);
+                    }else{
+                        t2.setWins(t2.getWins()+1);
+                        t1.setLosses(t1.getLosses()+1);
+                    }
+                }
+                
             }
-            System.out.println();
+
+            // Rotate the teams in the list for the next round
+            teams.add(1, teams.remove(teams.size() - 1));
         }
     }
     

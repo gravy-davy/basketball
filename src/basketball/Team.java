@@ -13,6 +13,8 @@ public class Team {
     private Player[] squad; // dudes in the game right now.
     private Player[] bench;
     private int gameScore;
+    private int wins;
+    private int losses;
     
     // if team doesnt have enough moneyTotal to sign all their players in the very beginning of league init, increase it till they can afford it.
     private int moneyTotal; // gonna just be a whole number 75-200 or sumfin. players will get paid like 24 but put an m next to it for 24m
@@ -25,11 +27,18 @@ public class Team {
         squad = new Player[5];
         bench = new Player[5];
         gameScore = 0;
+        wins = 0;
+        losses = 0;
         
         name = "";
         moneyTotal = 0;
         moneyAvailable = 0;
         schedule = new ArrayList<>();
+    }
+    
+    public String getTeamInfo() {
+        String text = String.format("%s - Wins: %d, Losses: %d<br>", name, wins, losses);
+        return text;
     }
     
     public void autoSortLineups(){
@@ -185,5 +194,23 @@ public class Team {
     public void setSchedule(ArrayList<Team> schedule) {
         this.schedule = schedule;
     }
+
+    public int getWins() {
+        return wins;
+    }
+
+    public void setWins(int wins) {
+        this.wins = wins;
+    }
+
+    public int getLosses() {
+        return losses;
+    }
+
+    public void setLosses(int losses) {
+        this.losses = losses;
+    }
+    
+    
     
 }

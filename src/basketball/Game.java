@@ -150,11 +150,8 @@ public class Game {
                         shotResult = getShotResult(playIniter, defender, shotType);
                     }
 
-                    System.out.println("shot result BEFORE drive: " + shotResult);
                     shotResult+= driveResult;
-                    System.out.println("shot result AFTER drive: " + shotResult);
                     shotResult+= playIniter.getDriveShootModifier();
-                    System.out.println("shot result AFTER drive MODIFIER: " + shotResult);
 
                     if(shotType.equalsIgnoreCase("Three point range")){
                         if(shotResult>30){
