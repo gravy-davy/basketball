@@ -11,8 +11,8 @@ public class Player {
     private int age;
     private String position;
     private int development; // 1-5
-    private int salary;
-    private int contractLength; // amount of seasons this player is under contract.
+    private Contract contract;
+    private int yearsInTheLeague;
     
     // for FA decisions
     private int loyalty;
@@ -155,22 +155,14 @@ public class Player {
         this.development = development;
     }
 
-    public int getSalary() {
-        return salary;
+    public Contract getContract() {
+        return contract;
     }
 
-    public void setSalary(int salary) {
-        this.salary = salary;
+    public void setContract(Contract contract) {
+        this.contract = contract;
     }
-
-    public int getContractLength() {
-        return contractLength;
-    }
-
-    public void setContractLength(int contractLength) {
-        this.contractLength = contractLength;
-    }
-
+    
     public int getLoyalty() {
         return loyalty;
     }
@@ -657,6 +649,14 @@ public class Player {
 
     public void setOverallRating(int overallRating) {
         this.overallRating = overallRating;
+    }
+
+    public int getYearsInTheLeague() {
+        return yearsInTheLeague;
+    }
+
+    public void setYearsInTheLeague(int yearsInTheLeague) {
+        this.yearsInTheLeague = yearsInTheLeague;
     }
     
     

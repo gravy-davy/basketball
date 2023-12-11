@@ -17,6 +17,7 @@ public class MainFrame extends javax.swing.JFrame {
     private Team playerTeam;
     private int viewRosterPageNumber;
     private PlayerCreator pc = new PlayerCreator();
+    private League league;
     
     /**
      * Creates new form MainFrame
@@ -28,8 +29,9 @@ public class MainFrame extends javax.swing.JFrame {
         
         TeamCreator tc = new TeamCreator();
         playerTeam = tc.generateRandomTeam();
-        playerTeam.getRoster().add(pc.createRandomPlayer());
         playerTeam.autoSortLineups();
+        
+        league = new League();
         
     }
 
@@ -1357,7 +1359,8 @@ public class MainFrame extends javax.swing.JFrame {
                 + p.getThreeShotSkill()+ "<br>Passing - " + p.getPassingSkill()+ "<br>Driving - " + p.getDriveSkill()+ "<br>Strength - " + p.getStrengthSkill()+ "<br>"
                 + "Speed - " + p.getSpeedSkill()+ "<br>Dribbling - " + p.getDribblingSkill()+ "<br>Perimeter defense - " + p.getPerimeterDefSkill()+ "<br>"
                 + "Interior defense - " + p.getInteriorDefSkill()+ "<br>Defensive rebounding - " + p.getDefRebounding()+ "<br>Offensive rebounding - " 
-                + p.getOffRebounding()+ "<br></html>";
+                + p.getOffRebounding()+ "<br>Experience: " + p.getYearsInTheLeague() + "<br>Contract - " + p.getContract().getSalary() + "m/" 
+                + p.getContract().getLength() + " years<br></html>";
         jLabel16.setText(text);
     }
     

@@ -52,7 +52,15 @@ public class TeamCreator {
         Random r = new Random();
         t.setName(teamNames.get(r.nextInt(teamNames.size())));
         
+        int sum = 0;
+        for(Player p : t.getRoster()){
+            sum+= p.getContract().getSalary();
+        }
         
+        t.setMoneyTotal(sum + r.nextInt(50));
+        t.setMoneyAvailable(t.getMoneyTotal() - sum);
+        
+        t.setName(teamNames.get(r.nextInt(teamNames.size())));
         
         return t;
     }

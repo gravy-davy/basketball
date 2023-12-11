@@ -67,9 +67,57 @@ public class PlayerCreator {
         genAge(p); // should make it more common for 20-29 year olds
         
         p.regenOverallRating();
+        // leagues in the year right here
+        generateYearsInTheLeague(p);
+        // contract generation here
+        generateContract(p);
         
         return p;
-        // Missing: name, salary/contract (rounded to 100k)
+    }
+    
+    private void generateContract(Player p){
+        Contract c = new Contract();
+        if(p.getYearsInTheLeague()==0){
+            c.setLength(3);
+            c.setSalary(1);
+        }else{
+            Random r = new Random();
+            c.setLength(r.nextInt(4) + 1);
+            
+            if(p.getOverallRating()<40){
+                c.setSalary(r.nextInt(5));
+            }else if(p.getOverallRating()<50){
+                c.setSalary(r.nextInt(10));
+            }else if(p.getOverallRating()<55){
+                c.setSalary(r.nextInt(15));
+            }else if(p.getOverallRating()<60){
+                c.setSalary(getValueWithinRange(10, 20));
+            }else if(p.getOverallRating()<65){
+                c.setSalary(getValueWithinRange(12, 24));
+            }else if(p.getOverallRating()<70){
+                c.setSalary(getValueWithinRange(15, 30));
+            }else if(p.getOverallRating()<75){
+                c.setSalary(getValueWithinRange(20, 35));
+            }else{
+                c.setSalary(getValueWithinRange(25, 50));
+            }
+        }
+        p.setContract(c);
+    }
+    
+    private void generateYearsInTheLeague(Player p){
+        Random r = new Random();
+        int years;
+        if(p.getAge() == 18){
+            years = 0;
+        }else{
+            int startingAge;
+            do{
+                startingAge = getValueWithinRange(18, 24);
+            }while(startingAge>p.getAge());
+            years = p.getAge() - startingAge;
+        }
+        p.setYearsInTheLeague(years);
     }
     
     public int generateGuardOverall(Player p){
