@@ -113,6 +113,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jButton42 = new javax.swing.JButton();
         jButton43 = new javax.swing.JButton();
+        playoffResultsPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -724,7 +725,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jButton40)
                 .addGap(265, 265, 265))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, playerDetailsPanelLayout.createSequentialGroup()
-                .addContainerGap(55, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 782, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(118, 118, 118))
         );
@@ -738,7 +739,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(playerDetailsPanelLayout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(69, 69, 69))
         );
@@ -770,7 +771,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(seasonStandingsPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 224, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(seasonStandingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -781,7 +782,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(seasonStandingsPanelLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, seasonStandingsPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton43)
@@ -791,6 +792,19 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(seasonStandingsPanel, "card5");
+
+        javax.swing.GroupLayout playoffResultsPanelLayout = new javax.swing.GroupLayout(playoffResultsPanel);
+        playoffResultsPanel.setLayout(playoffResultsPanelLayout);
+        playoffResultsPanelLayout.setHorizontalGroup(
+            playoffResultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        playoffResultsPanelLayout.setVerticalGroup(
+            playoffResultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(playoffResultsPanel, "card6");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1135,6 +1149,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton42ActionPerformed
         // for now it goes to main for stats purposes
+        league.createPlayoffTeamsList();
+        league.simPlayoffs();
         switchToAnotherPanel(seasonStandingsPanel, mainPanel);
     }//GEN-LAST:event_jButton42ActionPerformed
 
@@ -1543,6 +1559,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel playerDetailsPanel;
+    private javax.swing.JPanel playoffResultsPanel;
     private javax.swing.JPanel seasonStandingsPanel;
     private javax.swing.JPanel viewPlayersPanel;
     // End of variables declaration//GEN-END:variables

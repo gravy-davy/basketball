@@ -11,6 +11,7 @@ public class League {
     
     private int year;
     private ArrayList<Team> teams; // player team goes in here. if playerTeam = this then show player playoffs screen
+    private ArrayList<Team> playoffTeams;
     private String stage; // Season, Playoffs, Resigning, Draft, Free agency, Training, Goto new season
     
     private ArrayList<Player> allActivePlayers; // includes all players on a team
@@ -19,6 +20,7 @@ public class League {
         year = 2020;
         teams = new ArrayList<>();
         allActivePlayers = new ArrayList<>();
+        playoffTeams = new ArrayList<>();
         fillUpLeague();
         fillActivePlayers();
         stage = "Season";
@@ -113,6 +115,59 @@ public class League {
         }
     }
     
+    public void createPlayoffTeamsList(){
+        playoffTeams.clear();
+        sortTeamsByWins();
+        for(int k=0;k<8;k++){
+            playoffTeams.add(teams.get(k));
+        }
+        
+        for(Team t : playoffTeams){
+            System.out.println("Team in the playoffs: " + t.getName());
+        }
+    }
+    
+    public void simPlayoffs(){
+        // 1st round, 8 teams, 4 matchups
+        System.out.println("\n\n\n");
+        int playoffTeamsSize = playoffTeams.size();
+        
+        for(int i=4;i>0;i/=2){
+            for(Team t : playoffTeams){
+                System.out.println("Team in the playoffs: " + t.getName());
+            }
+            for(int k=0;k<i;k++){
+                int t1Wins = 0;
+                int t2Wins = 0;
+                Team t1 = playoffTeams.get(k);
+                Team t2 = playoffTeams.get(playoffTeamsSize-1-k);
+
+                System.out.println("\n\n" + (k+1) + " round matchup between: " + t1.getName() + " and " + t2.getName());
+
+                do{
+                    Game game = new Game(t1,t2);
+                    game.simGame();
+
+                    if(t1.getGameScore()>=t2.getGameScore()){
+                        t1Wins++;
+                    }else{
+                        t2Wins++;
+                    }
+                }while(t1Wins<4 && t2Wins<4);
+                
+                System.out.println("Series score\n" + t1.getName() + " " + t1Wins + " - " + t2.getName() + " " + t2Wins);
+                if(t1Wins>=4){
+                    System.out.println(t1.getName() + " has won and is advancing!");
+                    playoffTeams.remove(t2);
+                }else{
+                    System.out.println(t2.getName() + " has won and is advancing!");
+                    playoffTeams.remove(t1);
+                }
+            }
+            playoffTeamsSize = playoffTeams.size();
+        }
+    }
+    
     public int getYear() {
         return year;
     }
@@ -135,6 +190,22 @@ public class League {
 
     public void setStage(String stage) {
         this.stage = stage;
+    }
+
+    public ArrayList<Team> getPlayoffTeams() {
+        return playoffTeams;
+    }
+
+    public void setPlayoffTeams(ArrayList<Team> playoffTeams) {
+        this.playoffTeams = playoffTeams;
+    }
+
+    public ArrayList<Player> getAllActivePlayers() {
+        return allActivePlayers;
+    }
+
+    public void setAllActivePlayers(ArrayList<Player> allActivePlayers) {
+        this.allActivePlayers = allActivePlayers;
     }
     
     

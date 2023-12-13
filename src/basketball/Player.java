@@ -160,7 +160,7 @@ public class Player {
         double averageOffReboundsPerGame = calculateAverage(totalOffRebounds, totalGamesPlayed);
 
         // Build the statline string
-        String stats = String.format("PPG: %.2f - Assists: %.2f - RPG: %.2f - ORPG: %.2f - DRPG: %.2f - FG%%: %.2f - 3FG%%: %.2f",
+        String stats = String.format("PPG: %.2f - APG: %.2f - RPG: %.2f - ORPG: %.2f - DRPG: %.2f - FG%%: %.2f - 3FG%%: %.2f",
             averagePointsPerGame, averageAssistsPerGame, averageReboundsPerGame,
             averageOffReboundsPerGame, averageDefReboundsPerGame, fieldGoalPercentage, threePointPercentage);
         return stats;
