@@ -206,7 +206,7 @@ public class Game {
                 Player offReber = getOffRebounder(offTeam);
                 Player defReber = getDefRebounder(defTeam);
                 
-                int offRebChance = r.nextInt(offReber.getOffRebounding());
+                int offRebChance = r.nextInt(offReber.getOffRebounding()) - 35;
                 int defRebChance = r.nextInt(defReber.getDefRebounding());
                 
                 if(defRebChance>=offRebChance){

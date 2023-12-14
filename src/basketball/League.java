@@ -15,12 +15,14 @@ public class League {
     private String stage; // Season, Playoffs, Resigning, Draft, Free agency, Training, Goto new season
     
     private ArrayList<Player> allActivePlayers; // includes all players on a team
-
+    private ArrayList<PlayoffMatchup> playoffMatchups;
+    
     public League() {
         year = 2020;
         teams = new ArrayList<>();
         allActivePlayers = new ArrayList<>();
         playoffTeams = new ArrayList<>();
+        playoffMatchups = new ArrayList<>();
         fillUpLeague();
         fillActivePlayers();
         stage = "Season";
@@ -131,6 +133,9 @@ public class League {
         // 1st round, 8 teams, 4 matchups
         System.out.println("\n\n\n");
         int playoffTeamsSize = playoffTeams.size();
+        playoffMatchups.clear();
+        
+        ArrayList<Team> deadPlayoffTeams = new ArrayList<>();
         
         for(int i=4;i>0;i/=2){
             for(Team t : playoffTeams){
@@ -158,10 +163,18 @@ public class League {
                 System.out.println("Series score\n" + t1.getName() + " " + t1Wins + " - " + t2.getName() + " " + t2Wins);
                 if(t1Wins>=4){
                     System.out.println(t1.getName() + " has won and is advancing!");
-                    playoffTeams.remove(t2);
+                    deadPlayoffTeams.add(t2);
                 }else{
                     System.out.println(t2.getName() + " has won and is advancing!");
-                    playoffTeams.remove(t1);
+                    deadPlayoffTeams.add(t1);
+                }
+                
+                PlayoffMatchup pm = new PlayoffMatchup(t1,t2,t1Wins,t2Wins);
+                playoffMatchups.add(pm);
+            }
+            for(Team t : deadPlayoffTeams){
+                if(playoffTeams.contains(t)){
+                    playoffTeams.remove(t);
                 }
             }
             playoffTeamsSize = playoffTeams.size();
@@ -206,6 +219,14 @@ public class League {
 
     public void setAllActivePlayers(ArrayList<Player> allActivePlayers) {
         this.allActivePlayers = allActivePlayers;
+    }
+
+    public ArrayList<PlayoffMatchup> getPlayoffMatchups() {
+        return playoffMatchups;
+    }
+
+    public void setPlayoffMatchups(ArrayList<PlayoffMatchup> playoffMatchups) {
+        this.playoffMatchups = playoffMatchups;
     }
     
     

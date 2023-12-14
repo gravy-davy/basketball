@@ -114,6 +114,8 @@ public class MainFrame extends javax.swing.JFrame {
         jButton42 = new javax.swing.JButton();
         jButton43 = new javax.swing.JButton();
         playoffResultsPanel = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        jButton44 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -793,15 +795,39 @@ public class MainFrame extends javax.swing.JFrame {
 
         getContentPane().add(seasonStandingsPanel, "card5");
 
+        playoffResultsPanel.setPreferredSize(new java.awt.Dimension(955, 581));
+
+        jLabel20.setText("jLabel20");
+
+        jButton44.setText("Go to player resigning");
+        jButton44.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton44ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout playoffResultsPanelLayout = new javax.swing.GroupLayout(playoffResultsPanel);
         playoffResultsPanel.setLayout(playoffResultsPanelLayout);
         playoffResultsPanelLayout.setHorizontalGroup(
             playoffResultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(playoffResultsPanelLayout.createSequentialGroup()
+                .addGap(100, 100, 100)
+                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
+                .addComponent(jButton44)
+                .addGap(218, 218, 218))
         );
         playoffResultsPanelLayout.setVerticalGroup(
             playoffResultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(playoffResultsPanelLayout.createSequentialGroup()
+                .addGroup(playoffResultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(playoffResultsPanelLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(playoffResultsPanelLayout.createSequentialGroup()
+                        .addGap(201, 201, 201)
+                        .addComponent(jButton44)))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         getContentPane().add(playoffResultsPanel, "card6");
@@ -1151,8 +1177,13 @@ public class MainFrame extends javax.swing.JFrame {
         // for now it goes to main for stats purposes
         league.createPlayoffTeamsList();
         league.simPlayoffs();
-        switchToAnotherPanel(seasonStandingsPanel, mainPanel);
+        setupPlayoffResultsPanel();
+        switchToAnotherPanel(seasonStandingsPanel, playoffResultsPanel);
     }//GEN-LAST:event_jButton42ActionPerformed
+
+    private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
+        switchToAnotherPanel(playoffResultsPanel, mainPanel);
+    }//GEN-LAST:event_jButton44ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1281,6 +1312,27 @@ public class MainFrame extends javax.swing.JFrame {
         newPanel.show();
         getContentPane().revalidate();
         getContentPane().repaint();
+    }
+    
+    private void setupPlayoffResultsPanel(){
+        String text = "<html>";
+        int index = 1;
+        for(PlayoffMatchup pm : league.getPlayoffMatchups()){
+            System.out.println(pm.getT1().getName() + " - " + pm.getT1Wins());
+            
+            if(index==1){
+                text+= "<br><br>1st round";
+            }else if(index==5){
+                text+= "<br><br>2nd round";
+            }else if(index==7){
+                text+= "<br><br>THE DBA FINALS";
+            }
+            
+            text+= "<br>" + pm.getT1().getName() + "(" + pm.getT1Wins()+ ") vs " + pm.getT2().getName() + "(" + pm.getT2Wins() + ")";
+            index++;
+        }
+        text+= "</html>";
+        jLabel20.setText(text);
     }
     
     private void setupViewRosterPanel(){
@@ -1533,6 +1585,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton41;
     private javax.swing.JButton jButton42;
     private javax.swing.JButton jButton43;
+    private javax.swing.JButton jButton44;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -1550,6 +1603,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
