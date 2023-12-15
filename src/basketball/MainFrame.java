@@ -16,8 +16,11 @@ public class MainFrame extends javax.swing.JFrame {
 
     private Team playerTeam;
     private int viewRosterPageNumber;
+    private int resignPageNumber;
     private PlayerCreator pc = new PlayerCreator();
     private League league;
+    
+    
     
     /**
      * Creates new form MainFrame
@@ -25,6 +28,7 @@ public class MainFrame extends javax.swing.JFrame {
     public MainFrame() {
         initComponents();
         viewRosterPageNumber = 0;
+        resignPageNumber = 0;
         playerTeam = new Team();
         
         TeamCreator tc = new TeamCreator();
@@ -116,6 +120,30 @@ public class MainFrame extends javax.swing.JFrame {
         playoffResultsPanel = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jButton44 = new javax.swing.JButton();
+        resignPlayersPanel = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jButton45 = new javax.swing.JButton();
+        jButton46 = new javax.swing.JButton();
+        jButton47 = new javax.swing.JButton();
+        jButton48 = new javax.swing.JButton();
+        jButton49 = new javax.swing.JButton();
+        jButton50 = new javax.swing.JButton();
+        jButton51 = new javax.swing.JButton();
+        jButton52 = new javax.swing.JButton();
+        jButton53 = new javax.swing.JButton();
+        jButton54 = new javax.swing.JButton();
+        jButton55 = new javax.swing.JButton();
+        jButton56 = new javax.swing.JButton();
+        jButton57 = new javax.swing.JButton();
+        jButton58 = new javax.swing.JButton();
+        jButton59 = new javax.swing.JButton();
+        jButton60 = new javax.swing.JButton();
+        jButton61 = new javax.swing.JButton();
+        jButton62 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -799,7 +827,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel20.setText("jLabel20");
 
-        jButton44.setText("Go to player resigning");
+        jButton44.setText("FINISH THE SEASON");
         jButton44.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton44ActionPerformed(evt);
@@ -813,7 +841,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(playoffResultsPanelLayout.createSequentialGroup()
                 .addGap(100, 100, 100)
                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton44)
                 .addGap(218, 218, 218))
         );
@@ -827,10 +855,172 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(playoffResultsPanelLayout.createSequentialGroup()
                         .addGap(201, 201, 201)
                         .addComponent(jButton44)))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(playoffResultsPanel, "card6");
+
+        resignPlayersPanel.setPreferredSize(new java.awt.Dimension(955, 581));
+
+        jLabel21.setText("jLabel21");
+
+        jLabel22.setText("jLabel21");
+
+        jLabel23.setText("jLabel21");
+
+        jLabel24.setText("jLabel21");
+
+        jLabel25.setText("jLabel21");
+
+        jButton45.setText("Next page");
+        jButton45.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton45ActionPerformed(evt);
+            }
+        });
+
+        jButton46.setText("Prev page");
+        jButton46.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton46ActionPerformed(evt);
+            }
+        });
+
+        jButton47.setText("FINISH");
+        jButton47.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton47ActionPerformed(evt);
+            }
+        });
+
+        jButton48.setText("Resign");
+
+        jButton49.setText("Resign");
+
+        jButton50.setText("Resign");
+
+        jButton51.setText("Resign");
+
+        jButton52.setText("Resign");
+
+        jButton53.setText("Details");
+        jButton53.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton53ActionPerformed(evt);
+            }
+        });
+
+        jButton54.setText("Details");
+
+        jButton55.setText("Details");
+
+        jButton56.setText("Details");
+
+        jButton57.setText("Details");
+
+        jButton58.setText("DECLINE");
+
+        jButton59.setText("DECLINE");
+
+        jButton60.setText("DECLINE");
+
+        jButton61.setText("DECLINE");
+
+        jButton62.setText("DECLINE");
+
+        javax.swing.GroupLayout resignPlayersPanelLayout = new javax.swing.GroupLayout(resignPlayersPanel);
+        resignPlayersPanel.setLayout(resignPlayersPanelLayout);
+        resignPlayersPanelLayout.setHorizontalGroup(
+            resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(resignPlayersPanelLayout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addGroup(resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addGroup(resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(resignPlayersPanelLayout.createSequentialGroup()
+                        .addComponent(jButton52)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton57))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, resignPlayersPanelLayout.createSequentialGroup()
+                        .addComponent(jButton51)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton56))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, resignPlayersPanelLayout.createSequentialGroup()
+                        .addComponent(jButton50)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton55))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, resignPlayersPanelLayout.createSequentialGroup()
+                        .addComponent(jButton49)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton54))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, resignPlayersPanelLayout.createSequentialGroup()
+                        .addComponent(jButton48)
+                        .addGap(30, 30, 30)
+                        .addComponent(jButton53)))
+                .addGap(37, 37, 37)
+                .addGroup(resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton58)
+                    .addComponent(jButton59)
+                    .addComponent(jButton60)
+                    .addComponent(jButton61)
+                    .addComponent(jButton62))
+                .addContainerGap(179, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, resignPlayersPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton46)
+                .addGap(18, 18, 18)
+                .addComponent(jButton45)
+                .addGap(94, 94, 94)
+                .addComponent(jButton47)
+                .addGap(48, 48, 48))
+        );
+        resignPlayersPanelLayout.setVerticalGroup(
+            resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(resignPlayersPanelLayout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addGroup(resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton48)
+                    .addComponent(jButton53)
+                    .addComponent(jButton58))
+                .addGap(18, 18, 18)
+                .addGroup(resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton49)
+                    .addComponent(jButton54)
+                    .addComponent(jButton59))
+                .addGap(18, 18, 18)
+                .addGroup(resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton50)
+                    .addComponent(jButton55)
+                    .addComponent(jButton60))
+                .addGap(18, 18, 18)
+                .addGroup(resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton51)
+                    .addComponent(jButton56)
+                    .addComponent(jButton61))
+                .addGap(18, 18, 18)
+                .addGroup(resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton52)
+                    .addComponent(jButton57)
+                    .addComponent(jButton62))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                .addGroup(resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton45)
+                    .addComponent(jButton46)
+                    .addComponent(jButton47))
+                .addGap(54, 54, 54))
+        );
+
+        getContentPane().add(resignPlayersPanel, "card7");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1182,9 +1372,140 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton42ActionPerformed
 
     private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
-        switchToAnotherPanel(playoffResultsPanel, mainPanel);
+        startNewYear();
+        setupResignPanel();
+        switchToAnotherPanel(playoffResultsPanel, resignPlayersPanel);
     }//GEN-LAST:event_jButton44ActionPerformed
 
+    private void jButton45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton45ActionPerformed
+        int minForNextPage = (resignPageNumber+1) * 5;
+        if(playerTeam.getRoster().size()>=minForNextPage){
+            resignPageNumber++;
+            setupResignPanel();
+            getContentPane().revalidate();
+            getContentPane().repaint();
+        }else{
+            JOptionPane.showMessageDialog(null, "Not enough players with expiring contracts to see another page.");
+        }
+    }//GEN-LAST:event_jButton45ActionPerformed
+
+    private void jButton46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton46ActionPerformed
+        if(resignPageNumber!=0){
+            resignPageNumber--;
+            setupResignPanel();
+            getContentPane().revalidate();
+            getContentPane().repaint();
+        }else{
+            JOptionPane.showMessageDialog(null, "You are already on page 0.");
+        }
+    }//GEN-LAST:event_jButton46ActionPerformed
+
+    private void jButton47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton47ActionPerformed
+        resignPageNumber = 0;
+    }//GEN-LAST:event_jButton47ActionPerformed
+
+    private void jButton53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton53ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton53ActionPerformed
+
+    private void startNewYear(){
+        
+        league.setYear(league.getYear()+1);
+        
+        for(Team t : league.getTeams()){
+            for(int k=0;k<5;k++){
+                Player p = t.getSquad()[k];
+                t.getRoster().add(p);
+                t.getSquad()[k] = null;
+                
+                p = t.getBench()[k];
+                t.getRoster().add(p);
+                t.getBench()[k] = null;
+            }
+            
+            for(Player p : t.getRoster()){
+                p.setAge(p.getAge()+1);
+                // *** IF AGE IS GREATER THAN 30 THEN BEGIN DECLINING. IF GREATER THAN OR EQUAL TO 35 POSSIBLY RETIRE.
+                p.getContract().setLength(p.getContract().getLength()-1);
+                if(p.getContract().getLength()<=0){
+                    t.getIncomingFreeAgents().add(p);
+                }
+            }
+        }
+    }
+    
+    private void setupResignPanel(){
+        try{
+            int index = resignPageNumber * 5 + 0;
+            Player p = playerTeam.getIncomingFreeAgents().get(index);
+            jLabel21.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating());
+            jButton48.show();
+            jButton53.show();
+            jButton58.show();
+        }catch(Exception e){
+            jLabel21.setText("Empty");
+            jButton48.hide();
+            jButton53.hide();
+            jButton58.hide();
+        }
+        
+        try{
+            int index = resignPageNumber * 5 + 1;
+            Player p = playerTeam.getIncomingFreeAgents().get(index);
+            jLabel22.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating());
+            jButton49.show();
+            jButton54.show();
+            jButton59.show();
+        }catch(Exception e){
+            jLabel22.setText("Empty");
+            jButton49.hide();
+            jButton54.hide();
+            jButton59.hide();
+        }
+        
+        try{
+            int index = resignPageNumber * 5 + 2;
+            Player p = playerTeam.getIncomingFreeAgents().get(index);
+            jLabel23.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating());
+            jButton50.show();
+            jButton55.show();
+            jButton60.show();
+        }catch(Exception e){
+            jLabel23.setText("Empty");
+            jButton50.hide();
+            jButton55.hide();
+            jButton60.hide();
+        }
+        
+        try{
+            int index = resignPageNumber * 5 + 3;
+            Player p = playerTeam.getIncomingFreeAgents().get(index);
+            jLabel24.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating());
+            jButton51.show();
+            jButton56.show();
+            jButton61.show();
+        }catch(Exception e){
+            jLabel24.setText("Empty");
+            jButton51.hide();
+            jButton56.hide();
+            jButton61.hide();
+        }
+        
+        try{
+            int index = resignPageNumber * 5 + 4;
+            Player p = playerTeam.getIncomingFreeAgents().get(index);
+            jLabel25.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating());
+            jButton52.show();
+            jButton57.show();
+            jButton62.show();
+        }catch(Exception e){
+            jLabel25.setText("Empty");
+            jButton52.hide();
+            jButton57.hide();
+            jButton62.hide();
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -1586,8 +1907,26 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton42;
     private javax.swing.JButton jButton43;
     private javax.swing.JButton jButton44;
+    private javax.swing.JButton jButton45;
+    private javax.swing.JButton jButton46;
+    private javax.swing.JButton jButton47;
+    private javax.swing.JButton jButton48;
+    private javax.swing.JButton jButton49;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton50;
+    private javax.swing.JButton jButton51;
+    private javax.swing.JButton jButton52;
+    private javax.swing.JButton jButton53;
+    private javax.swing.JButton jButton54;
+    private javax.swing.JButton jButton55;
+    private javax.swing.JButton jButton56;
+    private javax.swing.JButton jButton57;
+    private javax.swing.JButton jButton58;
+    private javax.swing.JButton jButton59;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton60;
+    private javax.swing.JButton jButton61;
+    private javax.swing.JButton jButton62;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
@@ -1604,6 +1943,11 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1614,6 +1958,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel playerDetailsPanel;
     private javax.swing.JPanel playoffResultsPanel;
+    private javax.swing.JPanel resignPlayersPanel;
     private javax.swing.JPanel seasonStandingsPanel;
     private javax.swing.JPanel viewPlayersPanel;
     // End of variables declaration//GEN-END:variables

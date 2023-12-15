@@ -12,6 +12,7 @@ public class Team {
     private ArrayList<Player> roster; // everyone not in the bench or game squad
     private Player[] squad; // dudes in the game right now.
     private Player[] bench;
+    private ArrayList<Player> incomingFreeAgents;
     private int gameScore;
     private int wins;
     private int losses;
@@ -26,6 +27,7 @@ public class Team {
         roster = new ArrayList<>();
         squad = new Player[5];
         bench = new Player[5];
+        incomingFreeAgents = new ArrayList<>();
         gameScore = 0;
         wins = 0;
         losses = 0;
@@ -209,6 +211,14 @@ public class Team {
 
     public void setLosses(int losses) {
         this.losses = losses;
+    }
+
+    public ArrayList<Player> getIncomingFreeAgents() {
+        return incomingFreeAgents;
+    }
+
+    public void setIncomingFreeAgents(ArrayList<Player> incomingFreeAgents) {
+        this.incomingFreeAgents = incomingFreeAgents;
     }
     
     

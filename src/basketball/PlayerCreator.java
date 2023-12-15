@@ -101,6 +101,8 @@ public class PlayerCreator {
             }else{
                 c.setSalary(getValueWithinRange(25, 50));
             }
+            
+            c.setSalary(c.getSalary()+1);
         }
         p.setContract(c);
     }
