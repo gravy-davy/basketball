@@ -20,6 +20,7 @@ public class MainFrame extends javax.swing.JFrame {
     private PlayerCreator pc = new PlayerCreator();
     private League league;
     
+    private JPanel prevPanel;
     
     
     /**
@@ -144,6 +145,7 @@ public class MainFrame extends javax.swing.JFrame {
         jButton60 = new javax.swing.JButton();
         jButton61 = new javax.swing.JButton();
         jButton62 = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -894,14 +896,39 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jButton48.setText("Resign");
+        jButton48.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton48ActionPerformed(evt);
+            }
+        });
 
         jButton49.setText("Resign");
+        jButton49.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton49ActionPerformed(evt);
+            }
+        });
 
         jButton50.setText("Resign");
+        jButton50.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton50ActionPerformed(evt);
+            }
+        });
 
         jButton51.setText("Resign");
+        jButton51.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton51ActionPerformed(evt);
+            }
+        });
 
         jButton52.setText("Resign");
+        jButton52.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton52ActionPerformed(evt);
+            }
+        });
 
         jButton53.setText("Details");
         jButton53.addActionListener(new java.awt.event.ActionListener() {
@@ -911,65 +938,74 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jButton54.setText("Details");
+        jButton54.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton54ActionPerformed(evt);
+            }
+        });
 
         jButton55.setText("Details");
+        jButton55.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton55ActionPerformed(evt);
+            }
+        });
 
         jButton56.setText("Details");
+        jButton56.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton56ActionPerformed(evt);
+            }
+        });
 
         jButton57.setText("Details");
+        jButton57.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton57ActionPerformed(evt);
+            }
+        });
 
         jButton58.setText("DECLINE");
+        jButton58.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton58ActionPerformed(evt);
+            }
+        });
 
         jButton59.setText("DECLINE");
+        jButton59.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton59ActionPerformed(evt);
+            }
+        });
 
         jButton60.setText("DECLINE");
+        jButton60.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton60ActionPerformed(evt);
+            }
+        });
 
         jButton61.setText("DECLINE");
+        jButton61.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton61ActionPerformed(evt);
+            }
+        });
 
         jButton62.setText("DECLINE");
+        jButton62.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton62ActionPerformed(evt);
+            }
+        });
+
+        jLabel26.setText("jLabel26");
 
         javax.swing.GroupLayout resignPlayersPanelLayout = new javax.swing.GroupLayout(resignPlayersPanel);
         resignPlayersPanel.setLayout(resignPlayersPanelLayout);
         resignPlayersPanelLayout.setHorizontalGroup(
             resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(resignPlayersPanelLayout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addGroup(resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addGroup(resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(resignPlayersPanelLayout.createSequentialGroup()
-                        .addComponent(jButton52)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton57))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, resignPlayersPanelLayout.createSequentialGroup()
-                        .addComponent(jButton51)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton56))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, resignPlayersPanelLayout.createSequentialGroup()
-                        .addComponent(jButton50)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton55))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, resignPlayersPanelLayout.createSequentialGroup()
-                        .addComponent(jButton49)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton54))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, resignPlayersPanelLayout.createSequentialGroup()
-                        .addComponent(jButton48)
-                        .addGap(30, 30, 30)
-                        .addComponent(jButton53)))
-                .addGap(37, 37, 37)
-                .addGroup(resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton58)
-                    .addComponent(jButton59)
-                    .addComponent(jButton60)
-                    .addComponent(jButton61)
-                    .addComponent(jButton62))
-                .addContainerGap(179, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, resignPlayersPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton46)
@@ -978,11 +1014,61 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(94, 94, 94)
                 .addComponent(jButton47)
                 .addGap(48, 48, 48))
+            .addGroup(resignPlayersPanelLayout.createSequentialGroup()
+                .addGroup(resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(resignPlayersPanelLayout.createSequentialGroup()
+                        .addGroup(resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(resignPlayersPanelLayout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addGroup(resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, resignPlayersPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(40, 40, 40)
+                        .addGroup(resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(resignPlayersPanelLayout.createSequentialGroup()
+                                .addComponent(jButton52)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton57))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, resignPlayersPanelLayout.createSequentialGroup()
+                                .addComponent(jButton51)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton56))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, resignPlayersPanelLayout.createSequentialGroup()
+                                .addComponent(jButton50)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton55))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, resignPlayersPanelLayout.createSequentialGroup()
+                                .addComponent(jButton49)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton54))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, resignPlayersPanelLayout.createSequentialGroup()
+                                .addComponent(jButton48)
+                                .addGap(30, 30, 30)
+                                .addComponent(jButton53)))
+                        .addGap(37, 37, 37)
+                        .addGroup(resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton58)
+                            .addComponent(jButton59)
+                            .addComponent(jButton60)
+                            .addComponent(jButton61)
+                            .addComponent(jButton62)))
+                    .addGroup(resignPlayersPanelLayout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(179, Short.MAX_VALUE))
         );
         resignPlayersPanelLayout.setVerticalGroup(
             resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(resignPlayersPanelLayout.createSequentialGroup()
-                .addGap(94, 94, 94)
+                .addGap(29, 29, 29)
+                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
                 .addGroup(resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton48)
@@ -1128,64 +1214,74 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
         Player p = playerTeam.getSquad()[0];
         setupPlayerDetailsPanel(p);
+        prevPanel = viewPlayersPanel;
         switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
         Player p = playerTeam.getSquad()[1];
         setupPlayerDetailsPanel(p);
+        prevPanel = viewPlayersPanel;
         switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
     }//GEN-LAST:event_jButton23ActionPerformed
 
     private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
         Player p = playerTeam.getSquad()[2];
         setupPlayerDetailsPanel(p);
+        prevPanel = viewPlayersPanel;
         switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
     }//GEN-LAST:event_jButton25ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
         Player p = playerTeam.getSquad()[3];
         setupPlayerDetailsPanel(p);
+        prevPanel = viewPlayersPanel;
         switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
     }//GEN-LAST:event_jButton27ActionPerformed
 
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
         Player p = playerTeam.getSquad()[4];
         setupPlayerDetailsPanel(p);
+        prevPanel = viewPlayersPanel;
         switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
     }//GEN-LAST:event_jButton29ActionPerformed
 
     private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed
-        switchToAnotherPanel(playerDetailsPanel, viewPlayersPanel);
+        switchToAnotherPanel(playerDetailsPanel, prevPanel);
     }//GEN-LAST:event_jButton40ActionPerformed
 
     private void jButton39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton39ActionPerformed
         Player p = playerTeam.getBench()[0];
         setupPlayerDetailsPanel(p);
+        prevPanel = viewPlayersPanel;
         switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
     }//GEN-LAST:event_jButton39ActionPerformed
 
     private void jButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton37ActionPerformed
         Player p = playerTeam.getBench()[1];
         setupPlayerDetailsPanel(p);
+        prevPanel = viewPlayersPanel;
         switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
     }//GEN-LAST:event_jButton37ActionPerformed
 
     private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
         Player p = playerTeam.getBench()[2];
         setupPlayerDetailsPanel(p);
+        prevPanel = viewPlayersPanel;
         switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
     }//GEN-LAST:event_jButton35ActionPerformed
 
     private void jButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33ActionPerformed
         Player p = playerTeam.getBench()[3];
         setupPlayerDetailsPanel(p);
+        prevPanel = viewPlayersPanel;
         switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
     }//GEN-LAST:event_jButton33ActionPerformed
 
     private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
         Player p = playerTeam.getBench()[4];
         setupPlayerDetailsPanel(p);
+        prevPanel = viewPlayersPanel;
         switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
     }//GEN-LAST:event_jButton31ActionPerformed
 
@@ -1315,7 +1411,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         int index = viewRosterPageNumber * 5 + 0;
         Player p = playerTeam.getRoster().get(index);
-        
+        prevPanel = viewPlayersPanel;
         setupPlayerDetailsPanel(p);
         switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -1323,7 +1419,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         int index = viewRosterPageNumber * 5 + 1;
         Player p = playerTeam.getRoster().get(index);
-        
+        prevPanel = viewPlayersPanel;
         setupPlayerDetailsPanel(p);
         switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
     }//GEN-LAST:event_jButton6ActionPerformed
@@ -1331,7 +1427,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         int index = viewRosterPageNumber * 5 + 2;
         Player p = playerTeam.getRoster().get(index);
-        
+        prevPanel = viewPlayersPanel;
         setupPlayerDetailsPanel(p);
         switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
     }//GEN-LAST:event_jButton9ActionPerformed
@@ -1339,7 +1435,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         int index = viewRosterPageNumber * 5 + 3;
         Player p = playerTeam.getRoster().get(index);
-        
+        prevPanel = viewPlayersPanel;
         setupPlayerDetailsPanel(p);
         switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
     }//GEN-LAST:event_jButton12ActionPerformed
@@ -1347,7 +1443,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         int index = viewRosterPageNumber * 5 + 4;
         Player p = playerTeam.getRoster().get(index);
-        
+        prevPanel = viewPlayersPanel;
         setupPlayerDetailsPanel(p);
         switchToAnotherPanel(viewPlayersPanel, playerDetailsPanel);
     }//GEN-LAST:event_jButton15ActionPerformed
@@ -1402,12 +1498,168 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton47ActionPerformed
         resignPageNumber = 0;
+        for(Player p : playerTeam.getIncomingFreeAgents()){
+            league.getFreeAgents().add(p);
+        }
+        playerTeam.getIncomingFreeAgents().clear();
+        // AI TEAMS WILL RESIGN PLAYERS HERE
     }//GEN-LAST:event_jButton47ActionPerformed
 
     private void jButton53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton53ActionPerformed
-        // TODO add your handling code here:
+        int index = resignPageNumber * 5 + 0;
+        Player p = playerTeam.getIncomingFreeAgents().get(index);
+        setupPlayerDetailsPanel(p);
+        prevPanel = resignPlayersPanel;
+        switchToAnotherPanel(mainPanel, playerDetailsPanel);
     }//GEN-LAST:event_jButton53ActionPerformed
 
+    private void jButton54ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton54ActionPerformed
+        int index = resignPageNumber * 5 + 1;
+        Player p = playerTeam.getIncomingFreeAgents().get(index);
+        setupPlayerDetailsPanel(p);
+        prevPanel = resignPlayersPanel;
+        switchToAnotherPanel(mainPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton54ActionPerformed
+
+    private void jButton55ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton55ActionPerformed
+        int index = resignPageNumber * 5 + 2;
+        Player p = playerTeam.getIncomingFreeAgents().get(index);
+        setupPlayerDetailsPanel(p);
+        prevPanel = resignPlayersPanel;
+        switchToAnotherPanel(mainPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton55ActionPerformed
+
+    private void jButton56ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton56ActionPerformed
+        int index = resignPageNumber * 5 + 3;
+        Player p = playerTeam.getIncomingFreeAgents().get(index);
+        setupPlayerDetailsPanel(p);
+        prevPanel = resignPlayersPanel;
+        switchToAnotherPanel(mainPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton56ActionPerformed
+
+    private void jButton57ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton57ActionPerformed
+        int index = resignPageNumber * 5 + 4;
+        Player p = playerTeam.getIncomingFreeAgents().get(index);
+        setupPlayerDetailsPanel(p);
+        prevPanel = resignPlayersPanel;
+        switchToAnotherPanel(mainPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton57ActionPerformed
+
+    private void jButton58ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton58ActionPerformed
+        int index = resignPageNumber * 5 + 0;
+        Player p = playerTeam.getIncomingFreeAgents().get(index);
+        playerTeam.getIncomingFreeAgents().remove(p);
+        league.getFreeAgents().add(p);
+        setupResignPanel();
+        switchToAnotherPanel(resignPlayersPanel, resignPlayersPanel);
+    }//GEN-LAST:event_jButton58ActionPerformed
+
+    private void jButton59ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton59ActionPerformed
+        int index = resignPageNumber * 5 + 1;
+        Player p = playerTeam.getIncomingFreeAgents().get(index);
+        playerTeam.getIncomingFreeAgents().remove(p);
+        league.getFreeAgents().add(p);
+        setupResignPanel();
+        switchToAnotherPanel(resignPlayersPanel, resignPlayersPanel);
+    }//GEN-LAST:event_jButton59ActionPerformed
+
+    private void jButton60ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton60ActionPerformed
+        int index = resignPageNumber * 5 + 2;
+        Player p = playerTeam.getIncomingFreeAgents().get(index);
+        playerTeam.getIncomingFreeAgents().remove(p);
+        league.getFreeAgents().add(p);
+        setupResignPanel();
+        switchToAnotherPanel(resignPlayersPanel, resignPlayersPanel);
+    }//GEN-LAST:event_jButton60ActionPerformed
+
+    private void jButton61ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton61ActionPerformed
+        int index = resignPageNumber * 5 + 3;
+        Player p = playerTeam.getIncomingFreeAgents().get(index);
+        playerTeam.getIncomingFreeAgents().remove(p);
+        league.getFreeAgents().add(p);
+        setupResignPanel();
+        switchToAnotherPanel(resignPlayersPanel, resignPlayersPanel);
+    }//GEN-LAST:event_jButton61ActionPerformed
+
+    private void jButton62ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton62ActionPerformed
+        int index = resignPageNumber * 5 + 4;
+        Player p = playerTeam.getIncomingFreeAgents().get(index);
+        playerTeam.getIncomingFreeAgents().remove(p);
+        league.getFreeAgents().add(p);
+        setupResignPanel();
+        switchToAnotherPanel(resignPlayersPanel, resignPlayersPanel);
+    }//GEN-LAST:event_jButton62ActionPerformed
+
+    private void jButton48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton48ActionPerformed
+        int index = resignPageNumber * 5 + 0;
+        Player p = playerTeam.getIncomingFreeAgents().get(index);
+        makeResigningDecisionForPlayer(p);
+        setupResignPanel();
+        switchToAnotherPanel(resignPlayersPanel, resignPlayersPanel);
+    }//GEN-LAST:event_jButton48ActionPerformed
+
+    private void jButton49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton49ActionPerformed
+        int index = resignPageNumber * 5 + 1;
+        Player p = playerTeam.getIncomingFreeAgents().get(index);
+        makeResigningDecisionForPlayer(p);
+        setupResignPanel();
+        switchToAnotherPanel(resignPlayersPanel, resignPlayersPanel);
+    }//GEN-LAST:event_jButton49ActionPerformed
+
+    private void jButton50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton50ActionPerformed
+        int index = resignPageNumber * 5 + 2;
+        Player p = playerTeam.getIncomingFreeAgents().get(index);
+        makeResigningDecisionForPlayer(p);
+        setupResignPanel();
+        switchToAnotherPanel(resignPlayersPanel, resignPlayersPanel);
+    }//GEN-LAST:event_jButton50ActionPerformed
+
+    private void jButton51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton51ActionPerformed
+        int index = resignPageNumber * 5 + 3;
+        Player p = playerTeam.getIncomingFreeAgents().get(index);
+        makeResigningDecisionForPlayer(p);
+        setupResignPanel();
+        switchToAnotherPanel(resignPlayersPanel, resignPlayersPanel);
+    }//GEN-LAST:event_jButton51ActionPerformed
+
+    private void jButton52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton52ActionPerformed
+        int index = resignPageNumber * 5 + 4;
+        Player p = playerTeam.getIncomingFreeAgents().get(index);
+        makeResigningDecisionForPlayer(p);
+        setupResignPanel();
+        switchToAnotherPanel(resignPlayersPanel, resignPlayersPanel);
+    }//GEN-LAST:event_jButton52ActionPerformed
+
+    
+    private void makeResigningDecisionForPlayer(Player p){
+        String signingDecision = p.getSigningDecision(playerTeam, "Resigning");
+        if(signingDecision.equalsIgnoreCase("Signed")){
+            playerTeam.regenMoneyAvailable();
+            if(playerTeam.getMoneyAvailable()>=p.getContract().getSalary()){
+                playerTeam.getRoster().add(p);
+                playerTeam.getIncomingFreeAgents().remove(p);
+                playerTeam.regenMoneyAvailable();
+                JOptionPane.showMessageDialog(null, p.getName() + " resigned with your team!");
+            }else{
+                playerTeam.getIncomingFreeAgents().remove(p);
+                league.getFreeAgents().add(p);
+                JOptionPane.showMessageDialog(null, "Your team does not have enough money to sign " + p.getName());
+            }
+        }else{
+            playerTeam.getIncomingFreeAgents().remove(p);
+            league.getFreeAgents().add(p);
+            JOptionPane.showMessageDialog(null, p.getName() +" declined your offer.");
+        }
+    }
+    
+    /**
+     * What it modifies:
+     * 1. LEAGUE YEAR: increments by 1
+     * 2. Adds all players on every team to the roster, therein removing them from the starting lineups
+     * 3. Decrements contract lengths and regens contracts of players with 0 contract length. Adds 0 length players to team's incoming free agents
+     * 4. Increments ages of players
+     * 5. Calculates money available for a team
+     */
     private void startNewYear(){
         
         league.setYear(league.getYear()+1);
@@ -1423,6 +1675,7 @@ public class MainFrame extends javax.swing.JFrame {
                 t.getBench()[k] = null;
             }
             
+            
             for(Player p : t.getRoster()){
                 p.setAge(p.getAge()+1);
                 // *** IF AGE IS GREATER THAN 30 THEN BEGIN DECLINING. IF GREATER THAN OR EQUAL TO 35 POSSIBLY RETIRE.
@@ -1431,14 +1684,31 @@ public class MainFrame extends javax.swing.JFrame {
                     t.getIncomingFreeAgents().add(p);
                 }
             }
+            
+            for(Player p : t.getIncomingFreeAgents()){
+                if(t.getRoster().contains(p)){
+                    t.getRoster().remove(p);
+                }
+                // regen their contracts possibly here. should be fine since they will be in the free agent pool of the league if not resigned.
+                p.regenContract();
+            }
+            
+            int moneyUsed = 0;
+            for(Player p : t.getRoster()){
+                moneyUsed+= p.getContract().getSalary();
+            }
+            t.setMoneyAvailable(t.getMoneyTotal()-moneyUsed);
         }
     }
     
     private void setupResignPanel(){
+        
+        jLabel26.setText("Money: " + playerTeam.getMoneyAvailable() + "m / " + playerTeam.getMoneyTotal() + "m");
+        
         try{
             int index = resignPageNumber * 5 + 0;
             Player p = playerTeam.getIncomingFreeAgents().get(index);
-            jLabel21.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating());
+            jLabel21.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating() + " - " + p.getContract().getSalary() + "m/" + p.getContract().getLength());
             jButton48.show();
             jButton53.show();
             jButton58.show();
@@ -1452,7 +1722,7 @@ public class MainFrame extends javax.swing.JFrame {
         try{
             int index = resignPageNumber * 5 + 1;
             Player p = playerTeam.getIncomingFreeAgents().get(index);
-            jLabel22.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating());
+            jLabel22.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating() + " - " + p.getContract().getSalary() + "m/" + p.getContract().getLength());
             jButton49.show();
             jButton54.show();
             jButton59.show();
@@ -1466,7 +1736,7 @@ public class MainFrame extends javax.swing.JFrame {
         try{
             int index = resignPageNumber * 5 + 2;
             Player p = playerTeam.getIncomingFreeAgents().get(index);
-            jLabel23.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating());
+            jLabel23.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating() + " - " + p.getContract().getSalary() + "m/" + p.getContract().getLength());
             jButton50.show();
             jButton55.show();
             jButton60.show();
@@ -1480,7 +1750,7 @@ public class MainFrame extends javax.swing.JFrame {
         try{
             int index = resignPageNumber * 5 + 3;
             Player p = playerTeam.getIncomingFreeAgents().get(index);
-            jLabel24.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating());
+            jLabel24.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating() + " - " + p.getContract().getSalary() + "m/" + p.getContract().getLength());
             jButton51.show();
             jButton56.show();
             jButton61.show();
@@ -1494,7 +1764,7 @@ public class MainFrame extends javax.swing.JFrame {
         try{
             int index = resignPageNumber * 5 + 4;
             Player p = playerTeam.getIncomingFreeAgents().get(index);
-            jLabel25.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating());
+            jLabel25.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating() + " - " + p.getContract().getSalary() + "m/" + p.getContract().getLength());
             jButton52.show();
             jButton57.show();
             jButton62.show();
@@ -1948,6 +2218,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

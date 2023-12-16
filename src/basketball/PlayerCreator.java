@@ -50,19 +50,18 @@ public class PlayerCreator {
         genName(p);
         generateRatings(p);
         generateModifiers(p);
-        generateTendencies(p);
         createEmptyStats(p);
         p.setDevelopment(getRandomRarity());
         genPositionBasedOnStats(p);
         
         inflateRatings(p);
+        generateTendencies(p);
         
         generateMaxQuartersPlayable(p);
         p.setQuarters(new ArrayList<>());
         
-        p.setLoyalty(r.nextInt(100));
-        p.setGreed(r.nextInt(100));
-        p.setLastYearRecordImportance(r.nextInt(100));
+        p.setFREE_AGENCY_loyalty(r.nextInt(100)+1);
+        p.setFREE_AGENCY_playForWinner(r.nextInt(100)+1);
         
         genAge(p); // should make it more common for 20-29 year olds
         
@@ -70,41 +69,9 @@ public class PlayerCreator {
         // leagues in the year right here
         generateYearsInTheLeague(p);
         // contract generation here
-        generateContract(p);
+        p.regenContract();
         
         return p;
-    }
-    
-    private void generateContract(Player p){
-        Contract c = new Contract();
-        if(p.getYearsInTheLeague()==0){
-            c.setLength(3);
-            c.setSalary(1);
-        }else{
-            Random r = new Random();
-            c.setLength(r.nextInt(4) + 1);
-            
-            if(p.getOverallRating()<40){
-                c.setSalary(r.nextInt(5));
-            }else if(p.getOverallRating()<50){
-                c.setSalary(r.nextInt(10));
-            }else if(p.getOverallRating()<55){
-                c.setSalary(r.nextInt(15));
-            }else if(p.getOverallRating()<60){
-                c.setSalary(getValueWithinRange(10, 20));
-            }else if(p.getOverallRating()<65){
-                c.setSalary(getValueWithinRange(12, 24));
-            }else if(p.getOverallRating()<70){
-                c.setSalary(getValueWithinRange(15, 30));
-            }else if(p.getOverallRating()<75){
-                c.setSalary(getValueWithinRange(20, 35));
-            }else{
-                c.setSalary(getValueWithinRange(25, 50));
-            }
-            
-            c.setSalary(c.getSalary()+1);
-        }
-        p.setContract(c);
     }
     
     private void generateYearsInTheLeague(Player p){

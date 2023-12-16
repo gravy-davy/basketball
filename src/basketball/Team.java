@@ -132,6 +132,14 @@ public class Team {
             }
         }
     }
+    
+    public void regenMoneyAvailable(){
+        int moneyUsed = 0;
+        for(Player p : roster){
+            moneyUsed+= p.getContract().getSalary();
+        }
+        moneyAvailable = moneyTotal - moneyUsed;
+    }
 
     public ArrayList<Player> getRoster() {
         return roster;

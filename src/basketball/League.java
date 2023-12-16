@@ -15,6 +15,7 @@ public class League {
     private String stage; // Season, Playoffs, Resigning, Draft, Free agency, Training, Goto new season
     
     private ArrayList<Player> allActivePlayers; // includes all players on a team
+    private ArrayList<Player> freeAgents;
     private ArrayList<PlayoffMatchup> playoffMatchups;
     
     public League() {
@@ -23,6 +24,7 @@ public class League {
         allActivePlayers = new ArrayList<>();
         playoffTeams = new ArrayList<>();
         playoffMatchups = new ArrayList<>();
+        freeAgents = new ArrayList<>();
         fillUpLeague();
         fillActivePlayers();
         stage = "Season";
@@ -227,6 +229,14 @@ public class League {
 
     public void setPlayoffMatchups(ArrayList<PlayoffMatchup> playoffMatchups) {
         this.playoffMatchups = playoffMatchups;
+    }
+
+    public ArrayList<Player> getFreeAgents() {
+        return freeAgents;
+    }
+
+    public void setFreeAgents(ArrayList<Player> freeAgents) {
+        this.freeAgents = freeAgents;
     }
     
     

@@ -2,6 +2,7 @@
 package basketball;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 
 public class Player {
@@ -15,9 +16,8 @@ public class Player {
     private int yearsInTheLeague;
     
     // for FA decisions
-    private int loyalty;
-    private int greed;
-    private int lastYearRecordImportance;
+    private int FREE_AGENCY_loyalty;
+    private int FREE_AGENCY_playForWinner;
     
     // what quarters they'll play in
     private ArrayList<Integer> quarters; // 1,2,4 for quarters played
@@ -137,6 +137,114 @@ public class Player {
         assists = 0;
     }
     
+    
+    /**
+     * This method will assign the player with MVP votes. It can determine a player's value in FA too.
+     */
+    public void regenMvpVotes(){
+        
+    }
+    
+    /**
+     * 
+     * @param t the team making the contract offer
+     * @param typeOfOffer either "Resigning" OR "Free agency"
+     * @return "Signed" or "Declined"
+     */
+    public String getSigningDecision(Team t, String typeOfOffer){
+        int signingScore = 0;
+        Random r = new Random();
+        
+        if(FREE_AGENCY_playForWinner<50){
+            // nothing
+        }else if(FREE_AGENCY_playForWinner<60){
+            if(t.getWins()>=30){
+                signingScore+= r.nextInt(getValueWithinRange(10,25));
+            }else{
+                signingScore-= r.nextInt(10);
+            }
+        }else if(FREE_AGENCY_playForWinner<75){
+            if(t.getWins()>=40){
+                signingScore+= r.nextInt(getValueWithinRange(15,30));
+            }else{
+                signingScore-= r.nextInt(15);
+            }
+        }else if(FREE_AGENCY_playForWinner<80){
+            if(t.getWins()>=45){
+                signingScore+= r.nextInt(getValueWithinRange(25,50));
+            }else{
+                signingScore-= r.nextInt(25);
+            }
+        }else if(FREE_AGENCY_playForWinner<100){
+            if(t.getWins()>=50){
+                signingScore+= getValueWithinRange(50,75);
+            }else{
+                signingScore-= r.nextInt(35);
+            }
+        }
+        
+        if(typeOfOffer.equalsIgnoreCase("Resigning")){
+            // uses loyalty + winner
+            if(FREE_AGENCY_loyalty<50){
+                signingScore-= r.nextInt(10);
+            }else if(FREE_AGENCY_loyalty<60){
+                signingScore+= r.nextInt(10);
+            }else if(FREE_AGENCY_loyalty<70){
+                signingScore+= r.nextInt(20);
+            }else if(FREE_AGENCY_loyalty<80){
+                signingScore+= r.nextInt(30);
+            }else if(FREE_AGENCY_loyalty<90){
+                signingScore+= r.nextInt(40);
+            }else{
+                signingScore+= r.nextInt(50);
+            }
+            signingScore = signingScore / 2;
+        }
+        
+        signingScore+= r.nextInt(40);
+        System.out.println("signing score = " + signingScore);
+        if(signingScore>=35){
+            return "Signed";
+        }
+        return "Declined";
+    }
+    
+    public void regenContract(){
+        Contract c = new Contract();
+        if(yearsInTheLeague==0){
+            c.setLength(3);
+            c.setSalary(1);
+        }else{
+            Random r = new Random();
+            c.setLength(r.nextInt(4) + 1);
+            
+            if(overallRating<40){
+                c.setSalary(r.nextInt(5));
+            }else if(overallRating<50){
+                c.setSalary(r.nextInt(10));
+            }else if(overallRating<55){
+                c.setSalary(r.nextInt(15));
+            }else if(overallRating<60){
+                c.setSalary(getValueWithinRange(10, 20));
+            }else if(overallRating<65){
+                c.setSalary(getValueWithinRange(12, 24));
+            }else if(overallRating<70){
+                c.setSalary(getValueWithinRange(15, 30));
+            }else if(overallRating<75){
+                c.setSalary(getValueWithinRange(20, 35));
+            }else{
+                c.setSalary(getValueWithinRange(25, 50));
+            }
+            c.setSalary(c.getSalary()+1);
+        }
+        setContract(c);
+    }
+    
+    private int getValueWithinRange(int min, int max){
+        Random r = new Random();
+        return r.nextInt(max - min + 1) + min;
+    }
+    
     // based on their position. this is called yearly before the offseason.
     public void regenOverallRating(){
         PlayerCreator pc = new PlayerCreator();
@@ -221,29 +329,21 @@ public class Player {
     public void setContract(Contract contract) {
         this.contract = contract;
     }
-    
-    public int getLoyalty() {
-        return loyalty;
+
+    public int getFREE_AGENCY_loyalty() {
+        return FREE_AGENCY_loyalty;
     }
 
-    public void setLoyalty(int loyalty) {
-        this.loyalty = loyalty;
+    public void setFREE_AGENCY_loyalty(int FREE_AGENCY_loyalty) {
+        this.FREE_AGENCY_loyalty = FREE_AGENCY_loyalty;
     }
 
-    public int getGreed() {
-        return greed;
+    public int getFREE_AGENCY_playForWinner() {
+        return FREE_AGENCY_playForWinner;
     }
 
-    public void setGreed(int greed) {
-        this.greed = greed;
-    }
-
-    public int getLastYearRecordImportance() {
-        return lastYearRecordImportance;
-    }
-
-    public void setLastYearRecordImportance(int lastYearRecordImportance) {
-        this.lastYearRecordImportance = lastYearRecordImportance;
+    public void setFREE_AGENCY_playForWinner(int FREE_AGENCY_playForWinner) {
+        this.FREE_AGENCY_playForWinner = FREE_AGENCY_playForWinner;
     }
 
     public ArrayList<Integer> getQuarters() {
