@@ -70,6 +70,7 @@ public class PlayerCreator {
         generateYearsInTheLeague(p);
         // contract generation here
         p.regenContract();
+        p.regenPlayerValue();
         
         return p;
     }

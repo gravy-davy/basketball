@@ -14,6 +14,7 @@ public class Player {
     private int development; // 1-5
     private Contract contract;
     private int yearsInTheLeague;
+    private int value;
     
     // for FA decisions
     private int FREE_AGENCY_loyalty;
@@ -139,19 +140,44 @@ public class Player {
     
     
     /**
-     * This method will assign the player with MVP votes. It can determine a player's value in FA too.
+     * This method will regenerate a player's value, and is used to sign free agents.
      */
-    public void regenMvpVotes(){
+    public void regenPlayerValue(){
+        int pValue = 0;
         
+        pValue+= overallRating;
+        
+        if(development==5){
+            pValue*=4;
+        }else if(development==4){
+            pValue*=3;
+        }else if(development==3){
+            pValue*=2;
+        }else if(development==2){
+            pValue*=1;
+        }else{
+            pValue/=2;
+        }
+        
+        // reduce for age
+        
+        if(age>=32){
+            pValue/=2;
+        }else if(age<=25){
+            pValue*=2;
+        }
+        
+        value = pValue;
     }
     
     /**
      * 
      * @param t the team making the contract offer
      * @param typeOfOffer either "Resigning" OR "Free agency"
+     * @param isPlayerTeam if it's false, then the team has their own decision based off playerValue
      * @return "Signed" or "Declined"
      */
-    public String getSigningDecision(Team t, String typeOfOffer){
+    public String getSigningDecision(Team t, String typeOfOffer, boolean isPlayerTeam){
         int signingScore = 0;
         Random r = new Random();
         
@@ -201,9 +227,24 @@ public class Player {
             signingScore = signingScore / 2;
         }
         
+        // So if it's an AI team, they have to factor in playerValue into the decision
+        if(!isPlayerTeam){
+            if(value<50){
+                signingScore-= r.nextInt(50 - 20 + 1) + 20;
+            }else if(value<80){
+                signingScore-= r.nextInt(25 - 10 + 1) + 10;
+            }else if(value<125){
+                signingScore+= r.nextInt(25 - 10 + 1) + 10;
+            }else if(value<175){
+                signingScore+= r.nextInt(35 - 20 + 1) + 20;
+            }else{
+                signingScore+= r.nextInt(50 - 20 + 1) + 20;
+            }
+        }
+        
         signingScore+= r.nextInt(40);
         System.out.println("signing score = " + signingScore);
-        if(signingScore>=35){
+        if(signingScore>=25){
             return "Signed";
         }
         return "Declined";
@@ -816,6 +857,14 @@ public class Player {
 
     public void setYearsInTheLeague(int yearsInTheLeague) {
         this.yearsInTheLeague = yearsInTheLeague;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
     }
     
     

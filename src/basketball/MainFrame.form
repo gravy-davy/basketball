@@ -1074,7 +1074,7 @@
                           <Component id="jLabel26" min="-2" pref="256" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="179" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1118,7 +1118,7 @@
                       <Component id="jButton57" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton62" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="141" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButton45" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton46" alignment="3" min="-2" max="-2" attributes="0"/>

@@ -5,6 +5,9 @@
  */
 package basketball;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -1503,6 +1506,9 @@ public class MainFrame extends javax.swing.JFrame {
         }
         playerTeam.getIncomingFreeAgents().clear();
         // AI TEAMS WILL RESIGN PLAYERS HERE
+        aiTeamsResignPlayers();
+        
+        
     }//GEN-LAST:event_jButton47ActionPerformed
 
     private void jButton53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton53ActionPerformed
@@ -1632,7 +1638,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     
     private void makeResigningDecisionForPlayer(Player p){
-        String signingDecision = p.getSigningDecision(playerTeam, "Resigning");
+        String signingDecision = p.getSigningDecision(playerTeam, "Resigning", true);
         if(signingDecision.equalsIgnoreCase("Signed")){
             playerTeam.regenMoneyAvailable();
             if(playerTeam.getMoneyAvailable()>=p.getContract().getSalary()){
@@ -1683,6 +1689,7 @@ public class MainFrame extends javax.swing.JFrame {
                 if(p.getContract().getLength()<=0){
                     t.getIncomingFreeAgents().add(p);
                 }
+                p.regenPlayerValue();
             }
             
             for(Player p : t.getIncomingFreeAgents()){
@@ -1903,6 +1910,41 @@ public class MainFrame extends javax.swing.JFrame {
         newPanel.show();
         getContentPane().revalidate();
         getContentPane().repaint();
+    }
+    
+    private void aiTeamsResignPlayers(){
+        for(Team t : league.getTeams()){
+            Collections.sort(t.getIncomingFreeAgents(), Comparator.comparingInt(Player::getValue));
+            Collections.reverse(t.getIncomingFreeAgents());
+            
+            System.out.println("\n\n");
+            for(Player p : t.getIncomingFreeAgents()){
+                System.out.println(p.getName() + " - player value = " + p.getValue() + " - overall: " + p.getOverallRating() + " - age: " + p.getAge() + " - dev: " + p.getDevelopment());
+            }
+            
+            for(Player p : t.getIncomingFreeAgents()){
+                // offer contracts and if "Declined" then they goto free agency. if value is too low they dont offer though based on rng.
+                // if accepted then make sure they have enough money to sign the player.
+                String signingDecision = p.getSigningDecision(t, "Resigning", false);
+                
+                if(signingDecision.equalsIgnoreCase("Signed")){
+                    t.regenMoneyAvailable();
+                    if(t.getMoneyAvailable()>=p.getContract().getSalary()){
+                        t.getRoster().add(p);
+                        t.regenMoneyAvailable();
+                        System.out.println(t.getName() + " has RESIGNED " + p.getName() + " for " + p.getContract().getSalary() + " over " + p.getContract().getLength() +
+                                " years!");
+                    }else{
+                        league.getFreeAgents().add(p);
+                        System.out.println(t.getName() + " has released " + p.getName());
+                    }
+                }else{
+                    league.getFreeAgents().add(p);
+                    System.out.println(t.getName() + " has had their offer declined by " + p.getName());
+                }
+            }
+            t.getIncomingFreeAgents().clear();
+        }
     }
     
     private void setupPlayoffResultsPanel(){
