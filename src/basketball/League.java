@@ -17,6 +17,7 @@ public class League {
     private ArrayList<Player> allActivePlayers; // includes all players on a team
     private ArrayList<Player> freeAgents;
     private ArrayList<PlayoffMatchup> playoffMatchups;
+    private ArrayList<Player> draftees;
     
     public League() {
         year = 2020;
@@ -28,6 +29,7 @@ public class League {
         fillUpLeague();
         fillActivePlayers();
         stage = "Season";
+        draftees = new ArrayList<>();
     }
     
     /**
@@ -237,6 +239,14 @@ public class League {
 
     public void setFreeAgents(ArrayList<Player> freeAgents) {
         this.freeAgents = freeAgents;
+    }
+
+    public ArrayList<Player> getDraftees() {
+        return draftees;
+    }
+
+    public void setDraftees(ArrayList<Player> draftees) {
+        this.draftees = draftees;
     }
     
     

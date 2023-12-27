@@ -8,6 +8,7 @@ package basketball;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Random;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -1508,6 +1509,13 @@ public class MainFrame extends javax.swing.JFrame {
         // AI TEAMS WILL RESIGN PLAYERS HERE
         aiTeamsResignPlayers();
         
+        league.getDraftees().clear();
+        generateDraftees();
+        
+        System.out.println("THE DRAFT ");
+        for(Player p : league.getDraftees()){
+            System.out.println(p.getName() + " - age: " + p.getAge() + " - overall: " + p.getOverallRating() + " - development: " + p.getDevelopment());
+        }
         
     }//GEN-LAST:event_jButton47ActionPerformed
 
@@ -1781,6 +1789,19 @@ public class MainFrame extends javax.swing.JFrame {
             jButton57.hide();
             jButton62.hide();
         }
+    }
+    
+    private void generateDraftees(){
+        for(int k=0;k<30;k++){
+            Player p;
+            p = pc.createRandomPlayer();
+            Random r = new Random();
+            p.setAge(r.nextInt(24 - 18 + 1) + 18);
+            league.getDraftees().add(p);
+        }
+        
+        Collections.sort(league.getDraftees(), Comparator.comparingInt(Player::getOverallRating));
+        Collections.reverse(league.getDraftees());
     }
     
     /**
