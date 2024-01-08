@@ -358,7 +358,7 @@ public class Game {
             defScore += r.nextInt(defender.getPerimeterDefSkill());
         }
         
-        int diff = shotScore - defScore;
+        int diff = shotScore - (defScore/2);
         return diff;
     }
     

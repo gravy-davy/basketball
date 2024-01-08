@@ -1692,6 +1692,7 @@ public class MainFrame extends javax.swing.JFrame {
             
             for(Player p : t.getRoster()){
                 p.setAge(p.getAge()+1);
+                p.regenPlayerPerformanceValue();
                 // *** IF AGE IS GREATER THAN 30 THEN BEGIN DECLINING. IF GREATER THAN OR EQUAL TO 35 POSSIBLY RETIRE.
                 p.getContract().setLength(p.getContract().getLength()-1);
                 if(p.getContract().getLength()<=0){

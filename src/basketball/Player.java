@@ -14,7 +14,8 @@ public class Player {
     private int development; // 1-5
     private Contract contract;
     private int yearsInTheLeague;
-    private int value;
+    private int value; // based on age/attributes aka overall/development
+    private int performanceValue; // based on actual game results
     
     // for FA decisions
     private int FREE_AGENCY_loyalty;
@@ -138,6 +139,35 @@ public class Player {
         assists = 0;
     }
     
+    // calculates it for the year. should impact free agency.
+    public void regenPlayerPerformanceValue(){
+        // ppg, apg, rpg, fg, 3fg make a player's value. their def values too possibly, based on position for perimeter vs interior.
+        double fieldGoalPercentage = calculatePercentage(totalFgMade, totalFgAttempted);
+        double threePointPercentage = calculatePercentage(totalThreePointersMade, totalThreePointersAttempted);
+        double averagePointsPerGame = calculateAverage(totalPoints, totalGamesPlayed);
+        double averageAssistsPerGame = calculateAverage(totalAssists, totalGamesPlayed);
+        double averageReboundsPerGame = calculateAverage(totalRebounds, totalGamesPlayed);
+        
+        Random r = new Random();
+        int val = 0;
+        
+        val+= averagePointsPerGame + averageAssistsPerGame + averageReboundsPerGame;
+        
+        
+        if(fieldGoalPercentage>=50){
+            val = val * 2;
+        }else if(fieldGoalPercentage<30){
+            val = val / 2;
+        }
+        
+        if(threePointPercentage>=35){
+            val = val * 2;
+        }else if(threePointPercentage<20){
+            val = val / 2;
+        }
+        
+        performanceValue = val;
+    }
     
     /**
      * This method will regenerate a player's value, and is used to sign free agents.
@@ -865,6 +895,14 @@ public class Player {
 
     public void setValue(int value) {
         this.value = value;
+    }
+
+    public int getPerformanceValue() {
+        return performanceValue;
+    }
+
+    public void setPerformanceValue(int performanceValue) {
+        this.performanceValue = performanceValue;
     }
     
     
