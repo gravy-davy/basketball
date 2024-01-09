@@ -21,10 +21,15 @@ public class MainFrame extends javax.swing.JFrame {
     private Team playerTeam;
     private int viewRosterPageNumber;
     private int resignPageNumber;
+    private int viewDraftPageNumber;
     private PlayerCreator pc = new PlayerCreator();
     private League league;
     
     private JPanel prevPanel;
+    
+    private int currentDraftPick;
+    private boolean isUserPickingInDraft;
+    private ArrayList<DraftPick> draftPicks;
     
     
     /**
@@ -34,6 +39,9 @@ public class MainFrame extends javax.swing.JFrame {
         initComponents();
         viewRosterPageNumber = 0;
         resignPageNumber = 0;
+        viewDraftPageNumber = 0;
+        currentDraftPick = 0;
+        isUserPickingInDraft = false;
         playerTeam = new Team();
         
         TeamCreator tc = new TeamCreator();
@@ -44,6 +52,8 @@ public class MainFrame extends javax.swing.JFrame {
         league = new League();
         league.getTeams().add(playerTeam);
         league.generateSchedule();
+        
+        draftPicks = new ArrayList<>();
         
     }
 
@@ -150,6 +160,23 @@ public class MainFrame extends javax.swing.JFrame {
         jButton61 = new javax.swing.JButton();
         jButton62 = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
+        draftPanel = new javax.swing.JPanel();
+        jLabel27 = new javax.swing.JLabel();
+        jButton63 = new javax.swing.JButton();
+        jButton64 = new javax.swing.JButton();
+        jLabel28 = new javax.swing.JLabel();
+        jButton65 = new javax.swing.JButton();
+        jLabel29 = new javax.swing.JLabel();
+        jButton66 = new javax.swing.JButton();
+        jButton67 = new javax.swing.JButton();
+        jButton68 = new javax.swing.JButton();
+        jButton69 = new javax.swing.JButton();
+        jButton70 = new javax.swing.JButton();
+        jButton71 = new javax.swing.JButton();
+        jLabel30 = new javax.swing.JLabel();
+        draftSummaryPanel = new javax.swing.JPanel();
+        jLabel31 = new javax.swing.JLabel();
+        jButton72 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -1065,7 +1092,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(resignPlayersPanelLayout.createSequentialGroup()
                         .addGap(133, 133, 133)
                         .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         resignPlayersPanelLayout.setVerticalGroup(
             resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1102,7 +1129,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jButton52)
                     .addComponent(jButton57)
                     .addComponent(jButton62))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton45)
                     .addComponent(jButton46)
@@ -1111,6 +1138,181 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(resignPlayersPanel, "card7");
+
+        draftPanel.setPreferredSize(new java.awt.Dimension(955, 581));
+
+        jLabel27.setText("jLabel27");
+
+        jButton63.setText("Draft");
+        jButton63.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton63ActionPerformed(evt);
+            }
+        });
+
+        jButton64.setText("Advance to user pick/end");
+        jButton64.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton64ActionPerformed(evt);
+            }
+        });
+
+        jLabel28.setText("jLabel27");
+
+        jButton65.setText("Draft");
+        jButton65.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton65ActionPerformed(evt);
+            }
+        });
+
+        jLabel29.setText("jLabel27");
+
+        jButton66.setText("Draft");
+        jButton66.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton66ActionPerformed(evt);
+            }
+        });
+
+        jButton67.setText("Details");
+        jButton67.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton67ActionPerformed(evt);
+            }
+        });
+
+        jButton68.setText("Details");
+        jButton68.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton68ActionPerformed(evt);
+            }
+        });
+
+        jButton69.setText("Details");
+        jButton69.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton69ActionPerformed(evt);
+            }
+        });
+
+        jButton70.setText("Next page");
+        jButton70.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton70ActionPerformed(evt);
+            }
+        });
+
+        jButton71.setText("Prev page");
+        jButton71.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton71ActionPerformed(evt);
+            }
+        });
+
+        jLabel30.setText("jLabel30");
+
+        javax.swing.GroupLayout draftPanelLayout = new javax.swing.GroupLayout(draftPanel);
+        draftPanel.setLayout(draftPanelLayout);
+        draftPanelLayout.setHorizontalGroup(
+            draftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(draftPanelLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addGroup(draftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(draftPanelLayout.createSequentialGroup()
+                        .addGroup(draftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(draftPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(73, 73, 73)
+                                .addComponent(jButton65, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton68, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(draftPanelLayout.createSequentialGroup()
+                                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(73, 73, 73)
+                                .addComponent(jButton63, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(draftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton67, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(draftPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(73, 73, 73)
+                        .addComponent(jButton66, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton69, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(draftPanelLayout.createSequentialGroup()
+                        .addGap(388, 388, 388)
+                        .addComponent(jButton71)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton70)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
+                        .addComponent(jButton64)
+                        .addGap(56, 56, 56))))
+        );
+        draftPanelLayout.setVerticalGroup(
+            draftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(draftPanelLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addGroup(draftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton63)
+                    .addComponent(jButton67))
+                .addGap(40, 40, 40)
+                .addGroup(draftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton65)
+                    .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton68))
+                .addGap(40, 40, 40)
+                .addGroup(draftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton66)
+                    .addComponent(jButton69))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                .addGroup(draftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton71)
+                    .addComponent(jButton70)
+                    .addComponent(jButton64))
+                .addGap(62, 62, 62))
+        );
+
+        getContentPane().add(draftPanel, "card8");
+
+        draftSummaryPanel.setPreferredSize(new java.awt.Dimension(955, 581));
+
+        jLabel31.setText("jLabel31");
+
+        jButton72.setText("ADVANCE TO FREE AGENCY");
+
+        javax.swing.GroupLayout draftSummaryPanelLayout = new javax.swing.GroupLayout(draftSummaryPanel);
+        draftSummaryPanel.setLayout(draftSummaryPanelLayout);
+        draftSummaryPanelLayout.setHorizontalGroup(
+            draftSummaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(draftSummaryPanelLayout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
+                .addComponent(jButton72)
+                .addGap(127, 127, 127))
+        );
+        draftSummaryPanelLayout.setVerticalGroup(
+            draftSummaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(draftSummaryPanelLayout.createSequentialGroup()
+                .addGroup(draftSummaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(draftSummaryPanelLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(draftSummaryPanelLayout.createSequentialGroup()
+                        .addGap(259, 259, 259)
+                        .addComponent(jButton72)))
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(draftSummaryPanel, "card9");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1513,10 +1715,14 @@ public class MainFrame extends javax.swing.JFrame {
         generateDraftees();
         
         System.out.println("THE DRAFT ");
+        draftPicks.clear();
         for(Player p : league.getDraftees()){
             System.out.println(p.getName() + " - age: " + p.getAge() + " - overall: " + p.getOverallRating() + " - development: " + p.getDevelopment());
         }
-        
+        currentDraftPick = 0;
+        league.sortTeamsByLosses();
+        setupDraftPanel();
+        switchToAnotherPanel(resignPlayersPanel, draftPanel);
     }//GEN-LAST:event_jButton47ActionPerformed
 
     private void jButton53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton53ActionPerformed
@@ -1643,6 +1849,148 @@ public class MainFrame extends javax.swing.JFrame {
         setupResignPanel();
         switchToAnotherPanel(resignPlayersPanel, resignPlayersPanel);
     }//GEN-LAST:event_jButton52ActionPerformed
+
+    private void jButton64ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton64ActionPerformed
+        // advance to next user pick or end the draft. continueDraft()
+        
+        boolean isDraftOver = false;
+        isUserPickingInDraft = false;
+        
+        boolean isUserPicking = continueDraft();
+        if(isUserPicking){
+            isUserPickingInDraft = true;
+            setupDraftPanel();
+            switchToAnotherPanel(draftPanel, draftPanel);
+        }else{
+            isUserPickingInDraft = false;
+            isDraftOver = true;
+        }
+
+        
+        // draft summary panel after this
+        if(isDraftOver){
+            System.out.println("Draft concluded.");
+            currentDraftPick = 0;
+            setupDraftSummaryPanel();
+            switchToAnotherPanel(draftPanel, draftSummaryPanel);
+        }
+    }//GEN-LAST:event_jButton64ActionPerformed
+
+
+    private boolean continueDraft(){
+        
+        league.sortTeamsByLosses();
+        
+        for(int k=currentDraftPick;k<10;k++){
+            System.out.println("k = " + k + " - currentDraftPick = " + currentDraftPick);
+            Team t = league.getTeams().get(k);
+            if(t.equals(playerTeam)){
+                // playerTeam, they draft now! switch to the panel here to refresh it and break out this loop
+                System.out.println("USER PICKING RIGHT HERE AT NUMBA " + k+1);
+                currentDraftPick = k+1;
+                return true;
+            }else{
+                // AI teams picks their player (highest overall for now, maybe sorted by value at a later point)
+                Player draftee = league.getDraftees().get(0);
+                System.out.println(t.getName() + " has drafted " + draftee.getName());
+                league.getDraftees().remove(draftee);
+                t.getRoster().add(draftee);
+                DraftPick dp = new DraftPick(t, draftee);
+                draftPicks.add(dp);
+            }
+        }
+        
+        return false;
+    }
+    
+    private void jButton71ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton71ActionPerformed
+        if(viewDraftPageNumber!=0){
+            viewDraftPageNumber--;
+            setupDraftPanel();
+            getContentPane().revalidate();
+            getContentPane().repaint();
+        }else{
+            JOptionPane.showMessageDialog(null, "You are already on page 0.");
+        }
+    }//GEN-LAST:event_jButton71ActionPerformed
+
+    private void jButton70ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton70ActionPerformed
+        int minForNextPage = (viewDraftPageNumber+1) * 3;
+        if(playerTeam.getRoster().size()>=minForNextPage){
+            viewDraftPageNumber++;
+            setupDraftPanel();
+            getContentPane().revalidate();
+            getContentPane().repaint();
+        }else{
+            JOptionPane.showMessageDialog(null, "Not enough draftees to another page.");
+        }
+    }//GEN-LAST:event_jButton70ActionPerformed
+
+    private void jButton63ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton63ActionPerformed
+        if(isUserPickingInDraft){
+            Player p = league.getDraftees().get(viewDraftPageNumber*3+0);
+            playerTeam.getRoster().add(p);
+            league.getDraftees().remove(p);
+            setupDraftPanel();
+            switchToAnotherPanel(draftPanel, draftPanel);
+            isUserPickingInDraft = false;
+            System.out.println(playerTeam.getName() + " has drafted " + p.getName());
+            DraftPick dp = new DraftPick(playerTeam, p);
+            draftPicks.add(dp);
+        }else{
+            JOptionPane.showMessageDialog(null, "It's not your turn to draft right now!");
+        }
+    }//GEN-LAST:event_jButton63ActionPerformed
+
+    private void jButton65ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton65ActionPerformed
+        if(isUserPickingInDraft){
+            Player p = league.getDraftees().get(viewDraftPageNumber*3+1);
+            playerTeam.getRoster().add(p);
+            league.getDraftees().remove(p);
+            setupDraftPanel();
+            switchToAnotherPanel(draftPanel, draftPanel);
+            isUserPickingInDraft = false;
+            System.out.println(playerTeam.getName() + " has drafted " + p.getName());
+            DraftPick dp = new DraftPick(playerTeam, p);
+            draftPicks.add(dp);
+        }else{
+            JOptionPane.showMessageDialog(null, "It's not your turn to draft right now!");
+        }
+    }//GEN-LAST:event_jButton65ActionPerformed
+
+    private void jButton66ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton66ActionPerformed
+        if(isUserPickingInDraft){
+            Player p = league.getDraftees().get(viewDraftPageNumber*3+2);
+            playerTeam.getRoster().add(p);
+            league.getDraftees().remove(p);
+            setupDraftPanel();
+            switchToAnotherPanel(draftPanel, draftPanel);
+            isUserPickingInDraft = false;
+            System.out.println(playerTeam.getName() + " has drafted " + p.getName());
+            DraftPick dp = new DraftPick(playerTeam, p);
+            draftPicks.add(dp);
+        }else{
+            JOptionPane.showMessageDialog(null, "It's not your turn to draft right now!");
+        }
+    }//GEN-LAST:event_jButton66ActionPerformed
+
+    private void jButton67ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton67ActionPerformed
+        prevPanel = draftPanel;
+        setupPlayerDetailsPanel(league.getDraftees().get(viewDraftPageNumber*3+0));
+        switchToAnotherPanel(draftPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton67ActionPerformed
+
+    private void jButton68ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton68ActionPerformed
+        prevPanel = draftPanel;
+        setupPlayerDetailsPanel(league.getDraftees().get(viewDraftPageNumber*3+1));
+        switchToAnotherPanel(draftPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton68ActionPerformed
+
+    private void jButton69ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton69ActionPerformed
+        prevPanel = draftPanel;
+        setupPlayerDetailsPanel(league.getDraftees().get(viewDraftPageNumber*3+2));
+        switchToAnotherPanel(draftPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton69ActionPerformed
 
     
     private void makeResigningDecisionForPlayer(Player p){
@@ -1793,11 +2141,12 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     private void generateDraftees(){
-        for(int k=0;k<30;k++){
+        for(int k=0;k<10;k++){
             Player p;
             p = pc.createRandomPlayer();
             Random r = new Random();
             p.setAge(r.nextInt(24 - 18 + 1) + 18);
+            p.setYearsInTheLeague(0);
             league.getDraftees().add(p);
         }
         
@@ -2201,7 +2550,68 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel18.setText(text);
     }
     
+    private void setupDraftPanel(){
+        
+        if(isUserPickingInDraft){
+            jLabel30.setText("MAKE YOUR DRAFT PICK NOW!");
+        }else{
+            jLabel30.setText("-");
+        }
+        
+        try{
+            Player p = league.getDraftees().get(viewDraftPageNumber*3+0);
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating();
+            jLabel27.setText(text);
+            jButton63.show();
+            jButton67.show();
+        }catch(Exception e){
+            jLabel27.setText("-");
+            jButton63.hide();
+            jButton67.hide();
+        }
+        
+        try{
+            Player p = league.getDraftees().get(viewDraftPageNumber*3+1);
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating();
+            jLabel28.setText(text);
+            jButton65.show();
+            jButton68.show();
+        }catch(Exception e){
+            jLabel28.setText("-");
+            jButton65.hide();
+            jButton68.hide();
+        }
+        
+        try{
+            Player p = league.getDraftees().get(viewDraftPageNumber*3+2);
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating();
+            jLabel29.setText(text);
+            jButton66.show();
+            jButton69.show();
+        }catch(Exception e){
+            jLabel29.setText("-");
+            jButton66.hide();
+            jButton69.hide();
+        }
+    }
+    
+    private void setupDraftSummaryPanel(){
+        
+        String text = "<html>";
+        
+        for(DraftPick dp : draftPicks){
+            Player p = dp.getPlayer();
+            text+= dp.getTeam().getName() + " - " + p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + "<br>";
+        }
+        
+        text+= "</html>";
+        
+        jLabel31.setText(text);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel draftPanel;
+    private javax.swing.JPanel draftSummaryPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -2261,7 +2671,17 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton60;
     private javax.swing.JButton jButton61;
     private javax.swing.JButton jButton62;
+    private javax.swing.JButton jButton63;
+    private javax.swing.JButton jButton64;
+    private javax.swing.JButton jButton65;
+    private javax.swing.JButton jButton66;
+    private javax.swing.JButton jButton67;
+    private javax.swing.JButton jButton68;
+    private javax.swing.JButton jButton69;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton70;
+    private javax.swing.JButton jButton71;
+    private javax.swing.JButton jButton72;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
@@ -2283,7 +2703,12 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

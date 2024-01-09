@@ -63,6 +63,10 @@ public class League {
         Collections.sort(teams, Comparator.comparingInt(Team::getWins).reversed());
     }
     
+    public void sortTeamsByLosses(){
+        Collections.sort(teams, Comparator.comparingInt(Team::getWins));
+    }
+    
     private boolean doesTeamNameExistInTheLeague(Team t){
         for(Team teamInLeague : teams){
             if(teamInLeague.getName().equalsIgnoreCase(t.getName())){
