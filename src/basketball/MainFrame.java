@@ -1248,7 +1248,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jButton71)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton70)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton64)
                         .addGap(56, 56, 56))))
         );
@@ -1272,7 +1272,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton66)
                     .addComponent(jButton69))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(draftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton71)
                     .addComponent(jButton70)
@@ -1287,6 +1287,11 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel31.setText("jLabel31");
 
         jButton72.setText("ADVANCE TO FREE AGENCY");
+        jButton72.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton72ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout draftSummaryPanelLayout = new javax.swing.GroupLayout(draftSummaryPanel);
         draftSummaryPanel.setLayout(draftSummaryPanelLayout);
@@ -1295,7 +1300,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(draftSummaryPanelLayout.createSequentialGroup()
                 .addGap(75, 75, 75)
                 .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton72)
                 .addGap(127, 127, 127))
         );
@@ -1309,7 +1314,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(draftSummaryPanelLayout.createSequentialGroup()
                         .addGap(259, 259, 259)
                         .addComponent(jButton72)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(draftSummaryPanel, "card9");
@@ -1991,6 +1996,14 @@ public class MainFrame extends javax.swing.JFrame {
         setupPlayerDetailsPanel(league.getDraftees().get(viewDraftPageNumber*3+2));
         switchToAnotherPanel(draftPanel, playerDetailsPanel);
     }//GEN-LAST:event_jButton69ActionPerformed
+
+    private void jButton72ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton72ActionPerformed
+        // FREE AGENCY: randomly order teams -> team picks highest value player and sends an offer if they have enough money -> player reacts to offer -> next team. repeat.
+        // do this about 5-10 times.
+        
+        
+        
+    }//GEN-LAST:event_jButton72ActionPerformed
 
     
     private void makeResigningDecisionForPlayer(Player p){

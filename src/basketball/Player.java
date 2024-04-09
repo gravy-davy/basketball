@@ -16,6 +16,7 @@ public class Player {
     private int yearsInTheLeague;
     private int value; // based on age/attributes aka overall/development
     private int performanceValue; // based on actual game results
+    private int freeAgentValue; // value + performanceValue
     
     // for FA decisions
     private int FREE_AGENCY_loyalty;
@@ -139,6 +140,12 @@ public class Player {
         assists = 0;
     }
     
+    public void regenFreeAgencyValue(){
+        regenPlayerPerformanceValue();
+        regenPlayerValue();
+        freeAgentValue = value + performanceValue;
+    }
+    
     // calculates it for the year. should impact free agency.
     public void regenPlayerPerformanceValue(){
         // ppg, apg, rpg, fg, 3fg make a player's value. their def values too possibly, based on position for perimeter vs interior.
@@ -162,8 +169,6 @@ public class Player {
         
         if(threePointPercentage>=35){
             val = val * 2;
-        }else if(threePointPercentage<20){
-            val = val / 2;
         }
         
         performanceValue = val;
@@ -904,7 +909,13 @@ public class Player {
     public void setPerformanceValue(int performanceValue) {
         this.performanceValue = performanceValue;
     }
-    
-    
+
+    public int getFreeAgentValue() {
+        return freeAgentValue;
+    }
+
+    public void setFreeAgentValue(int freeAgentValue) {
+        this.freeAgentValue = freeAgentValue;
+    }
     
 }

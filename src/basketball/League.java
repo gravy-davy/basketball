@@ -19,6 +19,8 @@ public class League {
     private ArrayList<PlayoffMatchup> playoffMatchups;
     private ArrayList<Player> draftees;
     
+    private ArrayList<Team> freeAgencyOrder;
+    
     public League() {
         year = 2020;
         teams = new ArrayList<>();
@@ -30,6 +32,7 @@ public class League {
         fillActivePlayers();
         stage = "Season";
         draftees = new ArrayList<>();
+        freeAgencyOrder = new ArrayList<>();
     }
     
     /**
@@ -57,6 +60,16 @@ public class League {
             }while(doesTeamNameExistInTheLeague(t));
             teams.add(t);
         }
+    }
+    
+    public void addTeamsToFreeAgencyOrderRandomly() {
+        if (teams == null || freeAgencyOrder == null) {
+            System.out.println("Teams or Free Agency Order list not initialized.");
+            return;
+        }
+
+        Collections.shuffle(teams);
+        freeAgencyOrder.addAll(teams);
     }
     
     public void sortTeamsByWins(){
@@ -251,6 +264,14 @@ public class League {
 
     public void setDraftees(ArrayList<Player> draftees) {
         this.draftees = draftees;
+    }
+
+    public ArrayList<Team> getFreeAgencyOrder() {
+        return freeAgencyOrder;
+    }
+
+    public void setFreeAgencyOrder(ArrayList<Team> freeAgencyOrder) {
+        this.freeAgencyOrder = freeAgencyOrder;
     }
     
     

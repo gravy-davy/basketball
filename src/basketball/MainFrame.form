@@ -1359,7 +1359,7 @@
                           <Component id="jButton71" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jButton70" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="127" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="jButton64" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                       </Group>
@@ -1390,7 +1390,7 @@
                       <Component id="jButton66" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton69" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="118" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButton71" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton70" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1514,7 +1514,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                   <Component id="jLabel31" min="-2" pref="408" max="-2" attributes="0"/>
-                  <EmptySpace pref="168" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="jButton72" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
               </Group>
@@ -1533,7 +1533,7 @@
                           <Component id="jButton72" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="44" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1548,6 +1548,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="ADVANCE TO FREE AGENCY"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton72ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
