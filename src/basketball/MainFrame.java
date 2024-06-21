@@ -1999,10 +1999,12 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton72ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton72ActionPerformed
         // FREE AGENCY: randomly order teams -> team picks highest value player and sends an offer if they have enough money -> player reacts to offer -> next team. repeat.
-        // do this about 5-10 times.
+        // do this about 5-10 times. if a team has 12 players total, stop the count.
         
+        league.setFreeAgencyOrder(league.getTeams());
+        Collections.shuffle(league.getFreeAgencyOrder());
         
-        
+
     }//GEN-LAST:event_jButton72ActionPerformed
 
     

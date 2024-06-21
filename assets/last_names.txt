@@ -998,6 +998,3 @@ Shelton
 Contreras
 Hamilton
 Edwards
-RERUN
-OPTIONS
-SHARE

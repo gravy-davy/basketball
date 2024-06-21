@@ -182,17 +182,20 @@ public class Player {
         
         pValue+= overallRating;
         
-        if(development==5){
-            pValue*=4;
-        }else if(development==4){
-            pValue*=3;
-        }else if(development==3){
-            pValue*=2;
-        }else if(development==2){
-            pValue*=1;
-        }else{
-            pValue/=2;
+        if(age<32){
+            if(development==5){
+                pValue*=4;
+            }else if(development==4){
+                pValue*=3;
+            }else if(development==3){
+                pValue*=2;
+            }else if(development==2){
+                pValue*=1;
+            }else{
+                pValue/=2;
+            }
         }
+        
         
         // reduce for age
         
