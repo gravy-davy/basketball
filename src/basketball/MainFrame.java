@@ -22,6 +22,7 @@ public class MainFrame extends javax.swing.JFrame {
     private int viewRosterPageNumber;
     private int resignPageNumber;
     private int viewDraftPageNumber;
+    private int viewFreeAgentsPageNumber;
     private PlayerCreator pc = new PlayerCreator();
     private League league;
     
@@ -30,6 +31,8 @@ public class MainFrame extends javax.swing.JFrame {
     private int currentDraftPick;
     private boolean isUserPickingInDraft;
     private ArrayList<DraftPick> draftPicks;
+    
+    private int currentFreeAgencyPick;
     
     
     /**
@@ -41,6 +44,7 @@ public class MainFrame extends javax.swing.JFrame {
         resignPageNumber = 0;
         viewDraftPageNumber = 0;
         currentDraftPick = 0;
+        viewFreeAgentsPageNumber = 0;
         isUserPickingInDraft = false;
         playerTeam = new Team();
         
@@ -177,6 +181,19 @@ public class MainFrame extends javax.swing.JFrame {
         draftSummaryPanel = new javax.swing.JPanel();
         jLabel31 = new javax.swing.JLabel();
         jButton72 = new javax.swing.JButton();
+        freeAgencyPanel = new javax.swing.JPanel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jButton73 = new javax.swing.JButton();
+        jButton74 = new javax.swing.JButton();
+        jButton75 = new javax.swing.JButton();
+        jButton76 = new javax.swing.JButton();
+        jButton77 = new javax.swing.JButton();
+        jButton78 = new javax.swing.JButton();
+        jButton79 = new javax.swing.JButton();
+        jButton80 = new javax.swing.JButton();
+        jButton81 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -1319,6 +1336,124 @@ public class MainFrame extends javax.swing.JFrame {
 
         getContentPane().add(draftSummaryPanel, "card9");
 
+        freeAgencyPanel.setPreferredSize(new java.awt.Dimension(955, 581));
+
+        jLabel32.setText("jLabel27");
+
+        jLabel33.setText("jLabel27");
+
+        jLabel34.setText("jLabel27");
+
+        jButton73.setText("Sign");
+
+        jButton74.setText("Sign");
+
+        jButton75.setText("Sign");
+
+        jButton76.setText("Details");
+        jButton76.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton76ActionPerformed(evt);
+            }
+        });
+
+        jButton77.setText("Details");
+        jButton77.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton77ActionPerformed(evt);
+            }
+        });
+
+        jButton78.setText("Details");
+        jButton78.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton78ActionPerformed(evt);
+            }
+        });
+
+        jButton79.setText("Sim to next chance/day");
+        jButton79.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton79ActionPerformed(evt);
+            }
+        });
+
+        jButton80.setText("Prev page");
+        jButton80.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton80ActionPerformed(evt);
+            }
+        });
+
+        jButton81.setText("Next page");
+        jButton81.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton81ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout freeAgencyPanelLayout = new javax.swing.GroupLayout(freeAgencyPanel);
+        freeAgencyPanel.setLayout(freeAgencyPanelLayout);
+        freeAgencyPanelLayout.setHorizontalGroup(
+            freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(freeAgencyPanelLayout.createSequentialGroup()
+                .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(freeAgencyPanelLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(freeAgencyPanelLayout.createSequentialGroup()
+                        .addGap(239, 239, 239)
+                        .addComponent(jButton80)
+                        .addGap(32, 32, 32)
+                        .addComponent(jButton81)))
+                .addGap(196, 196, 196)
+                .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(freeAgencyPanelLayout.createSequentialGroup()
+                        .addComponent(jButton79)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(freeAgencyPanelLayout.createSequentialGroup()
+                        .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton73, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                            .addComponent(jButton74, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton75, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(47, 47, 47)
+                        .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton76, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
+                            .addComponent(jButton77, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton78, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(131, 131, 131))))
+        );
+        freeAgencyPanelLayout.setVerticalGroup(
+            freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(freeAgencyPanelLayout.createSequentialGroup()
+                .addGap(99, 99, 99)
+                .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton73)
+                    .addComponent(jButton76))
+                .addGap(40, 40, 40)
+                .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton74)
+                    .addComponent(jButton77))
+                .addGap(40, 40, 40)
+                .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton75)
+                    .addComponent(jButton78))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton79)
+                    .addComponent(jButton80)
+                    .addComponent(jButton81))
+                .addGap(92, 92, 92))
+        );
+
+        getContentPane().add(freeAgencyPanel, "card10");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -2004,9 +2139,79 @@ public class MainFrame extends javax.swing.JFrame {
         league.setFreeAgencyOrder(league.getTeams());
         Collections.shuffle(league.getFreeAgencyOrder());
         
+        for(Player p : league.getFreeAgents()){
+            p.regenFreeAgencyValue();
+        }
+        Collections.sort(league.getFreeAgents());
+        Collections.reverse(league.getFreeAgents());
+        
+        for(Player p : league.getFreeAgents()){
+            System.out.println("free agent: " + p.getName() + " - ovr: " + p.getOverallRating() + " - FA value: " + p.getFreeAgentValue());
+        }
+        
+        
+        currentFreeAgencyPick = 0;
+        setupFreeAgencyPanel();
+        switchToAnotherPanel(draftSummaryPanel, freeAgencyPanel);
+        // simulateFreeAgency();
+        
 
     }//GEN-LAST:event_jButton72ActionPerformed
 
+    private void jButton81ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton81ActionPerformed
+        int minForNextPage = (viewFreeAgentsPageNumber+1) * 3;
+        if(league.getFreeAgents().size()>=minForNextPage){
+            viewFreeAgentsPageNumber++;
+            setupFreeAgencyPanel();
+            getContentPane().revalidate();
+            getContentPane().repaint();
+        }else{
+            JOptionPane.showMessageDialog(null, "Not enough free agents to view another page.");
+        }
+    }//GEN-LAST:event_jButton81ActionPerformed
+
+    private void jButton80ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton80ActionPerformed
+        if(viewFreeAgentsPageNumber!=0){
+            viewFreeAgentsPageNumber--;
+            setupFreeAgencyPanel();
+            getContentPane().revalidate();
+            getContentPane().repaint();
+        }else{
+            JOptionPane.showMessageDialog(null, "You are already on page 0.");
+        }
+    }//GEN-LAST:event_jButton80ActionPerformed
+
+    private void jButton76ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton76ActionPerformed
+        prevPanel = freeAgencyPanel;
+        setupPlayerDetailsPanel(league.getFreeAgents().get(viewFreeAgentsPageNumber*3+0));
+        switchToAnotherPanel(freeAgencyPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton76ActionPerformed
+
+    private void jButton77ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton77ActionPerformed
+        prevPanel = freeAgencyPanel;
+        setupPlayerDetailsPanel(league.getFreeAgents().get(viewFreeAgentsPageNumber*3+1));
+        switchToAnotherPanel(freeAgencyPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton77ActionPerformed
+
+    private void jButton78ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton78ActionPerformed
+        prevPanel = freeAgencyPanel;
+        setupPlayerDetailsPanel(league.getFreeAgents().get(viewFreeAgentsPageNumber*3+2));
+        switchToAnotherPanel(freeAgencyPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton78ActionPerformed
+
+    private void jButton79ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton79ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton79ActionPerformed
+
+    private void simulateFreeAgency(){
+        
+        for(Team t : league.getFreeAgencyOrder()){
+            if(playerTeam.equals(t)){
+                // stop the draft and goto player team
+            }
+        }
+        
+    }
     
     private void makeResigningDecisionForPlayer(Player p){
         String signingDecision = p.getSigningDecision(playerTeam, "Resigning", true);
@@ -2077,6 +2282,44 @@ public class MainFrame extends javax.swing.JFrame {
                 moneyUsed+= p.getContract().getSalary();
             }
             t.setMoneyAvailable(t.getMoneyTotal()-moneyUsed);
+        }
+    }
+    
+    private void setupFreeAgencyPanel(){
+        try{
+            Player p = league.getFreeAgents().get(viewFreeAgentsPageNumber*3+0);
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating();
+            jLabel32.setText(text);
+            jButton73.show();
+            jButton76.show();
+        }catch(Exception e){
+            jLabel32.setText("-");
+            jButton73.hide();
+            jButton76.hide();
+        }
+        
+        try{
+            Player p = league.getFreeAgents().get(viewFreeAgentsPageNumber*3+1);
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating();
+            jLabel33.setText(text);
+            jButton74.show();
+            jButton77.show();
+        }catch(Exception e){
+            jLabel33.setText("-");
+            jButton74.hide();
+            jButton77.hide();
+        }
+        
+        try{
+            Player p = league.getFreeAgents().get(viewFreeAgentsPageNumber*3+2);
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating();
+            jLabel34.setText(text);
+            jButton75.show();
+            jButton78.show();
+        }catch(Exception e){
+            jLabel34.setText("-");
+            jButton75.hide();
+            jButton78.hide();
         }
     }
     
@@ -2318,7 +2561,7 @@ public class MainFrame extends javax.swing.JFrame {
                     if(t.getMoneyAvailable()>=p.getContract().getSalary()){
                         t.getRoster().add(p);
                         t.regenMoneyAvailable();
-                        System.out.println(t.getName() + " has RESIGNED " + p.getName() + " for " + p.getContract().getSalary() + " over " + p.getContract().getLength() +
+                        System.out.println(t.getName() + " has RESIGNED " + p.getName() + " for " + p.getContract().getSalary() + "m over " + p.getContract().getLength() +
                                 " years!");
                     }else{
                         league.getFreeAgents().add(p);
@@ -2627,6 +2870,7 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel draftPanel;
     private javax.swing.JPanel draftSummaryPanel;
+    private javax.swing.JPanel freeAgencyPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -2697,7 +2941,16 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton70;
     private javax.swing.JButton jButton71;
     private javax.swing.JButton jButton72;
+    private javax.swing.JButton jButton73;
+    private javax.swing.JButton jButton74;
+    private javax.swing.JButton jButton75;
+    private javax.swing.JButton jButton76;
+    private javax.swing.JButton jButton77;
+    private javax.swing.JButton jButton78;
+    private javax.swing.JButton jButton79;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton80;
+    private javax.swing.JButton jButton81;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2724,6 +2977,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

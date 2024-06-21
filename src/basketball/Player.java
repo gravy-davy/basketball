@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 
-public class Player {
+public class Player implements Comparable<Player>{
     
     // basics
     private String name;
@@ -367,6 +367,11 @@ public class Player {
             return 0.0; // Prevent division by zero
         }
         return ((double) total / count);
+    }
+    
+    @Override
+    public int compareTo(Player other) {
+        return Integer.compare(this.freeAgentValue, other.freeAgentValue);
     }
 
     public String getName() {
