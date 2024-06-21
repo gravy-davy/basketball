@@ -85,7 +85,9 @@ public class Game {
                 }
                 
                 if(shotType.equalsIgnoreCase("Three point range")){
-                    if(shotResult>30){
+                    // compare to random 100 to make it way better. formerly was 30.
+                    int shotSeed = r.nextInt(100);
+                    if(shotResult>shotSeed){
                         offTeam.setGameScore(offTeam.getGameScore()+3);
                         playIniter.setThreePointersMade(playIniter.getThreePointersMade()+1);
                         playIniter.setThreePointersAttempted(playIniter.getThreePointersAttempted()+1);
@@ -101,7 +103,9 @@ public class Game {
                         isReboundScenario = true;
                     }
                 }else{
-                    if(shotResult>20){
+                    int shotSeed = r.nextInt(90);
+                    // shot seed was formerly 20
+                    if(shotResult>shotSeed){
                         offTeam.setGameScore(offTeam.getGameScore()+2);
                         playIniter.setFgMade(playIniter.getFgMade()+1);
                         playIniter.setFgAttempted(playIniter.getFgAttempted()+1);
@@ -121,7 +125,8 @@ public class Game {
                 if(startingPlay.equalsIgnoreCase("Pass")){
                     prevPasser = playIniter;
                     // standing hockey pass, doesn't use drive modifier
-                    if(r.nextInt(playIniter.getPassingSkill())>=20){
+                    int passSeed = r.nextInt(90);
+                    if(r.nextInt(playIniter.getPassingSkill())>=passSeed){
                         wasGoodPass = true; // only if this is true does prevpasser get an assist
                     }
                     continue;
@@ -154,7 +159,8 @@ public class Game {
                     shotResult+= playIniter.getDriveShootModifier();
 
                     if(shotType.equalsIgnoreCase("Three point range")){
-                        if(shotResult>30){
+                        int shotSeed = r.nextInt(100);
+                        if(shotResult>shotSeed){
                             offTeam.setGameScore(offTeam.getGameScore()+3);
                             playIniter.setThreePointersMade(playIniter.getThreePointersMade()+1);
                             playIniter.setThreePointersAttempted(playIniter.getThreePointersAttempted()+1);
@@ -169,7 +175,8 @@ public class Game {
                             isReboundScenario = true;
                         }
                     }else{
-                        if(shotResult>20){
+                        int shotSeed = r.nextInt(90);
+                        if(shotResult>shotSeed){
                             offTeam.setGameScore(offTeam.getGameScore()+2);
                             playIniter.setFgMade(playIniter.getFgMade()+1);
                             playIniter.setFgAttempted(playIniter.getFgAttempted()+1);
@@ -190,7 +197,8 @@ public class Game {
                     int passScore = r.nextInt(playIniter.getPassingSkill());
                     passScore += driveResult;
                     
-                    if(passScore>=20){
+                    int passSeed = r.nextInt(90);
+                    if(passScore>=passSeed){
                         wasGoodPass = true;
                     }else{
                         wasGoodPass = false;
