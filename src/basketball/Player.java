@@ -281,6 +281,7 @@ public class Player implements Comparable<Player>{
         }
         
         signingScore+= r.nextInt(40);
+        signingScore+= 10;
         System.out.println("signing score = " + signingScore);
         if(signingScore>=25){
             return "Signed";

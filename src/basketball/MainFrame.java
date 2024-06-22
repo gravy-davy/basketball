@@ -2026,7 +2026,7 @@ public class MainFrame extends javax.swing.JFrame {
             Team t = league.getTeams().get(k);
             if(t.equals(playerTeam)){
                 // playerTeam, they draft now! switch to the panel here to refresh it and break out this loop
-                System.out.println("USER PICKING RIGHT HERE AT NUMBA " + k+1);
+                System.out.println("USER PICKING RIGHT HERE AT NUMBA " + k);
                 currentDraftPick = k+1;
                 return true;
             }else{
@@ -2200,14 +2200,55 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton78ActionPerformed
 
     private void jButton79ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton79ActionPerformed
-        // TODO add your handling code here:
+        simulateFreeAgency();
     }//GEN-LAST:event_jButton79ActionPerformed
 
     private void simulateFreeAgency(){
         
+        // some players who dont get picked up in free agency will sign with teams on min deals
         for(Team t : league.getFreeAgencyOrder()){
             if(playerTeam.equals(t)){
-                // stop the draft and goto player team
+                // stop the draft, setup the panel, refresh it, and they make their pick
+                // maybe
+                setupFreeAgencyPanel();
+                switchToAnotherPanel(freeAgencyPanel, freeAgencyPanel);
+                break;
+            }else{
+                // send an offer and try to sign the top value player
+                // make a 'playersTriedToSign' list to a team so they dont try to sign the same guy twice in back to back days
+                
+                // should be a loop until they find a player who isn't their 'playersTriedToSign' list
+                Player p = null;
+                int count = 0;
+                for(Player player : league.getFreeAgents()){
+                    if(!t.getPlayersTriedToSign().contains(player)){
+                        p = player;
+                        break;
+                        // maybe instead of picking the 0 position, try randomly picking 0-3 and if it's not null, then great, try to sign them.
+                    }
+                    // count++;
+                }
+                
+                String signingDecision = p.getSigningDecision(t, "Free agency", false);
+                
+                if(signingDecision.equalsIgnoreCase("Signed")){
+                    t.regenMoneyAvailable();
+                    if(t.getMoneyAvailable()>=p.getContract().getSalary()){
+                        t.getRoster().add(p);
+                        // remove from free agency
+                        league.getFreeAgents().remove(p);
+                        t.regenMoneyAvailable();
+                        System.out.println(t.getName() + " have SIGNED " + p.getName() + " for " + p.getContract().getSalary() + "m per year for " + p.getContract().getLength() +
+                                " years!");
+                    }else{
+                        league.getFreeAgents().add(p);
+                        System.out.println(t.getName() + " have released " + p.getName());
+                    }
+                }else{
+                    league.getFreeAgents().add(p);
+                    t.getPlayersTriedToSign().add(p);
+                    System.out.println(t.getName() + " has had their offer declined by " + p.getName());
+                }
             }
         }
         
@@ -2561,7 +2602,7 @@ public class MainFrame extends javax.swing.JFrame {
                     if(t.getMoneyAvailable()>=p.getContract().getSalary()){
                         t.getRoster().add(p);
                         t.regenMoneyAvailable();
-                        System.out.println(t.getName() + " has RESIGNED " + p.getName() + " for " + p.getContract().getSalary() + "m over " + p.getContract().getLength() +
+                        System.out.println(t.getName() + " has RESIGNED " + p.getName() + " for " + p.getContract().getSalary() + "m per year for " + p.getContract().getLength() +
                                 " years!");
                     }else{
                         league.getFreeAgents().add(p);
