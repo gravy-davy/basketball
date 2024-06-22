@@ -33,7 +33,8 @@ public class MainFrame extends javax.swing.JFrame {
     private ArrayList<DraftPick> draftPicks;
     
     private int currentFreeAgencyPick;
-    
+    private boolean isUserPickingInFreeAgency;
+    private int currentFreeAgencyDay;
     
     /**
      * Creates new form MainFrame
@@ -44,9 +45,14 @@ public class MainFrame extends javax.swing.JFrame {
         resignPageNumber = 0;
         viewDraftPageNumber = 0;
         currentDraftPick = 0;
+        currentFreeAgencyPick = 0;
+        currentFreeAgencyDay = 1;
         viewFreeAgentsPageNumber = 0;
         isUserPickingInDraft = false;
+        isUserPickingInFreeAgency = false;
+        
         playerTeam = new Team();
+        
         
         TeamCreator tc = new TeamCreator();
         playerTeam = tc.generateRandomTeam();
@@ -74,6 +80,7 @@ public class MainFrame extends javax.swing.JFrame {
         jButton19 = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jButton41 = new javax.swing.JButton();
+        jButton82 = new javax.swing.JButton();
         viewPlayersPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -194,6 +201,11 @@ public class MainFrame extends javax.swing.JFrame {
         jButton79 = new javax.swing.JButton();
         jButton80 = new javax.swing.JButton();
         jButton81 = new javax.swing.JButton();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        trainingPanel = new javax.swing.JPanel();
+        jLabel38 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -216,12 +228,19 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton82.setText("Free agents");
+        jButton82.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton82ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(443, Short.MAX_VALUE)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton41)
                     .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,7 +249,8 @@ public class MainFrame extends javax.swing.JFrame {
                             .addGap(453, 453, 453))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                             .addComponent(jButton19)
-                            .addGap(420, 420, 420)))))
+                            .addGap(420, 420, 420)))
+                    .addComponent(jButton82, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -241,7 +261,9 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jButton41)
                 .addGap(51, 51, 51)
                 .addComponent(jButton19)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(41, 41, 41)
+                .addComponent(jButton82)
+                .addContainerGap(218, Short.MAX_VALUE))
         );
 
         getContentPane().add(mainPanel, "card2");
@@ -1345,6 +1367,11 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel34.setText("jLabel27");
 
         jButton73.setText("Sign");
+        jButton73.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton73ActionPerformed(evt);
+            }
+        });
 
         jButton74.setText("Sign");
 
@@ -1392,6 +1419,12 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel35.setText("Money available:                            ");
+
+        jLabel36.setText("isUserPicking");
+
+        jLabel37.setText("Day of FA");
+
         javax.swing.GroupLayout freeAgencyPanelLayout = new javax.swing.GroupLayout(freeAgencyPanel);
         freeAgencyPanel.setLayout(freeAgencyPanelLayout);
         freeAgencyPanelLayout.setHorizontalGroup(
@@ -1399,37 +1432,54 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(freeAgencyPanelLayout.createSequentialGroup()
                 .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(freeAgencyPanelLayout.createSequentialGroup()
+                        .addGap(239, 239, 239)
+                        .addComponent(jButton80)
+                        .addGap(32, 32, 32)
+                        .addComponent(jButton81))
+                    .addGroup(freeAgencyPanelLayout.createSequentialGroup()
                         .addGap(54, 54, 54)
                         .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(freeAgencyPanelLayout.createSequentialGroup()
-                        .addGap(239, 239, 239)
-                        .addComponent(jButton80)
-                        .addGap(32, 32, 32)
-                        .addComponent(jButton81)))
-                .addGap(196, 196, 196)
+                        .addGap(54, 54, 54)
+                        .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(freeAgencyPanelLayout.createSequentialGroup()
-                        .addComponent(jButton79)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(freeAgencyPanelLayout.createSequentialGroup()
-                        .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton73, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                            .addComponent(jButton74, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton75, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(47, 47, 47)
+                        .addGap(196, 196, 196)
                         .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton76, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
-                            .addComponent(jButton77, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton78, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(131, 131, 131))))
+                            .addGroup(freeAgencyPanelLayout.createSequentialGroup()
+                                .addComponent(jButton79)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(freeAgencyPanelLayout.createSequentialGroup()
+                                .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton73, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                                    .addComponent(jButton74, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton75, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(47, 47, 47)
+                                .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton76, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
+                                    .addComponent(jButton77, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton78, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(131, 131, 131))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, freeAgencyPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel35)
+                            .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(106, 106, 106))))
         );
         freeAgencyPanelLayout.setVerticalGroup(
             freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(freeAgencyPanelLayout.createSequentialGroup()
-                .addGap(99, 99, 99)
+                .addGap(39, 39, 39)
+                .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel35)
+                    .addComponent(jLabel36))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel37)
+                .addGap(18, 18, 18)
                 .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton73)
@@ -1453,6 +1503,29 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(freeAgencyPanel, "card10");
+
+        trainingPanel.setPreferredSize(new java.awt.Dimension(955, 581));
+
+        jLabel38.setText("training");
+
+        javax.swing.GroupLayout trainingPanelLayout = new javax.swing.GroupLayout(trainingPanel);
+        trainingPanel.setLayout(trainingPanelLayout);
+        trainingPanelLayout.setHorizontalGroup(
+            trainingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(trainingPanelLayout.createSequentialGroup()
+                .addGap(396, 396, 396)
+                .addComponent(jLabel38)
+                .addContainerGap(524, Short.MAX_VALUE))
+        );
+        trainingPanelLayout.setVerticalGroup(
+            trainingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(trainingPanelLayout.createSequentialGroup()
+                .addGap(228, 228, 228)
+                .addComponent(jLabel38)
+                .addContainerGap(338, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(trainingPanel, "card11");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -2135,7 +2208,6 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton72ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton72ActionPerformed
         // FREE AGENCY: randomly order teams -> team picks highest value player and sends an offer if they have enough money -> player reacts to offer -> next team. repeat.
         // do this about 5-10 times. if a team has 12 players total, stop the count.
-        
         league.setFreeAgencyOrder(league.getTeams());
         Collections.shuffle(league.getFreeAgencyOrder());
         
@@ -2149,12 +2221,16 @@ public class MainFrame extends javax.swing.JFrame {
             System.out.println("free agent: " + p.getName() + " - ovr: " + p.getOverallRating() + " - FA value: " + p.getFreeAgentValue());
         }
         
+        int counter = 0;
+        for(Team t : league.getFreeAgencyOrder()){
+            System.out.println("TEAM " + counter + " - " + t.getName());
+            counter++;
+        }
         
         currentFreeAgencyPick = 0;
+        currentFreeAgencyDay = 1;
         setupFreeAgencyPanel();
-        switchToAnotherPanel(draftSummaryPanel, freeAgencyPanel);
-        // simulateFreeAgency();
-        
+        switchToAnotherPanel(draftSummaryPanel, freeAgencyPanel);  
 
     }//GEN-LAST:event_jButton72ActionPerformed
 
@@ -2200,33 +2276,69 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton78ActionPerformed
 
     private void jButton79ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton79ActionPerformed
+        setupFreeAgencyPanel();
+        getContentPane().revalidate();
+        getContentPane().repaint();
+        switchToAnotherPanel(freeAgencyPanel, freeAgencyPanel);
         simulateFreeAgency();
+        currentFreeAgencyPick++;
     }//GEN-LAST:event_jButton79ActionPerformed
 
+    private void jButton73ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton73ActionPerformed
+        Player p = league.getFreeAgents().get(viewFreeAgentsPageNumber * 3 + 0);
+        if(isUserPickingInFreeAgency && null != p){
+            if(playerTeam.getMoneyAvailable()>p.getContract().getSalary()){
+                String signingDecision = p.getSigningDecision(playerTeam, "Free agency", false);
+                if(signingDecision.equalsIgnoreCase("Signed")){
+                    league.getFreeAgents().remove(p);
+                    playerTeam.getRoster().add(p);
+                    playerTeam.regenMoneyAvailable();
+                    JOptionPane.showMessageDialog(null, "You have successfully signed " + p.getName() + "!!!");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Your offer was DECLINED by " + p.getName());
+                }
+                isUserPickingInFreeAgency = false;
+                setupFreeAgencyPanel();
+                switchToAnotherPanel(freeAgencyPanel, freeAgencyPanel);
+            }else{
+                JOptionPane.showMessageDialog(null, "You don't have enough money available to sign this player.");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "You cannot make any offers at this time (one per day).");
+        }  
+    }//GEN-LAST:event_jButton73ActionPerformed
+
+    private void jButton82ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton82ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton82ActionPerformed
+
+    
     private void simulateFreeAgency(){
         
         // some players who dont get picked up in free agency will sign with teams on min deals
-        for(Team t : league.getFreeAgencyOrder()){
+        for(int k=currentFreeAgencyPick; k<league.getTeams().size();k++){
+            Team t = league.getFreeAgencyOrder().get(k);
             if(playerTeam.equals(t)){
                 // stop the draft, setup the panel, refresh it, and they make their pick
-                // maybe
+                isUserPickingInFreeAgency = true;
                 setupFreeAgencyPanel();
+                getContentPane().revalidate();
+                getContentPane().repaint();
                 switchToAnotherPanel(freeAgencyPanel, freeAgencyPanel);
                 break;
             }else{
+                isUserPickingInFreeAgency = false;
                 // send an offer and try to sign the top value player
                 // make a 'playersTriedToSign' list to a team so they dont try to sign the same guy twice in back to back days
                 
                 // should be a loop until they find a player who isn't their 'playersTriedToSign' list
                 Player p = null;
-                int count = 0;
                 for(Player player : league.getFreeAgents()){
                     if(!t.getPlayersTriedToSign().contains(player)){
                         p = player;
                         break;
                         // maybe instead of picking the 0 position, try randomly picking 0-3 and if it's not null, then great, try to sign them.
                     }
-                    // count++;
                 }
                 
                 String signingDecision = p.getSigningDecision(t, "Free agency", false);
@@ -2249,6 +2361,19 @@ public class MainFrame extends javax.swing.JFrame {
                     t.getPlayersTriedToSign().add(p);
                     System.out.println(t.getName() + " has had their offer declined by " + p.getName());
                 }
+                currentFreeAgencyPick++;
+            }
+            if(currentFreeAgencyPick>=30){
+                k=-1;
+                currentFreeAgencyPick = 0;
+                currentFreeAgencyDay++;
+            }
+            
+            if(currentFreeAgencyDay>8){
+                System.out.println("8 days of Free Agency have passed, getting out now.");
+                // switch to another panel
+                switchToAnotherPanel(freeAgencyPanel, trainingPanel);
+                break;
             }
         }
         
@@ -2327,6 +2452,14 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     private void setupFreeAgencyPanel(){
+        jLabel35.setText("Money available: " + playerTeam.getMoneyAvailable() + "m / " + playerTeam.getMoneyTotal() + "m");
+        if(isUserPickingInFreeAgency){
+            jLabel36.setText("MAKE AN OFFER NOW");
+        }else{
+            jLabel36.setText("No offers can be made at this time.");
+        }
+        jLabel37.setText("Day " + currentFreeAgencyDay + " / 8");
+        
         try{
             Player p = league.getFreeAgents().get(viewFreeAgentsPageNumber*3+0);
             String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating();
@@ -2992,6 +3125,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton80;
     private javax.swing.JButton jButton81;
+    private javax.swing.JButton jButton82;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -3021,6 +3155,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -3032,6 +3170,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel playoffResultsPanel;
     private javax.swing.JPanel resignPlayersPanel;
     private javax.swing.JPanel seasonStandingsPanel;
+    private javax.swing.JPanel trainingPanel;
     private javax.swing.JPanel viewPlayersPanel;
     // End of variables declaration//GEN-END:variables
 }
