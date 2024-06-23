@@ -141,6 +141,7 @@ public class MainFrame extends javax.swing.JFrame {
         jButton40 = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
         seasonStandingsPanel = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jButton42 = new javax.swing.JButton();
@@ -830,6 +831,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel19.setText("jLabel19");
 
+        jLabel42.setText("jLabel42");
+
         javax.swing.GroupLayout playerDetailsPanelLayout = new javax.swing.GroupLayout(playerDetailsPanel);
         playerDetailsPanel.setLayout(playerDetailsPanelLayout);
         playerDetailsPanelLayout.setHorizontalGroup(
@@ -838,26 +841,27 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton40)
-                .addGap(265, 265, 265))
+                .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, playerDetailsPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 782, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(playerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton40)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 782, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(118, 118, 118))
         );
         playerDetailsPanelLayout.setVerticalGroup(
             playerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(playerDetailsPanelLayout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
                 .addGroup(playerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(playerDetailsPanelLayout.createSequentialGroup()
-                        .addGap(273, 273, 273)
-                        .addComponent(jButton40))
-                    .addGroup(playerDetailsPanelLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69))
+                .addGap(18, 18, 18)
+                .addComponent(jButton40)
+                .addGap(26, 26, 26))
         );
 
         getContentPane().add(playerDetailsPanel, "card4");
@@ -3230,18 +3234,56 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     private void setupPlayerDetailsPanel(Player p){
-        String text = "<html>Name - " + p.getName() + "<br>Age - " + p.getAge() + "<br>Position - " + p.getPosition()+ "<br>Overall - " + p.getOverallRating()+ "<br>"
-                + "Development - " + p.getDevelopment()+ "<br>Close shooting - " + p.getCloseSkill()+ "<br>Mid shooting - " + p.getMidShotSkill()+ "<br>Three shooting - " 
-                + p.getThreeShotSkill()+ "<br>Passing - " + p.getPassingSkill()+ "<br>Driving - " + p.getDriveSkill()+ "<br>Strength - " + p.getStrengthSkill()+ "<br>"
-                + "Speed - " + p.getSpeedSkill()+ "<br>Dribbling - " + p.getDribblingSkill()+ "<br>Perimeter defense - " + p.getPerimeterDefSkill()+ "<br>"
-                + "Interior defense - " + p.getInteriorDefSkill()+ "<br>Defensive rebounding - " + p.getDefRebounding()+ "<br>Offensive rebounding - " 
-                + p.getOffRebounding()+ "<br>Experience: " + p.getYearsInTheLeague() + "<br>Contract - " + p.getContract().getSalary() + "m/" 
-                + p.getContract().getLength() + " years<br></html>";
+        String text = "<html>"
+        + "<table>"
+        + "<tr><td>Name</td><td>-</td><td>" + p.getName() + "</td></tr>"
+        + "<tr><td>Age</td><td>-</td><td>" + p.getAge() + "</td></tr>"
+        + "<tr><td>Position</td><td>-</td><td>" + p.getPosition() + "</td></tr>"
+        + "<tr><td>Overall</td><td>-</td><td style='color:" + getColorForRating(p.getOverallRating()) + "'>" + p.getOverallRating() + "</td></tr>"
+        + "<tr><td>Development</td><td>-</td><td>" + p.getDevelopment() + "</td></tr>"
+        + "<tr><td>Close shooting</td><td>-</td><td style='color:" + getColorForRating(p.getCloseSkill()) + "'>" + p.getCloseSkill() + "</td></tr>"
+        + "<tr><td>Mid shooting</td><td>-</td><td style='color:" + getColorForRating(p.getMidShotSkill()) + "'>" + p.getMidShotSkill() + "</td></tr>"
+        + "<tr><td>Three shooting</td><td>-</td><td style='color:" + getColorForRating(p.getThreeShotSkill()) + "'>" + p.getThreeShotSkill() + "</td></tr>"
+        + "<tr><td>Passing</td><td>-</td><td style='color:" + getColorForRating(p.getPassingSkill()) + "'>" + p.getPassingSkill() + "</td></tr>"
+        + "<tr><td>Driving</td><td>-</td><td style='color:" + getColorForRating(p.getDriveSkill()) + "'>" + p.getDriveSkill() + "</td></tr>"
+        + "<tr><td>Strength</td><td>-</td><td style='color:" + getColorForRating(p.getStrengthSkill()) + "'>" + p.getStrengthSkill() + "</td></tr>"
+        + "<tr><td>Speed</td><td>-</td><td style='color:" + getColorForRating(p.getSpeedSkill()) + "'>" + p.getSpeedSkill() + "</td></tr>"
+        + "<tr><td>Dribbling</td><td>-</td><td style='color:" + getColorForRating(p.getDribblingSkill()) + "'>" + p.getDribblingSkill() + "</td></tr>"
+        + "<tr><td>Perimeter defense</td><td>-</td><td style='color:" + getColorForRating(p.getPerimeterDefSkill()) + "'>" + p.getPerimeterDefSkill() + "</td></tr>"
+        + "<tr><td>Interior defense</td><td>-</td><td style='color:" + getColorForRating(p.getInteriorDefSkill()) + "'>" + p.getInteriorDefSkill() + "</td></tr>"
+        + "<tr><td>Defensive rebounding</td><td>-</td><td style='color:" + getColorForRating(p.getDefRebounding()) + "'>" + p.getDefRebounding() + "</td></tr>"
+        + "<tr><td>Offensive rebounding</td><td>-</td><td style='color:" + getColorForRating(p.getOffRebounding()) + "'>" + p.getOffRebounding() + "</td></tr>"
+        + "<tr><td>Experience</td><td>-</td><td>" + p.getYearsInTheLeague() + "</td></tr>"
+        + "<tr><td>Contract</td><td>-</td><td>" + p.getContract().getSalary() + "m/" + p.getContract().getLength() + " years</td></tr>"
+        + "</table>"
+        + "</html>";
+
         jLabel16.setText(text);
+
+        
+        jLabel42.setIcon(p.getPortrait());
         
         String statsText = p.generateStatline();
         jLabel19.setText(statsText);
     }
+    
+    private String getColorForRating(int value) {
+    if (value >= 90) {
+        return "#0a4a01";            // 90+ Dark Green
+    } else if (value >= 80) {
+        return "green";              // 80-89 Green
+    } else if (value >= 70) {
+        return "#04acb5";            // 70-79 Blue
+    } else if (value >= 60) {
+        return "orange";             // 60-69 Orange
+    } else if (value >= 50) {
+        return "#B8860B";            // 50-59 Yellow
+    } else {
+        return "red";                // Lower than 50 Red
+    }
+}
+
+
     
     private void setupStandingsPanel(){
         String text = "<html>";
@@ -3443,6 +3485,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
