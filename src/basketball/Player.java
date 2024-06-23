@@ -293,7 +293,7 @@ public class Player implements Comparable<Player>{
         Contract c = new Contract();
         if(yearsInTheLeague==0){
             c.setLength(3);
-            c.setSalary(1);
+            c.setSalary(2);
         }else{
             Random r = new Random();
             c.setLength(r.nextInt(4) + 1);

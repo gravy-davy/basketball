@@ -2271,6 +2271,7 @@ public class MainFrame extends javax.swing.JFrame {
             switchToAnotherPanel(draftPanel, draftPanel);
             isUserPickingInDraft = false;
             System.out.println(playerTeam.getName() + " has drafted " + p.getName());
+            playerTeam.regenMoneyAvailable();
             DraftPick dp = new DraftPick(playerTeam, p);
             draftPicks.add(dp);
         }else{
@@ -2287,6 +2288,7 @@ public class MainFrame extends javax.swing.JFrame {
             switchToAnotherPanel(draftPanel, draftPanel);
             isUserPickingInDraft = false;
             System.out.println(playerTeam.getName() + " has drafted " + p.getName());
+            playerTeam.regenMoneyAvailable();
             DraftPick dp = new DraftPick(playerTeam, p);
             draftPicks.add(dp);
         }else{
@@ -2303,6 +2305,7 @@ public class MainFrame extends javax.swing.JFrame {
             switchToAnotherPanel(draftPanel, draftPanel);
             isUserPickingInDraft = false;
             System.out.println(playerTeam.getName() + " has drafted " + p.getName());
+            playerTeam.regenMoneyAvailable();
             DraftPick dp = new DraftPick(playerTeam, p);
             draftPicks.add(dp);
         }else{
@@ -2348,6 +2351,7 @@ public class MainFrame extends javax.swing.JFrame {
         for(Team t : league.getFreeAgencyOrder()){
             System.out.println("TEAM " + counter + " - " + t.getName());
             counter++;
+            t.regenMoneyAvailable();
         }
         
         currentFreeAgencyPick = 0;
@@ -2836,6 +2840,7 @@ public class MainFrame extends javax.swing.JFrame {
             Random r = new Random();
             p.setAge(r.nextInt(24 - 18 + 1) + 18);
             p.setYearsInTheLeague(0);
+            p.regenContract();
             league.getDraftees().add(p);
         }
         
