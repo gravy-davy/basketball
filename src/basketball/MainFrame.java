@@ -2723,7 +2723,8 @@ public class MainFrame extends javax.swing.JFrame {
         
         try{
             Player p = league.getFreeAgents().get(viewFreeAgentsPageNumber*3+0);
-            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating();
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - CON: " + 
+                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y";
             jLabel32.setText(text);
             jButton73.show();
             jButton76.show();
@@ -2735,7 +2736,8 @@ public class MainFrame extends javax.swing.JFrame {
         
         try{
             Player p = league.getFreeAgents().get(viewFreeAgentsPageNumber*3+1);
-            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating();
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - CON: " + 
+                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y";
             jLabel33.setText(text);
             jButton74.show();
             jButton77.show();
@@ -2747,7 +2749,8 @@ public class MainFrame extends javax.swing.JFrame {
         
         try{
             Player p = league.getFreeAgents().get(viewFreeAgentsPageNumber*3+2);
-            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating();
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - CON: " + 
+                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y";
             jLabel34.setText(text);
             jButton75.show();
             jButton78.show();
@@ -2765,7 +2768,9 @@ public class MainFrame extends javax.swing.JFrame {
         try{
             int index = resignPageNumber * 5 + 0;
             Player p = playerTeam.getIncomingFreeAgents().get(index);
-            jLabel21.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating() + " - " + p.getContract().getSalary() + "m/" + p.getContract().getLength());
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - CON: " + 
+                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y";
+            jLabel21.setText(text);
             jButton48.show();
             jButton53.show();
             jButton58.show();
@@ -2779,7 +2784,9 @@ public class MainFrame extends javax.swing.JFrame {
         try{
             int index = resignPageNumber * 5 + 1;
             Player p = playerTeam.getIncomingFreeAgents().get(index);
-            jLabel22.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating() + " - " + p.getContract().getSalary() + "m/" + p.getContract().getLength());
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - CON: " + 
+                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y";
+            jLabel22.setText(text);
             jButton49.show();
             jButton54.show();
             jButton59.show();
@@ -2793,7 +2800,9 @@ public class MainFrame extends javax.swing.JFrame {
         try{
             int index = resignPageNumber * 5 + 2;
             Player p = playerTeam.getIncomingFreeAgents().get(index);
-            jLabel23.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating() + " - " + p.getContract().getSalary() + "m/" + p.getContract().getLength());
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - CON: " + 
+                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y";
+            jLabel23.setText(text);
             jButton50.show();
             jButton55.show();
             jButton60.show();

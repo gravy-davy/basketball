@@ -59,6 +59,7 @@ public class NewPlayerCreator {
         p.setDevelopment(getDevelopment());
         
         // inflateRatings(p);
+        p.regenOverallRating();
         generateTendencies(p);
         
         p.setFREE_AGENCY_loyalty(r.nextInt(100)+1);
@@ -99,10 +100,10 @@ public class NewPlayerCreator {
             primaryMin = 65;
             primaryMax = 90;
         }else if(playerSeed == 5){
-            primaryMin = 75;
+            primaryMin = 70;
             primaryMax = 95;
         }else{
-            primaryMin = 85;
+            primaryMin = 80;
             primaryMax = 99;
         }
         
@@ -289,7 +290,7 @@ public class NewPlayerCreator {
             p.setShootMidTendy(rando.nextInt(p.getMidShotSkill()) + rando.nextInt(50) + 1);
             p.setShootThreeTendy(rando.nextInt(p.getThreeShotSkill()) + rando.nextInt(50) + 1);
 
-            p.setInitTendy(rando.nextInt(p.getDriveSkill()) + rando.nextInt(50) + 1);
+            p.setInitTendy(rando.nextInt(p.getOverallRating()) + p.getOverallRating() + 1);
             p.setOffReboundTendy(rando.nextInt(p.getOffRebounding()) + rando.nextInt(10) + 1);
             p.setDefReboundTendy(rando.nextInt(p.getDefRebounding()) + rando.nextInt(10) + 1);
         }else if(p.getPosition().equalsIgnoreCase("PF") || p.getPosition().equalsIgnoreCase("C")){
@@ -310,7 +311,7 @@ public class NewPlayerCreator {
             p.setShootMidTendy(rando.nextInt(p.getMidShotSkill()) + rando.nextInt(50) + 1);
             p.setShootThreeTendy(rando.nextInt(p.getThreeShotSkill()) + rando.nextInt(10) + 1);
 
-            p.setInitTendy(rando.nextInt(p.getDriveSkill()) + rando.nextInt(50) + 1);
+            p.setInitTendy(rando.nextInt(p.getOverallRating()) + p.getOverallRating() + 1);
             p.setOffReboundTendy(rando.nextInt(p.getOffRebounding()) + rando.nextInt(50) + 1);
             p.setDefReboundTendy(rando.nextInt(p.getDefRebounding()) + rando.nextInt(50) + 1);
         }else{ // sf
@@ -331,7 +332,7 @@ public class NewPlayerCreator {
             p.setShootMidTendy(rando.nextInt(p.getMidShotSkill()) + rando.nextInt(50) + 1);
             p.setShootThreeTendy(rando.nextInt(p.getThreeShotSkill()) + rando.nextInt(50) + 1);
 
-            p.setInitTendy(rando.nextInt(p.getDriveSkill()) + rando.nextInt(50) + 1);
+            p.setInitTendy(rando.nextInt(p.getOverallRating()) + p.getOverallRating() + 1);
             p.setOffReboundTendy(rando.nextInt(p.getOffRebounding()) + rando.nextInt(25) + 1);
             p.setDefReboundTendy(rando.nextInt(p.getDefRebounding()) + rando.nextInt(25) + 1);
         }
