@@ -182,7 +182,7 @@ public class Player implements Comparable<Player>{
         
         pValue+= overallRating;
         
-        if(age<32){
+        if(age<30){
             if(development==5){
                 pValue*=4;
             }else if(development==4){
@@ -327,13 +327,13 @@ public class Player implements Comparable<Player>{
     
     // based on their position. this is called yearly before the offseason.
     public void regenOverallRating(){
-        PlayerCreator pc = new PlayerCreator();
+        NewPlayerCreator pc = new NewPlayerCreator();
         if(position.equalsIgnoreCase("PG") || position.equalsIgnoreCase("SG")){
             this.setOverallRating(pc.generateGuardOverall(this));
-        }else if(position.equalsIgnoreCase("SF") || position.equalsIgnoreCase("PF")){
-            this.setOverallRating(pc.generateForwardOverall(this));
+        }else if(position.equalsIgnoreCase("PF") || position.equalsIgnoreCase("C")){
+            this.setOverallRating(pc.generateCenterAndPowerForwardOverall(this));
         }else{
-            this.setOverallRating(pc.generateCenterOverall(this));
+            this.setOverallRating(pc.generateSmallForwardOverall(this));
         }
     }
     
