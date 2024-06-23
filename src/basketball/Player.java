@@ -3,6 +3,7 @@ package basketball;
 
 import java.util.ArrayList;
 import java.util.Random;
+import javax.swing.ImageIcon;
 
 
 public class Player implements Comparable<Player>{
@@ -17,6 +18,7 @@ public class Player implements Comparable<Player>{
     private int value; // based on age/attributes aka overall/development
     private int performanceValue; // based on actual game results
     private int freeAgentValue; // value + performanceValue
+    private ImageIcon portrait;
     
     // for FA decisions
     private int FREE_AGENCY_loyalty;
@@ -926,5 +928,16 @@ public class Player implements Comparable<Player>{
     public void setFreeAgentValue(int freeAgentValue) {
         this.freeAgentValue = freeAgentValue;
     }
+
+    public ImageIcon getPortrait() {
+        return portrait;
+    }
+
+    public void setPortrait(ImageIcon portrait) {
+        this.portrait = portrait;
+    }
+
+    
+    
     
 }

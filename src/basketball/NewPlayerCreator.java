@@ -4,10 +4,12 @@ package basketball;
 
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
+import javax.swing.ImageIcon;
 
 
 public class NewPlayerCreator {
@@ -74,9 +76,30 @@ public class NewPlayerCreator {
         p.regenContract();
         p.regenPlayerValue();
         
+        generatePortrait(p);
         return p;
     }
     
+    private void generatePortrait(Player p){
+        
+        String directoryPath = "faces/";
+
+        File directory = new File(directoryPath);
+        File[] files = directory.listFiles();
+        
+        if (files == null || files.length == 0) {
+            System.out.println("The directory is empty or does not exist.");
+            return;
+        }
+        
+        Random rando = new Random();
+        String randomFile = files[rando.nextInt(files.length)].getPath();
+        
+        // System.out.println("random file = " + randomFile);
+        
+        p.setPortrait(new ImageIcon(randomFile));
+        
+    }
     
     private void generateRatings(Player p){
         int playerSeed = getRandomRarity();
