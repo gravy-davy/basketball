@@ -35,6 +35,7 @@ public class MainFrame extends javax.swing.JFrame {
     private int currentFreeAgencyPick;
     private boolean isUserPickingInFreeAgency;
     private int currentFreeAgencyDay;
+    private int viewTrainingPageNumber;
     
     /**
      * Creates new form MainFrame
@@ -48,6 +49,7 @@ public class MainFrame extends javax.swing.JFrame {
         currentFreeAgencyPick = 0;
         currentFreeAgencyDay = 1;
         viewFreeAgentsPageNumber = 0;
+        viewTrainingPageNumber = 0;
         isUserPickingInDraft = false;
         isUserPickingInFreeAgency = false;
         
@@ -206,6 +208,18 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel37 = new javax.swing.JLabel();
         trainingPanel = new javax.swing.JPanel();
         jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jButton83 = new javax.swing.JButton();
+        jButton84 = new javax.swing.JButton();
+        jButton85 = new javax.swing.JButton();
+        jButton86 = new javax.swing.JButton();
+        jButton87 = new javax.swing.JButton();
+        jButton88 = new javax.swing.JButton();
+        jButton89 = new javax.swing.JButton();
+        jButton90 = new javax.swing.JButton();
+        jButton91 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -1374,8 +1388,18 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jButton74.setText("Sign");
+        jButton74.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton74ActionPerformed(evt);
+            }
+        });
 
         jButton75.setText("Sign");
+        jButton75.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton75ActionPerformed(evt);
+            }
+        });
 
         jButton76.setText("Details");
         jButton76.addActionListener(new java.awt.event.ActionListener() {
@@ -1459,7 +1483,7 @@ public class MainFrame extends javax.swing.JFrame {
                                     .addComponent(jButton75, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(47, 47, 47)
                                 .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton76, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
+                                    .addComponent(jButton76, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton77, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton78, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(131, 131, 131))))
@@ -1506,23 +1530,122 @@ public class MainFrame extends javax.swing.JFrame {
 
         trainingPanel.setPreferredSize(new java.awt.Dimension(955, 581));
 
-        jLabel38.setText("training");
+        jLabel38.setText("Training points remaining - ");
+
+        jLabel39.setText("jLabel27");
+
+        jLabel40.setText("jLabel27");
+
+        jLabel41.setText("jLabel27");
+
+        jButton83.setText("Details");
+        jButton83.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton83ActionPerformed(evt);
+            }
+        });
+
+        jButton84.setText("Details");
+        jButton84.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton84ActionPerformed(evt);
+            }
+        });
+
+        jButton85.setText("Details");
+        jButton85.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton85ActionPerformed(evt);
+            }
+        });
+
+        jButton86.setText("Train");
+
+        jButton87.setText("Train");
+
+        jButton88.setText("Train");
+
+        jButton89.setText("Next page");
+        jButton89.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton89ActionPerformed(evt);
+            }
+        });
+
+        jButton90.setText("Prev page");
+        jButton90.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton90ActionPerformed(evt);
+            }
+        });
+
+        jButton91.setText("To the new season");
+        jButton91.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton91ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout trainingPanelLayout = new javax.swing.GroupLayout(trainingPanel);
         trainingPanel.setLayout(trainingPanelLayout);
         trainingPanelLayout.setHorizontalGroup(
             trainingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(trainingPanelLayout.createSequentialGroup()
-                .addGap(396, 396, 396)
-                .addComponent(jLabel38)
-                .addContainerGap(524, Short.MAX_VALUE))
+                .addGroup(trainingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(trainingPanelLayout.createSequentialGroup()
+                        .addGap(200, 200, 200)
+                        .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(trainingPanelLayout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addGroup(trainingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(68, 68, 68)
+                        .addGroup(trainingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton83)
+                            .addComponent(jButton84)
+                            .addComponent(jButton85))
+                        .addGap(58, 58, 58)
+                        .addGroup(trainingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton88)
+                            .addComponent(jButton87)
+                            .addComponent(jButton86)))
+                    .addGroup(trainingPanelLayout.createSequentialGroup()
+                        .addGap(288, 288, 288)
+                        .addComponent(jButton90)
+                        .addGap(48, 48, 48)
+                        .addComponent(jButton89)
+                        .addGap(166, 166, 166)
+                        .addComponent(jButton91)))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
         trainingPanelLayout.setVerticalGroup(
             trainingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(trainingPanelLayout.createSequentialGroup()
-                .addGap(228, 228, 228)
+                .addGap(47, 47, 47)
                 .addComponent(jLabel38)
-                .addContainerGap(338, Short.MAX_VALUE))
+                .addGap(65, 65, 65)
+                .addGroup(trainingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton83)
+                    .addComponent(jButton86))
+                .addGap(40, 40, 40)
+                .addGroup(trainingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton84)
+                    .addComponent(jButton87))
+                .addGap(40, 40, 40)
+                .addGroup(trainingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton85)
+                    .addComponent(jButton88))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                .addGroup(trainingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton89)
+                    .addComponent(jButton90)
+                    .addComponent(jButton91))
+                .addGap(71, 71, 71))
         );
 
         getContentPane().add(trainingPanel, "card11");
@@ -2312,6 +2435,99 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton82ActionPerformed
 
+    private void jButton89ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton89ActionPerformed
+        int minForNextPage = (viewTrainingPageNumber+1) * 3;
+        if(playerTeam.getRoster().size()>=minForNextPage){
+            viewTrainingPageNumber++;
+            setupTrainingPanel();
+            getContentPane().revalidate();
+            getContentPane().repaint();
+        }else{
+            JOptionPane.showMessageDialog(null, "Not enough players to view another page.");
+        }
+    }//GEN-LAST:event_jButton89ActionPerformed
+
+    private void jButton83ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton83ActionPerformed
+        prevPanel = trainingPanel;
+        setupPlayerDetailsPanel(playerTeam.getRoster().get(viewTrainingPageNumber*3+0));
+        switchToAnotherPanel(trainingPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton83ActionPerformed
+
+    private void jButton90ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton90ActionPerformed
+        if(viewTrainingPageNumber!=0){
+            viewTrainingPageNumber--;
+            setupTrainingPanel();
+            getContentPane().revalidate();
+            getContentPane().repaint();
+        }else{
+            JOptionPane.showMessageDialog(null, "You are already on page 0.");
+        }
+    }//GEN-LAST:event_jButton90ActionPerformed
+
+    private void jButton74ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton74ActionPerformed
+        Player p = league.getFreeAgents().get(viewFreeAgentsPageNumber * 3 + 1);
+        if(isUserPickingInFreeAgency && null != p){
+            if(playerTeam.getMoneyAvailable()>p.getContract().getSalary()){
+                String signingDecision = p.getSigningDecision(playerTeam, "Free agency", false);
+                if(signingDecision.equalsIgnoreCase("Signed")){
+                    league.getFreeAgents().remove(p);
+                    playerTeam.getRoster().add(p);
+                    playerTeam.regenMoneyAvailable();
+                    JOptionPane.showMessageDialog(null, "You have successfully signed " + p.getName() + "!!!");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Your offer was DECLINED by " + p.getName());
+                }
+                isUserPickingInFreeAgency = false;
+                setupFreeAgencyPanel();
+                switchToAnotherPanel(freeAgencyPanel, freeAgencyPanel);
+            }else{
+                JOptionPane.showMessageDialog(null, "You don't have enough money available to sign this player.");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "You cannot make any offers at this time (one per day).");
+        }
+    }//GEN-LAST:event_jButton74ActionPerformed
+
+    private void jButton75ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton75ActionPerformed
+        Player p = league.getFreeAgents().get(viewFreeAgentsPageNumber * 3 + 2);
+        if(isUserPickingInFreeAgency && null != p){
+            if(playerTeam.getMoneyAvailable()>p.getContract().getSalary()){
+                String signingDecision = p.getSigningDecision(playerTeam, "Free agency", false);
+                if(signingDecision.equalsIgnoreCase("Signed")){
+                    league.getFreeAgents().remove(p);
+                    playerTeam.getRoster().add(p);
+                    playerTeam.regenMoneyAvailable();
+                    JOptionPane.showMessageDialog(null, "You have successfully signed " + p.getName() + "!!!");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Your offer was DECLINED by " + p.getName());
+                }
+                isUserPickingInFreeAgency = false;
+                setupFreeAgencyPanel();
+                switchToAnotherPanel(freeAgencyPanel, freeAgencyPanel);
+            }else{
+                JOptionPane.showMessageDialog(null, "You don't have enough money available to sign this player.");
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "You cannot make any offers at this time (one per day).");
+        }
+    }//GEN-LAST:event_jButton75ActionPerformed
+
+    private void jButton84ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton84ActionPerformed
+        prevPanel = trainingPanel;
+        setupPlayerDetailsPanel(playerTeam.getRoster().get(viewTrainingPageNumber*3+1));
+        switchToAnotherPanel(trainingPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton84ActionPerformed
+
+    private void jButton85ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton85ActionPerformed
+        prevPanel = trainingPanel;
+        setupPlayerDetailsPanel(playerTeam.getRoster().get(viewTrainingPageNumber*3+2));
+        switchToAnotherPanel(trainingPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton85ActionPerformed
+
+    private void jButton91ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton91ActionPerformed
+        // everything is already handled in startNewYear() method. here we just handle ai roster rating / development.
+    }//GEN-LAST:event_jButton91ActionPerformed
+
     
     private void simulateFreeAgency(){
         
@@ -2372,11 +2588,52 @@ public class MainFrame extends javax.swing.JFrame {
             if(currentFreeAgencyDay>8){
                 System.out.println("8 days of Free Agency have passed, getting out now.");
                 // switch to another panel
+                playerTeam.setTrainingPointsLeft(10);
+                viewTrainingPageNumber = 0;
+                setupTrainingPanel();
                 switchToAnotherPanel(freeAgencyPanel, trainingPanel);
                 break;
             }
         }
         
+    }
+    
+    private void setupTrainingPanel(){
+        try{
+            Player p = playerTeam.getRoster().get(viewTrainingPageNumber*3+0);
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating();
+            jLabel39.setText(text);
+            jButton83.show();
+            jButton86.show();
+        }catch(Exception e){
+            jLabel39.setText("-");
+            jButton83.hide();
+            jButton86.hide();
+        }
+        
+        try{
+            Player p = playerTeam.getRoster().get(viewTrainingPageNumber*3+1);
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating();
+            jLabel40.setText(text);
+            jButton84.show();
+            jButton87.show();
+        }catch(Exception e){
+            jLabel40.setText("-");
+            jButton84.hide();
+            jButton87.hide();
+        }
+        
+        try{
+            Player p = playerTeam.getRoster().get(viewTrainingPageNumber*3+2);
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating();
+            jLabel41.setText(text);
+            jButton85.show();
+            jButton88.show();
+        }catch(Exception e){
+            jLabel41.setText("-");
+            jButton85.hide();
+            jButton88.hide();
+        }
     }
     
     private void makeResigningDecisionForPlayer(Player p){
@@ -3126,7 +3383,16 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton80;
     private javax.swing.JButton jButton81;
     private javax.swing.JButton jButton82;
+    private javax.swing.JButton jButton83;
+    private javax.swing.JButton jButton84;
+    private javax.swing.JButton jButton85;
+    private javax.swing.JButton jButton86;
+    private javax.swing.JButton jButton87;
+    private javax.swing.JButton jButton88;
+    private javax.swing.JButton jButton89;
     private javax.swing.JButton jButton9;
+    private javax.swing.JButton jButton90;
+    private javax.swing.JButton jButton91;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -3159,7 +3425,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

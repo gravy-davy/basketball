@@ -17,6 +17,7 @@ public class Team {
     private int wins;
     private int losses;
     private ArrayList<Player> playersTriedToSign;
+    private int trainingPointsLeft;
     
     // if team doesnt have enough moneyTotal to sign all their players in the very beginning of league init, increase it till they can afford it.
     private int moneyTotal; // gonna just be a whole number 75-200 or sumfin. players will get paid like 24 but put an m next to it for 24m
@@ -33,6 +34,7 @@ public class Team {
         gameScore = 0;
         wins = 0;
         losses = 0;
+        trainingPointsLeft = 10;
         
         name = "";
         moneyTotal = 0;
@@ -237,6 +239,14 @@ public class Team {
 
     public void setPlayersTriedToSign(ArrayList<Player> playersTriedToSign) {
         this.playersTriedToSign = playersTriedToSign;
+    }
+
+    public int getTrainingPointsLeft() {
+        return trainingPointsLeft;
+    }
+
+    public void setTrainingPointsLeft(int trainingPointsLeft) {
+        this.trainingPointsLeft = trainingPointsLeft;
     }
     
     
