@@ -11,7 +11,7 @@ public class Basketball {
     public static void main(String[] args) {
 
         
-        PlayerCreator pc = new PlayerCreator();
+        NewPlayerCreator pc = new NewPlayerCreator();
         
         Team t1 = new Team();
         Player t1PG = pc.generatePlayerByPosition("PG");

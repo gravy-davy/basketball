@@ -23,7 +23,7 @@ public class MainFrame extends javax.swing.JFrame {
     private int resignPageNumber;
     private int viewDraftPageNumber;
     private int viewFreeAgentsPageNumber;
-    private PlayerCreator pc = new PlayerCreator();
+    private NewPlayerCreator pc = new NewPlayerCreator();
     private League league;
     
     private JPanel prevPanel;

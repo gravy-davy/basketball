@@ -125,7 +125,7 @@ public class Game {
                 if(startingPlay.equalsIgnoreCase("Pass")){
                     prevPasser = playIniter;
                     // standing hockey pass, doesn't use drive modifier
-                    int passSeed = r.nextInt(90);
+                    int passSeed = r.nextInt(100);
                     if(r.nextInt(playIniter.getPassingSkill())>=passSeed){
                         wasGoodPass = true; // only if this is true does prevpasser get an assist
                     }
@@ -197,7 +197,7 @@ public class Game {
                     int passScore = r.nextInt(playIniter.getPassingSkill());
                     passScore += driveResult;
                     
-                    int passSeed = r.nextInt(90);
+                    int passSeed = r.nextInt(100);
                     if(passScore>=passSeed){
                         wasGoodPass = true;
                     }else{

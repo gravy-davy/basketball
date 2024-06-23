@@ -32,7 +32,7 @@ public class TeamCreator {
     public Team generateRandomTeam(){
         Team t = new Team();
         
-        PlayerCreator pc = new PlayerCreator();
+        NewPlayerCreator pc = new NewPlayerCreator();
         t.getRoster().add(pc.generatePlayerByPosition("PG"));
         t.getRoster().add(pc.generatePlayerByPosition("PG"));
         

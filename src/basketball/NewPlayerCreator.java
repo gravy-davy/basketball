@@ -58,7 +58,7 @@ public class NewPlayerCreator {
         createEmptyStats(p);
         p.setDevelopment(getDevelopment());
         
-        inflateRatings(p);
+        // inflateRatings(p);
         generateTendencies(p);
         
         p.setFREE_AGENCY_loyalty(r.nextInt(100)+1);
@@ -430,11 +430,11 @@ public class NewPlayerCreator {
         return player;
     }
     
-    private String generatePosition(Player p){
+    private void generatePosition(Player p){
         String[] positions = {"PG", "SG", "SF", "PF", "C"};
         
         Random r = new Random();
-        return positions[r.nextInt(5)];
+        p.setPosition(positions[r.nextInt(5)]);
     }
     
     public void inflateRatings(Player p){
