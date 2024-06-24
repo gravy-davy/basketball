@@ -8,10 +8,12 @@ public class Game {
     
     private Team team1;
     private Team team2;
+    private boolean isWatchingGame;
 
     public Game(Team team1, Team team2) {
         this.team1 = team1;
         this.team2 = team2;
+        isWatchingGame = false;
     }
     
     // just add subs aka change the team's squad after each quarter, ez :)
@@ -259,25 +261,28 @@ public class Game {
         }while(quarter<5);
         
         
-        for(Player p : team1.getSquad()){
-            p.updateTotalStats();
-            p.resetGameStats();
+        if(!isWatchingGame){
+            for(Player p : team1.getSquad()){
+                p.updateTotalStats();
+                p.resetGameStats();
+            }
+
+            for(Player p : team2.getSquad()){
+                p.updateTotalStats();
+                p.resetGameStats();
+            }
+
+            for(Player p : team1.getBench()){
+                p.updateTotalStats();
+                p.resetGameStats();
+            }
+
+            for(Player p : team2.getBench()){
+                p.updateTotalStats();
+                p.resetGameStats();
+            }
         }
         
-        for(Player p : team2.getSquad()){
-            p.updateTotalStats();
-            p.resetGameStats();
-        }
-        
-        for(Player p : team1.getBench()){
-            p.updateTotalStats();
-            p.resetGameStats();
-        }
-        
-        for(Player p : team2.getBench()){
-            p.updateTotalStats();
-            p.resetGameStats();
-        }
         
     }
     
@@ -499,5 +504,15 @@ public class Game {
         }
         return false;
     }
+
+    public boolean isWatchingGame() {
+        return isWatchingGame;
+    }
+
+    public void setIsWatchingGame(boolean isWatchingGame) {
+        this.isWatchingGame = isWatchingGame;
+    }
+    
+    
     
 }

@@ -37,6 +37,9 @@ public class MainFrame extends javax.swing.JFrame {
     private int currentFreeAgencyDay;
     private int viewTrainingPageNumber;
     
+    private int playerTeamPlayoffWins;
+    private int enemyTeamPlayoffWins;
+    
     /**
      * Creates new form MainFrame
      */
@@ -55,6 +58,8 @@ public class MainFrame extends javax.swing.JFrame {
         
         playerTeam = new Team();
         
+        playerTeamPlayoffWins = 0;
+        enemyTeamPlayoffWins = 0;
         
         TeamCreator tc = new TeamCreator();
         playerTeam = tc.generateRandomTeam();
@@ -225,6 +230,8 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel44 = new javax.swing.JLabel();
         jLabel45 = new javax.swing.JLabel();
         jButton43 = new javax.swing.JButton();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -895,7 +902,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addComponent(jButton42)
                 .addGap(57, 57, 57))
         );
@@ -1654,6 +1661,15 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel45.setText("jLabel44");
 
         jButton43.setText("Simulate game");
+        jButton43.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton43ActionPerformed(evt);
+            }
+        });
+
+        jLabel46.setText("jLabel46");
+
+        jLabel47.setText("jLabel47");
 
         javax.swing.GroupLayout gamePanelLayout = new javax.swing.GroupLayout(gamePanel);
         gamePanel.setLayout(gamePanelLayout);
@@ -1662,19 +1678,30 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(gamePanelLayout.createSequentialGroup()
                 .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(gamePanelLayout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(100, 100, 100)
-                        .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(gamePanelLayout.createSequentialGroup()
                         .addGap(386, 386, 386)
-                        .addComponent(jButton43)))
-                .addContainerGap(110, Short.MAX_VALUE))
+                        .addComponent(jButton43)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(gamePanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(gamePanelLayout.createSequentialGroup()
+                                .addGap(0, 194, Short.MAX_VALUE)
+                                .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap())
         );
         gamePanelLayout.setVerticalGroup(
             gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(gamePanelLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addContainerGap()
+                .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel46)
+                    .addComponent(jLabel47))
+                .addGap(13, 13, 13)
                 .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2039,6 +2066,9 @@ public class MainFrame extends javax.swing.JFrame {
         if(league.getPlayoffTeams().contains(playerTeam)){
             league.simPlayoffRound(playerTeam); // BEAUTIFUL CONFIRMED WORKING - IT SIMULATES WITHOUT THE PLAYERTEAM PRESENT OR THEIR MATCHUP !!!
             // now just goto game panel and watch/control the game there :)
+            setupGamePanel();
+            switchToAnotherPanel(seasonStandingsPanel, gamePanel);
+            // then remove the team that loses (playerTeam or opponent) SIMPLE
         }else{
             league.simPlayoffs();
             setupPlayoffResultsPanel();
@@ -2046,10 +2076,58 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton42ActionPerformed
 
-    private void setupGamePanel(){
-        jLabel44.setText("hi");
-        jLabel45.setText("hey");
+    private void setupGamePanel() {
+        // Set team labels
+        jLabel46.setText(playerTeam.getName() + " - " + playerTeamPlayoffWins);
+        jLabel47.setText(league.getEnemyPlayoffTeam().getName() + " - " + enemyTeamPlayoffWins);
+
+        // Create HTML tables for player stats
+        StringBuilder playerTeamHTML = new StringBuilder("<html><table style='border-collapse: collapse; border: 1px solid black;'>");
+        StringBuilder enemyTeamHTML = new StringBuilder("<html><table style='border-collapse: collapse; border: 1px solid black;'>");
+
+        // Add headers for tables
+        String header = "<tr style='border: 1px solid black;'><th style='border: 1px solid black;'>Name</th><th style='border: 1px solid black;'>AGE</th><th style='border: 1px solid black;'>POS</th><th style='border: 1px solid black;'>OVR</th><th style='border: 1px solid black;'>PTS</th><th style='border: 1px solid black;'>AST</th><th style='border: 1px solid black;'>REB</th><th style='border: 1px solid black;'>ORB</th><th style='border: 1px solid black;'>FG</th><th style='border: 1px solid black;'>3PT</th></tr>";
+        playerTeamHTML.append(header);
+        enemyTeamHTML.append(header);
+
+        // Populate player team stats (squad + bench)
+        for (Player p : playerTeam.getSquad()) {
+            playerTeamHTML.append(createRow(p));
+        }
+        // Add a line to separate squad and bench players
+        playerTeamHTML.append("<tr style='border: 1px solid black;'><td colspan='10' style='border: 1px solid black;'><hr></td></tr>");
+        for (Player p : playerTeam.getBench()) {
+            playerTeamHTML.append(createRow(p));
+        }
+
+        // Populate enemy team stats (squad + bench)
+        for (Player p : league.getEnemyPlayoffTeam().getSquad()) {
+            enemyTeamHTML.append(createRow(p));
+        }
+        // Add a line to separate squad and bench players
+        enemyTeamHTML.append("<tr style='border: 1px solid black;'><td colspan='10' style='border: 1px solid black;'><hr></td></tr>");
+        for (Player p : league.getEnemyPlayoffTeam().getBench()) {
+            enemyTeamHTML.append(createRow(p));
+        }
+
+        // Close HTML tables
+        playerTeamHTML.append("</table></html>");
+        enemyTeamHTML.append("</table></html>");
+
+        // Set the labels with the combined HTML tables
+        jLabel44.setText(playerTeamHTML.toString());
+        jLabel45.setText(enemyTeamHTML.toString());
     }
+
+    
+    String createRow(Player p) {
+        return String.format(
+            "<tr><td>%s</td><td>%d</td><td>%s</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d</td><td>%d/%d</td><td>%d/%d</td></tr>",
+            p.getName(), p.getAge(), p.getPosition(), p.getOverallRating(), p.getPoints(), p.getAssists(),
+            p.getRebounds(), p.getOffRebounds(), p.getFgMade(), p.getFgAttempted(), p.getThreePointersMade(), p.getThreePointersAttempted()
+        );
+    }
+
     
     private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
         startNewYear();
@@ -2573,6 +2651,42 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton91ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton91ActionPerformed
         // everything is already handled in startNewYear() method. here we just handle ai roster rating / development.
     }//GEN-LAST:event_jButton91ActionPerformed
+
+    private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
+        Game game = new Game(playerTeam, league.getEnemyPlayoffTeam());
+        game.setIsWatchingGame(true);
+        game.simGame();
+
+        if(playerTeam.getGameScore()>=league.getEnemyPlayoffTeam().getGameScore()){
+            playerTeamPlayoffWins++;
+        }else{
+            enemyTeamPlayoffWins++;
+        }
+        
+        
+        setupGamePanel();
+        getContentPane().revalidate();
+        getContentPane().repaint();
+        switchToAnotherPanel(gamePanel, gamePanel);
+        
+        for(Player p : playerTeam.getSquad()){
+            p.updateTotalStats();
+            p.resetGameStats();
+        }
+        for(Player p : league.getEnemyPlayoffTeam().getSquad()){
+            p.updateTotalStats();
+            p.resetGameStats();
+        }
+        
+        for(Player p : playerTeam.getBench()){
+            p.updateTotalStats();
+            p.resetGameStats();
+        }
+        for(Player p : league.getEnemyPlayoffTeam().getBench()){
+            p.updateTotalStats();
+            p.resetGameStats();
+        }
+    }//GEN-LAST:event_jButton43ActionPerformed
 
     
     private void simulateFreeAgency(){
@@ -3587,6 +3701,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

@@ -21,6 +21,8 @@ public class League {
     
     private ArrayList<Team> freeAgencyOrder;
     
+    private Team enemyPlayoffTeam;
+    
     public League() {
         year = 2020;
         teams = new ArrayList<>();
@@ -172,7 +174,12 @@ public class League {
                 Team t1 = playoffTeams.get(k);
                 Team t2 = playoffTeams.get(playoffTeamsSize-1-k);
                 
-                if(t1.equals(playerTeam) || t2.equals(playerTeam)){
+                if(t1.equals(playerTeam)){
+                    enemyPlayoffTeam = t2;
+                    continue;
+                }
+                if(t2.equals(playerTeam)){
+                    enemyPlayoffTeam = t1;
                     continue;
                 }
 
@@ -332,6 +339,14 @@ public class League {
 
     public void setFreeAgencyOrder(ArrayList<Team> freeAgencyOrder) {
         this.freeAgencyOrder = freeAgencyOrder;
+    }
+
+    public Team getEnemyPlayoffTeam() {
+        return enemyPlayoffTeam;
+    }
+
+    public void setEnemyPlayoffTeam(Team enemyPlayoffTeam) {
+        this.enemyPlayoffTeam = enemyPlayoffTeam;
     }
     
     
