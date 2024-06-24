@@ -3321,7 +3321,7 @@ public class MainFrame extends javax.swing.JFrame {
             if(team.equals(playerTeam)){
                 String rowStyle = team.equals(playerTeam) ? "background-color: yellow;" : "";
 
-                    htmlBuilder.append("<tr style='").append(rowStyle).append("'>")
+                    htmlBuilder2.append("<tr style='").append(rowStyle).append("'>")
                    .append("<td style='border: 1px solid black; padding: 5px;'>").append(place).append("</td>")
                    .append("<td style='border: 1px solid black; padding: 5px;'>").append(team.getName()).append("</td>")
                    .append("<td style='border: 1px solid black; padding: 5px;'>Wins: ").append(team.getWins()).append(", Losses: ").append(team.getLosses()).append("</td>")
