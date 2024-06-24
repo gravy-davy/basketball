@@ -1462,35 +1462,32 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jButton81))
                     .addGroup(freeAgencyPanelLayout.createSequentialGroup()
                         .addGap(54, 54, 54)
-                        .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(freeAgencyPanelLayout.createSequentialGroup()
-                        .addGap(54, 54, 54)
                         .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
                 .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel35)
+                    .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(106, 106, 106))
+            .addGroup(freeAgencyPanelLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+                    .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(73, 73, 73)
+                .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton79)
                     .addGroup(freeAgencyPanelLayout.createSequentialGroup()
-                        .addGap(196, 196, 196)
-                        .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton79)
-                            .addGroup(freeAgencyPanelLayout.createSequentialGroup()
-                                .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton73, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                                    .addComponent(jButton74, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton75, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton77, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton76, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton78, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE))))
-                        .addContainerGap(173, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, freeAgencyPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel35)
-                            .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(106, 106, 106))))
+                        .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton73, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                            .addComponent(jButton74, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton75, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton77, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton76, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton78, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         freeAgencyPanelLayout.setVerticalGroup(
             freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2409,8 +2406,8 @@ public class MainFrame extends javax.swing.JFrame {
         Player p = league.getFreeAgents().get(viewFreeAgentsPageNumber * 3 + 0);
         if(isUserPickingInFreeAgency && null != p){
             if(playerTeam.getMoneyAvailable()>p.getContract().getSalary()){
-                String signingDecision = p.getSigningDecision(playerTeam, "Free agency", false);
-                if(signingDecision.equalsIgnoreCase("Signed")){
+                boolean signingDecision = p.getSigningDecision();
+                if(signingDecision){
                     league.getFreeAgents().remove(p);
                     playerTeam.getRoster().add(p);
                     playerTeam.regenMoneyAvailable();
@@ -2466,8 +2463,8 @@ public class MainFrame extends javax.swing.JFrame {
         Player p = league.getFreeAgents().get(viewFreeAgentsPageNumber * 3 + 1);
         if(isUserPickingInFreeAgency && null != p){
             if(playerTeam.getMoneyAvailable()>p.getContract().getSalary()){
-                String signingDecision = p.getSigningDecision(playerTeam, "Free agency", false);
-                if(signingDecision.equalsIgnoreCase("Signed")){
+                boolean signingDecision = p.getSigningDecision();
+                if(signingDecision){
                     league.getFreeAgents().remove(p);
                     playerTeam.getRoster().add(p);
                     playerTeam.regenMoneyAvailable();
@@ -2490,8 +2487,8 @@ public class MainFrame extends javax.swing.JFrame {
         Player p = league.getFreeAgents().get(viewFreeAgentsPageNumber * 3 + 2);
         if(isUserPickingInFreeAgency && null != p){
             if(playerTeam.getMoneyAvailable()>p.getContract().getSalary()){
-                String signingDecision = p.getSigningDecision(playerTeam, "Free agency", false);
-                if(signingDecision.equalsIgnoreCase("Signed")){
+                boolean signingDecision = p.getSigningDecision();
+                if(signingDecision){
                     league.getFreeAgents().remove(p);
                     playerTeam.getRoster().add(p);
                     playerTeam.regenMoneyAvailable();
@@ -2546,34 +2543,30 @@ public class MainFrame extends javax.swing.JFrame {
                 // make a 'playersTriedToSign' list to a team so they dont try to sign the same guy twice in back to back days
                 
                 // should be a loop until they find a player who isn't their 'playersTriedToSign' list
-                Player p = null;
-                for(Player player : league.getFreeAgents()){
-                    if(!t.getPlayersTriedToSign().contains(player)){
-                        p = player;
-                        break;
-                        // maybe instead of picking the 0 position, try randomly picking 0-3 and if it's not null, then great, try to sign them.
+                
+                if(!league.getFreeAgents().isEmpty()){
+                    Player p = league.getFreeAgents().get(0);
+                
+                    if(p == null){
+                        continue;
                     }
-                }
-                
-                String signingDecision = p.getSigningDecision(t, "Free agency", false);
-                
-                if(signingDecision.equalsIgnoreCase("Signed")){
-                    t.regenMoneyAvailable();
-                    if(t.getMoneyAvailable()>=p.getContract().getSalary()){
-                        t.getRoster().add(p);
-                        // remove from free agency
-                        league.getFreeAgents().remove(p);
+
+                    boolean signingDecision = p.getSigningDecision();
+
+                    if(signingDecision && t.getRoster().size()<12){
                         t.regenMoneyAvailable();
-                        System.out.println(t.getName() + " have SIGNED " + p.getName() + " for " + p.getContract().getSalary() + "m per year for " + p.getContract().getLength() +
-                                " years!");
+                        if(t.getMoneyAvailable()>=p.getContract().getSalary()){
+                            t.getRoster().add(p);
+                            // remove from free agency
+                            league.getFreeAgents().remove(p);
+                            t.regenMoneyAvailable();
+                            System.out.println(t.getName() + " have SIGNED " + p.getName() + " for " + p.getContract().getSalary() + "m per year for " + p.getContract().getLength() +
+                                    " years!");
+                        }
                     }else{
-                        league.getFreeAgents().add(p);
-                        System.out.println(t.getName() + " have released " + p.getName());
+                        t.getPlayersTriedToSign().add(p);
+                        System.out.println(t.getName() + " has had their offer declined by " + p.getName());
                     }
-                }else{
-                    league.getFreeAgents().add(p);
-                    t.getPlayersTriedToSign().add(p);
-                    System.out.println(t.getName() + " has had their offer declined by " + p.getName());
                 }
                 currentFreeAgencyPick++;
             }
@@ -2635,8 +2628,8 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     private void makeResigningDecisionForPlayer(Player p){
-        String signingDecision = p.getSigningDecision(playerTeam, "Resigning", true);
-        if(signingDecision.equalsIgnoreCase("Signed")){
+        boolean signingDecision = p.getSigningDecision();
+        if(signingDecision){
             playerTeam.regenMoneyAvailable();
             if(playerTeam.getMoneyAvailable()>=p.getContract().getSalary()){
                 playerTeam.getRoster().add(p);
@@ -2718,7 +2711,7 @@ public class MainFrame extends javax.swing.JFrame {
         try{
             Player p = league.getFreeAgents().get(viewFreeAgentsPageNumber*3+0);
             String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - CON: " + 
-                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y";
+                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y" + " - DEV: " + p.getDevelopment();
             jLabel32.setText(text);
             jButton73.show();
             jButton76.show();
@@ -2731,7 +2724,7 @@ public class MainFrame extends javax.swing.JFrame {
         try{
             Player p = league.getFreeAgents().get(viewFreeAgentsPageNumber*3+1);
             String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - CON: " + 
-                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y";
+                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y" + " - DEV: " + p.getDevelopment();
             jLabel33.setText(text);
             jButton74.show();
             jButton77.show();
@@ -2744,7 +2737,7 @@ public class MainFrame extends javax.swing.JFrame {
         try{
             Player p = league.getFreeAgents().get(viewFreeAgentsPageNumber*3+2);
             String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - CON: " + 
-                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y";
+                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y" + " - DEV: " + p.getDevelopment();
             jLabel34.setText(text);
             jButton75.show();
             jButton78.show();
@@ -2763,7 +2756,7 @@ public class MainFrame extends javax.swing.JFrame {
             int index = resignPageNumber * 5 + 0;
             Player p = playerTeam.getIncomingFreeAgents().get(index);
             String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - CON: " + 
-                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y";
+                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y" + " - DEV: " + p.getDevelopment();
             jLabel21.setText(text);
             jButton48.show();
             jButton53.show();
@@ -2779,7 +2772,7 @@ public class MainFrame extends javax.swing.JFrame {
             int index = resignPageNumber * 5 + 1;
             Player p = playerTeam.getIncomingFreeAgents().get(index);
             String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - CON: " + 
-                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y";
+                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y" + " - DEV: " + p.getDevelopment();
             jLabel22.setText(text);
             jButton49.show();
             jButton54.show();
@@ -2795,7 +2788,7 @@ public class MainFrame extends javax.swing.JFrame {
             int index = resignPageNumber * 5 + 2;
             Player p = playerTeam.getIncomingFreeAgents().get(index);
             String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - CON: " + 
-                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y";
+                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y" + " - DEV: " + p.getDevelopment();
             jLabel23.setText(text);
             jButton50.show();
             jButton55.show();
@@ -2810,7 +2803,9 @@ public class MainFrame extends javax.swing.JFrame {
         try{
             int index = resignPageNumber * 5 + 3;
             Player p = playerTeam.getIncomingFreeAgents().get(index);
-            jLabel24.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating() + " - " + p.getContract().getSalary() + "m/" + p.getContract().getLength());
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - CON: " + 
+                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y" + " - DEV: " + p.getDevelopment();
+            jLabel24.setText(text);
             jButton51.show();
             jButton56.show();
             jButton61.show();
@@ -2824,7 +2819,9 @@ public class MainFrame extends javax.swing.JFrame {
         try{
             int index = resignPageNumber * 5 + 4;
             Player p = playerTeam.getIncomingFreeAgents().get(index);
-            jLabel25.setText(p.getName() + " - " + p.getPosition() + " - " + p.getOverallRating() + " - " + p.getContract().getSalary() + "m/" + p.getContract().getLength());
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - CON: " + 
+                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y" + " - DEV: " + p.getDevelopment();
+            jLabel25.setText(text);
             jButton52.show();
             jButton57.show();
             jButton62.show();
@@ -2993,9 +2990,9 @@ public class MainFrame extends javax.swing.JFrame {
             for(Player p : t.getIncomingFreeAgents()){
                 // offer contracts and if "Declined" then they goto free agency. if value is too low they dont offer though based on rng.
                 // if accepted then make sure they have enough money to sign the player.
-                String signingDecision = p.getSigningDecision(t, "Resigning", false);
+                boolean signingDecision = p.getSigningDecision();
                 
-                if(signingDecision.equalsIgnoreCase("Signed")){
+                if(signingDecision){
                     t.regenMoneyAvailable();
                     if(t.getMoneyAvailable()>=p.getContract().getSalary()){
                         t.getRoster().add(p);
@@ -3322,7 +3319,7 @@ public class MainFrame extends javax.swing.JFrame {
                 String rowStyle = team.equals(playerTeam) ? "background-color: yellow;" : "";
 
                     htmlBuilder2.append("<tr style='").append(rowStyle).append("'>")
-                   .append("<td style='border: 1px solid black; padding: 5px;'>").append(place).append("</td>")
+                   .append("<td style='border: 1px solid black; padding: 5px;'>").append(place+1).append("</td>")
                    .append("<td style='border: 1px solid black; padding: 5px;'>").append(team.getName()).append("</td>")
                    .append("<td style='border: 1px solid black; padding: 5px;'>Wins: ").append(team.getWins()).append(", Losses: ").append(team.getLosses()).append("</td>")
                    .append("</tr>");
@@ -3354,7 +3351,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         try{
             Player p = league.getDraftees().get(viewDraftPageNumber*3+0);
-            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating();
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - DEV: " + p.getDevelopment();
             jLabel27.setText(text);
             jButton63.show();
             jButton67.show();
@@ -3366,7 +3363,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         try{
             Player p = league.getDraftees().get(viewDraftPageNumber*3+1);
-            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating();
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - DEV: " + p.getDevelopment();
             jLabel28.setText(text);
             jButton65.show();
             jButton68.show();
@@ -3378,7 +3375,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         try{
             Player p = league.getDraftees().get(viewDraftPageNumber*3+2);
-            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating();
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - DEV: " + p.getDevelopment();
             jLabel29.setText(text);
             jButton66.show();
             jButton69.show();

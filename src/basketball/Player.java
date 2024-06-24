@@ -217,6 +217,7 @@ public class Player implements Comparable<Player>{
      * @param isPlayerTeam if it's false, then the team has their own decision based off playerValue
      * @return "Signed" or "Declined"
      */
+    /**
     public String getSigningDecision(Team t, String typeOfOffer, boolean isPlayerTeam){
         int signingScore = 0;
         Random r = new Random();
@@ -289,6 +290,20 @@ public class Player implements Comparable<Player>{
             return "Signed";
         }
         return "Declined";
+    }
+    **/
+    
+    /**
+     * Basic signing decision, 75% chance to sign with a team.
+     * @return 
+     */
+    public boolean getSigningDecision(){
+        Random r = new Random();
+        int seed = r.nextInt(100);
+        if(seed<75){
+            return true;
+        }
+        return false;
     }
     
     public void regenContract(){
@@ -377,7 +392,7 @@ public class Player implements Comparable<Player>{
     
     @Override
     public int compareTo(Player other) {
-        return Integer.compare(this.freeAgentValue, other.freeAgentValue);
+        return Integer.compare(this.overallRating, other.overallRating);
     }
 
     public String getName() {
