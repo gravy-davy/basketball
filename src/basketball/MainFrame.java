@@ -145,7 +145,7 @@ public class MainFrame extends javax.swing.JFrame {
         seasonStandingsPanel = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jButton42 = new javax.swing.JButton();
-        jButton43 = new javax.swing.JButton();
+        jLabel43 = new javax.swing.JLabel();
         playoffResultsPanel = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jButton44 = new javax.swing.JButton();
@@ -838,30 +838,33 @@ public class MainFrame extends javax.swing.JFrame {
         playerDetailsPanelLayout.setHorizontalGroup(
             playerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(playerDetailsPanelLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, playerDetailsPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(42, 42, 42)
                 .addGroup(playerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton40)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 782, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(118, 118, 118))
+                    .addGroup(playerDetailsPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 782, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                        .addComponent(jButton40)
+                        .addGap(31, 31, 31))
+                    .addGroup(playerDetailsPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51))))
         );
         playerDetailsPanelLayout.setVerticalGroup(
             playerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(playerDetailsPanelLayout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
-                .addGroup(playerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton40)
-                .addGap(26, 26, 26))
+                .addGap(23, 23, 23)
+                .addGroup(playerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(playerDetailsPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton40))
+                    .addGroup(playerDetailsPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(63, 63, 63))
         );
 
         getContentPane().add(playerDetailsPanel, "card4");
@@ -877,37 +880,30 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton43.setText("View stats");
-        jButton43.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton43ActionPerformed(evt);
-            }
-        });
+        jLabel43.setText("jLabel18");
 
         javax.swing.GroupLayout seasonStandingsPanelLayout = new javax.swing.GroupLayout(seasonStandingsPanel);
         seasonStandingsPanel.setLayout(seasonStandingsPanelLayout);
         seasonStandingsPanelLayout.setHorizontalGroup(
             seasonStandingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(seasonStandingsPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, seasonStandingsPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(seasonStandingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton42, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton43, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(156, 156, 156))
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addComponent(jButton42)
+                .addGap(57, 57, 57))
         );
         seasonStandingsPanelLayout.setVerticalGroup(
             seasonStandingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, seasonStandingsPanelLayout.createSequentialGroup()
-                .addContainerGap(178, Short.MAX_VALUE)
-                .addComponent(jButton43)
-                .addGap(132, 132, 132)
-                .addComponent(jButton42)
-                .addGap(221, 221, 221))
             .addGroup(seasonStandingsPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(seasonStandingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(seasonStandingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel43, javax.swing.GroupLayout.DEFAULT_SIZE, 557, Short.MAX_VALUE)
+                        .addComponent(jButton42))
+                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1998,10 +1994,6 @@ public class MainFrame extends javax.swing.JFrame {
         setupStandingsPanel();
         switchToAnotherPanel(mainPanel, seasonStandingsPanel);
     }//GEN-LAST:event_jButton41ActionPerformed
-
-    private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton43ActionPerformed
 
     private void jButton42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton42ActionPerformed
         // for now it goes to main for stats purposes
@@ -3284,21 +3276,49 @@ public class MainFrame extends javax.swing.JFrame {
 
     
     private void setupStandingsPanel() {
-    StringBuilder htmlBuilder = new StringBuilder("<html><table style='border-collapse: collapse;'>");
+        StringBuilder htmlBuilder = new StringBuilder("<html><table style='border-collapse: collapse;'>");
 
-    int place = 1;
-    for (Team team : league.getTeams()) {
-        htmlBuilder.append("<tr>")
-                   .append("<td style='border: 1px solid black; padding: 5px;'>").append(place).append("</td>")
-                   .append("<td style='border: 1px solid black; padding: 5px;'>").append(team.getName()).append("</td>")
-                   .append("<td style='border: 1px solid black; padding: 5px;'>Wins: ").append(team.getWins()).append(", Losses: ").append(team.getLosses()).append("</td>")
-                   .append("</tr>");
-        place++;
+        int std = 1;
+        for(Team t : league.getTeams()){
+            System.out.println(std + " - " + t.getName());
+            std++;
+        }
+        
+        int place = 1;
+        for (Team team : league.getTeams()){
+            htmlBuilder.append("<tr>")
+                       .append("<td style='border: 1px solid black; padding: 5px;'>").append(place).append("</td>")
+                       .append("<td style='border: 1px solid black; padding: 5px;'>").append(team.getName()).append("</td>")
+                       .append("<td style='border: 1px solid black; padding: 5px;'>Wins: ").append(team.getWins()).append(", Losses: ").append(team.getLosses()).append("</td>")
+                       .append("</tr>");
+            place++;
+            if(place==16){
+                break;
+            }
+        }
+
+        htmlBuilder.append("</table></html>");
+        jLabel18.setText(htmlBuilder.toString());
+
+
+        StringBuilder htmlBuilder2 = new StringBuilder("<html><table style='border-collapse: collapse;'>");
+
+        
+        place--;
+        for (int k=place;k<league.getTeams().size();k++){
+            Team team = league.getTeams().get(k);
+            htmlBuilder2.append("<tr>")
+                       .append("<td style='border: 1px solid black; padding: 5px;'>").append(place+1).append("</td>")
+                       .append("<td style='border: 1px solid black; padding: 5px;'>").append(team.getName()).append("</td>")
+                       .append("<td style='border: 1px solid black; padding: 5px;'>Wins: ").append(team.getWins()).append(", Losses: ").append(team.getLosses()).append("</td>")
+                       .append("</tr>");
+            place++;
+        }
+
+        htmlBuilder2.append("</table></html>");
+        jLabel43.setText(htmlBuilder2.toString());
+        
     }
-
-    htmlBuilder.append("</table></html>");
-    jLabel18.setText(htmlBuilder.toString());
-}
 
 
 
@@ -3403,7 +3423,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton40;
     private javax.swing.JButton jButton41;
     private javax.swing.JButton jButton42;
-    private javax.swing.JButton jButton43;
     private javax.swing.JButton jButton44;
     private javax.swing.JButton jButton45;
     private javax.swing.JButton jButton46;
@@ -3494,6 +3513,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
