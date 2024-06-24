@@ -2062,6 +2062,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton42ActionPerformed
         // for now it goes to main for stats purposes
         league.createPlayoffTeamsList();
+        league.getPlayoffMatchups().clear();
         // if player team is in the playoffs, make a method in MainFrame that controls it via a panel.
         if(league.getPlayoffTeams().contains(playerTeam)){
             league.simPlayoffRound(playerTeam); // BEAUTIFUL CONFIRMED WORKING - IT SIMULATES WITHOUT THE PLAYERTEAM PRESENT OR THEIR MATCHUP !!!
@@ -2653,39 +2654,68 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton91ActionPerformed
 
     private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
-        Game game = new Game(playerTeam, league.getEnemyPlayoffTeam());
-        game.setIsWatchingGame(true);
-        game.simGame();
 
-        if(playerTeam.getGameScore()>=league.getEnemyPlayoffTeam().getGameScore()){
-            playerTeamPlayoffWins++;
+        if(playerTeamPlayoffWins == 4 || enemyTeamPlayoffWins == 4){
+            PlayoffMatchup pm = new PlayoffMatchup(playerTeam,league.getEnemyPlayoffTeam(),playerTeamPlayoffWins,enemyTeamPlayoffWins);
+            league.getPlayoffMatchups().add(pm);
+            if(playerTeamPlayoffWins == 4){
+                league.getPlayoffTeams().remove(league.getEnemyPlayoffTeam());
+                if(league.getPlayoffTeams().size()==1){
+                    setupPlayoffResultsPanel();
+                    switchToAnotherPanel(gamePanel, playoffResultsPanel);
+                }else{
+                    playerTeamPlayoffWins = 0;
+                    enemyTeamPlayoffWins = 0;
+                    league.simPlayoffRound(playerTeam); // sims other playoff matches
+                    // now just goto game panel and watch/control the game there :)
+                    setupGamePanel();
+                    switchToAnotherPanel(gamePanel, gamePanel);
+                }   
+            }else{
+                league.getPlayoffTeams().remove(playerTeam);
+                for(Team t : league.getPlayoffTeams()){
+                    System.out.println("team in da playoffs: " + t.getName());
+                }
+                league.simPlayoffs();
+                setupPlayoffResultsPanel();
+                switchToAnotherPanel(gamePanel, playoffResultsPanel);
+            }
         }else{
-            enemyTeamPlayoffWins++;
+            Game game = new Game(playerTeam, league.getEnemyPlayoffTeam());
+            game.setIsWatchingGame(true);
+            game.simGame();
+
+            if(playerTeam.getGameScore()>=league.getEnemyPlayoffTeam().getGameScore()){
+                playerTeamPlayoffWins++;
+            }else{
+                enemyTeamPlayoffWins++;
+            }
+
+
+            setupGamePanel();
+            getContentPane().revalidate();
+            getContentPane().repaint();
+            switchToAnotherPanel(gamePanel, gamePanel);
+
+            for(Player p : playerTeam.getSquad()){
+                p.updateTotalStats();
+                p.resetGameStats();
+            }
+            for(Player p : league.getEnemyPlayoffTeam().getSquad()){
+                p.updateTotalStats();
+                p.resetGameStats();
+            }
+
+            for(Player p : playerTeam.getBench()){
+                p.updateTotalStats();
+                p.resetGameStats();
+            }
+            for(Player p : league.getEnemyPlayoffTeam().getBench()){
+                p.updateTotalStats();
+                p.resetGameStats();
+            }
         }
         
-        
-        setupGamePanel();
-        getContentPane().revalidate();
-        getContentPane().repaint();
-        switchToAnotherPanel(gamePanel, gamePanel);
-        
-        for(Player p : playerTeam.getSquad()){
-            p.updateTotalStats();
-            p.resetGameStats();
-        }
-        for(Player p : league.getEnemyPlayoffTeam().getSquad()){
-            p.updateTotalStats();
-            p.resetGameStats();
-        }
-        
-        for(Player p : playerTeam.getBench()){
-            p.updateTotalStats();
-            p.resetGameStats();
-        }
-        for(Player p : league.getEnemyPlayoffTeam().getBench()){
-            p.updateTotalStats();
-            p.resetGameStats();
-        }
     }//GEN-LAST:event_jButton43ActionPerformed
 
     
