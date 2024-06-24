@@ -318,7 +318,7 @@ public class NewPlayerCreator {
             p.setShootMidTendy(rando.nextInt(p.getMidShotSkill()) + rando.nextInt(50) + 1);
             p.setShootThreeTendy(rando.nextInt(p.getThreeShotSkill()) + rando.nextInt(50) + 1);
 
-            p.setInitTendy(rando.nextInt(p.getOverallRating()) + p.getOverallRating() + 1);
+            p.setInitTendy(p.getOverallRating()*2 + 1);
             p.setOffReboundTendy(rando.nextInt(p.getOffRebounding()) + rando.nextInt(10) + 1);
             p.setDefReboundTendy(rando.nextInt(p.getDefRebounding()) + rando.nextInt(10) + 1);
         }else if(p.getPosition().equalsIgnoreCase("PF") || p.getPosition().equalsIgnoreCase("C")){
@@ -339,7 +339,7 @@ public class NewPlayerCreator {
             p.setShootMidTendy(rando.nextInt(p.getMidShotSkill()) + rando.nextInt(50) + 1);
             p.setShootThreeTendy(rando.nextInt(p.getThreeShotSkill()) + rando.nextInt(p.getThreeShotSkill()) + 1);
 
-            p.setInitTendy(rando.nextInt(p.getOverallRating()) + p.getOverallRating() + 1);
+            p.setInitTendy(p.getOverallRating()*2 + 1);
             p.setOffReboundTendy(rando.nextInt(p.getOffRebounding()) + rando.nextInt(50) + 1);
             p.setDefReboundTendy(rando.nextInt(p.getDefRebounding()) + rando.nextInt(50) + 1);
         }else{ // sf
@@ -360,7 +360,7 @@ public class NewPlayerCreator {
             p.setShootMidTendy(rando.nextInt(p.getMidShotSkill()) + rando.nextInt(50) + 1);
             p.setShootThreeTendy(rando.nextInt(p.getThreeShotSkill()) + rando.nextInt(50) + 1);
 
-            p.setInitTendy(rando.nextInt(p.getOverallRating()) + p.getOverallRating() + 1);
+            p.setInitTendy(p.getOverallRating()*2 + 1);
             p.setOffReboundTendy(rando.nextInt(p.getOffRebounding()) + rando.nextInt(25) + 1);
             p.setDefReboundTendy(rando.nextInt(p.getDefRebounding()) + rando.nextInt(25) + 1);
         }

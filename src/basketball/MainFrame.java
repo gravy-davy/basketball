@@ -3286,11 +3286,22 @@ public class MainFrame extends javax.swing.JFrame {
         
         int place = 1;
         for (Team team : league.getTeams()){
-            htmlBuilder.append("<tr>")
-                       .append("<td style='border: 1px solid black; padding: 5px;'>").append(place).append("</td>")
-                       .append("<td style='border: 1px solid black; padding: 5px;'>").append(team.getName()).append("</td>")
-                       .append("<td style='border: 1px solid black; padding: 5px;'>Wins: ").append(team.getWins()).append(", Losses: ").append(team.getLosses()).append("</td>")
-                       .append("</tr>");
+            
+            if(team.equals(playerTeam)){
+                String rowStyle = team.equals(playerTeam) ? "background-color: yellow;" : "";
+
+                    htmlBuilder.append("<tr style='").append(rowStyle).append("'>")
+                   .append("<td style='border: 1px solid black; padding: 5px;'>").append(place).append("</td>")
+                   .append("<td style='border: 1px solid black; padding: 5px;'>").append(team.getName()).append("</td>")
+                   .append("<td style='border: 1px solid black; padding: 5px;'>Wins: ").append(team.getWins()).append(", Losses: ").append(team.getLosses()).append("</td>")
+                   .append("</tr>");
+            }else{
+                htmlBuilder.append("<tr>")
+                .append("<td style='border: 1px solid black; padding: 5px;'>").append(place).append("</td>")
+                .append("<td style='border: 1px solid black; padding: 5px;'>").append(team.getName()).append("</td>")
+                .append("<td style='border: 1px solid black; padding: 5px;'>Wins: ").append(team.getWins()).append(", Losses: ").append(team.getLosses()).append("</td>")
+                .append("</tr>");
+            }
             place++;
             if(place==16){
                 break;
@@ -3307,11 +3318,21 @@ public class MainFrame extends javax.swing.JFrame {
         place--;
         for (int k=place;k<league.getTeams().size();k++){
             Team team = league.getTeams().get(k);
-            htmlBuilder2.append("<tr>")
-                       .append("<td style='border: 1px solid black; padding: 5px;'>").append(place+1).append("</td>")
-                       .append("<td style='border: 1px solid black; padding: 5px;'>").append(team.getName()).append("</td>")
-                       .append("<td style='border: 1px solid black; padding: 5px;'>Wins: ").append(team.getWins()).append(", Losses: ").append(team.getLosses()).append("</td>")
-                       .append("</tr>");
+            if(team.equals(playerTeam)){
+                String rowStyle = team.equals(playerTeam) ? "background-color: yellow;" : "";
+
+                    htmlBuilder.append("<tr style='").append(rowStyle).append("'>")
+                   .append("<td style='border: 1px solid black; padding: 5px;'>").append(place).append("</td>")
+                   .append("<td style='border: 1px solid black; padding: 5px;'>").append(team.getName()).append("</td>")
+                   .append("<td style='border: 1px solid black; padding: 5px;'>Wins: ").append(team.getWins()).append(", Losses: ").append(team.getLosses()).append("</td>")
+                   .append("</tr>");
+            }else{
+                htmlBuilder2.append("<tr>")
+                .append("<td style='border: 1px solid black; padding: 5px;'>").append(place+1).append("</td>")
+                .append("<td style='border: 1px solid black; padding: 5px;'>").append(team.getName()).append("</td>")
+                .append("<td style='border: 1px solid black; padding: 5px;'>Wins: ").append(team.getWins()).append(", Losses: ").append(team.getLosses()).append("</td>")
+                .append("</tr>");
+            }
             place++;
         }
 
