@@ -221,6 +221,10 @@ public class MainFrame extends javax.swing.JFrame {
         jButton89 = new javax.swing.JButton();
         jButton90 = new javax.swing.JButton();
         jButton91 = new javax.swing.JButton();
+        gamePanel = new javax.swing.JPanel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jButton43 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -255,7 +259,7 @@ public class MainFrame extends javax.swing.JFrame {
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addContainerGap(443, Short.MAX_VALUE)
+                .addContainerGap(421, Short.MAX_VALUE)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton41)
                     .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -842,7 +846,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(playerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(playerDetailsPanelLayout.createSequentialGroup()
                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 782, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton40)
                         .addGap(31, 31, 31))
                     .addGroup(playerDetailsPanelLayout.createSequentialGroup()
@@ -891,7 +895,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(jButton42)
                 .addGap(57, 57, 57))
         );
@@ -1463,7 +1467,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(freeAgencyPanelLayout.createSequentialGroup()
                         .addGap(54, 54, 54)
                         .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
                 .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel35)
                     .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1607,13 +1611,13 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(jButton87)
                             .addComponent(jButton86)))
                     .addGroup(trainingPanelLayout.createSequentialGroup()
-                        .addGap(288, 288, 288)
+                        .addGap(42, 42, 42)
+                        .addComponent(jButton91)
+                        .addGap(118, 118, 118)
                         .addComponent(jButton90)
                         .addGap(48, 48, 48)
-                        .addComponent(jButton89)
-                        .addGap(166, 166, 166)
-                        .addComponent(jButton91)))
-                .addContainerGap(159, Short.MAX_VALUE))
+                        .addComponent(jButton89)))
+                .addContainerGap(265, Short.MAX_VALUE))
         );
         trainingPanelLayout.setVerticalGroup(
             trainingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1644,6 +1648,42 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(trainingPanel, "card11");
+
+        jLabel44.setText("jLabel44");
+
+        jLabel45.setText("jLabel44");
+
+        jButton43.setText("Simulate game");
+
+        javax.swing.GroupLayout gamePanelLayout = new javax.swing.GroupLayout(gamePanel);
+        gamePanel.setLayout(gamePanelLayout);
+        gamePanelLayout.setHorizontalGroup(
+            gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(gamePanelLayout.createSequentialGroup()
+                .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(gamePanelLayout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(100, 100, 100)
+                        .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(gamePanelLayout.createSequentialGroup()
+                        .addGap(386, 386, 386)
+                        .addComponent(jButton43)))
+                .addContainerGap(110, Short.MAX_VALUE))
+        );
+        gamePanelLayout.setVerticalGroup(
+            gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(gamePanelLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel45, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton43)
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(gamePanel, "card12");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1995,11 +2035,22 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton42ActionPerformed
         // for now it goes to main for stats purposes
         league.createPlayoffTeamsList();
-        league.simPlayoffs();
-        setupPlayoffResultsPanel();
-        switchToAnotherPanel(seasonStandingsPanel, playoffResultsPanel);
+        // if player team is in the playoffs, make a method in MainFrame that controls it via a panel.
+        if(league.getPlayoffTeams().contains(playerTeam)){
+            league.simPlayoffRound(playerTeam); // BEAUTIFUL CONFIRMED WORKING - IT SIMULATES WITHOUT THE PLAYERTEAM PRESENT OR THEIR MATCHUP !!!
+            // now just goto game panel and watch/control the game there :)
+        }else{
+            league.simPlayoffs();
+            setupPlayoffResultsPanel();
+            switchToAnotherPanel(seasonStandingsPanel, playoffResultsPanel);
+        }
     }//GEN-LAST:event_jButton42ActionPerformed
 
+    private void setupGamePanel(){
+        jLabel44.setText("hi");
+        jLabel45.setText("hey");
+    }
+    
     private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
         startNewYear();
         setupResignPanel();
@@ -3404,6 +3455,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel draftPanel;
     private javax.swing.JPanel draftSummaryPanel;
     private javax.swing.JPanel freeAgencyPanel;
+    private javax.swing.JPanel gamePanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -3441,6 +3493,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton40;
     private javax.swing.JButton jButton41;
     private javax.swing.JButton jButton42;
+    private javax.swing.JButton jButton43;
     private javax.swing.JButton jButton44;
     private javax.swing.JButton jButton45;
     private javax.swing.JButton jButton46;
@@ -3532,6 +3585,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

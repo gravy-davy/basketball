@@ -145,9 +145,69 @@ public class League {
             playoffTeams.add(teams.get(k));
         }
         
+        int seed = 1;
         for(Team t : playoffTeams){
+            System.out.println("SEED " + seed + " - " + t.getName());
+            seed++;
+        }
+    }
+    
+    public void simPlayoffRound(Team playerTeam){
+        // 1st round, 8 teams, 4 matchups
+        System.out.println("\n\n\n");
+        int playoffTeamsSize = playoffTeams.size();
+        playoffMatchups.clear();
+        
+        ArrayList<Team> deadPlayoffTeams = new ArrayList<>();
+        
+        int numMatchups = playoffTeamsSize / 2; // Number of matchups in the first round
+
+        for (Team t : playoffTeams) {
             System.out.println("Team in the playoffs: " + t.getName());
         }
+
+        for (int k = 0; k < numMatchups; k++) {
+                int t1Wins = 0;
+                int t2Wins = 0;
+                Team t1 = playoffTeams.get(k);
+                Team t2 = playoffTeams.get(playoffTeamsSize-1-k);
+                
+                if(t1.equals(playerTeam) || t2.equals(playerTeam)){
+                    continue;
+                }
+
+                System.out.println("\n\n" + (k+1) + " round matchup between: " + t1.getName() + " and " + t2.getName());
+
+                do{
+                    Game game = new Game(t1,t2);
+                    game.simGame();
+
+                    if(t1.getGameScore()>=t2.getGameScore()){
+                        t1Wins++;
+                    }else{
+                        t2Wins++;
+                    }
+                }while(t1Wins<4 && t2Wins<4);
+                
+                System.out.println("Series score\n" + t1.getName() + " " + t1Wins + " - " + t2.getName() + " " + t2Wins);
+                if(t1Wins>=4){
+                    System.out.println(t1.getName() + " has won and is advancing!");
+                    deadPlayoffTeams.add(t2);
+                }else{
+                    System.out.println(t2.getName() + " has won and is advancing!");
+                    deadPlayoffTeams.add(t1);
+                }
+                
+                PlayoffMatchup pm = new PlayoffMatchup(t1,t2,t1Wins,t2Wins);
+                playoffMatchups.add(pm);
+            }
+        
+            for(Team t : deadPlayoffTeams){
+                if(playoffTeams.contains(t)){
+                    playoffTeams.remove(t);
+                }
+            }
+            playoffTeamsSize = playoffTeams.size();
     }
     
     public void simPlayoffs(){
