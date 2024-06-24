@@ -283,7 +283,7 @@ public class Player implements Comparable<Player>{
         }
         
         signingScore+= r.nextInt(40);
-        signingScore+= 10;
+        signingScore+= 20;
         System.out.println("signing score = " + signingScore);
         if(signingScore>=25){
             return "Signed";
@@ -300,22 +300,25 @@ public class Player implements Comparable<Player>{
             Random r = new Random();
             c.setLength(r.nextInt(4) + 1);
             
-            if(overallRating<40){
+
+            if(overallRating<50){
                 c.setSalary(r.nextInt(5));
-            }else if(overallRating<50){
-                c.setSalary(r.nextInt(10));
-            }else if(overallRating<55){
-                c.setSalary(r.nextInt(15));
             }else if(overallRating<60){
-                c.setSalary(getValueWithinRange(10, 20));
-            }else if(overallRating<65){
-                c.setSalary(getValueWithinRange(12, 24));
+                c.setSalary(r.nextInt(8));
             }else if(overallRating<70){
-                c.setSalary(getValueWithinRange(15, 30));
+                c.setSalary(getValueWithinRange(5, 15));
             }else if(overallRating<75){
+                c.setSalary(getValueWithinRange(10, 20));
+            }else if(overallRating<80){
+                c.setSalary(getValueWithinRange(15, 25));
+            }else if(overallRating<85){
                 c.setSalary(getValueWithinRange(20, 35));
+            }else if(overallRating<90){
+                c.setSalary(getValueWithinRange(25, 40));
+            }else if(overallRating<95){
+                c.setSalary(getValueWithinRange(30, 50));
             }else{
-                c.setSalary(getValueWithinRange(25, 50));
+                c.setSalary(getValueWithinRange(45, 70));
             }
             c.setSalary(c.getSalary()+1);
         }

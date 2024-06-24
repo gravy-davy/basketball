@@ -853,7 +853,7 @@ public class MainFrame extends javax.swing.JFrame {
         playerDetailsPanelLayout.setVerticalGroup(
             playerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(playerDetailsPanelLayout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+                .addContainerGap(17, Short.MAX_VALUE)
                 .addGroup(playerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -899,16 +899,16 @@ public class MainFrame extends javax.swing.JFrame {
         );
         seasonStandingsPanelLayout.setVerticalGroup(
             seasonStandingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(seasonStandingsPanelLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, seasonStandingsPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(178, Short.MAX_VALUE)
                 .addComponent(jButton43)
                 .addGap(132, 132, 132)
                 .addComponent(jButton42)
                 .addGap(221, 221, 221))
+            .addGroup(seasonStandingsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         getContentPane().add(seasonStandingsPanel, "card5");
@@ -1477,20 +1477,18 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(freeAgencyPanelLayout.createSequentialGroup()
                         .addGap(196, 196, 196)
                         .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(freeAgencyPanelLayout.createSequentialGroup()
-                                .addComponent(jButton79)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jButton79)
                             .addGroup(freeAgencyPanelLayout.createSequentialGroup()
                                 .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jButton73, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
                                     .addComponent(jButton74, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton75, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(47, 47, 47)
-                                .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton76, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jButton77, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton78, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(131, 131, 131))))
+                                    .addComponent(jButton76, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton78, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE))))
+                        .addContainerGap(173, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, freeAgencyPanelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3268,32 +3266,42 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     private String getColorForRating(int value) {
-    if (value >= 90) {
-        return "#0a4a01";            // 90+ Dark Green
-    } else if (value >= 80) {
-        return "green";              // 80-89 Green
-    } else if (value >= 70) {
-        return "#04acb5";            // 70-79 Blue
-    } else if (value >= 60) {
-        return "orange";             // 60-69 Orange
-    } else if (value >= 50) {
-        return "#B8860B";            // 50-59 Yellow
-    } else {
-        return "red";                // Lower than 50 Red
+        if (value >= 90) {
+            return "#0a4a01";            // 90+ Dark Green
+        } else if (value >= 80) {
+            return "green";              // 80-89 Green
+        } else if (value >= 70) {
+            return "#04acb5";            // 70-79 Blue
+        } else if (value >= 60) {
+            return "orange";             // 60-69 Orange
+        } else if (value >= 50) {
+            return "#B8860B";            // 50-59 Yellow
+        } else {
+            return "red";                // Lower than 50 Red
+        }
     }
-}
 
 
     
-    private void setupStandingsPanel(){
-        String text = "<html>";
+    private void setupStandingsPanel() {
+    StringBuilder htmlBuilder = new StringBuilder("<html><table style='border-collapse: collapse;'>");
 
-        for (Team team : league.getTeams()) {
-            text+= team.getTeamInfo();
-        }
-        text+= "</html>";
-        jLabel18.setText(text);
+    int place = 1;
+    for (Team team : league.getTeams()) {
+        htmlBuilder.append("<tr>")
+                   .append("<td style='border: 1px solid black; padding: 5px;'>").append(place).append("</td>")
+                   .append("<td style='border: 1px solid black; padding: 5px;'>").append(team.getName()).append("</td>")
+                   .append("<td style='border: 1px solid black; padding: 5px;'>Wins: ").append(team.getWins()).append(", Losses: ").append(team.getLosses()).append("</td>")
+                   .append("</tr>");
+        place++;
     }
+
+    htmlBuilder.append("</table></html>");
+    jLabel18.setText(htmlBuilder.toString());
+}
+
+
+
     
     private void setupDraftPanel(){
         

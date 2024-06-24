@@ -161,6 +161,11 @@ public class NewPlayerCreator {
             p.setInteriorDefSkill(generateRating(primaryMin, primaryMax));
             p.setDefRebounding(generateRating(primaryMin, primaryMax));
             p.setOffRebounding(generateRating(primaryMin, primaryMax));
+            
+            int rangeSeed = getRandomRarity(); // 1-6
+            secondaryMin = 15;
+            secondaryMax = 15*rangeSeed;
+            p.setThreeShotSkill(generateRating(secondaryMin, secondaryMax));
         }else{ // SF WELL ROUNDED PLAYER
             primaryMin = primaryMin - 10;
             primaryMax = primaryMax - 10;
@@ -332,7 +337,7 @@ public class NewPlayerCreator {
 
             p.setShootCloseTendy(rando.nextInt(p.getCloseSkill()) + rando.nextInt(50) + 1);
             p.setShootMidTendy(rando.nextInt(p.getMidShotSkill()) + rando.nextInt(50) + 1);
-            p.setShootThreeTendy(rando.nextInt(p.getThreeShotSkill()) + rando.nextInt(10) + 1);
+            p.setShootThreeTendy(rando.nextInt(p.getThreeShotSkill()) + rando.nextInt(p.getThreeShotSkill()) + 1);
 
             p.setInitTendy(rando.nextInt(p.getOverallRating()) + p.getOverallRating() + 1);
             p.setOffReboundTendy(rando.nextInt(p.getOffRebounding()) + rando.nextInt(50) + 1);
