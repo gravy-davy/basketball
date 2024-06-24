@@ -936,23 +936,22 @@ public class MainFrame extends javax.swing.JFrame {
         playoffResultsPanelLayout.setHorizontalGroup(
             playoffResultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(playoffResultsPanelLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addComponent(jButton44)
                 .addGap(218, 218, 218))
         );
         playoffResultsPanelLayout.setVerticalGroup(
             playoffResultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(playoffResultsPanelLayout.createSequentialGroup()
-                .addGroup(playoffResultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(playoffResultsPanelLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 487, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(playoffResultsPanelLayout.createSequentialGroup()
-                        .addGap(201, 201, 201)
-                        .addComponent(jButton44)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(201, 201, 201)
+                .addComponent(jButton44)
+                .addContainerGap(355, Short.MAX_VALUE))
+            .addGroup(playoffResultsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         getContentPane().add(playoffResultsPanel, "card6");
@@ -3207,25 +3206,49 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }
     
-    private void setupPlayoffResultsPanel(){
-        String text = "<html>";
-        int index = 1;
-        for(PlayoffMatchup pm : league.getPlayoffMatchups()){
-            System.out.println(pm.getT1().getName() + " - " + pm.getT1Wins());
-            
-            if(index==1){
-                text+= "<br><br>1st round";
-            }else if(index==5){
-                text+= "<br><br>2nd round";
-            }else if(index==7){
-                text+= "<br><br>THE DBA FINALS";
+    private void setupPlayoffResultsPanel() {
+        StringBuilder htmlBuilder = new StringBuilder("<html><style>");
+        htmlBuilder.append("table { border-collapse: collapse; width: 100%; }")
+                   .append("th, td { border: 1px solid black; padding: 8px; text-align: center; }")
+                   .append(".round { font-weight: bold; font-size: 16px; margin-top: 20px; }")
+                   .append(".team { padding: 10px; }")
+                   .append(".winner { background-color: lightgreen; }")
+                   .append("</style><table>");
+
+        int matchIndex = 1;
+
+        for (PlayoffMatchup pm : league.getPlayoffMatchups()) {
+            // Determine the round based on the index
+            if (matchIndex == 1 || matchIndex == 5 || matchIndex == 7) {
+                htmlBuilder.append("<tr><td colspan='2' class='round'>");
+                if (matchIndex == 1) {
+                    htmlBuilder.append("1st Round");
+                } else if (matchIndex == 5) {
+                    htmlBuilder.append("2nd Round");
+                } else if (matchIndex == 7) {
+                    htmlBuilder.append("THE DBA FINALS");
+                }
+                htmlBuilder.append("</td></tr>");
             }
-            
-            text+= "<br>" + pm.getT1().getName() + "(" + pm.getT1Wins()+ ") vs " + pm.getT2().getName() + "(" + pm.getT2Wins() + ")";
-            index++;
+
+            // Add matchup details
+            String t1Class = pm.getT1Wins() >= 4 ? "team winner" : "team";
+            String t2Class = pm.getT2Wins() >= 4 ? "team winner" : "team";
+
+            htmlBuilder.append("<tr>")
+                       .append("<td class='").append(t1Class).append("'>")
+                       .append(pm.getT1().getName()).append(" (").append(pm.getT1Wins()).append(")")
+                       .append("</td>")
+                       .append("<td class='").append(t2Class).append("'>")
+                       .append(pm.getT2().getName()).append(" (").append(pm.getT2Wins()).append(")")
+                       .append("</td>")
+                       .append("</tr>");
+
+            matchIndex++;
         }
-        text+= "</html>";
-        jLabel20.setText(text);
+
+        htmlBuilder.append("</table></html>");
+        jLabel20.setText(htmlBuilder.toString());
     }
     
     private void setupViewRosterPanel(){
