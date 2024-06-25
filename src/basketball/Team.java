@@ -34,7 +34,7 @@ public class Team {
         gameScore = 0;
         wins = 0;
         losses = 0;
-        trainingPointsLeft = 10;
+        trainingPointsLeft = 5;
         
         name = "";
         moneyTotal = 0;

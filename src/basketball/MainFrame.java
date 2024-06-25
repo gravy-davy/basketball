@@ -23,6 +23,7 @@ public class MainFrame extends javax.swing.JFrame {
     private int resignPageNumber;
     private int viewDraftPageNumber;
     private int viewFreeAgentsPageNumber;
+    private int viewTrainingPageNumber;
     private NewPlayerCreator pc = new NewPlayerCreator();
     private League league;
     
@@ -35,10 +36,10 @@ public class MainFrame extends javax.swing.JFrame {
     private int currentFreeAgencyPick;
     private boolean isUserPickingInFreeAgency;
     private int currentFreeAgencyDay;
-    private int viewTrainingPageNumber;
     
     private int playerTeamPlayoffWins;
     private int enemyTeamPlayoffWins;
+    private Player trainingPlayer;
     
     /**
      * Creates new form MainFrame
@@ -232,6 +233,28 @@ public class MainFrame extends javax.swing.JFrame {
         jButton43 = new javax.swing.JButton();
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
+        drillSelectorPanel = new javax.swing.JPanel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
+        jButton92 = new javax.swing.JButton();
+        jButton93 = new javax.swing.JButton();
+        jButton94 = new javax.swing.JButton();
+        jButton95 = new javax.swing.JButton();
+        jButton96 = new javax.swing.JButton();
+        jButton97 = new javax.swing.JButton();
+        jButton98 = new javax.swing.JButton();
+        jLabel55 = new javax.swing.JLabel();
+        jButton99 = new javax.swing.JButton();
+        viewEntireRosterPanel = new javax.swing.JPanel();
+        jLabel56 = new javax.swing.JLabel();
+        trainingResultsPanel = new javax.swing.JPanel();
+        jLabel57 = new javax.swing.JLabel();
+        jButton100 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -938,7 +961,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(playoffResultsPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
                 .addComponent(jButton44)
                 .addGap(218, 218, 218))
         );
@@ -1565,10 +1588,25 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jButton86.setText("Train");
+        jButton86.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton86ActionPerformed(evt);
+            }
+        });
 
         jButton87.setText("Train");
+        jButton87.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton87ActionPerformed(evt);
+            }
+        });
 
         jButton88.setText("Train");
+        jButton88.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton88ActionPerformed(evt);
+            }
+        });
 
         jButton89.setText("Next page");
         jButton89.addActionListener(new java.awt.event.ActionListener() {
@@ -1623,7 +1661,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jButton90)
                         .addGap(48, 48, 48)
                         .addComponent(jButton89)))
-                .addContainerGap(265, Short.MAX_VALUE))
+                .addContainerGap(287, Short.MAX_VALUE))
         );
         trainingPanelLayout.setVerticalGroup(
             trainingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1675,23 +1713,21 @@ public class MainFrame extends javax.swing.JFrame {
         gamePanelLayout.setHorizontalGroup(
             gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(gamePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(gamePanelLayout.createSequentialGroup()
-                        .addGap(386, 386, 386)
-                        .addComponent(jButton43)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(gamePanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(gamePanelLayout.createSequentialGroup()
-                                .addGap(0, 194, Short.MAX_VALUE)
-                                .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 194, Short.MAX_VALUE)
+                        .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addGroup(gamePanelLayout.createSequentialGroup()
+                .addGap(401, 401, 401)
+                .addComponent(jButton43)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         gamePanelLayout.setVerticalGroup(
             gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1710,6 +1746,209 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(gamePanel, "card12");
+
+        drillSelectorPanel.setPreferredSize(new java.awt.Dimension(933, 581));
+
+        jLabel48.setText("Finisher    - Close Shooting + Driving");
+
+        jLabel49.setText("Winger      - Mid Shooting + Dribbling");
+
+        jLabel50.setText("Sniper       - Three Shooting");
+
+        jLabel51.setText("Playmaker - Passing + Driving + Speed");
+
+        jLabel52.setText("Lockdown Defender - Perimeter Defense + Speed");
+
+        jLabel53.setText("Anchor - Interior Defense + Strength");
+
+        jLabel54.setText("Glass Cleaner - Offensive + Defensive Rebounding");
+
+        jButton92.setText("TRAIN");
+        jButton92.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton92ActionPerformed(evt);
+            }
+        });
+
+        jButton93.setText("TRAIN");
+        jButton93.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton93ActionPerformed(evt);
+            }
+        });
+
+        jButton94.setText("TRAIN");
+        jButton94.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton94ActionPerformed(evt);
+            }
+        });
+
+        jButton95.setText("TRAIN");
+        jButton95.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton95ActionPerformed(evt);
+            }
+        });
+
+        jButton96.setText("TRAIN");
+        jButton96.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton96ActionPerformed(evt);
+            }
+        });
+
+        jButton97.setText("TRAIN");
+        jButton97.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton97ActionPerformed(evt);
+            }
+        });
+
+        jButton98.setText("TRAIN");
+        jButton98.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton98ActionPerformed(evt);
+            }
+        });
+
+        jLabel55.setText("training this player");
+
+        jButton99.setText("Return");
+        jButton99.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton99ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout drillSelectorPanelLayout = new javax.swing.GroupLayout(drillSelectorPanel);
+        drillSelectorPanel.setLayout(drillSelectorPanelLayout);
+        drillSelectorPanelLayout.setHorizontalGroup(
+            drillSelectorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(drillSelectorPanelLayout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addGroup(drillSelectorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(drillSelectorPanelLayout.createSequentialGroup()
+                        .addGroup(drillSelectorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(83, 83, 83)
+                        .addGroup(drillSelectorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton98)
+                            .addComponent(jButton97)
+                            .addComponent(jButton96)
+                            .addComponent(jButton95)
+                            .addComponent(jButton94)
+                            .addComponent(jButton93)
+                            .addComponent(jButton92))))
+                .addContainerGap(387, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, drillSelectorPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton99)
+                .addGap(234, 234, 234))
+        );
+        drillSelectorPanelLayout.setVerticalGroup(
+            drillSelectorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(drillSelectorPanelLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(drillSelectorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton92))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(drillSelectorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel49, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton93))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(drillSelectorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel50, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton94))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(drillSelectorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton95))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(drillSelectorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton96))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(drillSelectorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton97))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(drillSelectorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton98))
+                .addGap(55, 55, 55)
+                .addComponent(jButton99)
+                .addContainerGap(77, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(drillSelectorPanel, "card13");
+
+        viewEntireRosterPanel.setPreferredSize(new java.awt.Dimension(933, 581));
+
+        jLabel56.setText("jLabel56");
+
+        javax.swing.GroupLayout viewEntireRosterPanelLayout = new javax.swing.GroupLayout(viewEntireRosterPanel);
+        viewEntireRosterPanel.setLayout(viewEntireRosterPanelLayout);
+        viewEntireRosterPanelLayout.setHorizontalGroup(
+            viewEntireRosterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewEntireRosterPanelLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(516, Short.MAX_VALUE))
+        );
+        viewEntireRosterPanelLayout.setVerticalGroup(
+            viewEntireRosterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewEntireRosterPanelLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(viewEntireRosterPanel, "card14");
+
+        trainingResultsPanel.setPreferredSize(new java.awt.Dimension(933, 581));
+
+        jLabel57.setText("jLabel57");
+
+        jButton100.setText("Return to training menu");
+        jButton100.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton100ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout trainingResultsPanelLayout = new javax.swing.GroupLayout(trainingResultsPanel);
+        trainingResultsPanel.setLayout(trainingResultsPanelLayout);
+        trainingResultsPanelLayout.setHorizontalGroup(
+            trainingResultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(trainingResultsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addComponent(jButton100)
+                .addGap(57, 57, 57))
+        );
+        trainingResultsPanelLayout.setVerticalGroup(
+            trainingResultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, trainingResultsPanelLayout.createSequentialGroup()
+                .addContainerGap(122, Short.MAX_VALUE)
+                .addGroup(trainingResultsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton100))
+                .addGap(88, 88, 88))
+        );
+
+        getContentPane().add(trainingResultsPanel, "card15");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -2717,6 +2956,271 @@ public class MainFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton43ActionPerformed
 
+    private void jButton86ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton86ActionPerformed
+        
+        trainingPlayer = playerTeam.getRoster().get(viewTrainingPageNumber*3+0);
+        if(trainingPlayer.hasTrainedThisYear()){
+            JOptionPane.showMessageDialog(null, "This player has already trained this year.");
+        }else if(trainingPlayer.getAge()>=30){
+            JOptionPane.showMessageDialog(null, "Only players under 30 years old may train.");
+        }else if(playerTeam.getTrainingPointsLeft()<=0){
+            JOptionPane.showMessageDialog(null, "You don't have any training points remaining!");
+        }else{
+            setupDrillSelectorPanel();
+            switchToAnotherPanel(trainingPanel, drillSelectorPanel);
+        }
+    }//GEN-LAST:event_jButton86ActionPerformed
+
+    private void jButton87ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton87ActionPerformed
+        trainingPlayer = playerTeam.getRoster().get(viewTrainingPageNumber*3+1);
+        if(trainingPlayer.hasTrainedThisYear()){
+            JOptionPane.showMessageDialog(null, "This player has already trained this year.");
+        }else if(trainingPlayer.getAge()>=30){
+            JOptionPane.showMessageDialog(null, "Only players under 30 years old may train.");
+        }else if(playerTeam.getTrainingPointsLeft()<=0){
+            JOptionPane.showMessageDialog(null, "You don't have any training points remaining!");
+        }else{
+            setupDrillSelectorPanel();
+            switchToAnotherPanel(trainingPanel, drillSelectorPanel);
+        }
+    }//GEN-LAST:event_jButton87ActionPerformed
+
+    private void jButton88ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton88ActionPerformed
+        trainingPlayer = playerTeam.getRoster().get(viewTrainingPageNumber*3+2);
+        if(trainingPlayer.hasTrainedThisYear()){
+            JOptionPane.showMessageDialog(null, "This player has already trained this year.");
+        }else if(trainingPlayer.getAge()>=30){
+            JOptionPane.showMessageDialog(null, "Only players under 30 years old may train.");
+        }else if(playerTeam.getTrainingPointsLeft()<=0){
+            JOptionPane.showMessageDialog(null, "You don't have any training points remaining!");
+        }else{
+            setupDrillSelectorPanel();
+            switchToAnotherPanel(trainingPanel, drillSelectorPanel);
+        }
+    }//GEN-LAST:event_jButton88ActionPerformed
+
+    private void jButton92ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton92ActionPerformed
+        // close shooting + driving
+        String text = "";
+        int closeShooting = getValueWithinRange(1, 3);
+        int driving = getValueWithinRange(1, 3);
+        
+        closeShooting *= trainingPlayer.getDevelopment();
+        driving *= trainingPlayer.getDevelopment();
+        
+        
+        text+= "\nFormer Close Shooting - " + trainingPlayer.getCloseSkill();
+        
+        trainingPlayer.setCloseSkill(trainingPlayer.getCloseSkill()+closeShooting);
+        
+        text+= " -> New Close Shooting - " + trainingPlayer.getCloseSkill();
+        
+        text+= "\nFormer Driving Skill - " + trainingPlayer.getDriveSkill();
+        
+        trainingPlayer.setDriveSkill(trainingPlayer.getDriveSkill()+driving);
+        
+        text+= " -> New Driving Skill - " + trainingPlayer.getDriveSkill();
+        
+        trainingPlayer.setHasTrainedThisYear(true); // set this to false next szn button
+        
+        setupTrainingResultsPanel(text);
+        switchToAnotherPanel(drillSelectorPanel, trainingResultsPanel);
+        trainingPlayer.regenOverallRating();
+        trainingPlayer.regenInitTendy();
+    }//GEN-LAST:event_jButton92ActionPerformed
+
+    private void jButton93ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton93ActionPerformed
+        // mid shooting + dribbling
+        String text = "";
+        int midShooting = getValueWithinRange(1, 3);
+        int dribbling = getValueWithinRange(1, 3);
+        
+        midShooting *= trainingPlayer.getDevelopment();
+        dribbling *= trainingPlayer.getDevelopment();
+        
+        
+        text+= "\nFormer Mid Shooting - " + trainingPlayer.getMidShotSkill();
+        
+        trainingPlayer.setMidShotSkill(trainingPlayer.getMidShotSkill()+midShooting);
+        
+        text+= " -> New Mid Shooting - " + trainingPlayer.getMidShotSkill();
+        
+        text+= "\nFormer Dribbling Skill - " + trainingPlayer.getDribblingSkill();
+        
+        trainingPlayer.setDribblingSkill(trainingPlayer.getDribblingSkill()+dribbling);
+        
+        text+= " -> New Dribbling Skill - " + trainingPlayer.getDribblingSkill();
+        
+        trainingPlayer.setHasTrainedThisYear(true); // set this to false next szn button
+        
+        setupTrainingResultsPanel(text);
+        switchToAnotherPanel(drillSelectorPanel, trainingResultsPanel);
+        trainingPlayer.regenOverallRating();
+        trainingPlayer.regenInitTendy();
+    }//GEN-LAST:event_jButton93ActionPerformed
+
+    private void jButton94ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton94ActionPerformed
+        // 3pt shooting
+        String text = "";
+        int threeShooting = getValueWithinRange(1, 3);
+        
+        threeShooting *= trainingPlayer.getDevelopment();
+        
+        
+        text+= "\nFormer Three Shooting - " + trainingPlayer.getThreeShotSkill();
+        
+        trainingPlayer.setThreeShotSkill(trainingPlayer.getThreeShotSkill()+threeShooting);
+        
+        text+= " -> New Three Shooting - " + trainingPlayer.getThreeShotSkill();
+        
+        
+        trainingPlayer.setHasTrainedThisYear(true); // set this to false next szn button
+        
+        setupTrainingResultsPanel(text);
+        switchToAnotherPanel(drillSelectorPanel, trainingResultsPanel);
+        trainingPlayer.regenOverallRating();
+        trainingPlayer.regenInitTendy();
+    }//GEN-LAST:event_jButton94ActionPerformed
+
+    private void jButton95ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton95ActionPerformed
+        // Driving, Speed, and Passing
+        String text = "";
+        int driving = getValueWithinRange(1, 3);
+        int speed = getValueWithinRange(1, 3);
+        int passing = getValueWithinRange(1, 3);
+
+        driving *= trainingPlayer.getDevelopment();
+        speed *= trainingPlayer.getDevelopment();
+        passing *= trainingPlayer.getDevelopment();
+
+        // Update and display Driving
+        text += "\nFormer Driving Skill - " + trainingPlayer.getDriveSkill();
+        trainingPlayer.setDriveSkill(trainingPlayer.getDriveSkill() + driving);
+        text += " -> New Driving Skill - " + trainingPlayer.getDriveSkill();
+
+        // Update and display Speed
+        text += "\nFormer Speed Skill - " + trainingPlayer.getSpeedSkill();
+        trainingPlayer.setSpeedSkill(trainingPlayer.getSpeedSkill() + speed);
+        text += " -> New Speed Skill - " + trainingPlayer.getSpeedSkill();
+
+        // Update and display Passing
+        text += "\nFormer Passing Skill - " + trainingPlayer.getPassingSkill();
+        trainingPlayer.setPassingSkill(trainingPlayer.getPassingSkill() + passing);
+        text += " -> New Passing Skill - " + trainingPlayer.getPassingSkill();
+
+        trainingPlayer.setHasTrainedThisYear(true); // set this to false next season button
+
+        setupTrainingResultsPanel(text);
+        switchToAnotherPanel(drillSelectorPanel, trainingResultsPanel);
+        trainingPlayer.regenOverallRating();
+        trainingPlayer.regenInitTendy();
+    }//GEN-LAST:event_jButton95ActionPerformed
+
+    private void jButton96ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton96ActionPerformed
+        // Speed and Perimeter Defense
+        String text = "";
+        int speed = getValueWithinRange(1, 3);
+        int perimeterDefense = getValueWithinRange(1, 3);
+
+        speed *= trainingPlayer.getDevelopment();
+        perimeterDefense *= trainingPlayer.getDevelopment();
+
+        // Update and display Speed
+        text += "\nFormer Speed Skill - " + trainingPlayer.getSpeedSkill();
+        trainingPlayer.setSpeedSkill(trainingPlayer.getSpeedSkill() + speed);
+        text += " -> New Speed Skill - " + trainingPlayer.getSpeedSkill();
+
+        // Update and display Perimeter Defense
+        text += "\nFormer Perimeter Defense Skill - " + trainingPlayer.getPerimeterDefSkill();
+        trainingPlayer.setPerimeterDefSkill(trainingPlayer.getPerimeterDefSkill() + perimeterDefense);
+        text += " -> New Perimeter Defense Skill - " + trainingPlayer.getPerimeterDefSkill();
+
+        trainingPlayer.setHasTrainedThisYear(true); // set this to false next season button
+
+        setupTrainingResultsPanel(text);
+        switchToAnotherPanel(drillSelectorPanel, trainingResultsPanel);
+        trainingPlayer.regenOverallRating();
+        trainingPlayer.regenInitTendy();
+    }//GEN-LAST:event_jButton96ActionPerformed
+
+    private void jButton97ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton97ActionPerformed
+        // Interior Defense and Strength
+        String text = "";
+        int interiorDefense = getValueWithinRange(1, 3);
+        int strength = getValueWithinRange(1, 3);
+
+        interiorDefense *= trainingPlayer.getDevelopment();
+        strength *= trainingPlayer.getDevelopment();
+
+        // Update and display Interior Defense
+        text += "\nFormer Interior Defense Skill - " + trainingPlayer.getInteriorDefSkill();
+        trainingPlayer.setInteriorDefSkill(trainingPlayer.getInteriorDefSkill() + interiorDefense);
+        text += " -> New Interior Defense Skill - " + trainingPlayer.getInteriorDefSkill();
+
+        // Update and display Strength
+        text += "\nFormer Strength Skill - " + trainingPlayer.getStrengthSkill();
+        trainingPlayer.setStrengthSkill(trainingPlayer.getStrengthSkill() + strength);
+        text += " -> New Strength Skill - " + trainingPlayer.getStrengthSkill();
+
+        trainingPlayer.setHasTrainedThisYear(true); // set this to false next season button
+
+        setupTrainingResultsPanel(text);
+        switchToAnotherPanel(drillSelectorPanel, trainingResultsPanel);
+        trainingPlayer.regenOverallRating();
+        trainingPlayer.regenInitTendy();
+    }//GEN-LAST:event_jButton97ActionPerformed
+
+    private void jButton98ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton98ActionPerformed
+        // Offensive Rebounding and Defensive Rebounding
+        String text = "";
+        int offensiveRebounding = getValueWithinRange(1, 3);
+        int defensiveRebounding = getValueWithinRange(1, 3);
+
+        offensiveRebounding *= trainingPlayer.getDevelopment();
+        defensiveRebounding *= trainingPlayer.getDevelopment();
+
+        // Update and display Offensive Rebounding
+        text += "\nFormer Offensive Rebounding Skill - " + trainingPlayer.getOffRebounding();
+        trainingPlayer.setOffRebounding(trainingPlayer.getOffRebounding() + offensiveRebounding);
+        text += " -> New Offensive Rebounding Skill - " + trainingPlayer.getOffRebounding();
+
+        // Update and display Defensive Rebounding
+        text += "\nFormer Defensive Rebounding Skill - " + trainingPlayer.getDefRebounding();
+        trainingPlayer.setDefRebounding(trainingPlayer.getDefRebounding() + defensiveRebounding);
+        text += " -> New Defensive Rebounding Skill - " + trainingPlayer.getDefRebounding();
+
+        trainingPlayer.setHasTrainedThisYear(true); // set this to false next season button
+
+        setupTrainingResultsPanel(text);
+        switchToAnotherPanel(drillSelectorPanel, trainingResultsPanel);
+        trainingPlayer.regenOverallRating();
+        trainingPlayer.regenInitTendy();
+    }//GEN-LAST:event_jButton98ActionPerformed
+
+    private void jButton99ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton99ActionPerformed
+        setupTrainingPanel();
+        switchToAnotherPanel(drillSelectorPanel, trainingPanel);
+    }//GEN-LAST:event_jButton99ActionPerformed
+
+    private void jButton100ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton100ActionPerformed
+        playerTeam.setTrainingPointsLeft(playerTeam.getTrainingPointsLeft()-1);
+        setupTrainingPanel();
+        switchToAnotherPanel(trainingResultsPanel, trainingPanel);
+    }//GEN-LAST:event_jButton100ActionPerformed
+
+    
+    private void setupDrillSelectorPanel(){
+        
+    }
+    
+    private void setupTrainingResultsPanel(String text){
+        jLabel57.setText(text);
+    }
+    
+    private int getValueWithinRange(int min, int max){
+        Random r = new Random();
+        return r.nextInt(max - min + 1) + min;
+    }
     
     private void simulateFreeAgency(){
         
@@ -2773,7 +3277,7 @@ public class MainFrame extends javax.swing.JFrame {
             if(currentFreeAgencyDay>8){
                 System.out.println("8 days of Free Agency have passed, getting out now.");
                 // switch to another panel
-                playerTeam.setTrainingPointsLeft(10);
+                playerTeam.setTrainingPointsLeft(5);
                 viewTrainingPageNumber = 0;
                 setupTrainingPanel();
                 switchToAnotherPanel(freeAgencyPanel, trainingPanel);
@@ -2784,9 +3288,10 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     private void setupTrainingPanel(){
+        jLabel38.setText("Training points left: " + playerTeam.getTrainingPointsLeft());
         try{
             Player p = playerTeam.getRoster().get(viewTrainingPageNumber*3+0);
-            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating();
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - DEV: " + p.getDevelopment();
             jLabel39.setText(text);
             jButton83.show();
             jButton86.show();
@@ -2798,7 +3303,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         try{
             Player p = playerTeam.getRoster().get(viewTrainingPageNumber*3+1);
-            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating();
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - DEV: " + p.getDevelopment();
             jLabel40.setText(text);
             jButton84.show();
             jButton87.show();
@@ -2810,7 +3315,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         try{
             Player p = playerTeam.getRoster().get(viewTrainingPageNumber*3+2);
-            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating();
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - DEV: " + p.getDevelopment();
             jLabel41.setText(text);
             jButton85.show();
             jButton88.show();
@@ -3621,10 +4126,12 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel draftPanel;
     private javax.swing.JPanel draftSummaryPanel;
+    private javax.swing.JPanel drillSelectorPanel;
     private javax.swing.JPanel freeAgencyPanel;
     private javax.swing.JPanel gamePanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton100;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
@@ -3714,6 +4221,14 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JButton jButton90;
     private javax.swing.JButton jButton91;
+    private javax.swing.JButton jButton92;
+    private javax.swing.JButton jButton93;
+    private javax.swing.JButton jButton94;
+    private javax.swing.JButton jButton95;
+    private javax.swing.JButton jButton96;
+    private javax.swing.JButton jButton97;
+    private javax.swing.JButton jButton98;
+    private javax.swing.JButton jButton99;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -3756,7 +4271,17 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -3767,6 +4292,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel resignPlayersPanel;
     private javax.swing.JPanel seasonStandingsPanel;
     private javax.swing.JPanel trainingPanel;
+    private javax.swing.JPanel trainingResultsPanel;
+    private javax.swing.JPanel viewEntireRosterPanel;
     private javax.swing.JPanel viewPlayersPanel;
     // End of variables declaration//GEN-END:variables
 }

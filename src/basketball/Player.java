@@ -103,6 +103,17 @@ public class Player implements Comparable<Player>{
     private int totalAssists;
     private int totalGamesPlayed;
     
+    private boolean hasTrainedThisYear;
+
+    public Player() {
+        hasTrainedThisYear = false;
+    }
+    
+    public void regenInitTendy(){
+        initTendy = overallRating * 2 + 1;
+    }
+    
+    
     public void printPlayerStats() {
         System.out.print("POSITION: " + position + " - ");
         System.out.print("Field Goals Made: " + fgMade + " - ");
@@ -953,6 +964,14 @@ public class Player implements Comparable<Player>{
 
     public void setPortrait(ImageIcon portrait) {
         this.portrait = portrait;
+    }
+
+    public boolean hasTrainedThisYear() {
+        return hasTrainedThisYear;
+    }
+
+    public void setHasTrainedThisYear(boolean hasTrainedThisYear) {
+        this.hasTrainedThisYear = hasTrainedThisYear;
     }
 
     
