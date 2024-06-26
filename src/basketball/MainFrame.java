@@ -1969,6 +1969,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
         setupViewRosterPanel();
+        System.out.println("year = " + league.getYear());
         switchToAnotherPanel(mainPanel, viewPlayersPanel);
     }//GEN-LAST:event_jButton19ActionPerformed
 
@@ -2893,15 +2894,20 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton91ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton91ActionPerformed
         // everything is already handled in startNewYear() method. here we just handle ai roster rating / development.
-        for(Player p : playerTeam.getRoster()){
-            p.setHasTrainedThisYear(false);
-        }
-        
+        // and also increase the year.
         
         for(Team t : league.getTeams()){
             if(t.equals(playerTeam)){
+                for(Player p : t.getRoster()){
+                    if(p.getAge()>=30){
+                        reduceRatings(p);
+                    }
+                    p.setHasTrainedThisYear(false);
+                    p.regenOverallRating();
+                    p.resetGameStats();
+                    p.resetTotalStats();
+                }
                 t.autoSortLineups();
-                continue;
             }else{
                 for(Player p : t.getRoster()){
                     if(p.getAge()>=30){
@@ -2910,11 +2916,15 @@ public class MainFrame extends javax.swing.JFrame {
                         increaseRatings(p);
                     }
                     p.setHasTrainedThisYear(false);
+                    p.regenOverallRating();
+                    p.resetGameStats();
+                    p.resetTotalStats();
                 }
                 t.autoSortLineups();
             }
         }
         
+        league.setYear(league.getYear()+1);
         switchToAnotherPanel(trainingPanel, mainPanel);
     }//GEN-LAST:event_jButton91ActionPerformed
 
@@ -3477,15 +3487,16 @@ public class MainFrame extends javax.swing.JFrame {
     
     /**
      * What it modifies:
-     * 1. LEAGUE YEAR: increments by 1
+     * 1. LEAGUE YEAR: increments by 1 NO LONGER DOES THIS AS IT MESSES WITH THE YEARLY STATS. THIS IS INCREMENTED ELSEWHERE "finish training" button via training panel.
      * 2. Adds all players on every team to the roster, therein removing them from the starting lineups
      * 3. Decrements contract lengths and regens contracts of players with 0 contract length. Adds 0 length players to team's incoming free agents
      * 4. Increments ages of players
      * 5. Calculates money available for a team
+     * 6. Sets yearlyStats for each player on a roster.
      */
     private void startNewYear(){
         
-        league.setYear(league.getYear()+1);
+        // league.setYear(league.getYear()+1);
         
         for(Team t : league.getTeams()){
             for(int k=0;k<5;k++){
@@ -3500,6 +3511,7 @@ public class MainFrame extends javax.swing.JFrame {
             
             
             for(Player p : t.getRoster()){
+                p.addOntoYearlyStats(league.getYear(), t);
                 p.setAge(p.getAge()+1);
                 p.regenPlayerPerformanceValue();
                 // *** IF AGE IS GREATER THAN 30 THEN BEGIN DECLINING. IF GREATER THAN OR EQUAL TO 35 POSSIBLY RETIRE.

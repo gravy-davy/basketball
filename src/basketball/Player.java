@@ -104,9 +104,12 @@ public class Player implements Comparable<Player>{
     private int totalGamesPlayed;
     
     private boolean hasTrainedThisYear;
+    
+    private ArrayList<YearlyStats> yearlyStats;
 
     public Player() {
         hasTrainedThisYear = false;
+        yearlyStats = new ArrayList<>();
     }
     
     public void regenInitTendy(){
@@ -153,6 +156,18 @@ public class Player implements Comparable<Player>{
         assists = 0;
     }
     
+    public void resetTotalStats() {
+        totalFgMade = 0;
+        totalFgAttempted = 0;
+        totalThreePointersMade = 0;
+        totalThreePointersAttempted = 0;
+        totalDefRebounds = 0;
+        totalOffRebounds = 0;
+        totalRebounds = 0;
+        totalPoints = 0;
+        totalAssists = 0;
+    }
+    
     public void regenFreeAgencyValue(){
         regenPlayerPerformanceValue();
         regenPlayerValue();
@@ -168,7 +183,6 @@ public class Player implements Comparable<Player>{
         double averageAssistsPerGame = calculateAverage(totalAssists, totalGamesPlayed);
         double averageReboundsPerGame = calculateAverage(totalRebounds, totalGamesPlayed);
         
-        Random r = new Random();
         int val = 0;
         
         val+= averagePointsPerGame + averageAssistsPerGame + averageReboundsPerGame;
@@ -185,6 +199,35 @@ public class Player implements Comparable<Player>{
         }
         
         performanceValue = val;
+    }
+    
+    public void addOntoYearlyStats(int year, Team t){
+        double fieldGoalPercentage = calculatePercentage(totalFgMade, totalFgAttempted);
+        double threePointPercentage = calculatePercentage(totalThreePointersMade, totalThreePointersAttempted);
+        double averagePointsPerGame = calculateAverage(totalPoints, totalGamesPlayed);
+        double averageAssistsPerGame = calculateAverage(totalAssists, totalGamesPlayed);
+        double averageReboundsPerGame = calculateAverage(totalRebounds, totalGamesPlayed);
+        double averageOffensiveReboundsPerGame = calculateAverage(offRebounds, totalGamesPlayed);
+        double averageDefensiveReboundsPerGame = calculateAverage(defRebounds, totalGamesPlayed);
+        // eventually add a role here as another available stat: Starter or Sub
+        
+        YearlyStats ys = new YearlyStats();
+        
+        // populate ys right below this line here
+        ys.setYear(year);
+        ys.setOverallRating(overallRating);
+        ys.setTeam(t);
+        ys.setAge(age);
+        
+        ys.setFieldGoalPercentage(fieldGoalPercentage);
+        ys.setThreePointPercentage(threePointPercentage);
+        ys.setAveragePointsPerGame(averagePointsPerGame);
+        ys.setAverageAssistsPerGame(averageAssistsPerGame);
+        ys.setAverageReboundsPerGame(averageReboundsPerGame);
+        ys.setAverageOffensiveReboundsPerGame(averageOffensiveReboundsPerGame);
+        ys.setAverageDefensiveReboundsPerGame(averageDefensiveReboundsPerGame);
+        
+        yearlyStats.add(ys);
     }
     
     /**
@@ -366,6 +409,7 @@ public class Player implements Comparable<Player>{
         }else{
             this.setOverallRating(pc.generateSmallForwardOverall(this));
         }
+        regenInitTendy();
     }
     
     public String generateStatline() {
@@ -972,6 +1016,14 @@ public class Player implements Comparable<Player>{
 
     public void setHasTrainedThisYear(boolean hasTrainedThisYear) {
         this.hasTrainedThisYear = hasTrainedThisYear;
+    }
+
+    public ArrayList<YearlyStats> getYearlyStats() {
+        return yearlyStats;
+    }
+
+    public void setYearlyStats(ArrayList<YearlyStats> yearlyStats) {
+        this.yearlyStats = yearlyStats;
     }
 
     
