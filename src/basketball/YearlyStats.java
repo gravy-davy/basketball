@@ -20,6 +20,13 @@ public class YearlyStats {
     private double averageReboundsPerGame;
     private double averageOffensiveReboundsPerGame;
     private double averageDefensiveReboundsPerGame;
+    
+    public String generateStatline(){
+        String stats = String.format("%d - %.20s - PPG: %.2f - APG: %.2f - RPG: %.2f - ORPG: %.2f - DRPG: %.2f - FG%%: %.2f - 3FG%%: %.2f",
+            year, team.getName(), averagePointsPerGame, averageAssistsPerGame, averageReboundsPerGame,
+            averageOffensiveReboundsPerGame, averageDefensiveReboundsPerGame, fieldGoalPercentage, threePointPercentage);
+        return stats;
+    }
 
     public int getYear() {
         return year;

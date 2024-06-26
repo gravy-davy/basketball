@@ -207,8 +207,8 @@ public class Player implements Comparable<Player>{
         double averagePointsPerGame = calculateAverage(totalPoints, totalGamesPlayed);
         double averageAssistsPerGame = calculateAverage(totalAssists, totalGamesPlayed);
         double averageReboundsPerGame = calculateAverage(totalRebounds, totalGamesPlayed);
-        double averageOffensiveReboundsPerGame = calculateAverage(offRebounds, totalGamesPlayed);
-        double averageDefensiveReboundsPerGame = calculateAverage(defRebounds, totalGamesPlayed);
+        double averageDefReboundsPerGame = calculateAverage(totalDefRebounds, totalGamesPlayed);
+        double averageOffReboundsPerGame = calculateAverage(totalOffRebounds, totalGamesPlayed);
         // eventually add a role here as another available stat: Starter or Sub
         
         YearlyStats ys = new YearlyStats();
@@ -224,8 +224,8 @@ public class Player implements Comparable<Player>{
         ys.setAveragePointsPerGame(averagePointsPerGame);
         ys.setAverageAssistsPerGame(averageAssistsPerGame);
         ys.setAverageReboundsPerGame(averageReboundsPerGame);
-        ys.setAverageOffensiveReboundsPerGame(averageOffensiveReboundsPerGame);
-        ys.setAverageDefensiveReboundsPerGame(averageDefensiveReboundsPerGame);
+        ys.setAverageOffensiveReboundsPerGame(averageOffReboundsPerGame);
+        ys.setAverageDefensiveReboundsPerGame(averageDefReboundsPerGame);
         
         yearlyStats.add(ys);
     }

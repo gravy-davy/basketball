@@ -28,6 +28,7 @@ public class MainFrame extends javax.swing.JFrame {
     private int viewDraftPageNumber;
     private int viewFreeAgentsPageNumber;
     private int viewTrainingPageNumber;
+    private int viewYearlyStatsPageNumber;
     private NewPlayerCreator pc = new NewPlayerCreator();
     private League league;
     
@@ -43,7 +44,9 @@ public class MainFrame extends javax.swing.JFrame {
     
     private int playerTeamPlayoffWins;
     private int enemyTeamPlayoffWins;
+    
     private Player trainingPlayer;
+    private Player yearlyStatsPlayer;
     
     /**
      * Creates new form MainFrame
@@ -58,6 +61,7 @@ public class MainFrame extends javax.swing.JFrame {
         currentFreeAgencyDay = 1;
         viewFreeAgentsPageNumber = 0;
         viewTrainingPageNumber = 0;
+        viewYearlyStatsPageNumber = 0;
         isUserPickingInDraft = false;
         isUserPickingInFreeAgency = false;
         
@@ -152,6 +156,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
+        jButton104 = new javax.swing.JButton();
         seasonStandingsPanel = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jButton42 = new javax.swing.JButton();
@@ -259,6 +264,13 @@ public class MainFrame extends javax.swing.JFrame {
         trainingResultsPanel = new javax.swing.JPanel();
         jLabel57 = new javax.swing.JLabel();
         jButton100 = new javax.swing.JButton();
+        yearlyStatsPanel = new javax.swing.JPanel();
+        jLabel58 = new javax.swing.JLabel();
+        jLabel59 = new javax.swing.JLabel();
+        jLabel60 = new javax.swing.JLabel();
+        jButton101 = new javax.swing.JButton();
+        jButton102 = new javax.swing.JButton();
+        jButton103 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -293,7 +305,7 @@ public class MainFrame extends javax.swing.JFrame {
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
-                .addContainerGap(421, Short.MAX_VALUE)
+                .addContainerGap(443, Short.MAX_VALUE)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton41)
                     .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -871,6 +883,13 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel42.setText("jLabel42");
 
+        jButton104.setText("Stats");
+        jButton104.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton104ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout playerDetailsPanelLayout = new javax.swing.GroupLayout(playerDetailsPanel);
         playerDetailsPanel.setLayout(playerDetailsPanelLayout);
         playerDetailsPanelLayout.setHorizontalGroup(
@@ -879,15 +898,17 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addGroup(playerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(playerDetailsPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 782, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton40)
-                        .addGap(31, 31, 31))
-                    .addGroup(playerDetailsPanelLayout.createSequentialGroup()
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51))))
+                        .addGap(51, 51, 51))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, playerDetailsPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 782, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                        .addGroup(playerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButton104, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(31, 31, 31))))
         );
         playerDetailsPanelLayout.setVerticalGroup(
             playerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -902,7 +923,9 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(63, 63, 63))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton104)
+                .addContainerGap())
         );
 
         getContentPane().add(playerDetailsPanel, "card4");
@@ -1500,7 +1523,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(freeAgencyPanelLayout.createSequentialGroup()
                         .addGap(54, 54, 54)
                         .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
                 .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel35)
                     .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1953,6 +1976,75 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(trainingResultsPanel, "card15");
+
+        yearlyStatsPanel.setPreferredSize(new java.awt.Dimension(933, 581));
+
+        jLabel58.setText("jLabel27");
+
+        jLabel59.setText("jLabel27");
+
+        jLabel60.setText("jLabel27");
+
+        jButton101.setText("Next page");
+        jButton101.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton101ActionPerformed(evt);
+            }
+        });
+
+        jButton102.setText("Prev page");
+        jButton102.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton102ActionPerformed(evt);
+            }
+        });
+
+        jButton103.setText("Return");
+        jButton103.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton103ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout yearlyStatsPanelLayout = new javax.swing.GroupLayout(yearlyStatsPanel);
+        yearlyStatsPanel.setLayout(yearlyStatsPanelLayout);
+        yearlyStatsPanelLayout.setHorizontalGroup(
+            yearlyStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(yearlyStatsPanelLayout.createSequentialGroup()
+                .addGroup(yearlyStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(yearlyStatsPanelLayout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addGroup(yearlyStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel60, javax.swing.GroupLayout.DEFAULT_SIZE, 857, Short.MAX_VALUE)
+                            .addComponent(jLabel59, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel58, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(yearlyStatsPanelLayout.createSequentialGroup()
+                        .addGap(225, 225, 225)
+                        .addComponent(jButton102)
+                        .addGap(38, 38, 38)
+                        .addComponent(jButton101)
+                        .addGap(133, 133, 133)
+                        .addComponent(jButton103)))
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+        yearlyStatsPanelLayout.setVerticalGroup(
+            yearlyStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(yearlyStatsPanelLayout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
+                .addGroup(yearlyStatsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton101)
+                    .addComponent(jButton102)
+                    .addComponent(jButton103))
+                .addGap(49, 49, 49))
+        );
+
+        getContentPane().add(yearlyStatsPanel, "card16");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -2925,6 +3017,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
         
         league.setYear(league.getYear()+1);
+        // ADD FILLER PLAYERS FOR EACH TEAM HERE. MAKE THIS FILLER METHOD IN THE LEAGUE CLASS!!! basically if squad[1] or bench[1] = null gen a player and regen lineups
         switchToAnotherPanel(trainingPanel, mainPanel);
     }//GEN-LAST:event_jButton91ActionPerformed
 
@@ -3346,6 +3439,60 @@ public class MainFrame extends javax.swing.JFrame {
         switchToAnotherPanel(trainingResultsPanel, trainingPanel);
     }//GEN-LAST:event_jButton100ActionPerformed
 
+    private void jButton101ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton101ActionPerformed
+        int minForNextPage = (viewYearlyStatsPageNumber+1) * 3;
+        if(yearlyStatsPlayer.getYearlyStats().size()>=minForNextPage){
+            viewYearlyStatsPageNumber++;
+            setupYearlyStatsPanel();
+            getContentPane().revalidate();
+            getContentPane().repaint();
+        }else{
+            JOptionPane.showMessageDialog(null, "Not enough stat years to view another page.");
+        }
+    }//GEN-LAST:event_jButton101ActionPerformed
+
+    private void jButton102ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton102ActionPerformed
+        if(viewYearlyStatsPageNumber!=0){
+            viewYearlyStatsPageNumber--;
+            setupYearlyStatsPanel();
+            getContentPane().revalidate();
+            getContentPane().repaint();
+        }else{
+            JOptionPane.showMessageDialog(null, "You are already on page 0.");
+        }
+    }//GEN-LAST:event_jButton102ActionPerformed
+
+    private void jButton104ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton104ActionPerformed
+        setupYearlyStatsPanel();
+        switchToAnotherPanel(playerDetailsPanel, yearlyStatsPanel);
+    }//GEN-LAST:event_jButton104ActionPerformed
+
+    private void jButton103ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton103ActionPerformed
+        switchToAnotherPanel(yearlyStatsPanel, playerDetailsPanel);
+    }//GEN-LAST:event_jButton103ActionPerformed
+
+    private void setupYearlyStatsPanel(){
+        try{
+            YearlyStats s = yearlyStatsPlayer.getYearlyStats().get(viewYearlyStatsPageNumber*3+0);
+            jLabel58.setText(s.generateStatline());
+        }catch(Exception e){
+            jLabel58.setText("-");
+        }
+        
+        try{
+            YearlyStats s = yearlyStatsPlayer.getYearlyStats().get(viewYearlyStatsPageNumber*3+1);
+            jLabel59.setText(s.generateStatline());
+        }catch(Exception e){
+            jLabel59.setText("-");
+        }
+        
+        try{
+            YearlyStats s = yearlyStatsPlayer.getYearlyStats().get(viewYearlyStatsPageNumber*3+2);
+            jLabel60.setText(s.generateStatline());
+        }catch(Exception e){
+            jLabel60.setText("-");
+        }
+    }
     
     private void setupDrillSelectorPanel(){
         
@@ -4084,6 +4231,8 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     private void setupPlayerDetailsPanel(Player p){
+        yearlyStatsPlayer = p;
+        
         String text = "<html>"
         + "<table>"
         + "<tr><td>Name</td><td>-</td><td>" + p.getName() + "</td></tr>"
@@ -4272,6 +4421,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton100;
+    private javax.swing.JButton jButton101;
+    private javax.swing.JButton jButton102;
+    private javax.swing.JButton jButton103;
+    private javax.swing.JButton jButton104;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
@@ -4422,7 +4575,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -4435,5 +4591,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel trainingResultsPanel;
     private javax.swing.JPanel viewEntireRosterPanel;
     private javax.swing.JPanel viewPlayersPanel;
+    private javax.swing.JPanel yearlyStatsPanel;
     // End of variables declaration//GEN-END:variables
 }
