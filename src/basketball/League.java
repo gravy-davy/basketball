@@ -64,6 +64,55 @@ public class League {
         }
     }
     
+    public void addFillerPlayersToTeams(){
+        NewPlayerCreator npc = new NewPlayerCreator();
+        String pos;
+        
+        for(Team t : teams){
+            
+            for(int k=0;k<5;k++){
+                if(t.getSquad()[k] == null){
+                    System.out.println("null player found for " + t.getName() + " - filling in");
+                    if(k==0){
+                        pos = "PG";
+                    }else if(k==1){
+                        pos = "SG";
+                    }else if(k==2){
+                        pos = "SF";
+                    }else if(k==3){
+                        pos = "PF";
+                    }else{
+                        pos = "C";
+                    }
+                    
+                    Player p = npc.createFillerPlayer(pos);
+                    t.getSquad()[k] = p;
+                }
+            }
+            
+            for(int k=0;k<5;k++){
+                if(t.getBench()[k] == null){
+                    System.out.println("null player found for " + t.getName() + " - filling in!");
+                    if(k==0){
+                        pos = "PG";
+                    }else if(k==1){
+                        pos = "SG";
+                    }else if(k==2){
+                        pos = "SF";
+                    }else if(k==3){
+                        pos = "PF";
+                    }else{
+                        pos = "C";
+                    }
+                    
+                    Player p = npc.createFillerPlayer(pos);
+                    t.getBench()[k] = p;
+                }
+            }
+            
+        }
+    }
+    
     public void addTeamsToFreeAgencyOrderRandomly() {
         if (teams == null || freeAgencyOrder == null) {
             System.out.println("Teams or Free Agency Order list not initialized.");

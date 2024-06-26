@@ -166,6 +166,7 @@ public class Player implements Comparable<Player>{
         totalRebounds = 0;
         totalPoints = 0;
         totalAssists = 0;
+        totalGamesPlayed = 0;
     }
     
     public void regenFreeAgencyValue(){

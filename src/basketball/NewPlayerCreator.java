@@ -80,6 +80,42 @@ public class NewPlayerCreator {
         return p;
     }
     
+    public Player createFillerPlayer(String pos){
+        Random r = new Random();
+        Player p = new Player();
+        
+        // Create and return a player
+        genName(p);
+        
+        p.setPosition(pos);
+        do{
+            generateRatings(p);
+            p.regenOverallRating();
+        }while(p.getOverallRating()>55);
+        
+        p.regenOverallRating();
+        generateModifiers(p);
+        createEmptyStats(p);
+        p.setDevelopment(getDevelopment());
+        generateTendencies(p);
+        
+        p.setFREE_AGENCY_loyalty(r.nextInt(100)+1);
+        p.setFREE_AGENCY_playForWinner(r.nextInt(100)+1);
+        
+        genAge(p); // should make it more common for 20-29 year olds
+        
+        
+        // leagues in the year right here
+        p.setYearsInTheLeague(0);
+        // contract generation here
+        p.regenContract();
+        p.regenPlayerValue();
+        
+        generatePortrait(p);
+        
+        return p;
+    }
+    
     private void generatePortrait(Player p){
         
         String directoryPath = "faces/";

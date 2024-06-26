@@ -2987,6 +2987,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton91ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton91ActionPerformed
         // everything is already handled in startNewYear() method. here we just handle ai roster rating / development.
         // and also increase the year.
+        // AND FINALLY, add filler players to teams who need them :)
         
         for(Team t : league.getTeams()){
             if(t.equals(playerTeam)){
@@ -3017,7 +3018,16 @@ public class MainFrame extends javax.swing.JFrame {
         }
         
         league.setYear(league.getYear()+1);
-        // ADD FILLER PLAYERS FOR EACH TEAM HERE. MAKE THIS FILLER METHOD IN THE LEAGUE CLASS!!! basically if squad[1] or bench[1] = null gen a player and regen lineups
+        // ADD FILLER PLAYERS FOR EACH TEAM HERE. MAKE THIS FILLER METHOD IN THE LEAGUE CLASS!!! basically if squad[1] or bench[1] = null gen a player at that pos and regen lineups
+        
+        league.addFillerPlayersToTeams();
+        
+        for(Team t : league.getTeams()){
+            t.setWins(0);
+            t.setLosses(0);
+        }
+        
+        
         switchToAnotherPanel(trainingPanel, mainPanel);
     }//GEN-LAST:event_jButton91ActionPerformed
 
@@ -3660,6 +3670,7 @@ public class MainFrame extends javax.swing.JFrame {
             for(Player p : t.getRoster()){
                 p.addOntoYearlyStats(league.getYear(), t);
                 p.setAge(p.getAge()+1);
+                p.setYearsInTheLeague(p.getYearsInTheLeague()+1);
                 p.regenPlayerPerformanceValue();
                 // *** IF AGE IS GREATER THAN 30 THEN BEGIN DECLINING. IF GREATER THAN OR EQUAL TO 35 POSSIBLY RETIRE.
                 p.getContract().setLength(p.getContract().getLength()-1);
