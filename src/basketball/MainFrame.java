@@ -8,7 +8,11 @@ package basketball;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.util.stream.Collectors;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -1622,7 +1626,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton91.setText("To the new season");
+        jButton91.setText("Finish training");
         jButton91.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton91ActionPerformed(evt);
@@ -2889,8 +2893,132 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton91ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton91ActionPerformed
         // everything is already handled in startNewYear() method. here we just handle ai roster rating / development.
+        for(Player p : playerTeam.getRoster()){
+            p.setHasTrainedThisYear(false);
+        }
+        
+        
+        for(Team t : league.getTeams()){
+            if(t.equals(playerTeam)){
+                t.autoSortLineups();
+                continue;
+            }else{
+                for(Player p : t.getRoster()){
+                    if(p.getAge()>=30){
+                        reduceRatings(p);
+                    }else{
+                        increaseRatings(p);
+                    }
+                    p.setHasTrainedThisYear(false);
+                }
+                t.autoSortLineups();
+            }
+        }
+        
+        switchToAnotherPanel(trainingPanel, mainPanel);
     }//GEN-LAST:event_jButton91ActionPerformed
 
+    private void reduceRatings(Player p){
+        Random r = new Random();
+        
+    
+        // Reduce each attribute by a random amount between 1 and 5, ensuring the rating does not go below 15
+        p.setCloseSkill(Math.max(p.getCloseSkill() - (r.nextInt(5) + 1), 15));
+        p.setMidShotSkill(Math.max(p.getMidShotSkill() - (r.nextInt(5) + 1), 15));
+        p.setThreeShotSkill(Math.max(p.getThreeShotSkill() - (r.nextInt(5) + 1), 15));
+        p.setPassingSkill(Math.max(p.getPassingSkill() - (r.nextInt(5) + 1), 15));
+        p.setDriveSkill(Math.max(p.getDriveSkill() - (r.nextInt(5) + 1), 15));
+        p.setStrengthSkill(Math.max(p.getStrengthSkill() - (r.nextInt(5) + 1), 15));
+        p.setSpeedSkill(Math.max(p.getSpeedSkill() - (r.nextInt(5) + 1), 15));
+        p.setDribblingSkill(Math.max(p.getDribblingSkill() - (r.nextInt(5) + 1), 15));
+        p.setPerimeterDefSkill(Math.max(p.getPerimeterDefSkill() - (r.nextInt(5) + 1), 15));
+        p.setInteriorDefSkill(Math.max(p.getInteriorDefSkill() - (r.nextInt(5) + 1), 15));
+        p.setStealSkill(Math.max(p.getStealSkill() - (r.nextInt(5) + 1), 15));
+        p.setInterceptionSkill(Math.max(p.getInterceptionSkill() - (r.nextInt(5) + 1), 15));
+        p.setBlockingSkill(Math.max(p.getBlockingSkill() - (r.nextInt(5) + 1), 15));
+        p.setDefRebounding(Math.max(p.getDefRebounding() - (r.nextInt(5) + 1), 15));
+        p.setOffRebounding(Math.max(p.getOffRebounding() - (r.nextInt(5) + 1), 15));
+
+        // Regenerate the overall rating after reducing the skills
+        p.regenOverallRating();
+    }
+   
+
+    private void increaseRatings(Player p) {
+        Random r = new Random();
+
+        // Map to store tendencies and corresponding skills with random values within their range
+        Map<String, Integer> tendencies = new HashMap<>();
+        tendencies.put("drive", r.nextInt(p.getDriveTendy()) + 1);
+        tendencies.put("dribbleDrive", r.nextInt(p.getDribbleDriveTendy()) + 1);
+        tendencies.put("speedDrive", r.nextInt(p.getSpeedDriveTendy()) + 1);
+        tendencies.put("powerDrive", r.nextInt(p.getPowerDriveTendy()) + 1);
+        tendencies.put("passing", r.nextInt(p.getPassTendy()) + 1);
+        tendencies.put("shootClose", r.nextInt(p.getShootCloseTendy()) + 1);
+        tendencies.put("shootMid", r.nextInt(p.getShootMidTendy()) + 1);
+        tendencies.put("shootThree", r.nextInt(p.getShootThreeTendy()) + 1);
+        tendencies.put("offRebound", r.nextInt(p.getOffReboundTendy()) + 1);
+        tendencies.put("defRebound", r.nextInt(p.getDefReboundTendy()) + 1);
+        tendencies.put("perimeterDef", r.nextInt(p.getPerimeterDefSkill()) + 1);
+        tendencies.put("interiorDef", r.nextInt(p.getInteriorDefSkill()) + 1);
+
+        // Sort the tendencies based on the values and get the top 3
+        List<Map.Entry<String, Integer>> sortedTendencies = tendencies.entrySet().stream()
+                .sorted((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()))
+                .limit(3)
+                .collect(Collectors.toList());
+
+        // Increase the ratings based on the top 3 tendencies
+        for (Map.Entry<String, Integer> tendency : sortedTendencies) {
+            String key = tendency.getKey();
+            int increment = getValueWithinRange(1, 3) * p.getDevelopment();
+
+            switch (key) {
+                case "drive":
+                    p.setDriveSkill(p.getDriveSkill() + increment);
+                    break;
+                case "dribbleDrive":
+                    p.setDribblingSkill(p.getDribblingSkill() + increment);
+                    break;
+                case "speedDrive":
+                    p.setSpeedSkill(p.getSpeedSkill() + increment);
+                    break;
+                case "powerDrive":
+                    p.setStrengthSkill(p.getStrengthSkill() + increment);
+                    break;
+                case "passing":
+                    p.setPassingSkill(p.getPassingSkill() + increment);
+                    break;
+                case "shootClose":
+                    p.setCloseSkill(p.getCloseSkill() + increment);
+                    break;
+                case "shootMid":
+                    p.setMidShotSkill(p.getMidShotSkill() + increment);
+                    break;
+                case "shootThree":
+                    p.setThreeShotSkill(p.getThreeShotSkill() + increment);
+                    break;
+                case "offRebound":
+                    p.setOffRebounding(p.getOffRebounding() + increment);
+                    break;
+                case "defRebound":
+                    p.setDefRebounding(p.getDefRebounding() + increment);
+                    break;
+                case "perimeterDef":
+                    p.setPerimeterDefSkill(p.getPerimeterDefSkill()+ increment);
+                    break;
+                case "interiorDef":
+                    p.setInteriorDefSkill(p.getInteriorDefSkill()+ increment);
+                    break;
+            }
+        }
+
+        // Regenerate the overall rating after increasing the skills
+        p.regenOverallRating();
+    }
+
+
+    
     private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
 
         if(playerTeamPlayoffWins == 4 || enemyTeamPlayoffWins == 4){
@@ -2962,7 +3090,7 @@ public class MainFrame extends javax.swing.JFrame {
         if(trainingPlayer.hasTrainedThisYear()){
             JOptionPane.showMessageDialog(null, "This player has already trained this year.");
         }else if(trainingPlayer.getAge()>=30){
-            JOptionPane.showMessageDialog(null, "Only players under 30 years old may train.");
+            JOptionPane.showMessageDialog(null, "Only players under 30 years old may train. Note: This player will regress after training.");
         }else if(playerTeam.getTrainingPointsLeft()<=0){
             JOptionPane.showMessageDialog(null, "You don't have any training points remaining!");
         }else{
@@ -2976,7 +3104,7 @@ public class MainFrame extends javax.swing.JFrame {
         if(trainingPlayer.hasTrainedThisYear()){
             JOptionPane.showMessageDialog(null, "This player has already trained this year.");
         }else if(trainingPlayer.getAge()>=30){
-            JOptionPane.showMessageDialog(null, "Only players under 30 years old may train.");
+            JOptionPane.showMessageDialog(null, "Only players under 30 years old may train. Note: This player will regress after training.");
         }else if(playerTeam.getTrainingPointsLeft()<=0){
             JOptionPane.showMessageDialog(null, "You don't have any training points remaining!");
         }else{
@@ -2990,7 +3118,7 @@ public class MainFrame extends javax.swing.JFrame {
         if(trainingPlayer.hasTrainedThisYear()){
             JOptionPane.showMessageDialog(null, "This player has already trained this year.");
         }else if(trainingPlayer.getAge()>=30){
-            JOptionPane.showMessageDialog(null, "Only players under 30 years old may train.");
+            JOptionPane.showMessageDialog(null, "Only players under 30 years old may train. Note: This player will regress after training.");
         }else if(playerTeam.getTrainingPointsLeft()<=0){
             JOptionPane.showMessageDialog(null, "You don't have any training points remaining!");
         }else{
