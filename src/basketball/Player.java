@@ -108,10 +108,12 @@ public class Player implements Comparable<Player>{
     private ArrayList<YearlyStats> yearlyStats;
     
     private String role;
+    private boolean isRetiring; // only gets flicked to true when they are actually retiring
 
     public Player() {
         hasTrainedThisYear = false;
         yearlyStats = new ArrayList<>();
+        isRetiring = false;
     }
     
     public void regenInitTendy(){
@@ -360,6 +362,36 @@ public class Player implements Comparable<Player>{
         int seed = r.nextInt(100);
         if(seed<75){
             return true;
+        }
+        return false;
+    }
+    
+    /**
+     * 
+     * @return true for yes, false for now
+     */
+    public boolean getRetiringDecision(){
+        Random r = new Random();
+        int seed = r.nextInt(100);
+        
+        if(age>=45){
+            return true;
+        }else if(age>=40){
+            if(seed<95){
+                return true;
+            }
+        }else if(age>=37){
+            if(seed<85){
+                return true;
+            }
+        }else if(age>=35){
+            if(seed<60){
+                return true;
+            }
+        }else if(age>=33){
+            if(seed<25){
+                return true;
+            }
         }
         return false;
     }
@@ -1038,6 +1070,15 @@ public class Player implements Comparable<Player>{
         this.role = role;
     }
 
+    public boolean isRetiring() {
+        return isRetiring;
+    }
+
+    public void setIsRetiring(boolean isRetiring) {
+        this.isRetiring = isRetiring;
+    }
+
+    
     
     
     

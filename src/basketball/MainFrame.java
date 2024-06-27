@@ -2605,41 +2605,61 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton48ActionPerformed
         int index = resignPageNumber * 5 + 0;
         Player p = playerTeam.getIncomingFreeAgents().get(index);
-        makeResigningDecisionForPlayer(p);
-        setupResignPanel();
-        switchToAnotherPanel(resignPlayersPanel, resignPlayersPanel);
+        if(p.isRetiring()){
+            JOptionPane.showMessageDialog(null, "This player is retiring.");
+        }else{
+            makeResigningDecisionForPlayer(p);
+            setupResignPanel();
+            switchToAnotherPanel(resignPlayersPanel, resignPlayersPanel);
+        }
     }//GEN-LAST:event_jButton48ActionPerformed
 
     private void jButton49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton49ActionPerformed
         int index = resignPageNumber * 5 + 1;
         Player p = playerTeam.getIncomingFreeAgents().get(index);
-        makeResigningDecisionForPlayer(p);
-        setupResignPanel();
-        switchToAnotherPanel(resignPlayersPanel, resignPlayersPanel);
+        if(p.isRetiring()){
+            JOptionPane.showMessageDialog(null, "This player is retiring.");
+        }else{
+            makeResigningDecisionForPlayer(p);
+            setupResignPanel();
+            switchToAnotherPanel(resignPlayersPanel, resignPlayersPanel);
+        }
     }//GEN-LAST:event_jButton49ActionPerformed
 
     private void jButton50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton50ActionPerformed
         int index = resignPageNumber * 5 + 2;
         Player p = playerTeam.getIncomingFreeAgents().get(index);
-        makeResigningDecisionForPlayer(p);
-        setupResignPanel();
-        switchToAnotherPanel(resignPlayersPanel, resignPlayersPanel);
+        if(p.isRetiring()){
+            JOptionPane.showMessageDialog(null, "This player is retiring.");
+        }else{
+            makeResigningDecisionForPlayer(p);
+            setupResignPanel();
+            switchToAnotherPanel(resignPlayersPanel, resignPlayersPanel);
+        }
     }//GEN-LAST:event_jButton50ActionPerformed
 
     private void jButton51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton51ActionPerformed
         int index = resignPageNumber * 5 + 3;
         Player p = playerTeam.getIncomingFreeAgents().get(index);
-        makeResigningDecisionForPlayer(p);
-        setupResignPanel();
-        switchToAnotherPanel(resignPlayersPanel, resignPlayersPanel);
+        if(p.isRetiring()){
+            JOptionPane.showMessageDialog(null, "This player is retiring.");
+        }else{
+            makeResigningDecisionForPlayer(p);
+            setupResignPanel();
+            switchToAnotherPanel(resignPlayersPanel, resignPlayersPanel);
+        }
     }//GEN-LAST:event_jButton51ActionPerformed
 
     private void jButton52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton52ActionPerformed
         int index = resignPageNumber * 5 + 4;
         Player p = playerTeam.getIncomingFreeAgents().get(index);
-        makeResigningDecisionForPlayer(p);
-        setupResignPanel();
-        switchToAnotherPanel(resignPlayersPanel, resignPlayersPanel);
+        if(p.isRetiring()){
+            JOptionPane.showMessageDialog(null, "This player is retiring.");
+        }else{
+            makeResigningDecisionForPlayer(p);
+            setupResignPanel();
+            switchToAnotherPanel(resignPlayersPanel, resignPlayersPanel);
+        }
     }//GEN-LAST:event_jButton52ActionPerformed
 
     private void jButton64ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton64ActionPerformed
@@ -2796,6 +2816,22 @@ public class MainFrame extends javax.swing.JFrame {
         for(Player p : league.getFreeAgents()){
             p.regenFreeAgencyValue();
         }
+        
+        
+        ArrayList<Player> retiringPlayers = new ArrayList<>();
+        for(Player p : league.getFreeAgents()){
+            if(p.isRetiring()){
+                retiringPlayers.add(p);
+            }
+        }
+        
+        for(Player p : retiringPlayers){
+            if(league.getFreeAgents().contains(p)){
+                league.getFreeAgents().remove(p);
+            }
+        }
+        
+        
         Collections.sort(league.getFreeAgents());
         Collections.reverse(league.getFreeAgents());
         
@@ -3688,6 +3724,15 @@ public class MainFrame extends javax.swing.JFrame {
                 }
                 // regen their contracts possibly here. should be fine since they will be in the free agent pool of the league if not resigned.
                 p.regenContract();
+                
+                // RIGHT HERE, CHANCE TO RETIRE AS THEIR CONTRACT IS COMPLETED !!!
+                // If isRetiring is set to true, then the player cannot resign the player :)
+                if(p.getAge()>=33){
+                    boolean isRetiring = p.getRetiringDecision();
+                    if(isRetiring){
+                        p.setIsRetiring(true);
+                    }
+                }
             }
             
             int moneyUsed = 0;
@@ -3989,24 +4034,30 @@ public class MainFrame extends javax.swing.JFrame {
             for(Player p : t.getIncomingFreeAgents()){
                 // offer contracts and if "Declined" then they goto free agency. if value is too low they dont offer though based on rng.
                 // if accepted then make sure they have enough money to sign the player.
-                boolean signingDecision = p.getSigningDecision();
+                if(p.isRetiring()){
+                    System.out.println(p.getName() + " is retiring at the age of " + p.getAge());
+                }else{
+                    boolean signingDecision = p.getSigningDecision();
                 
-                if(signingDecision){
-                    t.regenMoneyAvailable();
-                    if(t.getMoneyAvailable()>=p.getContract().getSalary()){
-                        t.getRoster().add(p);
+                    if(signingDecision){
                         t.regenMoneyAvailable();
-                        System.out.println(t.getName() + " has RESIGNED " + p.getName() + " for " + p.getContract().getSalary() + "m per year for " + p.getContract().getLength() +
-                                " years!");
+                        if(t.getMoneyAvailable()>=p.getContract().getSalary()){
+                            t.getRoster().add(p);
+                            t.regenMoneyAvailable();
+                            System.out.println(t.getName() + " has RESIGNED " + p.getName() + " for " + p.getContract().getSalary() + "m per year for " + p.getContract().getLength() +
+                                    " years!");
+                        }else{
+                            league.getFreeAgents().add(p);
+                            System.out.println(t.getName() + " has released " + p.getName());
+                        }
                     }else{
                         league.getFreeAgents().add(p);
-                        System.out.println(t.getName() + " has released " + p.getName());
+                        System.out.println(t.getName() + " has had their offer declined by " + p.getName());
                     }
-                }else{
-                    league.getFreeAgents().add(p);
-                    System.out.println(t.getName() + " has had their offer declined by " + p.getName());
                 }
             }
+            
+            
             t.getIncomingFreeAgents().clear();
         }
     }
