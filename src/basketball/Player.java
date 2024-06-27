@@ -106,6 +106,8 @@ public class Player implements Comparable<Player>{
     private boolean hasTrainedThisYear;
     
     private ArrayList<YearlyStats> yearlyStats;
+    
+    private String role;
 
     public Player() {
         hasTrainedThisYear = false;
@@ -219,6 +221,7 @@ public class Player implements Comparable<Player>{
         ys.setOverallRating(overallRating);
         ys.setTeam(t);
         ys.setAge(age);
+        ys.setRole(role);
         
         ys.setFieldGoalPercentage(fieldGoalPercentage);
         ys.setThreePointPercentage(threePointPercentage);
@@ -1025,6 +1028,14 @@ public class Player implements Comparable<Player>{
 
     public void setYearlyStats(ArrayList<YearlyStats> yearlyStats) {
         this.yearlyStats = yearlyStats;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     

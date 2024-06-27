@@ -397,10 +397,6 @@ public class Game {
         
         team1.setBench(t1Squad);
         team2.setBench(t2Squad);
-        
-        System.out.println("Switching subs in. Team1 Squad PG: " + team1.getSquad()[0].getName());
-        System.out.println("Switching subs in. Team1 SUBBED OUT Squad PG: " + team1.getBench()[0].getName());
-        
     }
     
     // dribble drive, speed drive, power drive. result should be a number. negative = def win. positive = off hard win.

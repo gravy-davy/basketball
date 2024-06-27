@@ -3658,10 +3658,12 @@ public class MainFrame extends javax.swing.JFrame {
         for(Team t : league.getTeams()){
             for(int k=0;k<5;k++){
                 Player p = t.getSquad()[k];
+                p.setRole("STARTER");
                 t.getRoster().add(p);
                 t.getSquad()[k] = null;
                 
                 p = t.getBench()[k];
+                p.setRole("SUB");
                 t.getRoster().add(p);
                 t.getBench()[k] = null;
             }

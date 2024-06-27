@@ -12,6 +12,7 @@ public class YearlyStats {
     private Team team;
     private int overallRating;
     private int age;
+    private String role;
     private ArrayList<Award> awards; // MVP, All-League PG/SG/SF/PF/C (by player value), DBA Champion
     private double fieldGoalPercentage;
     private double threePointPercentage;
@@ -22,8 +23,8 @@ public class YearlyStats {
     private double averageDefensiveReboundsPerGame;
     
     public String generateStatline(){
-        String stats = String.format("%d - %.20s - PPG: %.2f - APG: %.2f - RPG: %.2f - ORPG: %.2f - DRPG: %.2f - FG%%: %.2f - 3FG%%: %.2f",
-            year, team.getName(), averagePointsPerGame, averageAssistsPerGame, averageReboundsPerGame,
+        String stats = String.format("%d - %d - %.20s - %.8s - PPG: %.2f - APG: %.2f - RPG: %.2f - ORPG: %.2f - DRPG: %.2f - FG%%: %.2f - 3FG%%: %.2f",
+            year, age, team.getName(), role, averagePointsPerGame, averageAssistsPerGame, averageReboundsPerGame,
             averageOffensiveReboundsPerGame, averageDefensiveReboundsPerGame, fieldGoalPercentage, threePointPercentage);
         return stats;
     }
@@ -122,6 +123,14 @@ public class YearlyStats {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
     
     
