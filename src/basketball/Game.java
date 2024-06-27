@@ -1,6 +1,7 @@
 
 package basketball;
 
+import java.util.Arrays;
 import java.util.Random;
 
 // TO ADD: catch and shoot, drive pass, modifiers and we're done :)
@@ -255,8 +256,19 @@ public class Game {
             
             if(secondsPassed >= 720){
                 quarter++;
+                
                 secondsPassed = 0;
+                
+                if(quarter == 2){
+                    switchSubsIn();
+                }
+
+                if(quarter == 3){
+                    switchSubsIn();
+                }
+                
             }
+            
             
         }while(quarter<5);
         
@@ -373,6 +385,22 @@ public class Game {
         
         int diff = shotScore - (defScore/8);
         return diff;
+    }
+    
+    private void switchSubsIn(){
+        Player[] t1Squad = team1.getSquad();
+        Player[] t2Squad = team2.getSquad();
+        
+        
+        team1.setSquad(team1.getBench());
+        team2.setSquad(team2.getBench());
+        
+        team1.setBench(t1Squad);
+        team2.setBench(t2Squad);
+        
+        System.out.println("Switching subs in. Team1 Squad PG: " + team1.getSquad()[0].getName());
+        System.out.println("Switching subs in. Team1 SUBBED OUT Squad PG: " + team1.getBench()[0].getName());
+        
     }
     
     // dribble drive, speed drive, power drive. result should be a number. negative = def win. positive = off hard win.

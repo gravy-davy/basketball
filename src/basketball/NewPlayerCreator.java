@@ -96,7 +96,7 @@ public class NewPlayerCreator {
         p.regenOverallRating();
         generateModifiers(p);
         createEmptyStats(p);
-        p.setDevelopment(getDevelopment());
+        p.setDevelopment(r.nextInt(2));
         generateTendencies(p);
         
         p.setFREE_AGENCY_loyalty(r.nextInt(100)+1);
