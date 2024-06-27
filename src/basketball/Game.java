@@ -106,7 +106,7 @@ public class Game {
                         isReboundScenario = true;
                     }
                 }else{
-                    int shotSeed = r.nextInt(90);
+                    int shotSeed = r.nextInt(85);
                     // shot seed was formerly 20
                     if(shotResult>shotSeed){
                         offTeam.setGameScore(offTeam.getGameScore()+2);
@@ -178,7 +178,7 @@ public class Game {
                             isReboundScenario = true;
                         }
                     }else{
-                        int shotSeed = r.nextInt(90);
+                        int shotSeed = r.nextInt(85);
                         if(shotResult>shotSeed){
                             offTeam.setGameScore(offTeam.getGameScore()+2);
                             playIniter.setFgMade(playIniter.getFgMade()+1);

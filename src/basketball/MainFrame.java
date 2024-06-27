@@ -3063,7 +3063,8 @@ public class MainFrame extends javax.swing.JFrame {
             t.setLosses(0);
         }
         
-        
+        playerTeamPlayoffWins = 0;
+        enemyTeamPlayoffWins = 0;
         switchToAnotherPanel(trainingPanel, mainPanel);
     }//GEN-LAST:event_jButton91ActionPerformed
 
@@ -3610,6 +3611,9 @@ public class MainFrame extends javax.swing.JFrame {
                 // switch to another panel
                 playerTeam.setTrainingPointsLeft(5);
                 viewTrainingPageNumber = 0;
+                // sort the team 
+                playerTeam.getRoster().sort((Player p1, Player p2) -> Integer.compare(p1.getOverallRating(), p2.getOverallRating()));
+                Collections.reverse(playerTeam.getRoster());
                 setupTrainingPanel();
                 switchToAnotherPanel(freeAgencyPanel, trainingPanel);
                 break;
