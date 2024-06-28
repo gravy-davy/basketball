@@ -2866,7 +2866,10 @@ public class MainFrame extends javax.swing.JFrame {
         // FREE AGENCY: randomly order teams -> team picks highest value player and sends an offer if they have enough money -> player reacts to offer -> next team. repeat.
         // do this about 5-10 times. if a team has 12 players total, stop the count.
         league.setFreeAgencyOrder(league.getTeams());
-        Collections.shuffle(league.getFreeAgencyOrder());
+        
+        do{
+            Collections.shuffle(league.getFreeAgencyOrder());
+        }while(league.getFreeAgencyOrder().get(29).equals(playerTeam));
         
         for(Player p : league.getFreeAgents()){
             p.regenFreeAgencyValue();
@@ -3715,7 +3718,7 @@ public class MainFrame extends javax.swing.JFrame {
 
                     boolean signingDecision = p.getSigningDecision();
 
-                    if(signingDecision && t.getRoster().size()<12){
+                    if(signingDecision && t.getRoster().size()<15){
                         t.regenMoneyAvailable();
                         if(t.getMoneyAvailable()>=p.getContract().getSalary()){
                             t.getRoster().add(p);
@@ -3747,6 +3750,26 @@ public class MainFrame extends javax.swing.JFrame {
                 playerTeam.getRoster().sort((Player p1, Player p2) -> Integer.compare(p1.getOverallRating(), p2.getOverallRating()));
                 Collections.reverse(playerTeam.getRoster());
                 setupTrainingPanel();
+                
+                ArrayList<Player> retiringFreeAgents = new ArrayList<>();
+                
+                // right here, retire free agents
+                for(Player p : league.getFreeAgents()){
+                    if(p.getAge()>=33){
+                        boolean isRetiring = p.getRetiringDecision();
+                        if(isRetiring){
+                            System.out.println(p.getName() + " is OFFICIALLY retiring after nobody picked him as a free agent at the ripe age of " + p.getAge());
+                            p.setIsRetiring(true);
+                            retiringFreeAgents.add(p);
+                        }
+                    }
+                }
+                
+                for(Player p : retiringFreeAgents){
+                    league.getFreeAgents().remove(p);
+                }
+                
+                
                 switchToAnotherPanel(freeAgencyPanel, trainingPanel);
                 break;
             }
@@ -3903,6 +3926,17 @@ public class MainFrame extends javax.swing.JFrame {
             }
             t.setMoneyAvailable(t.getMoneyTotal()-moneyUsed);
         }
+        
+        for(Player p : league.getFreeAgents()){
+            p.setAge(p.getAge()+1);
+            if(p.getAge()>=30){
+                reduceRatings(p);
+            }
+            p.regenOverallRating();
+            p.resetGameStats();
+            p.resetTotalStats();
+        }
+        
     }
     
     private void setupFreeAgencyPanel(){
