@@ -97,7 +97,9 @@ public class Game {
                         playIniter.setFgMade(playIniter.getFgMade()+1);
                         playIniter.setFgAttempted(playIniter.getFgAttempted()+1);
                         playIniter.setPoints(playIniter.getPoints()+3);
-                        prevPasser.setAssists(prevPasser.getAssists()+1);
+                        if(wasGoodPass){
+                            prevPasser.setAssists(prevPasser.getAssists()+1);
+                        }
                         isReboundScenario = false;
                     }else{
                         playIniter.setThreePointersAttempted(playIniter.getThreePointersAttempted()+1);
@@ -113,7 +115,9 @@ public class Game {
                         playIniter.setFgMade(playIniter.getFgMade()+1);
                         playIniter.setFgAttempted(playIniter.getFgAttempted()+1);
                         playIniter.setPoints(playIniter.getPoints()+2);
-                        prevPasser.setAssists(prevPasser.getAssists()+1);
+                        if(wasGoodPass){
+                            prevPasser.setAssists(prevPasser.getAssists()+1);
+                        }
                         // switch pos
                         isReboundScenario = false;
                     }else{
@@ -128,7 +132,7 @@ public class Game {
                 if(startingPlay.equalsIgnoreCase("Pass")){
                     prevPasser = playIniter;
                     // standing hockey pass, doesn't use drive modifier
-                    int passSeed = r.nextInt(100);
+                    int passSeed = r.nextInt(25);
                     if(r.nextInt(playIniter.getPassingSkill())>=passSeed){
                         wasGoodPass = true; // only if this is true does prevpasser get an assist
                     }
@@ -200,7 +204,7 @@ public class Game {
                     int passScore = r.nextInt(playIniter.getPassingSkill());
                     passScore += driveResult;
                     
-                    int passSeed = r.nextInt(100);
+                    int passSeed = r.nextInt(25);
                     if(passScore>=passSeed){
                         wasGoodPass = true;
                     }else{
