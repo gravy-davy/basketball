@@ -54,6 +54,10 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
+        
+        this.setResizable(false);
+        this.setTitle("DBA Manager 2");
+        
         viewRosterPageNumber = 0;
         resignPageNumber = 0;
         viewDraftPageNumber = 0;
@@ -97,7 +101,6 @@ public class MainFrame extends javax.swing.JFrame {
         jButton19 = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jButton41 = new javax.swing.JButton();
-        jButton82 = new javax.swing.JButton();
         viewPlayersPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -298,13 +301,6 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton82.setText("Free agents");
-        jButton82.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton82ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
@@ -319,8 +315,7 @@ public class MainFrame extends javax.swing.JFrame {
                             .addGap(453, 453, 453))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
                             .addComponent(jButton19)
-                            .addGap(420, 420, 420)))
-                    .addComponent(jButton82, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(420, 420, 420)))))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -331,9 +326,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jButton41)
                 .addGap(51, 51, 51)
                 .addComponent(jButton19)
-                .addGap(41, 41, 41)
-                .addComponent(jButton82)
-                .addContainerGap(218, Short.MAX_VALUE))
+                .addContainerGap(284, Short.MAX_VALUE))
         );
 
         getContentPane().add(mainPanel, "card2");
@@ -2974,10 +2967,6 @@ public class MainFrame extends javax.swing.JFrame {
         }  
     }//GEN-LAST:event_jButton73ActionPerformed
 
-    private void jButton82ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton82ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton82ActionPerformed
-
     private void jButton89ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton89ActionPerformed
         int minForNextPage = (viewTrainingPageNumber+1) * 3;
         if(playerTeam.getRoster().size()>=minForNextPage){
@@ -3694,6 +3683,9 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     private void setupViewEntireRosterPanel() {
+        
+        playerTeam.sortRosterByPosition();
+        
         StringBuilder htmlBuilder = new StringBuilder("<html><style>");
         htmlBuilder.append("table { border-collapse: collapse; width: 100%; }")
                    .append("th, td { border: 1px solid black; padding: 8px; text-align: left; }")
@@ -4667,7 +4659,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton80;
     private javax.swing.JButton jButton81;
-    private javax.swing.JButton jButton82;
     private javax.swing.JButton jButton83;
     private javax.swing.JButton jButton84;
     private javax.swing.JButton jButton85;

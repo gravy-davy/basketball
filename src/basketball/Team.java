@@ -4,6 +4,8 @@ package basketball;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class Team {
@@ -45,6 +47,22 @@ public class Team {
     public String getTeamInfo() {
         String text = String.format("%s - Wins: %d, Losses: %d<br>", name, wins, losses);
         return text;
+    }
+    
+    public void sortRosterByPosition() {
+        Map<String, Integer> positionPriority = new HashMap<>();
+        positionPriority.put("PG", 1);
+        positionPriority.put("SG", 2);
+        positionPriority.put("SF", 3);
+        positionPriority.put("PF", 4);
+        positionPriority.put("C", 5);
+
+        Collections.sort(roster, new Comparator<Player>() {
+            @Override
+            public int compare(Player p1, Player p2) {
+                return Integer.compare(positionPriority.get(p1.getPosition()), positionPriority.get(p2.getPosition()));
+            }
+        });
     }
     
     public void autoSortLineups(){
