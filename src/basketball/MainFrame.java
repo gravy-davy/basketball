@@ -3718,7 +3718,7 @@ public class MainFrame extends javax.swing.JFrame {
 
                     boolean signingDecision = p.getSigningDecision();
 
-                    if(signingDecision && t.getRoster().size()<15){
+                    if(signingDecision && t.getRoster().size()<13){
                         t.regenMoneyAvailable();
                         if(t.getMoneyAvailable()>=p.getContract().getSalary()){
                             t.getRoster().add(p);
@@ -3876,6 +3876,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         
         
+        
         for(Team t : league.getTeams()){
             for(int k=0;k<5;k++){
                 Player p = t.getSquad()[k];
@@ -3935,6 +3936,27 @@ public class MainFrame extends javax.swing.JFrame {
             p.regenOverallRating();
             p.resetGameStats();
             p.resetTotalStats();
+        }
+        
+        for(Team t : league.getTeams()){
+            if(t.equals(playerTeam)){
+                continue;
+            }else{
+                
+                ArrayList<Player> releasedPlayers = new ArrayList<>();
+                for(Player p : t.getRoster()){
+                    if(p.getOverallRating()<60){
+                        releasedPlayers.add(p);
+                    }
+                }
+                
+                for(Player p : releasedPlayers){
+                    t.getRoster().remove(p);
+                    System.out.println(p.getName() + " has been released from the " + t.getName() + " for being a " + p.getOverallRating() + " rated player.");
+                    league.getFreeAgents().add(p);
+                }
+                
+            }
         }
         
     }
