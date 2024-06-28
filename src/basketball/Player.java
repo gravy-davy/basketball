@@ -465,6 +465,12 @@ public class Player implements Comparable<Player>{
         return stats;
     }
     
+    public String generateBasicInfo(){
+        String text = String.format("%s - AGE: %d - POS: %s - OVR: %d - DEV: %d - CON: %d m per year / %d years left",
+            name, age, position, overallRating, development, contract.getSalary(), contract.getLength());
+        return text;
+    }
+    
     // Helper method to calculate percentage
     private double calculatePercentage(int numerator, int denominator) {
         if (denominator == 0) {

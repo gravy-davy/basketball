@@ -33,6 +33,7 @@ public class MainFrame extends javax.swing.JFrame {
     private League league;
     
     private JPanel prevPanel;
+    private JPanel prevBeforeEntireRosterPanel;
     
     private int currentDraftPick;
     private boolean isUserPickingInDraft;
@@ -189,6 +190,7 @@ public class MainFrame extends javax.swing.JFrame {
         jButton61 = new javax.swing.JButton();
         jButton62 = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
+        jButton106 = new javax.swing.JButton();
         draftPanel = new javax.swing.JPanel();
         jLabel27 = new javax.swing.JLabel();
         jButton63 = new javax.swing.JButton();
@@ -203,6 +205,7 @@ public class MainFrame extends javax.swing.JFrame {
         jButton70 = new javax.swing.JButton();
         jButton71 = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
+        jButton108 = new javax.swing.JButton();
         draftSummaryPanel = new javax.swing.JPanel();
         jLabel31 = new javax.swing.JLabel();
         jButton72 = new javax.swing.JButton();
@@ -222,6 +225,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
+        jButton107 = new javax.swing.JButton();
         trainingPanel = new javax.swing.JPanel();
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
@@ -261,6 +265,7 @@ public class MainFrame extends javax.swing.JFrame {
         jButton99 = new javax.swing.JButton();
         viewEntireRosterPanel = new javax.swing.JPanel();
         jLabel56 = new javax.swing.JLabel();
+        jButton105 = new javax.swing.JButton();
         trainingResultsPanel = new javax.swing.JPanel();
         jLabel57 = new javax.swing.JLabel();
         jButton100 = new javax.swing.JButton();
@@ -904,7 +909,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGap(51, 51, 51))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, playerDetailsPanelLayout.createSequentialGroup()
                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 782, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(playerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jButton104, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton40, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1146,6 +1151,13 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel26.setText("jLabel26");
 
+        jButton106.setText("View roster");
+        jButton106.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton106ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout resignPlayersPanelLayout = new javax.swing.GroupLayout(resignPlayersPanel);
         resignPlayersPanel.setLayout(resignPlayersPanelLayout);
         resignPlayersPanelLayout.setHorizontalGroup(
@@ -1171,8 +1183,10 @@ public class MainFrame extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, resignPlayersPanelLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jButton106, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addGap(40, 40, 40)
                         .addGroup(resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(resignPlayersPanelLayout.createSequentialGroup()
@@ -1246,7 +1260,8 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(resignPlayersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton45)
                     .addComponent(jButton46)
-                    .addComponent(jButton47))
+                    .addComponent(jButton47)
+                    .addComponent(jButton106))
                 .addGap(54, 54, 54))
         );
 
@@ -1325,6 +1340,13 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel30.setText("jLabel30");
 
+        jButton108.setText("View roster");
+        jButton108.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton108ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout draftPanelLayout = new javax.swing.GroupLayout(draftPanel);
         draftPanel.setLayout(draftPanelLayout);
         draftPanelLayout.setHorizontalGroup(
@@ -1357,7 +1379,9 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(jButton69, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(draftPanelLayout.createSequentialGroup()
-                        .addGap(388, 388, 388)
+                        .addGap(245, 245, 245)
+                        .addComponent(jButton108)
+                        .addGap(58, 58, 58)
                         .addComponent(jButton71)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton70)
@@ -1389,7 +1413,8 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(draftPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton71)
                     .addComponent(jButton70)
-                    .addComponent(jButton64))
+                    .addComponent(jButton64)
+                    .addComponent(jButton108))
                 .addGap(62, 62, 62))
         );
 
@@ -1509,6 +1534,13 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel37.setText("Day of FA");
 
+        jButton107.setText("View roster");
+        jButton107.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton107ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout freeAgencyPanelLayout = new javax.swing.GroupLayout(freeAgencyPanel);
         freeAgencyPanel.setLayout(freeAgencyPanelLayout);
         freeAgencyPanelLayout.setHorizontalGroup(
@@ -1516,14 +1548,16 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(freeAgencyPanelLayout.createSequentialGroup()
                 .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(freeAgencyPanelLayout.createSequentialGroup()
-                        .addGap(239, 239, 239)
+                        .addGap(91, 91, 91)
+                        .addComponent(jButton107)
+                        .addGap(63, 63, 63)
                         .addComponent(jButton80)
                         .addGap(32, 32, 32)
                         .addComponent(jButton81))
                     .addGroup(freeAgencyPanelLayout.createSequentialGroup()
                         .addGap(54, 54, 54)
                         .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
                 .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel35)
                     .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1577,7 +1611,8 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(freeAgencyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton79)
                     .addComponent(jButton80)
-                    .addComponent(jButton81))
+                    .addComponent(jButton81)
+                    .addComponent(jButton107))
                 .addGap(92, 92, 92))
         );
 
@@ -1924,21 +1959,33 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel56.setText("jLabel56");
 
+        jButton105.setText("Return");
+        jButton105.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton105ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout viewEntireRosterPanelLayout = new javax.swing.GroupLayout(viewEntireRosterPanel);
         viewEntireRosterPanel.setLayout(viewEntireRosterPanelLayout);
         viewEntireRosterPanelLayout.setHorizontalGroup(
             viewEntireRosterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(viewEntireRosterPanelLayout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(516, Short.MAX_VALUE))
+                .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 666, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
+                .addComponent(jButton105)
+                .addGap(38, 38, 38))
         );
         viewEntireRosterPanelLayout.setVerticalGroup(
             viewEntireRosterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(viewEntireRosterPanelLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addGap(277, 277, 277)
+                .addComponent(jButton105)
+                .addContainerGap(279, Short.MAX_VALUE))
+            .addGroup(viewEntireRosterPanelLayout.createSequentialGroup()
+                .addComponent(jLabel56, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         getContentPane().add(viewEntireRosterPanel, "card14");
@@ -3518,6 +3565,30 @@ public class MainFrame extends javax.swing.JFrame {
         switchToAnotherPanel(yearlyStatsPanel, playerDetailsPanel);
     }//GEN-LAST:event_jButton103ActionPerformed
 
+    private void jButton106ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton106ActionPerformed
+        setupViewEntireRosterPanel();
+        prevBeforeEntireRosterPanel = resignPlayersPanel;
+        switchToAnotherPanel(prevBeforeEntireRosterPanel, viewEntireRosterPanel);
+    }//GEN-LAST:event_jButton106ActionPerformed
+
+    private void jButton105ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton105ActionPerformed
+        setupFreeAgencyPanel();
+        // if panel = free
+        switchToAnotherPanel(viewEntireRosterPanel, prevBeforeEntireRosterPanel);
+    }//GEN-LAST:event_jButton105ActionPerformed
+
+    private void jButton107ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton107ActionPerformed
+        setupViewEntireRosterPanel();
+        prevBeforeEntireRosterPanel = freeAgencyPanel;
+        switchToAnotherPanel(prevBeforeEntireRosterPanel, viewEntireRosterPanel);
+    }//GEN-LAST:event_jButton107ActionPerformed
+
+    private void jButton108ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton108ActionPerformed
+        setupViewEntireRosterPanel();
+        prevBeforeEntireRosterPanel = draftPanel;
+        switchToAnotherPanel(prevBeforeEntireRosterPanel, viewEntireRosterPanel);
+    }//GEN-LAST:event_jButton108ActionPerformed
+
     private void setupYearlyStatsPanel(){
         try{
             YearlyStats s = yearlyStatsPlayer.getYearlyStats().get(viewYearlyStatsPageNumber*3+0);
@@ -3621,6 +3692,27 @@ public class MainFrame extends javax.swing.JFrame {
         }
         
     }
+    
+    private void setupViewEntireRosterPanel() {
+        StringBuilder htmlBuilder = new StringBuilder("<html><style>");
+        htmlBuilder.append("table { border-collapse: collapse; width: 100%; }")
+                   .append("th, td { border: 1px solid black; padding: 8px; text-align: left; }")
+                   .append("</style><table>")
+                   .append("<tr>")
+                   .append("<th>Basic Info</th>")  // Add a single header for basic info if using generateBasicInfo
+                   .append("</tr>");
+
+        for (Player p : playerTeam.getRoster()) {
+            String text = p.generateBasicInfo();
+            htmlBuilder.append("<tr><td>").append(text).append("</td></tr>");
+        }
+
+        htmlBuilder.append("</table></html>");
+
+        // Assuming jLabelRoster is a JLabel to display the roster
+        jLabel56.setText(htmlBuilder.toString());
+    }
+
     
     private void setupTrainingPanel(){
         jLabel38.setText("Training points left: " + playerTeam.getTrainingPointsLeft());
@@ -4493,6 +4585,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton102;
     private javax.swing.JButton jButton103;
     private javax.swing.JButton jButton104;
+    private javax.swing.JButton jButton105;
+    private javax.swing.JButton jButton106;
+    private javax.swing.JButton jButton107;
+    private javax.swing.JButton jButton108;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
