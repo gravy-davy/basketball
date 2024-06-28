@@ -3337,18 +3337,24 @@ public class MainFrame extends javax.swing.JFrame {
         closeShooting *= trainingPlayer.getDevelopment();
         driving *= trainingPlayer.getDevelopment();
         
-        
-        text+= "\nFormer Close Shooting - " + trainingPlayer.getCloseSkill();
-        
-        trainingPlayer.setCloseSkill(trainingPlayer.getCloseSkill()+closeShooting);
-        
-        text+= " -> New Close Shooting - " + trainingPlayer.getCloseSkill();
-        
-        text+= "\nFormer Driving Skill - " + trainingPlayer.getDriveSkill();
-        
-        trainingPlayer.setDriveSkill(trainingPlayer.getDriveSkill()+driving);
-        
-        text+= " -> New Driving Skill - " + trainingPlayer.getDriveSkill();
+        text = "<html><table style='border-collapse: collapse;'>";
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>Former Close Shooting</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getCloseSkill() + "</td></tr>";
+
+        trainingPlayer.setCloseSkill(trainingPlayer.getCloseSkill() + closeShooting);
+
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>New Close Shooting</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getCloseSkill() + "</td></tr>";
+
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>Former Driving Skill</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getDriveSkill() + "</td></tr>";
+
+        trainingPlayer.setDriveSkill(trainingPlayer.getDriveSkill() + driving);
+
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>New Driving Skill</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getDriveSkill() + "</td></tr>";
+        text += "</table></html>";
+
         
         trainingPlayer.setHasTrainedThisYear(true); // set this to false next szn button
         
@@ -3368,17 +3374,24 @@ public class MainFrame extends javax.swing.JFrame {
         dribbling *= trainingPlayer.getDevelopment();
         
         
-        text+= "\nFormer Mid Shooting - " + trainingPlayer.getMidShotSkill();
-        
-        trainingPlayer.setMidShotSkill(trainingPlayer.getMidShotSkill()+midShooting);
-        
-        text+= " -> New Mid Shooting - " + trainingPlayer.getMidShotSkill();
-        
-        text+= "\nFormer Dribbling Skill - " + trainingPlayer.getDribblingSkill();
-        
-        trainingPlayer.setDribblingSkill(trainingPlayer.getDribblingSkill()+dribbling);
-        
-        text+= " -> New Dribbling Skill - " + trainingPlayer.getDribblingSkill();
+        text += "<html><table style='border-collapse: collapse;'>";
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>Former Mid Shooting</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getMidShotSkill() + "</td></tr>";
+
+        trainingPlayer.setMidShotSkill(trainingPlayer.getMidShotSkill() + midShooting);
+
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>New Mid Shooting</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getMidShotSkill() + "</td></tr>";
+
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>Former Dribbling Skill</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getDribblingSkill() + "</td></tr>";
+
+        trainingPlayer.setDribblingSkill(trainingPlayer.getDribblingSkill() + dribbling);
+
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>New Dribbling Skill</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getDribblingSkill() + "</td></tr>";
+        text += "</table></html>";
+
         
         trainingPlayer.setHasTrainedThisYear(true); // set this to false next szn button
         
@@ -3396,11 +3409,16 @@ public class MainFrame extends javax.swing.JFrame {
         threeShooting *= trainingPlayer.getDevelopment();
         
         
-        text+= "\nFormer Three Shooting - " + trainingPlayer.getThreeShotSkill();
-        
-        trainingPlayer.setThreeShotSkill(trainingPlayer.getThreeShotSkill()+threeShooting);
-        
-        text+= " -> New Three Shooting - " + trainingPlayer.getThreeShotSkill();
+        text += "<html><table style='border-collapse: collapse;'>";
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>Former Three Shooting</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getThreeShotSkill() + "</td></tr>";
+
+        trainingPlayer.setThreeShotSkill(trainingPlayer.getThreeShotSkill() + threeShooting);
+
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>New Three Shooting</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getThreeShotSkill() + "</td></tr>";
+        text += "</table></html>";
+
         
         
         trainingPlayer.setHasTrainedThisYear(true); // set this to false next szn button
@@ -3423,19 +3441,31 @@ public class MainFrame extends javax.swing.JFrame {
         passing *= trainingPlayer.getDevelopment();
 
         // Update and display Driving
-        text += "\nFormer Driving Skill - " + trainingPlayer.getDriveSkill();
+        text += "<html><table style='border-collapse: collapse;'>";
+
+        // Update and display Driving Skill
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>Former Driving Skill</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getDriveSkill() + "</td></tr>";
         trainingPlayer.setDriveSkill(trainingPlayer.getDriveSkill() + driving);
-        text += " -> New Driving Skill - " + trainingPlayer.getDriveSkill();
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>New Driving Skill</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getDriveSkill() + "</td></tr>";
 
-        // Update and display Speed
-        text += "\nFormer Speed Skill - " + trainingPlayer.getSpeedSkill();
+        // Update and display Speed Skill
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>Former Speed Skill</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getSpeedSkill() + "</td></tr>";
         trainingPlayer.setSpeedSkill(trainingPlayer.getSpeedSkill() + speed);
-        text += " -> New Speed Skill - " + trainingPlayer.getSpeedSkill();
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>New Speed Skill</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getSpeedSkill() + "</td></tr>";
 
-        // Update and display Passing
-        text += "\nFormer Passing Skill - " + trainingPlayer.getPassingSkill();
+        // Update and display Passing Skill
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>Former Passing Skill</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getPassingSkill() + "</td></tr>";
         trainingPlayer.setPassingSkill(trainingPlayer.getPassingSkill() + passing);
-        text += " -> New Passing Skill - " + trainingPlayer.getPassingSkill();
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>New Passing Skill</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getPassingSkill() + "</td></tr>";
+
+        text += "</table></html>";
+
 
         trainingPlayer.setHasTrainedThisYear(true); // set this to false next season button
 
@@ -3454,15 +3484,24 @@ public class MainFrame extends javax.swing.JFrame {
         speed *= trainingPlayer.getDevelopment();
         perimeterDefense *= trainingPlayer.getDevelopment();
 
-        // Update and display Speed
-        text += "\nFormer Speed Skill - " + trainingPlayer.getSpeedSkill();
-        trainingPlayer.setSpeedSkill(trainingPlayer.getSpeedSkill() + speed);
-        text += " -> New Speed Skill - " + trainingPlayer.getSpeedSkill();
+        text += "<html><table style='border-collapse: collapse;'>";
 
-        // Update and display Perimeter Defense
-        text += "\nFormer Perimeter Defense Skill - " + trainingPlayer.getPerimeterDefSkill();
+        // Update and display Speed Skill
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>Former Speed Skill</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getSpeedSkill() + "</td></tr>";
+        trainingPlayer.setSpeedSkill(trainingPlayer.getSpeedSkill() + speed);
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>New Speed Skill</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getSpeedSkill() + "</td></tr>";
+
+        // Update and display Perimeter Defense Skill
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>Former Perimeter Defense Skill</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getPerimeterDefSkill() + "</td></tr>";
         trainingPlayer.setPerimeterDefSkill(trainingPlayer.getPerimeterDefSkill() + perimeterDefense);
-        text += " -> New Perimeter Defense Skill - " + trainingPlayer.getPerimeterDefSkill();
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>New Perimeter Defense Skill</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getPerimeterDefSkill() + "</td></tr>";
+
+        text += "</table></html>";
+
 
         trainingPlayer.setHasTrainedThisYear(true); // set this to false next season button
 
@@ -3481,15 +3520,24 @@ public class MainFrame extends javax.swing.JFrame {
         interiorDefense *= trainingPlayer.getDevelopment();
         strength *= trainingPlayer.getDevelopment();
 
-        // Update and display Interior Defense
-        text += "\nFormer Interior Defense Skill - " + trainingPlayer.getInteriorDefSkill();
-        trainingPlayer.setInteriorDefSkill(trainingPlayer.getInteriorDefSkill() + interiorDefense);
-        text += " -> New Interior Defense Skill - " + trainingPlayer.getInteriorDefSkill();
+        text += "<html><table style='border-collapse: collapse;'>";
 
-        // Update and display Strength
-        text += "\nFormer Strength Skill - " + trainingPlayer.getStrengthSkill();
+        // Update and display Interior Defense Skill
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>Former Interior Defense Skill</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getInteriorDefSkill() + "</td></tr>";
+        trainingPlayer.setInteriorDefSkill(trainingPlayer.getInteriorDefSkill() + interiorDefense);
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>New Interior Defense Skill</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getInteriorDefSkill() + "</td></tr>";
+
+        // Update and display Strength Skill
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>Former Strength Skill</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getStrengthSkill() + "</td></tr>";
         trainingPlayer.setStrengthSkill(trainingPlayer.getStrengthSkill() + strength);
-        text += " -> New Strength Skill - " + trainingPlayer.getStrengthSkill();
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>New Strength Skill</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getStrengthSkill() + "</td></tr>";
+
+        text += "</table></html>";
+
 
         trainingPlayer.setHasTrainedThisYear(true); // set this to false next season button
 
@@ -3508,15 +3556,24 @@ public class MainFrame extends javax.swing.JFrame {
         offensiveRebounding *= trainingPlayer.getDevelopment();
         defensiveRebounding *= trainingPlayer.getDevelopment();
 
-        // Update and display Offensive Rebounding
-        text += "\nFormer Offensive Rebounding Skill - " + trainingPlayer.getOffRebounding();
-        trainingPlayer.setOffRebounding(trainingPlayer.getOffRebounding() + offensiveRebounding);
-        text += " -> New Offensive Rebounding Skill - " + trainingPlayer.getOffRebounding();
+        text += "<html><table style='border-collapse: collapse;'>";
 
-        // Update and display Defensive Rebounding
-        text += "\nFormer Defensive Rebounding Skill - " + trainingPlayer.getDefRebounding();
+        // Update and display Offensive Rebounding Skill
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>Former Offensive Rebounding Skill</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getOffRebounding() + "</td></tr>";
+        trainingPlayer.setOffRebounding(trainingPlayer.getOffRebounding() + offensiveRebounding);
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>New Offensive Rebounding Skill</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getOffRebounding() + "</td></tr>";
+
+        // Update and display Defensive Rebounding Skill
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>Former Defensive Rebounding Skill</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getDefRebounding() + "</td></tr>";
         trainingPlayer.setDefRebounding(trainingPlayer.getDefRebounding() + defensiveRebounding);
-        text += " -> New Defensive Rebounding Skill - " + trainingPlayer.getDefRebounding();
+        text += "<tr><td style='border: 1px solid black; padding: 5px;'>New Defensive Rebounding Skill</td>";
+        text += "<td style='border: 1px solid black; padding: 5px;'>" + trainingPlayer.getDefRebounding() + "</td></tr>";
+
+        text += "</table></html>";
+
 
         trainingPlayer.setHasTrainedThisYear(true); // set this to false next season button
 
