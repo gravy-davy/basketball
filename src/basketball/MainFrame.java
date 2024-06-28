@@ -2506,6 +2506,21 @@ public class MainFrame extends javax.swing.JFrame {
 
     
     private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
+        if(league.getPlayoffTeams().size()==1){
+            System.out.println("SIZE 0 PLAYOFF TEAM PLS !!!");
+            league.setCurrentChampionTeam(league.getPlayoffTeams().get(0));
+            for(Player p : league.getCurrentChampionTeam().getSquad()){
+                p.setIsChampionThisYear(true);
+            }
+            for(Player p : league.getCurrentChampionTeam().getBench()){
+                p.setIsChampionThisYear(true);
+            }
+            
+            for(Player p : league.getCurrentChampionTeam().getRoster()){
+                p.setIsChampionThisYear(true);
+            }
+        }
+
         startNewYear();
         setupResignPanel();
         switchToAnotherPanel(playoffResultsPanel, resignPlayersPanel);
@@ -3778,6 +3793,8 @@ public class MainFrame extends javax.swing.JFrame {
     private void startNewYear(){
         
         // league.setYear(league.getYear()+1);
+        
+        
         
         for(Team t : league.getTeams()){
             for(int k=0;k<5;k++){

@@ -4,8 +4,6 @@ package basketball;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
-
 
 public class League {
     
@@ -23,6 +21,8 @@ public class League {
     
     private Team enemyPlayoffTeam;
     
+    private Team currentChampionTeam;
+    
     public League() {
         year = 2020;
         teams = new ArrayList<>();
@@ -35,6 +35,7 @@ public class League {
         stage = "Season";
         draftees = new ArrayList<>();
         freeAgencyOrder = new ArrayList<>();
+        currentChampionTeam = null;
     }
     
     /**
@@ -402,7 +403,13 @@ public class League {
     public void setEnemyPlayoffTeam(Team enemyPlayoffTeam) {
         this.enemyPlayoffTeam = enemyPlayoffTeam;
     }
-    
-    
+
+    public Team getCurrentChampionTeam() {
+        return currentChampionTeam;
+    }
+
+    public void setCurrentChampionTeam(Team currentChampionTeam) {
+        this.currentChampionTeam = currentChampionTeam;
+    }
     
 }

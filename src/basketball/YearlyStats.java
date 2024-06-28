@@ -21,12 +21,18 @@ public class YearlyStats {
     private double averageReboundsPerGame;
     private double averageOffensiveReboundsPerGame;
     private double averageDefensiveReboundsPerGame;
+    private boolean champion;
     
     public String generateStatline(){
         String stats = String.format("%d - %d - %.20s - %.8s - OVR: %d - PPG: %.2f - APG: %.2f - RPG: %.2f - ORPG: %.2f - DRPG: %.2f - FG%%: %.2f - 3FG%%: %.2f",
             year, age, team.getName(), role, overallRating, averagePointsPerGame, averageAssistsPerGame, averageReboundsPerGame,
             averageOffensiveReboundsPerGame, averageDefensiveReboundsPerGame, fieldGoalPercentage, threePointPercentage);
-        return stats;
+        
+        if (champion) {
+            stats += "<br>DBA CHAMPION";
+        }
+
+        return "<html>" + stats + "</html>";
     }
 
     public int getYear() {
@@ -132,7 +138,13 @@ public class YearlyStats {
     public void setRole(String role) {
         this.role = role;
     }
-    
-    
+
+    public boolean isChampion() {
+        return champion;
+    }
+
+    public void setChampion(boolean champion) {
+        this.champion = champion;
+    }
     
 }

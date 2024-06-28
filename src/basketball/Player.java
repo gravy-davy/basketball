@@ -106,6 +106,8 @@ public class Player implements Comparable<Player>{
     private boolean hasTrainedThisYear;
     
     private ArrayList<YearlyStats> yearlyStats;
+    private ArrayList<Award> awards;
+    private boolean isChampionThisYear;
     
     private String role;
     private boolean isRetiring; // only gets flicked to true when they are actually retiring
@@ -114,6 +116,8 @@ public class Player implements Comparable<Player>{
         hasTrainedThisYear = false;
         yearlyStats = new ArrayList<>();
         isRetiring = false;
+        awards = new ArrayList<>();
+        isChampionThisYear = false;
     }
     
     public void regenInitTendy(){
@@ -232,6 +236,12 @@ public class Player implements Comparable<Player>{
         ys.setAverageReboundsPerGame(averageReboundsPerGame);
         ys.setAverageOffensiveReboundsPerGame(averageOffReboundsPerGame);
         ys.setAverageDefensiveReboundsPerGame(averageDefReboundsPerGame);
+        
+        if(isChampionThisYear){
+            ys.setChampion(true);
+            isChampionThisYear = false;
+            System.out.println(name + " is now a champion via the " + t.getName());
+        }
         
         yearlyStats.add(ys);
     }
@@ -1084,7 +1094,21 @@ public class Player implements Comparable<Player>{
         this.isRetiring = isRetiring;
     }
 
-    
+    public ArrayList<Award> getAwards() {
+        return awards;
+    }
+
+    public void setAwards(ArrayList<Award> awards) {
+        this.awards = awards;
+    }
+
+    public boolean isIsChampionThisYear() {
+        return isChampionThisYear;
+    }
+
+    public void setIsChampionThisYear(boolean isChampionThisYear) {
+        this.isChampionThisYear = isChampionThisYear;
+    }
     
     
     
