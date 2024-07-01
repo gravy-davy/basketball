@@ -2442,6 +2442,8 @@ public class MainFrame extends javax.swing.JFrame {
         if(league.getPlayoffTeams().contains(playerTeam)){
             league.simPlayoffRound(playerTeam); // BEAUTIFUL CONFIRMED WORKING - IT SIMULATES WITHOUT THE PLAYERTEAM PRESENT OR THEIR MATCHUP !!!
             // now just goto game panel and watch/control the game there :)
+            playerTeam.setGameScore(0);
+            league.getEnemyPlayoffTeam().setGameScore(0);
             setupGamePanel();
             switchToAnotherPanel(seasonStandingsPanel, gamePanel);
             // then remove the team that loses (playerTeam or opponent) SIMPLE
@@ -2475,6 +2477,9 @@ public class MainFrame extends javax.swing.JFrame {
         for (Player p : playerTeam.getBench()) {
             playerTeamHTML.append(createRow(p));
         }
+        
+        playerTeamHTML.append("<tr style='border: 1px solid black;'><td colspan='10' style='border: 1px solid black;'><hr></td></tr>");
+        playerTeamHTML.append("Total Points: " + playerTeam.getGameScore());
 
         // Populate enemy team stats (squad + bench)
         for (Player p : league.getEnemyPlayoffTeam().getSquad()) {
@@ -2486,6 +2491,9 @@ public class MainFrame extends javax.swing.JFrame {
             enemyTeamHTML.append(createRow(p));
         }
 
+        enemyTeamHTML.append("<tr style='border: 1px solid black;'><td colspan='10' style='border: 1px solid black;'><hr></td></tr>");
+        enemyTeamHTML.append("Total Points: " + league.getEnemyPlayoffTeam().getGameScore());
+        
         // Close HTML tables
         playerTeamHTML.append("</table></html>");
         enemyTeamHTML.append("</table></html>");
