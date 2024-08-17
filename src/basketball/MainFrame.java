@@ -4528,8 +4528,15 @@ public class MainFrame extends javax.swing.JFrame {
         + "<tr><td>Name</td><td>-</td><td>" + p.getName() + "</td></tr>"
         + "<tr><td>Age</td><td>-</td><td>" + p.getAge() + "</td></tr>"
         + "<tr><td>Position</td><td>-</td><td>" + p.getPosition() + "</td></tr>"
-        + "<tr><td>Overall</td><td>-</td><td style='color:" + getColorForRating(p.getOverallRating()) + "'>" + p.getOverallRating() + "</td></tr>"
-        + "<tr><td>Development</td><td>-</td><td>" + p.getDevelopment() + "</td></tr>"
+        + "<tr><td>Overall</td><td>-</td><td style='color:" + getColorForRating(p.getOverallRating()) + "'>" + p.getOverallRating() + "</td></tr>";
+        
+        if(isPlayerOnTeam(p)){
+            text = text + "<tr><td>Development</td><td>-</td><td>" + p.getDevelopment() + "</td></tr>";
+        }else{
+            text = text + "<tr><td>Development</td><td>-</td><td>" + "???" + "</td></tr>";
+        }
+        
+        text = text
         + "<tr><td>Close shooting</td><td>-</td><td style='color:" + getColorForRating(p.getCloseSkill()) + "'>" + p.getCloseSkill() + "</td></tr>"
         + "<tr><td>Mid shooting</td><td>-</td><td style='color:" + getColorForRating(p.getMidShotSkill()) + "'>" + p.getMidShotSkill() + "</td></tr>"
         + "<tr><td>Three shooting</td><td>-</td><td style='color:" + getColorForRating(p.getThreeShotSkill()) + "'>" + p.getThreeShotSkill() + "</td></tr>"
@@ -4554,6 +4561,31 @@ public class MainFrame extends javax.swing.JFrame {
         
         String statsText = p.generateStatline();
         jLabel19.setText(statsText);
+    }
+    
+    private boolean isPlayerOnTeam(Player p){
+        if(playerTeam.getIncomingFreeAgents().contains(p) || playerTeam.getRoster().contains(p)){
+            return true;
+        }
+        
+        try{
+            for(Player playa : playerTeam.getSquad()){
+                if(playa.equals(p)){
+                    return true;
+                }
+            }
+            
+            for(Player playa : playerTeam.getBench()){
+                if(playa.equals(p)){
+                    return true;
+                }
+            }
+        }catch(Exception e){
+            return false;
+        }
+        
+
+        return false;
     }
     
     private String getColorForRating(int value) {
