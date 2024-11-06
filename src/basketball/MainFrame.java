@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 /**
  *
  * @author robpo
+ * NEXT: remove potential from lines like 'Dev: 3' so it's completely hidden from the player.
  */
 public class MainFrame extends javax.swing.JFrame {
 
@@ -3981,7 +3982,7 @@ public class MainFrame extends javax.swing.JFrame {
         try{
             Player p = league.getFreeAgents().get(viewFreeAgentsPageNumber*3+0);
             String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - CON: " + 
-                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y" + " - DEV: " + p.getDevelopment();
+                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y";
             jLabel32.setText(text);
             jButton73.show();
             jButton76.show();
@@ -3994,7 +3995,7 @@ public class MainFrame extends javax.swing.JFrame {
         try{
             Player p = league.getFreeAgents().get(viewFreeAgentsPageNumber*3+1);
             String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - CON: " + 
-                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y" + " - DEV: " + p.getDevelopment();
+                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y";
             jLabel33.setText(text);
             jButton74.show();
             jButton77.show();
@@ -4007,7 +4008,7 @@ public class MainFrame extends javax.swing.JFrame {
         try{
             Player p = league.getFreeAgents().get(viewFreeAgentsPageNumber*3+2);
             String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - CON: " + 
-                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y" + " - DEV: " + p.getDevelopment();
+                    p.getContract().getSalary() + "m / " + p.getContract().getLength() + "y";
             jLabel34.setText(text);
             jButton75.show();
             jButton78.show();
@@ -4564,6 +4565,11 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     private boolean isPlayerOnTeam(Player p){
+        
+        if(league.getFreeAgents().contains(p) || league.getDraftees().contains(p)){
+            return false;
+        }
+        
         if(playerTeam.getIncomingFreeAgents().contains(p) || playerTeam.getRoster().contains(p)){
             return true;
         }
@@ -4685,7 +4691,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         try{
             Player p = league.getDraftees().get(viewDraftPageNumber*3+0);
-            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - DEV: " + p.getDevelopment();
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating();
             jLabel27.setText(text);
             jButton63.show();
             jButton67.show();
@@ -4697,7 +4703,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         try{
             Player p = league.getDraftees().get(viewDraftPageNumber*3+1);
-            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - DEV: " + p.getDevelopment();
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating();
             jLabel28.setText(text);
             jButton65.show();
             jButton68.show();
@@ -4709,7 +4715,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         try{
             Player p = league.getDraftees().get(viewDraftPageNumber*3+2);
-            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating() + " - DEV: " + p.getDevelopment();
+            String text = p.getName() + " - AGE: " + p.getAge() + " - POS: " + p.getPosition() + " - OVR: " + p.getOverallRating();
             jLabel29.setText(text);
             jButton66.show();
             jButton69.show();
